@@ -3,1606 +3,270 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Calculate This — Useful. Beautiful. Instant.</title>
-
-<meta name="description" content="Free, beautiful calculators and everyday tools. Calculate percentages, VAT, age, fuel costs and more.">
+<meta name="description" content="Free calculators and everyday tools. Useful. Beautiful. Instant.">
 
 <style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#030810;--panel:rgba(10,20,31,.68);--line:rgba(255,255,255,.12);
+  --text:#f5f8fa;--muted:#a1adb7;--teal:#35e0d0;--blue:#54a9ff;
+}
+body{
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text);background:var(--bg);line-height:1.55;min-height:100vh;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;z-index:-3;
+  background:
+    radial-gradient(circle at 18% 18%,rgba(0,180,210,.18),transparent 27%),
+    radial-gradient(circle at 84% 24%,rgba(150,70,180,.14),transparent 28%),
+    radial-gradient(circle at 52% 82%,rgba(30,100,210,.12),transparent 30%),
+    linear-gradient(180deg,#02060c 0%,#06111c 48%,#030810 100%);
+}
+body:after{
+  content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    linear-gradient(112deg,transparent 0 35%,rgba(45,210,205,.07) 43%,transparent 52%),
+    linear-gradient(72deg,transparent 0 62%,rgba(255,130,80,.055) 69%,transparent 78%);
+  filter:blur(35px);
+}
+.container{max-width:1180px;margin:auto;padding:0 24px}
 
-/* =========================
-   RESET
-========================= */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* NAV */
+nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:20px;font-weight:650;letter-spacing:-.5px}
+.logo span{color:var(--teal)}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{color:#c1cbd2;text-decoration:none;font-size:14px}
+.nav-links a:hover{color:#fff}
+.theme{
+  width:40px;height:40px;border:1px solid var(--line);border-radius:50%;
+  background:rgba(255,255,255,.04);color:#fff;cursor:pointer;font-size:17px;
 }
 
-html {
-    scroll-behavior: smooth;
+/* HERO */
+.hero{
+  position:relative;min-height:650px;display:flex;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;
 }
-
-body {
-    font-family:
-        Inter,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-
-    background: #070b11;
-    color: #f4f7f8;
-    line-height: 1.6;
-    min-height: 100vh;
+.hero-scene{
+  position:absolute;inset:0;z-index:-1;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 50% 38%,rgba(45,205,198,.13),transparent 31%),
+    radial-gradient(ellipse at 72% 55%,rgba(255,137,78,.12),transparent 25%),
+    linear-gradient(180deg,transparent 45%,rgba(2,7,13,.82) 100%);
 }
-
-/* =========================
-   BACKGROUND
-========================= */
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: -2;
-
-    background:
-        radial-gradient(
-            ellipse at 50% 10%,
-            rgba(38, 180, 170, 0.16),
-            transparent 45%
-        ),
-        radial-gradient(
-            ellipse at 15% 45%,
-            rgba(40, 90, 180, 0.10),
-            transparent 40%
-        ),
-        radial-gradient(
-            ellipse at 85% 55%,
-            rgba(80, 40, 160, 0.08),
-            transparent 40%
-        );
+.moon{
+  position:absolute;width:170px;height:170px;border-radius:50%;right:17%;top:21%;
+  background:radial-gradient(circle at 35% 35%,#fff9df 0,#ffd59b 18%,rgba(255,150,90,.5) 44%,transparent 70%);
+  filter:blur(1px);opacity:.85;
 }
-
-body::after {
-    content: "";
-    position: fixed;
-    width: 700px;
-    height: 700px;
-
-    top: -350px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(50, 220, 190, 0.13),
-            transparent 65%
-        );
-
-    filter: blur(50px);
-    animation: glow 10s ease-in-out infinite alternate;
-
-    pointer-events: none;
-    z-index: -1;
+.horizon{
+  position:absolute;left:-5%;right:-5%;bottom:7%;height:30%;
+  background:
+    linear-gradient(160deg,transparent 20%,rgba(4,13,24,.95) 21% 45%,transparent 46%),
+    linear-gradient(20deg,transparent 28%,rgba(3,10,18,.98) 29% 52%,transparent 53%);
+  opacity:.9;
 }
-
-@keyframes glow {
-    from {
-        transform: translateX(-55%) scale(0.9);
-        opacity: 0.5;
-    }
-
-    to {
-        transform: translateX(-45%) scale(1.1);
-        opacity: 1;
-    }
+.stars{
+  position:absolute;inset:0;
+  background-image:radial-gradient(#fff 1px,transparent 1px);
+  background-size:110px 110px;opacity:.22;
 }
-
-/* =========================
-   NAVIGATION
-========================= */
-
-nav {
-    max-width: 1200px;
-    margin: auto;
-
-    padding: 26px 24px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.hero-content{width:min(900px,100%);padding:75px 0 50px}
+.hero h1{
+  font-size:clamp(58px,9vw,112px);font-weight:300;letter-spacing:-6px;line-height:.94;
+  background:linear-gradient(110deg,#fff 18%,#e8f2f2 55%,#70e5d8 92%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
 }
-
-.logo {
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: -0.5px;
+.kicker{margin-top:25px;color:var(--teal);font-size:13px;letter-spacing:6px;font-weight:650}
+.hero p{max-width:650px;margin:20px auto 34px;color:#c1ccd3;font-size:17px}
+.search{
+  max-width:700px;margin:auto;padding:7px;display:flex;align-items:center;
+  border:1px solid rgba(67,229,214,.5);border-radius:60px;
+  background:rgba(4,13,22,.65);backdrop-filter:blur(22px);
+  box-shadow:0 20px 80px rgba(0,0,0,.38),0 0 45px rgba(35,220,205,.08);
 }
-
-.nav-links {
-    display: flex;
-    gap: 30px;
-    align-items: center;
+.search-icon{font-size:24px;margin:0 14px 0 20px;color:#cbd7dc}
+.search input{flex:1;min-width:0;background:none;border:0;outline:0;color:#fff;font-size:16px}
+.search input::placeholder{color:#8997a1}
+.search button{
+  width:54px;height:54px;border:0;border-radius:50%;cursor:pointer;
+  background:linear-gradient(135deg,#48e2d2,#58aaff);color:#031017;font-size:23px;
 }
-
-.nav-links a {
-    color: #aab4bd;
-    text-decoration: none;
-    font-size: 14px;
-
-    transition: color 0.2s ease;
+.popular{margin-top:24px}.popular small{color:#82909a}
+.tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.tag{
+  color:#d8e1e5;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.045);
+  padding:8px 15px;border-radius:30px;font-size:13px;cursor:pointer
 }
+.tag:hover{background:rgba(255,255,255,.1)}
 
-.nav-links a:hover {
-    color: white;
+/* SECTIONS */
+.section{padding:45px 0}
+.heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:20px}
+.heading h2{font-size:22px;font-weight:550;letter-spacing:-.5px}
+.heading a{color:var(--teal);font-size:13px;text-decoration:none}
+
+/* CATEGORIES */
+.category-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:13px}
+.card{
+  position:relative;overflow:hidden;border:1px solid var(--line);border-radius:18px;
+  background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
+  backdrop-filter:blur(14px);transition:.25s;
 }
-
-.theme-button {
-    width: 38px;
-    height: 38px;
-
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 50%;
-
-    background: rgba(255,255,255,0.04);
-
-    color: white;
-    cursor: pointer;
-
-    font-size: 16px;
-
-    transition: all 0.2s ease;
+.card:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.25)}
+.category{min-height:190px;padding:22px}
+.category:after{
+  content:"";position:absolute;width:130px;height:130px;right:-45px;bottom:-55px;border-radius:50%;
+  background:var(--accent);filter:blur(35px);opacity:.15;
 }
-
-.theme-button:hover {
-    background: rgba(255,255,255,0.10);
-    transform: rotate(20deg);
+.icon{
+  width:46px;height:46px;display:grid;place-items:center;border-radius:14px;
+  color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent);
+  font-size:21px;margin-bottom:22px
 }
+.category h3{font-size:15px;font-weight:550}.category p{color:#8997a0;font-size:12px;margin-top:5px}
 
-/* =========================
-   HERO
-========================= */
+/* TOOLS */
+.tool-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:13px}
+.tool{min-height:185px;padding:21px;color:#fff;text-decoration:none}
+.tool .icon{margin-bottom:25px;width:42px;height:42px}
+.tool h3{font-size:14px;font-weight:550}.tool p{font-size:12px;color:#8e9aa3;margin-top:6px}
+.arrow{display:block;text-align:right;color:var(--accent);font-size:20px;margin-top:12px}
 
-.hero {
-    max-width: 1000px;
-    margin: auto;
-
-    padding:
-        90px 24px
-        70px;
-
-    text-align: center;
+/* BENEFITS */
+.benefits{
+  margin:50px 0 65px;padding:27px;display:grid;grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.035);backdrop-filter:blur(15px)
 }
+.benefit{padding:5px 24px;border-right:1px solid var(--line)}.benefit:last-child{border:0}
+.benefit b{display:block;font-size:14px}.benefit p{font-size:12px;color:#85919a;margin-top:5px}.benefit .bi{font-size:21px;color:var(--accent);margin-bottom:10px}
 
-.hero h1 {
-    font-size: clamp(56px, 9vw, 108px);
+/* FOOTER */
+footer{border-top:1px solid rgba(255,255,255,.08);padding:28px 0 42px;color:#697681;font-size:12px}
+.footer-inner{display:flex;justify-content:space-between}.footer-links{display:flex;gap:25px}.footer-links a{color:#697681;text-decoration:none}
+.hidden{display:none!important}
 
-    font-weight: 300;
-
-    letter-spacing: -5px;
-
-    line-height: 0.95;
-
-    background:
-        linear-gradient(
-            120deg,
-            #ffffff,
-            #dce8e8 45%,
-            #79e2d4
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+@media(max-width:950px){
+  .category-grid{grid-template-columns:repeat(3,1fr)}.tool-grid{grid-template-columns:repeat(2,1fr)}
 }
-
-.hero-tagline {
-    margin-top: 30px;
-
-    font-size: 14px;
-
-    letter-spacing: 6px;
-
-    color: #69dccc;
-
-    font-weight: 500;
+@media(max-width:650px){
+  .container{padding:0 18px}nav{height:68px}.nav-links a{display:none}
+  .hero{min-height:680px}.hero-content{padding-top:45px}
+  .hero h1{font-size:58px;letter-spacing:-3px}.kicker{font-size:10px;letter-spacing:4px}
+  .hero p{font-size:15px}.moon{right:-8%;top:20%;width:130px;height:130px}
+  .search input{font-size:14px}.search button{width:47px;height:47px}
+  .category-grid,.tool-grid{grid-template-columns:repeat(2,1fr)}
+  .category{min-height:170px;padding:18px}
+  .benefits{grid-template-columns:1fr 1fr;gap:24px;padding:22px}.benefit{border:0;padding:0}
+  .footer-inner{flex-direction:column;gap:18px}
 }
-
-.hero-description {
-    max-width: 600px;
-
-    margin:
-        22px auto
-        38px;
-
-    color: #aab4bd;
-
-    font-size: 17px;
+@media(max-width:410px){
+  .category-grid{grid-template-columns:1fr}.hero h1{font-size:49px}
 }
-
-/* =========================
-   SEARCH
-========================= */
-
-.search-wrapper {
-    max-width: 720px;
-    margin: auto;
-}
-
-.search-box {
-    display: flex;
-
-    align-items: center;
-
-    padding: 7px;
-
-    background:
-        rgba(12, 20, 27, 0.82);
-
-    border:
-        1px solid rgba(255,255,255,0.15);
-
-    border-radius: 60px;
-
-    box-shadow:
-        0 20px 70px rgba(0,0,0,0.35),
-        inset 0 1px rgba(255,255,255,0.04);
-
-    backdrop-filter: blur(20px);
-
-    transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.search-box:focus-within {
-    border-color: rgba(100,220,205,0.5);
-
-    box-shadow:
-        0 20px 80px rgba(30,200,180,0.12);
-}
-
-.search-icon {
-    font-size: 23px;
-
-    margin-left: 20px;
-
-    color: #8b979f;
-}
-
-.search-box input {
-    flex: 1;
-
-    background: transparent;
-
-    border: none;
-    outline: none;
-
-    padding: 18px;
-
-    color: white;
-
-    font-size: 16px;
-}
-
-.search-box input::placeholder {
-    color: #7f8a92;
-}
-
-.search-button {
-    width: 52px;
-    height: 52px;
-
-    border: none;
-    border-radius: 50%;
-
-    background:
-        linear-gradient(
-            135deg,
-            #4ed9ca,
-            #55aee0
-        );
-
-    color: #061015;
-
-    font-size: 24px;
-
-    cursor: pointer;
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.search-button:hover {
-    transform: scale(1.06);
-
-    box-shadow:
-        0 0 30px rgba(80,220,200,0.25);
-}
-
-/* =========================
-   POPULAR TAGS
-========================= */
-
-.popular {
-    margin-top: 28px;
-}
-
-.popular-label {
-    color: #7e8a93;
-    font-size: 13px;
-    margin-bottom: 12px;
-}
-
-.tags {
-    display: flex;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 9px;
-}
-
-.tag {
-    border:
-        1px solid rgba(255,255,255,0.12);
-
-    background:
-        rgba(255,255,255,0.035);
-
-    padding:
-        8px 15px;
-
-    border-radius: 30px;
-
-    color: #cbd3d8;
-
-    font-size: 13px;
-
-    cursor: pointer;
-
-    transition:
-        background 0.2s ease,
-        transform 0.2s ease;
-}
-
-.tag:hover {
-    background:
-        rgba(255,255,255,0.09);
-
-    transform: translateY(-2px);
-}
-
-/* =========================
-   MAIN CONTENT
-========================= */
-
-.container {
-    max-width: 1200px;
-
-    margin: auto;
-
-    padding:
-        30px 24px
-        100px;
-}
-
-.section {
-    margin-top: 70px;
-}
-
-.section-header {
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    margin-bottom: 22px;
-}
-
-.section-title {
-    font-size: 21px;
-
-    font-weight: 500;
-
-    letter-spacing: -0.4px;
-}
-
-.section-link {
-    color: #62d7cb;
-
-    font-size: 13px;
-
-    text-decoration: none;
-}
-
-/* =========================
-   CATEGORY CARDS
-========================= */
-
-.category-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(6, 1fr);
-
-    gap: 14px;
-}
-
-.category {
-    min-height: 165px;
-
-    padding: 25px 18px;
-
-    border:
-        1px solid rgba(255,255,255,0.08);
-
-    border-radius: 18px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.055),
-            rgba(255,255,255,0.018)
-        );
-
-    backdrop-filter: blur(15px);
-
-    transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        background 0.25s ease;
-}
-
-.category:hover {
-    transform: translateY(-5px);
-
-    border-color:
-        rgba(255,255,255,0.18);
-
-    background:
-        rgba(255,255,255,0.07);
-}
-
-.category-icon {
-    width: 46px;
-    height: 46px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 14px;
-
-    background:
-        rgba(75,210,195,0.10);
-
-    font-size: 22px;
-
-    margin-bottom: 20px;
-}
-
-.category h3 {
-    font-size: 15px;
-    font-weight: 500;
-}
-
-.category p {
-    margin-top: 5px;
-
-    color: #7f8b93;
-
-    font-size: 12px;
-}
-
-/* =========================
-   TOOL GRID
-========================= */
-
-.tool-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(5, 1fr);
-
-    gap: 14px;
-}
-
-.tool {
-    min-height: 190px;
-
-    padding: 23px;
-
-    border:
-        1px solid rgba(255,255,255,0.08);
-
-    border-radius: 18px;
-
-    background:
-        rgba(255,255,255,0.035);
-
-    backdrop-filter: blur(15px);
-
-    text-decoration: none;
-
-    color: white;
-
-    transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        background 0.25s ease;
-}
-
-.tool:hover {
-    transform: translateY(-5px);
-
-    border-color:
-        rgba(100,220,205,0.25);
-
-    background:
-        rgba(255,255,255,0.06);
-}
-
-.tool-icon {
-    width: 42px;
-    height: 42px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 12px;
-
-    background:
-        rgba(70,210,190,0.10);
-
-    font-size: 19px;
-
-    margin-bottom: 24px;
-}
-
-.tool h3 {
-    font-size: 14px;
-
-    font-weight: 500;
-
-    margin-bottom: 7px;
-}
-
-.tool p {
-    color: #849099;
-
-    font-size: 12px;
-
-    line-height: 1.5;
-}
-
-.tool-arrow {
-    float: right;
-
-    margin-top: 15px;
-
-    color: #62d7cb;
-
-    font-size: 18px;
-}
-
-/* =========================
-   BENEFITS
-========================= */
-
-.benefits {
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    margin-top: 80px;
-
-    padding: 30px;
-
-    border:
-        1px solid rgba(255,255,255,0.08);
-
-    border-radius: 20px;
-
-    background:
-        rgba(255,255,255,0.025);
-
-    backdrop-filter: blur(20px);
-}
-
-.benefit {
-    padding:
-        5px 25px;
-
-    border-right:
-        1px solid rgba(255,255,255,0.08);
-}
-
-.benefit:last-child {
-    border-right: none;
-}
-
-.benefit-icon {
-    font-size: 22px;
-
-    color: #64d8cb;
-
-    margin-bottom: 12px;
-}
-
-.benefit h3 {
-    font-size: 14px;
-
-    font-weight: 500;
-}
-
-.benefit p {
-    color: #7f8a92;
-
-    font-size: 12px;
-
-    margin-top: 5px;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    max-width: 1200px;
-
-    margin: auto;
-
-    padding:
-        30px 24px
-        50px;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    color: #68737b;
-
-    font-size: 12px;
-}
-
-.footer-links {
-    display: flex;
-    gap: 25px;
-}
-
-.footer-links a {
-    color: #68737b;
-
-    text-decoration: none;
-}
-
-.footer-links a:hover {
-    color: white;
-}
-
-/* =========================
-   NO RESULTS
-========================= */
-
-.no-results {
-    display: none;
-
-    text-align: center;
-
-    color: #8b979f;
-
-    padding: 40px;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 900px) {
-
-    .category-grid {
-        grid-template-columns:
-            repeat(3, 1fr);
-    }
-
-    .tool-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-}
-
-@media (max-width: 650px) {
-
-    nav {
-        padding:
-            20px 18px;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .hero {
-        padding:
-            65px 18px
-            50px;
-    }
-
-    .hero h1 {
-        font-size: 58px;
-
-        letter-spacing: -3px;
-    }
-
-    .hero-tagline {
-        font-size: 11px;
-
-        letter-spacing: 4px;
-    }
-
-    .hero-description {
-        font-size: 15px;
-    }
-
-    .search-box input {
-        padding: 15px 8px;
-
-        font-size: 14px;
-    }
-
-    .search-button {
-        width: 46px;
-        height: 46px;
-    }
-
-    .container {
-        padding:
-            20px 18px
-            70px;
-    }
-
-    .category-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-    .tool-grid {
-        grid-template-columns:
-            1fr;
-    }
-
-    .benefits {
-        grid-template-columns:
-            1fr 1fr;
-
-        gap: 25px;
-    }
-
-    .benefit {
-        border-right: none;
-    }
-
-    footer {
-        flex-direction: column;
-
-        gap: 20px;
-    }
-
-}
-
-/* =========================
-   VERY SMALL SCREENS
-========================= */
-
-@media (max-width: 400px) {
-
-    .category-grid {
-        grid-template-columns:
-            1fr;
-    }
-
-    .hero h1 {
-        font-size: 48px;
-    }
-
-}
-
-/* =========================
-   SEARCH HIGHLIGHT
-========================= */
-
-.hidden {
-    display: none !important;
-}
-
 </style>
 </head>
 
 <body>
-
-<!-- =========================
-     NAVIGATION
-========================= -->
-
+<div class="container">
 <nav>
-
-    <div class="logo">
-        Calculate This
-    </div>
-
-    <div class="nav-links">
-
-        <a href="#tools">
-            Tools
-        </a>
-
-        <a href="#categories">
-            Categories
-        </a>
-
-        <a href="#about">
-            About
-        </a>
-
-        <button
-            class="theme-button"
-            onclick="toggleTheme()"
-            aria-label="Toggle theme">
-            ☼
-        </button>
-
-    </div>
-
+  <div class="logo">Calculate This<span>•</span></div>
+  <div class="nav-links">
+    <a href="#tools">Tools</a><a href="#categories">Categories</a><a href="#about">About</a>
+    <button class="theme" onclick="alert('Light mode is coming soon.')" aria-label="Theme">☼</button>
+  </div>
 </nav>
-
-
-<!-- =========================
-     HERO
-========================= -->
+</div>
 
 <section class="hero">
-
-    <h1>
-        Calculate This
-    </h1>
-
-    <div class="hero-tagline">
-        USEFUL. BEAUTIFUL. INSTANT.
+  <div class="hero-scene"><div class="stars"></div><div class="moon"></div><div class="horizon"></div></div>
+  <div class="hero-content">
+    <h1>Calculate This</h1>
+    <div class="kicker">USEFUL. BEAUTIFUL. INSTANT.</div>
+    <p>Free calculators and everyday tools for life's little calculations.</p>
+    <div class="search">
+      <span class="search-icon">⌕</span>
+      <input id="searchInput" type="text" placeholder="What do you need to calculate?" autocomplete="off">
+      <button onclick="runSearch()">→</button>
     </div>
-
-    <p class="hero-description">
-        Free calculators and everyday tools
-        for life's little calculations.
-    </p>
-
-
-    <div class="search-wrapper">
-
-        <div class="search-box">
-
-            <span class="search-icon">
-                ⌕
-            </span>
-
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="What do you need to calculate?"
-                autocomplete="off"
-            >
-
-            <button
-                class="search-button"
-                onclick="runSearch()">
-                →
-            </button>
-
-        </div>
-
+    <div class="popular"><small>Popular right now</small>
+      <div class="tags">
+        <span class="tag" onclick="searchFor('VAT')">VAT Calculator</span>
+        <span class="tag" onclick="searchFor('Percentage')">Percentage Calculator</span>
+        <span class="tag" onclick="searchFor('Age')">Age Calculator</span>
+        <span class="tag" onclick="searchFor('Fuel')">Fuel Cost Calculator</span>
+      </div>
     </div>
-
-
-    <div class="popular">
-
-        <div class="popular-label">
-            Popular right now
-        </div>
-
-        <div class="tags">
-
-            <span class="tag"
-                onclick="searchFor('VAT')">
-                VAT Calculator
-            </span>
-
-            <span class="tag"
-                onclick="searchFor('Percentage')">
-                Percentage Calculator
-            </span>
-
-            <span class="tag"
-                onclick="searchFor('Age')">
-                Age Calculator
-            </span>
-
-            <span class="tag"
-                onclick="searchFor('Fuel')">
-                Fuel Cost Calculator
-            </span>
-
-        </div>
-
-    </div>
-
+  </div>
 </section>
-
 
 <main class="container">
-
-
-<!-- =========================
-     CATEGORIES
-========================= -->
-
-<section
-    class="section"
-    id="categories">
-
-    <div class="section-header">
-
-        <h2 class="section-title">
-            Browse by category
-        </h2>
-
-        <a
-            href="#categories"
-            class="section-link">
-            View all categories →
-        </a>
-
-    </div>
-
-
-    <div class="category-grid">
-
-
-        <div class="category">
-
-            <div class="category-icon">
-                💷
-            </div>
-
-            <h3>
-                Money
-            </h3>
-
-            <p>
-                Finance, savings,
-                tax and more
-            </p>
-
-        </div>
-
-
-        <div class="category">
-
-            <div class="category-icon">
-                ♡
-            </div>
-
-            <h3>
-                Health
-            </h3>
-
-            <p>
-                Body, fitness,
-                wellness
-            </p>
-
-        </div>
-
-
-        <div class="category">
-
-            <div class="category-icon">
-                ⌂
-            </div>
-
-            <h3>
-                Home & DIY
-            </h3>
-
-            <p>
-                Projects, planning,
-                measurements
-            </p>
-
-        </div>
-
-
-        <div class="category">
-
-            <div class="category-icon">
-                ✈
-            </div>
-
-            <h3>
-                Travel
-            </h3>
-
-            <p>
-                Trips, fuel,
-                time and more
-            </p>
-
-        </div>
-
-
-        <div class="category">
-
-            <div class="category-icon">
-                🎓
-            </div>
-
-            <h3>
-                Education
-            </h3>
-
-            <p>
-                Maths, science,
-                studies
-            </p>
-
-        </div>
-
-
-        <div class="category">
-
-            <div class="category-icon">
-                💼
-            </div>
-
-            <h3>
-                Business
-            </h3>
-
-            <p>
-                Work, productivity,
-                operations
-            </p>
-
-        </div>
-
-    </div>
-
+<section class="section" id="categories">
+  <div class="heading"><h2>Browse by category</h2><a href="#categories">View all categories →</a></div>
+  <div class="category-grid">
+    <div class="card category" style="--accent:#35e0d0"><div class="icon">£</div><h3>Money</h3><p>Finance, savings, tax and more</p></div>
+    <div class="card category" style="--accent:#ff72bd"><div class="icon">♡</div><h3>Health</h3><p>Body, fitness, wellness</p></div>
+    <div class="card category" style="--accent:#ff9a45"><div class="icon">⌂</div><h3>Home & DIY</h3><p>Projects, planning, measurements</p></div>
+    <div class="card category" style="--accent:#55aaff"><div class="icon">✈</div><h3>Travel</h3><p>Trips, fuel, time and more</p></div>
+    <div class="card category" style="--accent:#ffd34e"><div class="icon">◇</div><h3>Education</h3><p>Maths, science, studies</p></div>
+    <div class="card category" style="--accent:#35e0d0"><div class="icon">▣</div><h3>Business</h3><p>Work, productivity, operations</p></div>
+  </div>
 </section>
 
-
-<!-- =========================
-     TOOLS
-========================= -->
-
-<section
-    class="section"
-    id="tools">
-
-    <div class="section-header">
-
-        <h2 class="section-title">
-            Popular tools
-        </h2>
-
-        <a
-            href="#tools"
-            class="section-link">
-            View all tools →
-        </a>
-
-    </div>
-
-
-    <div
-        class="tool-grid"
-        id="toolGrid">
-
-
-        <a
-            href="#"
-            class="tool"
-            data-name="percentage calculator">
-
-            <div class="tool-icon">
-                %
-            </div>
-
-            <h3>
-                Percentage Calculator
-            </h3>
-
-            <p>
-                Calculate percentages
-                quickly and easily.
-            </p>
-
-            <span class="tool-arrow">
-                →
-            </span>
-
-        </a>
-
-
-        <a
-            href="#"
-            class="tool"
-            data-name="vat calculator">
-
-            <div class="tool-icon">
-                VAT
-            </div>
-
-            <h3>
-                VAT Calculator
-            </h3>
-
-            <p>
-                Add or remove UK VAT
-                instantly.
-            </p>
-
-            <span class="tool-arrow">
-                →
-            </span>
-
-        </a>
-
-
-        <a
-            href="#"
-            class="tool"
-            data-name="age calculator">
-
-            <div class="tool-icon">
-                🎂
-            </div>
-
-            <h3>
-                Age Calculator
-            </h3>
-
-            <p>
-                Calculate your exact
-                age between dates.
-            </p>
-
-            <span class="tool-arrow">
-                →
-            </span>
-
-        </a>
-
-
-        <a
-            href="#"
-            class="tool"
-            data-name="fuel cost calculator">
-
-            <div class="tool-icon">
-                ⛽
-            </div>
-
-            <h3>
-                Fuel Cost Calculator
-            </h3>
-
-            <p>
-                Estimate the fuel cost
-                of your journey.
-            </p>
-
-            <span class="tool-arrow">
-                →
-            </span>
-
-        </a>
-
-
-        <a
-            href="#"
-            class="tool"
-            data-name="bmi calculator">
-
-            <div class="tool-icon">
-                ♡
-            </div>
-
-            <h3>
-                BMI Calculator
-            </h3>
-
-            <p>
-                Calculate Body Mass
-                Index.
-            </p>
-
-            <span class="tool-arrow">
-                →
-            </span>
-
-        </a>
-
-
-        <a
-            href="#"
-            class="tool"
-            data-name="days between dates">
-
-            <div class="tool-icon">
-                ◫
-            </div>
-
-            <h3>
-                Days Between Dates
-            </h3>
-
-            <p>
-                Find the number of
-                days between dates.
-            </p>
-
-            <span class="tool-arrow">
-                →
-            </span>
-
-        </a>
-
-
-        <a
-            href="#"
-            class="tool"
-            data-name="discount calculator">
-
-            <div class="tool-icon">
-                %
-            </div>
-
-            <h3>
-                Discount Calculator
-            </h3>
-
-            <p>
-                Calculate discounts
-                and savings.
-            </p>
-
-            <span class="tool-arrow">
-                →
-            </span>
-
-        </a>
-
-
-        <a
-            href="#"
-            class="tool"
-            data-name="area calculator">
-
-            <div class="tool-icon">
-                ▦
-            </div>
-
-            <h3>
-                Area Calculator
-            </h3>
-
-            <p>
-                Calculate the area
-                of common shapes.
-            </p>
-
-            <span class="tool-arrow">
-                →
-            </span>
-
-        </a>
-
-
-        <a
-            href="#"
-            class="tool"
-            data-name="unit converter">
-
-            <div class="tool-icon">
-                ⇄
-            </div>
-
-            <h3>
-                Unit Converter
-            </h3>
-
-            <p>
-                Convert between
-                common units.
-            </p>
-
-            <span class="tool-arrow">
-                →
-            </span>
-
-        </a>
-
-
-        <a
-            href="#"
-            class="tool"
-            data-name="tip calculator">
-
-            <div class="tool-icon">
-                £
-            </div>
-
-            <h3>
-                Tip Calculator
-            </h3>
-
-            <p>
-                Calculate tips and
-                split bills easily.
-            </p>
-
-            <span class="tool-arrow">
-                →
-            </span>
-
-        </a>
-
-    </div>
-
-
-    <div
-        class="no-results"
-        id="noResults">
-
-        Nothing found yet.
-
-        <br>
-
-        We're adding new tools all the time.
-
-    </div>
-
+<section class="section" id="tools">
+  <div class="heading"><h2>Popular tools</h2><a href="#tools">View all tools →</a></div>
+  <div class="tool-grid" id="toolGrid">
+    <a class="card tool" data-name="percentage calculator" style="--accent:#35e0d0" href="#"><div class="icon">%</div><h3>Percentage Calculator</h3><p>Calculate percentages quickly and easily.</p><span class="arrow">→</span></a>
+    <a class="card tool" data-name="vat calculator" style="--accent:#55aaff" href="#"><div class="icon">VAT</div><h3>VAT Calculator</h3><p>Add or remove UK VAT instantly.</p><span class="arrow">→</span></a>
+    <a class="card tool" data-name="age calculator" style="--accent:#b477ff" href="#"><div class="icon">◫</div><h3>Age Calculator</h3><p>Calculate your exact age between dates.</p><span class="arrow">→</span></a>
+    <a class="card tool" data-name="fuel cost calculator" style="--accent:#ffb23e" href="#"><div class="icon">⛽</div><h3>Fuel Cost Calculator</h3><p>Estimate the fuel cost of your journey.</p><span class="arrow">→</span></a>
+    <a class="card tool" data-name="bmi calculator" style="--accent:#ff72a8" href="#"><div class="icon">♡</div><h3>BMI Calculator</h3><p>Calculate Body Mass Index.</p><span class="arrow">→</span></a>
+    <a class="card tool" data-name="days between dates" style="--accent:#35e0d0" href="#"><div class="icon">◫</div><h3>Days Between Dates</h3><p>Find the number of days between dates.</p><span class="arrow">→</span></a>
+    <a class="card tool" data-name="discount calculator" style="--accent:#ff9a45" href="#"><div class="icon">%</div><h3>Discount Calculator</h3><p>Calculate discounts and savings.</p><span class="arrow">→</span></a>
+    <a class="card tool" data-name="area calculator" style="--accent:#67df74" href="#"><div class="icon">▦</div><h3>Area Calculator</h3><p>Calculate the area of common shapes.</p><span class="arrow">→</span></a>
+    <a class="card tool" data-name="unit converter" style="--accent:#55aaff" href="#"><div class="icon">⇄</div><h3>Unit Converter</h3><p>Convert between common units.</p><span class="arrow">→</span></a>
+    <a class="card tool" data-name="tip calculator" style="--accent:#ffd34e" href="#"><div class="icon">£</div><h3>Tip Calculator</h3><p>Calculate tips and split bills easily.</p><span class="arrow">→</span></a>
+  </div>
+  <div id="noResults" style="display:none;text-align:center;color:#8996a0;padding:45px">Nothing found yet.<br>We're adding new tools all the time.</div>
 </section>
 
-
-<!-- =========================
-     BENEFITS
-========================= -->
-
-<section
-    class="benefits"
-    id="about">
-
-
-    <div class="benefit">
-
-        <div class="benefit-icon">
-            ⚡
-        </div>
-
-        <h3>
-            Instant
-        </h3>
-
-        <p>
-            Get results in real time
-            with no hassle.
-        </p>
-
-    </div>
-
-
-    <div class="benefit">
-
-        <div class="benefit-icon">
-            ◇
-        </div>
-
-        <h3>
-            Private
-        </h3>
-
-        <p>
-            Your calculations stay
-            on your device.
-        </p>
-
-    </div>
-
-
-    <div class="benefit">
-
-        <div class="benefit-icon">
-            □
-        </div>
-
-        <h3>
-            Anywhere
-        </h3>
-
-        <p>
-            Works beautifully on
-            desktop and mobile.
-        </p>
-
-    </div>
-
-
-    <div class="benefit">
-
-        <div class="benefit-icon">
-            ♡
-        </div>
-
-        <h3>
-            Free
-        </h3>
-
-        <p>
-            Our everyday tools are
-            free to use.
-        </p>
-
-    </div>
-
+<section class="benefits" id="about">
+  <div class="benefit" style="--accent:#35e0d0"><div class="bi">ϟ</div><b>Instant</b><p>Get results in real time with no hassle.</p></div>
+  <div class="benefit" style="--accent:#35e0d0"><div class="bi">◇</div><b>Private</b><p>Your calculations stay on your device.</p></div>
+  <div class="benefit" style="--accent:#55aaff"><div class="bi">□</div><b>Anywhere</b><p>Works beautifully on desktop and mobile.</p></div>
+  <div class="benefit" style="--accent:#ff72a8"><div class="bi">♡</div><b>Free Forever</b><p>Our everyday tools are free to use.</p></div>
 </section>
-
 </main>
 
-
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer>
-
-    <div>
-        © 2026 Calculate This
-    </div>
-
-    <div class="footer-links">
-
-        <a href="#about">
-            About
-        </a>
-
-        <a href="#">
-            Privacy
-        </a>
-
-        <a href="#">
-            Terms
-        </a>
-
-        <a href="#">
-            Contact
-        </a>
-
-    </div>
-
+<div class="container footer-inner">
+  <div>© 2026 Calculate This. All rights reserved.</div>
+  <div class="footer-links"><a href="#about">About</a><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div>
+</div>
 </footer>
 
-
 <script>
+const input=document.getElementById('searchInput');
+const tools=document.querySelectorAll('.tool');
+const noResults=document.getElementById('noResults');
 
-/* =========================
-   SEARCH
-========================= */
-
-const searchInput =
-    document.getElementById("searchInput");
-
-const tools =
-    document.querySelectorAll(".tool");
-
-const noResults =
-    document.getElementById("noResults");
-
-
-function runSearch() {
-
-    const search =
-        searchInput.value
-            .toLowerCase()
-            .trim();
-
-    let found = false;
-
-    tools.forEach(tool => {
-
-        const name =
-            tool.dataset.name;
-
-        if (
-            search === "" ||
-            name.includes(search)
-        ) {
-
-            tool.classList.remove("hidden");
-
-            found = true;
-
-        } else {
-
-            tool.classList.add("hidden");
-
-        }
-
-    });
-
-    noResults.style.display =
-        found ? "none" : "block";
-
-    document
-        .getElementById("tools")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
-
+function runSearch(){
+  const q=input.value.toLowerCase().trim();
+  let found=false;
+  tools.forEach(t=>{
+    const match=!q || t.dataset.name.includes(q);
+    t.classList.toggle('hidden',!match);
+    if(match) found=true;
+  });
+  noResults.style.display=found?'none':'block';
+  document.getElementById('tools').scrollIntoView({behavior:'smooth'});
 }
-
-
-function searchFor(term) {
-
-    searchInput.value = term;
-
-    runSearch();
-
-}
-
-
-searchInput.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (event.key === "Enter") {
-
-            runSearch();
-
-        }
-
-    }
-);
-
-
-/* =========================
-   THEME BUTTON
-========================= */
-
-function toggleTheme() {
-
-    alert(
-        "Light mode is coming soon."
-    );
-
-}
-
+function searchFor(term){input.value=term;runSearch()}
+input.addEventListener('keydown',e=>{if(e.key==='Enter')runSearch()});
 </script>
-
 </body>
 </html>
