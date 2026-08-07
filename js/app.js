@@ -1,1 +1,9 @@
 
+const heroImage=document.querySelector('.hero-image');
+const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function updateParallax(){if(!heroImage||reduceMotion)return;const y=window.scrollY;const offset=Math.min(y*.055,28);const scale=1.06+Math.min(y*.00002,.012);heroImage.style.transform=`translate3d(0, ${offset}px, 0) scale(${scale})`;}
+let ticking=false;window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{updateParallax();ticking=false});ticking=true;}},{passive:true});
+if(!reduceMotion&&window.matchMedia('(pointer:fine)').matches){const hero=document.querySelector('.hero');hero.addEventListener('mousemove',e=>{const r=hero.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;heroImage.style.marginLeft=`${x*5}px`;heroImage.style.marginTop=`${y*3}px`;});hero.addEventListener('mouseleave',()=>{heroImage.style.marginLeft='0';heroImage.style.marginTop='0';});}
+const input=document.getElementById('searchInput'),searchButton=document.getElementById('searchButton'),cards=[...document.querySelectorAll('.tool-card')],noResults=document.getElementById('noResults');
+function runSearch(term=input.value){const q=term.toLowerCase().trim();let count=0;cards.forEach(card=>{const match=!q||card.dataset.name.includes(q);card.classList.toggle('is-hidden',!match);if(match)count++;});noResults.style.display=count?'none':'block';document.getElementById('tools').scrollIntoView({behavior:reduceMotion?'auto':'smooth'});}
+searchButton.addEventListener('click',()=>runSearch());input.addEventListener('keydown',e=>{if(e.key==='Enter')runSearch();});document.querySelectorAll('[data-search]').forEach(button=>button.addEventListener('click',()=>{input.value=button.dataset.search;runSearch(button.dataset.search);}));
