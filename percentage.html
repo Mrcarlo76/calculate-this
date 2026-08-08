@@ -1,1 +1,173 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Percentage Calculator — Calculate This</title><link rel="stylesheet" href="css/style.css"></head><body><header class="nav"><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a></header><main class="section"><p class="eyebrow">MONEY & EVERYDAY</p><h1 style="font-family:serif;font-size:56px">Percentage Calculator</h1><p>Find any percentage of a number instantly.</p><div style="margin-top:40px;padding:30px;border:1px solid #263034;border-radius:24px;background:#0e1416"><input id="pct" type="number" placeholder="Percentage" style="padding:16px;margin:6px"><input id="num" type="number" placeholder="Number" style="padding:16px;margin:6px"><h2 id="result" style="color:#f1a978">—</h2></div></main><script>const p=document.getElementById("pct"),n=document.getElementById("num"),r=document.getElementById("result");function c(){const a=parseFloat(p.value),b=parseFloat(n.value);r.textContent=Number.isFinite(a)&&Number.isFinite(b)?a/100*b:"—"}p.oninput=c;n.oninput=c;</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Calculate percentages instantly. Find X% of Y, percentage increase or decrease, and percentage difference.">
+  <title>Percentage Calculator — Calculate This</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .calc-shell{width:min(980px,88vw);margin:auto;padding:145px 0 110px}
+    .calc-shell h1{font-family:"Playfair Display",serif;font-size:clamp(50px,7vw,82px);line-height:.98;margin:14px 0 16px;font-weight:500}
+    .lead{color:rgba(255,255,255,.6);font-size:18px;max-width:680px}
+    .tabs{display:flex;gap:10px;flex-wrap:wrap;margin:42px 0 20px}
+    .tab{border:1px solid rgba(255,255,255,.13);background:#0f1518;color:#d9dfe1;padding:11px 14px;border-radius:999px;cursor:pointer}
+    .tab.active{background:#f1a978;color:#1a100a;border-color:#f1a978}
+    .panel{border:1px solid rgba(255,255,255,.12);border-radius:26px;background:linear-gradient(145deg,#11191c,#0a0f11);padding:clamp(24px,5vw,48px)}
+    .calc-row{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:end}
+    .field label{display:block;font-size:13px;color:#9ca8ad;margin-bottom:8px}
+    .field input{width:100%;padding:17px;border-radius:13px;border:1px solid #334044;background:#080d0f;color:white;font:inherit;font-size:19px;outline:0}
+    .field input:focus{border-color:#f1a978;box-shadow:0 0 0 3px rgba(241,169,120,.08)}
+    .between{padding-bottom:17px;color:#7f8a8e;font-size:18px}
+    .result-box{margin-top:24px;padding:28px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07)}
+    .result-label{font-size:12px;color:#8f9b9f;text-transform:uppercase;letter-spacing:.15em}
+    .result{display:block;font-family:"Playfair Display",serif;color:#f1a978;font-size:clamp(48px,8vw,74px);line-height:1.1;margin:8px 0 6px}
+    .working{color:#a7b0b3}
+    .actions{display:flex;gap:10px;margin-top:18px}
+    .action{border:1px solid rgba(255,255,255,.12);background:#101719;color:#e9eeee;border-radius:11px;padding:10px 13px;cursor:pointer}
+    .explain{margin-top:55px;display:grid;grid-template-columns:1fr 1fr;gap:26px}
+    .info{padding:26px;border-top:1px solid rgba(255,255,255,.12)}
+    .info h2{font-family:"Playfair Display",serif;font-size:30px;margin:0 0 10px;font-weight:500}
+    .info p{color:#9aa5a9;line-height:1.7}
+    .related{margin-top:50px}
+    .related h2{font-family:"Playfair Display",serif;font-size:34px}
+    .related-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .related-links a{padding:12px 14px;border:1px solid rgba(255,255,255,.12);border-radius:999px;color:#dce2e4}
+    @media(max-width:680px){
+      .calc-shell{padding-top:115px}
+      .calc-row{grid-template-columns:1fr}
+      .between{display:none}
+      .explain{grid-template-columns:1fr}
+      .actions{flex-wrap:wrap}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
+    <nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav>
+  </header>
+
+  <main class="calc-shell">
+    <p class="eyebrow">EVERYDAY MATHS</p>
+    <h1>Percentage Calculator</h1>
+    <p class="lead">Calculate percentages instantly, with the working shown clearly underneath.</p>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-mode="of">What is X% of Y?</button>
+      <button class="tab" data-mode="increase">Increase by %</button>
+      <button class="tab" data-mode="decrease">Decrease by %</button>
+    </div>
+
+    <section class="panel">
+      <div class="calc-row">
+        <div class="field">
+          <label id="leftLabel" for="left">Percentage</label>
+          <input id="left" type="number" inputmode="decimal" placeholder="20">
+        </div>
+        <div class="between" id="betweenText">% of</div>
+        <div class="field">
+          <label id="rightLabel" for="right">Number</label>
+          <input id="right" type="number" inputmode="decimal" placeholder="150">
+        </div>
+      </div>
+
+      <div class="result-box" aria-live="polite">
+        <span class="result-label">Result</span>
+        <strong class="result" id="result">—</strong>
+        <div class="working" id="working">Enter two numbers to calculate.</div>
+        <div class="actions">
+          <button class="action" id="copyBtn" type="button">Copy result</button>
+          <button class="action" id="clearBtn" type="button">Clear</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="explain">
+      <article class="info">
+        <h2>How it works</h2>
+        <p>To find a percentage of a number, divide the percentage by 100, then multiply by the number.</p>
+      </article>
+      <article class="info">
+        <h2>Example</h2>
+        <p>20% of 150 is 30, because 20 ÷ 100 × 150 = 30.</p>
+      </article>
+    </section>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="related-links">
+        <a href="#">VAT Calculator</a>
+        <a href="#">Discount Calculator</a>
+        <a href="#">Profit Margin Calculator</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const left=document.getElementById('left');
+    const right=document.getElementById('right');
+    const result=document.getElementById('result');
+    const working=document.getElementById('working');
+    const leftLabel=document.getElementById('leftLabel');
+    const rightLabel=document.getElementById('rightLabel');
+    const betweenText=document.getElementById('betweenText');
+    const tabs=[...document.querySelectorAll('.tab')];
+    let mode='of';
+
+    const fmt=n=>new Intl.NumberFormat(undefined,{maximumFractionDigits:8}).format(n);
+
+    function calculate(){
+      const a=parseFloat(left.value), b=parseFloat(right.value);
+      if(!Number.isFinite(a)||!Number.isFinite(b)){
+        result.textContent='—';
+        working.textContent='Enter two numbers to calculate.';
+        return;
+      }
+      let value, text;
+      if(mode==='of'){
+        value=(a/100)*b;
+        text=`${a}% of ${b} = ${fmt(value)}`;
+      }else if(mode==='increase'){
+        value=b*(1+a/100);
+        text=`${b} increased by ${a}% = ${fmt(value)}`;
+      }else{
+        value=b*(1-a/100);
+        text=`${b} decreased by ${a}% = ${fmt(value)}`;
+      }
+      result.textContent=fmt(value);
+      working.textContent=text;
+    }
+
+    function setMode(next){
+      mode=next;
+      tabs.forEach(t=>t.classList.toggle('active',t.dataset.mode===mode));
+      leftLabel.textContent='Percentage';
+      rightLabel.textContent=mode==='of'?'Number':'Starting number';
+      betweenText.textContent=mode==='of'?'% of':'%';
+      calculate();
+    }
+
+    tabs.forEach(t=>t.addEventListener('click',()=>setMode(t.dataset.mode)));
+    left.addEventListener('input',calculate);
+    right.addEventListener('input',calculate);
+
+    document.getElementById('clearBtn').addEventListener('click',()=>{
+      left.value=''; right.value=''; calculate(); left.focus();
+    });
+
+    document.getElementById('copyBtn').addEventListener('click',async()=>{
+      if(result.textContent==='—') return;
+      try{
+        await navigator.clipboard.writeText(result.textContent);
+        const btn=document.getElementById('copyBtn');
+        const old=btn.textContent; btn.textContent='Copied';
+        setTimeout(()=>btn.textContent=old,1200);
+      }catch{}
+    });
+  </script>
+</body>
+</html>
