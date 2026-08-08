@@ -121,3 +121,7 @@ footer small{text-align:right}
   .tool-hero .hero-lead{font-size:15px}
   .has-tool-hero .calc-shell,.has-tool-hero .word-shell{padding-top:42px!important}
 }
+
+/* v2.0 hero quality correction: full-res sources, no artificial scaling */
+.tool-hero-bg{image-rendering:auto;will-change:auto}
+@media(min-width:1000px){.tool-hero{min-height:430px}}
