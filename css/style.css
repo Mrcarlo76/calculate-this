@@ -125,3 +125,12 @@ footer small{text-align:right}
 /* v2.0 hero quality correction: full-res sources, no artificial scaling */
 .tool-hero-bg{image-rendering:auto;will-change:auto}
 @media(min-width:1000px){.tool-hero{min-height:430px}}
+
+/* v2.1 category imagery */
+.card.health,.card.education{
+  background-size:cover;
+  background-position:center;
+}
+.card.health{background-image:linear-gradient(180deg,rgba(7,11,13,.08) 0%,rgba(7,11,13,.32) 48%,rgba(7,11,13,.94) 100%),url('../images/category-health.webp')}
+.card.education{background-image:linear-gradient(180deg,rgba(7,11,13,.08) 0%,rgba(7,11,13,.32) 48%,rgba(7,11,13,.94) 100%),url('../images/category-education.webp')}
+.card.health:before,.card.education:before{background:linear-gradient(180deg,transparent 28%,rgba(7,11,13,.12) 55%,rgba(7,11,13,.7) 100%)}
