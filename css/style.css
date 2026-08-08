@@ -162,3 +162,13 @@ footer small{text-align:right}
   height:2px;
   opacity:.58;
 }
+
+/* v2.5 launch-ready content + internal links */
+.seo-info{width:min(980px,88vw);margin:0 auto 40px;padding:0 0 18px;border-bottom:1px solid rgba(255,255,255,.08)}
+.seo-info h2,.related-tools h2{font-family:"Playfair Display",serif;font-size:clamp(28px,4vw,38px);font-weight:500;margin:0 0 12px}
+.seo-info p{max-width:780px;color:rgba(255,255,255,.58);line-height:1.75;margin:0}
+.related-tools{width:min(980px,88vw);margin:0 auto 24px}
+.related-grid{display:flex;gap:10px;flex-wrap:wrap}
+.related-grid a{padding:11px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.025);color:rgba(255,255,255,.78);transition:.2s ease}
+.related-grid a:hover{border-color:rgba(241,169,120,.38);color:#f1a978;background:rgba(241,169,120,.045)}
+.section,.calc-shell,.word-shell{content-visibility:auto;contain-intrinsic-size:auto 700px}

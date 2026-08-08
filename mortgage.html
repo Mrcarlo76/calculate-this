@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Estimate your monthly mortgage repayment and total interest.">
-<title>Mortgage Calculator — Calculate This</title><link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="description" content="Estimate monthly mortgage repayments, total repayment and total interest from loan amount, rate and term.">
+<title>Mortgage Calculator — Monthly Repayments | Calculate This</title><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
@@ -25,7 +25,21 @@
 .note{margin-top:22px;color:#859196;font-size:13px;line-height:1.6}
 .back{display:inline-block;margin-top:35px;color:#f1a978}
 @media(max-width:680px){.calc-shell{padding-top:115px}.grid,.summary{grid-template-columns:1fr}.actions{flex-wrap:wrap}}
-</style></head><body class="has-tool-hero">
+</style>
+<link rel="canonical" href="https://mrcarlo76.github.io/calculate-this/mortgage.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:site_name" content="Calculate This">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mortgage Calculator — Monthly Repayments | Calculate This">
+<meta property="og:description" content="Estimate monthly mortgage repayments, total repayment and total interest from loan amount, rate and term.">
+<meta property="og:url" content="https://mrcarlo76.github.io/calculate-this/mortgage.html">
+<meta property="og:image" content="https://mrcarlo76.github.io/calculate-this/images/tool-heroes/mortgage.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mortgage Calculator — Monthly Repayments | Calculate This">
+<meta name="twitter:description" content="Estimate monthly mortgage repayments, total repayment and total interest from loan amount, rate and term.">
+<meta name="twitter:image" content="https://mrcarlo76.github.io/calculate-this/images/tool-heroes/mortgage.webp">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Mortgage Calculator","url":"https://mrcarlo76.github.io/calculate-this/mortgage.html","applicationCategory":"CalculatorApplication","operatingSystem":"Any","isAccessibleForFree":true,"description":"Estimate monthly mortgage repayments, total repayment and total interest from loan amount, rate and term.","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}</script>
+</head><body class="has-tool-hero">
 <header class="nav"><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
 <nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav></header>
 <section class="tool-hero">
@@ -45,7 +59,7 @@
 <div class="working" id="working">Enter your details to calculate.</div><div id="summary" class="summary"></div>
 <div class="actions"><button class="action" id="copyBtn" type="button">Copy result</button><button class="action" id="clearBtn" type="button">Clear</button></div></div>
 </section>
-<a class="back" href="index.html">← Back to all tools</a></main><script>
+<section class="seo-info"><h2>How to use this mortgage calculator</h2><p>Enter the mortgage amount, annual interest rate and term. The calculator estimates a monthly repayment and shows the total amount repaid and total interest over the full term.</p></section><section class="related-tools"><h2>Related tools</h2><div class="related-grid"><a href="ltv.html">LTV Calculator</a><a href="loan.html">Loan Repayment</a><a href="savings.html">Savings Calculator</a></div></section><a class="back" href="index.html">← Back to all tools</a></main><script>
 const resultEl=document.getElementById('result'),workingEl=document.getElementById('working'),summaryEl=document.getElementById('summary');
 function gbp(n){return new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',maximumFractionDigits:2}).format(n)}
 function calculate(){const P=+document.getElementById('principal').value,r=+document.getElementById('rate').value/100/12,n=+document.getElementById('years').value*12;

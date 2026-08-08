@@ -1,0 +1,7 @@
+Calculate This v2.5 SEO launch notes
+
+Canonical/sitemap base URL used in this build:
+https://mrcarlo76.github.io/calculate-this/
+
+If you later connect a custom domain, replace that base URL in the HTML canonical/Open Graph tags, sitemap.xml and robots.txt.
+No analytics or advertising scripts have been added.
