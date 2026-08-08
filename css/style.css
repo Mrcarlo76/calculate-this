@@ -104,7 +104,7 @@ footer small{text-align:right}
 
 /* v1.7 cinematic tool heroes */
 .tool-hero{position:relative;min-height:390px;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate;background:#0b1012}
-.tool-hero-bg{position:absolute;inset:-2%;z-index:-3;background-position:center;background-size:cover;background-repeat:no-repeat;transform:scale(1.025)}
+.tool-hero-bg{position:absolute;inset:0;z-index:-3;background-position:center;background-size:cover;background-repeat:no-repeat;transform:none}
 .tool-hero:before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(4,8,10,.88) 0%,rgba(4,8,10,.64) 42%,rgba(4,8,10,.18) 78%),linear-gradient(180deg,rgba(4,8,10,.08) 0%,rgba(4,8,10,.12) 60%,#070b0d 100%)}
 .tool-hero-inner{width:min(1180px,88vw);margin:0 auto;padding:128px 0 60px}
 .tool-hero-back{display:inline-flex;align-items:center;gap:8px;color:#f1a978;font-size:14px;margin-bottom:34px}
@@ -114,7 +114,7 @@ footer small{text-align:right}
 .has-tool-hero .calc-shell,.has-tool-hero .word-shell{padding-top:56px!important}
 @media(max-width:680px){
   .tool-hero{min-height:315px}
-  .tool-hero-bg{inset:-1%;background-position:center}
+  .tool-hero-bg{inset:0;background-position:center}
   .tool-hero-inner{padding:100px 0 40px}
   .tool-hero-back{margin-bottom:24px}
   .tool-hero h1{font-size:clamp(42px,13vw,62px)}
