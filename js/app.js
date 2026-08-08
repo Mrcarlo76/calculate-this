@@ -1,9 +1,9 @@
 const tools=[
 {name:"Percentage Calculator",url:"percentage.html"},
-{name:"VAT Calculator",url:"#"},
-{name:"Age Calculator",url:"#"},
-{name:"Discount Calculator",url:"#"},
-{name:"Fuel Cost Calculator",url:"#"}
+{name:"VAT Calculator",url:"vat.html"},
+{name:"Age Calculator",url:"age.html"},
+{name:"Discount Calculator",url:"discount.html"},
+{name:"Fuel Cost Calculator",url:"fuel.html"}
 ];
 
 const input=document.getElementById("searchInput");
