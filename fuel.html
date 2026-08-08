@@ -20,10 +20,19 @@
 .action{border:1px solid rgba(255,255,255,.12);background:#101719;color:#e9eeee;border-radius:11px;padding:10px 13px;cursor:pointer}
 .back{display:inline-block;margin-top:35px;color:#f1a978}
 @media(max-width:680px){.calc-shell{padding-top:115px}.grid{grid-template-columns:1fr}.actions{flex-wrap:wrap}}
-</style></head><body>
+</style></head><body class="has-tool-hero">
 <header class="nav"><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
 <nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav></header>
-<main class="calc-shell"><p class="eyebrow">TRAVEL</p><h1>Fuel Cost Calculator</h1><p class="lead">Estimate the fuel cost of a journey using UK MPG and pence per litre.</p>
+<section class="tool-hero">
+  <div class="tool-hero-bg" style="background-image:url('images/tool-heroes/fuel.webp')" aria-hidden="true"></div>
+  <div class="tool-hero-inner">
+    <a class="tool-hero-back" href="index.html">← Back to all tools</a>
+    <p class="eyebrow">TRAVEL</p>
+    <h1>Fuel Cost Calculator</h1>
+    <p class="hero-lead">Estimate the fuel cost of a journey using UK MPG and pence per litre.</p>
+  </div>
+</section>
+<main class="calc-shell">
 <section class="panel"><div class="grid"><div class="field"><label for="distance">Journey distance (miles)</label><input id="distance" type="number" inputmode="decimal" placeholder="150"></div>
 <div class="field"><label for="mpg">Fuel economy (MPG UK)</label><input id="mpg" type="number" inputmode="decimal" placeholder="45"></div>
 <div class="field"><label for="fuel">Fuel price (pence/litre)</label><input id="fuel" type="number" inputmode="decimal" placeholder="145"></div>

@@ -41,16 +41,22 @@
     @media(max-width:560px){.word-shell{padding-top:115px}.letters-row{flex-direction:column}.find-btn{padding:15px}.filters{grid-template-columns:1fr 1fr}.results{grid-template-columns:1fr 1fr}.summary{align-items:flex-start;flex-direction:column}}
   </style>
 </head>
-<body>
+<body class="has-tool-hero">
 <header class="nav">
   <a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
   <nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav>
 </header>
 
+<section class="tool-hero">
+  <div class="tool-hero-bg" style="background-image:url('images/tool-heroes/word-finder.webp')" aria-hidden="true"></div>
+  <div class="tool-hero-inner">
+    <a class="tool-hero-back" href="index.html">← Back to all tools</a>
+    <p class="eyebrow">WORDS & TEXT</p>
+    <h1>Word Finder</h1>
+    <p class="hero-lead">Enter a set of letters and instantly find words you can make from them. Each letter can only be used as many times as it appears in your letters.</p>
+  </div>
+</section>
 <main class="word-shell">
-  <p class="eyebrow">WORDS & TEXT</p>
-  <h1>Word Finder</h1>
-  <p class="lead">Enter a set of letters and instantly find words you can make from them. Each letter can only be used as many times as it appears in your letters.</p>
 
   <section class="finder">
     <label class="letters-label" for="letters">Your letters</label>

@@ -25,10 +25,19 @@
 .note{margin-top:22px;color:#859196;font-size:13px;line-height:1.6}
 .back{display:inline-block;margin-top:35px;color:#f1a978}
 @media(max-width:680px){.calc-shell{padding-top:115px}.grid,.summary{grid-template-columns:1fr}.actions{flex-wrap:wrap}}
-</style></head><body>
+</style></head><body class="has-tool-hero">
 <header class="nav"><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
 <nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav></header>
-<main class="calc-shell"><p class="eyebrow">MONEY</p><h1>Mortgage Calculator</h1><p class="lead">Estimate your monthly mortgage repayment and total interest.</p>
+<section class="tool-hero">
+  <div class="tool-hero-bg" style="background-image:url('images/tool-heroes/mortgage.webp')" aria-hidden="true"></div>
+  <div class="tool-hero-inner">
+    <a class="tool-hero-back" href="index.html">← Back to all tools</a>
+    <p class="eyebrow">MONEY</p>
+    <h1>Mortgage Calculator</h1>
+    <p class="hero-lead">Estimate your monthly mortgage repayment and total interest.</p>
+  </div>
+</section>
+<main class="calc-shell">
 <section class="panel"><div class="grid"><div class="field"><label for="principal">Mortgage amount (£)</label><input id="principal" type="number" inputmode="decimal" placeholder="250000"></div>
 <div class="field"><label for="rate">Interest rate (%)</label><input id="rate" type="number" inputmode="decimal" step="0.01" placeholder="4.5"></div>
 <div class="field"><label for="years">Term (years)</label><input id="years" type="number" inputmode="numeric" placeholder="25"></div></div>

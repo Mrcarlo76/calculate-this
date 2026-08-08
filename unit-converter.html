@@ -25,10 +25,19 @@
 .note{margin-top:22px;color:#859196;font-size:13px;line-height:1.6}
 .back{display:inline-block;margin-top:35px;color:#f1a978}
 @media(max-width:680px){.calc-shell{padding-top:115px}.grid,.summary{grid-template-columns:1fr}.actions{flex-wrap:wrap}}
-</style></head><body>
+</style></head><body class="has-tool-hero">
 <header class="nav"><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
 <nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav></header>
-<main class="calc-shell"><p class="eyebrow">EVERYDAY</p><h1>Unit Converter</h1><p class="lead">Convert common length, weight and temperature units instantly.</p>
+<section class="tool-hero">
+  <div class="tool-hero-bg" style="background-image:url('images/tool-heroes/unit-converter.webp')" aria-hidden="true"></div>
+  <div class="tool-hero-inner">
+    <a class="tool-hero-back" href="index.html">← Back to all tools</a>
+    <p class="eyebrow">EVERYDAY</p>
+    <h1>Unit Converter</h1>
+    <p class="hero-lead">Convert common length, weight and temperature units instantly.</p>
+  </div>
+</section>
+<main class="calc-shell">
 <section class="panel"><div class="grid"><div class="field"><label for="type">Conversion</label><select id="type">
 <option value="mi-km">Miles → kilometres</option><option value="km-mi">Kilometres → miles</option>
 <option value="in-cm">Inches → centimetres</option><option value="cm-in">Centimetres → inches</option>

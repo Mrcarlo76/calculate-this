@@ -25,10 +25,19 @@
 .note{margin-top:22px;color:#859196;font-size:13px;line-height:1.6}
 .back{display:inline-block;margin-top:35px;color:#f1a978}
 @media(max-width:680px){.calc-shell{padding-top:115px}.grid,.summary{grid-template-columns:1fr}.actions{flex-wrap:wrap}}
-</style></head><body>
+</style></head><body class="has-tool-hero">
 <header class="nav"><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
 <nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav></header>
-<main class="calc-shell"><p class="eyebrow">DATES & TIME</p><h1>Days Between Dates</h1><p class="lead">Find the number of days, weeks and approximate months between two dates.</p>
+<section class="tool-hero">
+  <div class="tool-hero-bg" style="background-image:url('images/tool-heroes/days-between-dates.webp')" aria-hidden="true"></div>
+  <div class="tool-hero-inner">
+    <a class="tool-hero-back" href="index.html">← Back to all tools</a>
+    <p class="eyebrow">DATES & TIME</p>
+    <h1>Days Between Dates</h1>
+    <p class="hero-lead">Find the number of days, weeks and approximate months between two dates.</p>
+  </div>
+</section>
+<main class="calc-shell">
 <section class="panel"><div class="grid"><div class="field"><label for="start">Start date</label><input id="start" type="date"></div>
 <div class="field"><label for="end">End date</label><input id="end" type="date"></div></div>
 <div class="result-box"><span class="result-label">Difference</span><strong class="result" id="result">—</strong>

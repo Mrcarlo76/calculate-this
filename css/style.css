@@ -101,3 +101,23 @@ footer small{text-align:right}
   footer{grid-template-columns:1fr;gap:14px;text-align:center}
   footer p,footer small{text-align:center}
 }
+
+/* v1.7 cinematic tool heroes */
+.tool-hero{position:relative;min-height:390px;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate;background:#0b1012}
+.tool-hero-bg{position:absolute;inset:-2%;z-index:-3;background-position:center;background-size:cover;background-repeat:no-repeat;transform:scale(1.025)}
+.tool-hero:before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(4,8,10,.88) 0%,rgba(4,8,10,.64) 42%,rgba(4,8,10,.18) 78%),linear-gradient(180deg,rgba(4,8,10,.08) 0%,rgba(4,8,10,.12) 60%,#070b0d 100%)}
+.tool-hero-inner{width:min(1180px,88vw);margin:0 auto;padding:128px 0 60px}
+.tool-hero-back{display:inline-flex;align-items:center;gap:8px;color:#f1a978;font-size:14px;margin-bottom:34px}
+.tool-hero .eyebrow{margin:0 0 12px}
+.tool-hero h1{font-family:"Playfair Display",serif;font-size:clamp(46px,6vw,78px);line-height:1;margin:0 0 14px;font-weight:500;letter-spacing:-.035em;text-shadow:0 10px 32px rgba(0,0,0,.45)}
+.tool-hero .hero-lead{max-width:700px;color:rgba(255,255,255,.82);font-size:18px;line-height:1.65;margin:0;text-shadow:0 4px 20px rgba(0,0,0,.48)}
+.has-tool-hero .calc-shell,.has-tool-hero .word-shell{padding-top:56px!important}
+@media(max-width:680px){
+  .tool-hero{min-height:315px}
+  .tool-hero-bg{inset:-1%;background-position:center}
+  .tool-hero-inner{padding:100px 0 40px}
+  .tool-hero-back{margin-bottom:24px}
+  .tool-hero h1{font-size:clamp(42px,13vw,62px)}
+  .tool-hero .hero-lead{font-size:15px}
+  .has-tool-hero .calc-shell,.has-tool-hero .word-shell{padding-top:42px!important}
+}
