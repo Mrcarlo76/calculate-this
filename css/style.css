@@ -134,3 +134,16 @@ footer small{text-align:right}
 .card.health{background-image:linear-gradient(180deg,rgba(7,11,13,.08) 0%,rgba(7,11,13,.32) 48%,rgba(7,11,13,.94) 100%),url('../images/category-health.webp')}
 .card.education{background-image:linear-gradient(180deg,rgba(7,11,13,.08) 0%,rgba(7,11,13,.32) 48%,rgba(7,11,13,.94) 100%),url('../images/category-education.webp')}
 .card.health:before,.card.education:before{background:linear-gradient(180deg,transparent 28%,rgba(7,11,13,.12) 55%,rgba(7,11,13,.7) 100%)}
+
+/* v2.3 category photography */
+.card.money,.card.travel,.card.home,.card.business,.card.words{
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+.card.money{background-image:linear-gradient(180deg,rgba(7,11,13,.06) 0%,rgba(7,11,13,.28) 46%,rgba(7,11,13,.94) 100%),url('../images/category-money.webp')}
+.card.travel{background-image:linear-gradient(180deg,rgba(7,11,13,.06) 0%,rgba(7,11,13,.28) 46%,rgba(7,11,13,.94) 100%),url('../images/category-travel.webp')}
+.card.home{background-image:linear-gradient(180deg,rgba(7,11,13,.06) 0%,rgba(7,11,13,.28) 46%,rgba(7,11,13,.94) 100%),url('../images/category-home.webp')}
+.card.business{background-image:linear-gradient(180deg,rgba(7,11,13,.06) 0%,rgba(7,11,13,.28) 46%,rgba(7,11,13,.94) 100%),url('../images/category-business.webp')}
+.card.words{background-image:linear-gradient(180deg,rgba(7,11,13,.06) 0%,rgba(7,11,13,.28) 46%,rgba(7,11,13,.94) 100%),url('../images/category-words.webp')}
+.card.money:before,.card.travel:before,.card.home:before,.card.business:before,.card.words:before{background:linear-gradient(180deg,transparent 25%,rgba(7,11,13,.10) 52%,rgba(7,11,13,.72) 100%)}
