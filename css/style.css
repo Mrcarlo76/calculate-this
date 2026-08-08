@@ -50,6 +50,7 @@ a{color:inherit;text-decoration:none}
 .card.health{--card-accent:#7ecf88;--card-glow:rgba(126,207,136,.14)}
 .card.education{--card-accent:#a985f2;--card-glow:rgba(169,133,242,.14)}
 .card.business{--card-accent:#f0bd5a;--card-glow:rgba(240,189,90,.14)}
+.card.words{--card-accent:#ff72b6;--card-glow:rgba(255,114,182,.13)}
 .card h3{font-family:"Playfair Display",serif;font-size:34px;margin:0 0 8px;color:color-mix(in srgb,var(--card-accent,#fff) 70%,white)}
 .card p{color:rgba(255,255,255,.55);margin:0 0 22px}
 .card b{font-size:13px;color:var(--card-accent,#f4b183)}

@@ -11,7 +11,7 @@ const tools=[
 {name:"BMI Calculator",url:"bmi.html"},
 {name:"Unit Converter",url:"unit-converter.html"},
 {name:"Days Between Dates",url:"days-between-dates.html"}
-];
+,{name:"Word Finder",url:"word-finder.html"}];
 const input=document.getElementById("searchInput"),box=document.getElementById("suggestions");
 function render(q=""){const m=tools.filter(t=>t.name.toLowerCase().includes(q.toLowerCase())).slice(0,7);if(!q||!m.length){box.hidden=true;box.innerHTML="";return}box.innerHTML=m.map(t=>`<a href="${t.url}">${t.name}</a>`).join("");box.hidden=false}
 input.addEventListener("input",e=>render(e.target.value.trim()));
