@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Find the number of days, weeks and approximate months between two dates.">
+<title>Days Between Dates — Calculate This</title><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.calc-shell{width:min(980px,88vw);margin:auto;padding:145px 0 110px}
+.calc-shell h1{font-family:"Playfair Display",serif;font-size:clamp(50px,7vw,82px);line-height:.98;margin:14px 0 16px;font-weight:500}
+.lead{color:rgba(255,255,255,.6);font-size:18px;max-width:720px;line-height:1.6}
+.panel{margin-top:42px;border:1px solid rgba(255,255,255,.12);border-radius:26px;background:linear-gradient(145deg,#11191c,#0a0f11);padding:clamp(24px,5vw,48px)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.field label{display:block;font-size:13px;color:#9ca8ad;margin-bottom:8px}
+.field input,.field select{width:100%;padding:17px;border-radius:13px;border:1px solid #334044;background:#080d0f;color:white;font:inherit;font-size:18px;outline:0}
+.field input:focus,.field select:focus{border-color:#f1a978;box-shadow:0 0 0 3px rgba(241,169,120,.08)}
+.result-box{margin-top:24px;padding:28px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07)}
+.result-label{font-size:12px;color:#8f9b9f;text-transform:uppercase;letter-spacing:.15em}
+.result{display:block;font-family:"Playfair Display",serif;color:#f1a978;font-size:clamp(42px,7vw,66px);line-height:1.1;margin:8px 0 6px}
+.working{color:#a7b0b3;line-height:1.65}
+.actions{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.action{border:1px solid rgba(255,255,255,.12);background:#101719;color:#e9eeee;border-radius:11px;padding:10px 13px;cursor:pointer}
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.stat{padding:16px;border-radius:14px;background:#0d1315;border:1px solid rgba(255,255,255,.07)}
+.stat small{display:block;color:#869297;margin-bottom:5px}.stat strong{font-size:18px}
+.note{margin-top:22px;color:#859196;font-size:13px;line-height:1.6}
+.back{display:inline-block;margin-top:35px;color:#f1a978}
+@media(max-width:680px){.calc-shell{padding-top:115px}.grid,.summary{grid-template-columns:1fr}.actions{flex-wrap:wrap}}
+</style></head><body>
+<header class="nav"><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
+<nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav></header>
+<main class="calc-shell"><p class="eyebrow">DATES & TIME</p><h1>Days Between Dates</h1><p class="lead">Find the number of days, weeks and approximate months between two dates.</p>
+<section class="panel"><div class="grid"><div class="field"><label for="start">Start date</label><input id="start" type="date"></div>
+<div class="field"><label for="end">End date</label><input id="end" type="date"></div></div>
+<div class="result-box"><span class="result-label">Difference</span><strong class="result" id="result">—</strong>
+<div class="working" id="working">Enter your details to calculate.</div><div id="summary" class="summary"></div>
+<div class="actions"><button class="action" id="copyBtn" type="button">Copy result</button><button class="action" id="clearBtn" type="button">Clear</button></div></div>
+</section>
+<a class="back" href="index.html">← Back to all tools</a></main><script>
+const resultEl=document.getElementById('result'),workingEl=document.getElementById('working'),summaryEl=document.getElementById('summary');
+function calculate(){const a=document.getElementById('start').value,b=document.getElementById('end').value;if(!a||!b){resultEl.textContent='—';workingEl.textContent='Choose two dates.';summaryEl.innerHTML='';return}
+const d1=new Date(a+'T00:00:00'),d2=new Date(b+'T00:00:00'),ms=Math.abs(d2-d1),days=Math.round(ms/86400000),weeks=days/7,months=days/30.436875;
+resultEl.textContent=`${days.toLocaleString()} days`;workingEl.textContent=`The dates are ${days.toLocaleString()} days apart.`;
+summaryEl.innerHTML=`<div class="stat"><small>Weeks</small><strong>${weeks.toFixed(1)}</strong></div><div class="stat"><small>Approx. months</small><strong>${months.toFixed(1)}</strong></div><div class="stat"><small>Hours</small><strong>${(days*24).toLocaleString()}</strong></div>`}
+document.querySelectorAll('.panel input,.panel select').forEach(x=>x.addEventListener('input',calculate));
+document.getElementById('clearBtn').onclick=()=>{document.querySelectorAll('.panel input').forEach(x=>x.value='');calculate();};
+document.getElementById('copyBtn').onclick=async()=>{if(resultEl.textContent==='—')return;try{await navigator.clipboard.writeText(resultEl.textContent);const b=document.getElementById('copyBtn');b.textContent='Copied';setTimeout(()=>b.textContent='Copy result',1200)}catch(e){}};
+calculate();</script></body></html>
