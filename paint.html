@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paint Calculator | Calculate This</title>
+<meta name="description" content="Estimate paint required from wall area, number of coats and paint coverage per litre.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.calc-shell{width:min(980px,88vw);margin:auto;padding:145px 0 110px}
+.calc-shell h1{font-family:"Playfair Display",serif;font-size:clamp(50px,7vw,82px);line-height:.98;margin:14px 0 16px;font-weight:500}
+.lead{color:rgba(255,255,255,.6);font-size:18px;max-width:720px;line-height:1.65}
+.panel{margin-top:42px;border:1px solid rgba(255,255,255,.12);border-radius:26px;background:linear-gradient(145deg,#11191c,#0a0f11);padding:clamp(24px,5vw,48px)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.field label{display:block;font-size:13px;color:#9ca8ad;margin-bottom:8px}
+.field input,.field select{width:100%;padding:17px;border-radius:13px;border:1px solid #334044;background:#080d0f;color:white;font:inherit;font-size:18px;outline:0}
+.field input:focus,.field select:focus{border-color:#f1a978;box-shadow:0 0 0 3px rgba(241,169,120,.08)}
+.result-box{margin-top:24px;padding:28px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07)}
+.result-label{font-size:12px;color:#8f9b9f;text-transform:uppercase;letter-spacing:.15em}
+.result{display:block;font-family:"Playfair Display",serif;color:#f1a978;font-size:clamp(42px,7vw,66px);line-height:1.1;margin:8px 0 6px}
+.working{color:#a7b0b3;line-height:1.65}
+.back{display:inline-block;margin-top:35px;color:#f1a978}
+.action-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.action{border:1px solid rgba(255,255,255,.12);background:#101719;color:#e9eeee;border-radius:11px;padding:10px 13px;cursor:pointer}
+@media(max-width:680px){.grid{grid-template-columns:1fr}.calc-shell{padding-top:115px}}
+</style>
+<link rel="canonical" href="https://calculatethis.uk/paint.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:site_name" content="Calculate This">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Paint Calculator | Calculate This">
+<meta property="og:description" content="Estimate paint required from wall area, number of coats and paint coverage per litre.">
+<meta property="og:url" content="https://calculatethis.uk/paint.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Paint Calculator","url":"https://calculatethis.uk/paint.html","applicationCategory":"CalculatorApplication","operatingSystem":"Any","isAccessibleForFree":true,"description":"Estimate paint required from wall area, number of coats and paint coverage per litre.","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Should I subtract windows and doors?","acceptedAnswer":{"@type":"Answer","text":"For a closer estimate, use the paintable wall area after subtracting large openings."}},{"@type":"Question","name":"How many coats should I use?","acceptedAnswer":{"@type":"Answer","text":"That depends on the paint, colour change and surface. Use the number recommended for your project."}},{"@type":"Question","name":"Is paint coverage exact?","acceptedAnswer":{"@type":"Answer","text":"No. Surface texture, application method and product can change real coverage."}}]}</script>
+</head>
+<body>
+<header class="nav">
+<a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
+<nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav>
+</header>
+<main class="calc-shell">
+<a class="tool-hero-back" href="home.html">← Home calculators</a>
+<p class="eyebrow">HOME &amp; DIY</p>
+<h1>Paint Calculator</h1>
+<p class="lead">Estimate how many litres of paint you may need for walls or a room.</p>
+<section class="panel">
+<div class="grid"><div class="field"><label for="area">Paintable area (m²)</label><input id="area" type="number" step="any" placeholder="45"></div><div class="field"><label for="coats">Number of coats</label><input id="coats" type="number" step="1" value="2" min="1"></div><div class="field"><label for="coverage">Coverage per litre (m²)</label><input id="coverage" type="number" step="any" value="10"></div><div class="field"><label for="waste">Extra allowance (%)</label><input id="waste" type="number" step="any" value="10"></div></div>
+<div class="result-box">
+<span class="result-label">Estimated paint needed</span>
+<strong class="result" id="result">—</strong>
+<div class="working" id="working">Enter your details to calculate.</div>
+<div class="action-row"><button class="action" id="clearBtn" type="button">Clear</button></div>
+</div>
+</section>
+<section class="tool-content">
+<h2>Paint Calculator guide</h2>
+<div class="formula-grid"><article><h3>Coverage</h3><p>Paint tins usually state approximate square metres covered per litre.</p></article><article><h3>Multiple coats</h3><p>Two coats roughly doubles the paintable area the product needs to cover.</p></article><article><h3>Allowance</h3><p>A small extra percentage helps cover touch-ups, texture and application losses.</p></article></div>
+</section>
+<section class="faq-section">
+<h2>Frequently asked questions</h2><details><summary>Should I subtract windows and doors?</summary><p>For a closer estimate, use the paintable wall area after subtracting large openings.</p></details><details><summary>How many coats should I use?</summary><p>That depends on the paint, colour change and surface. Use the number recommended for your project.</p></details><details><summary>Is paint coverage exact?</summary><p>No. Surface texture, application method and product can change real coverage.</p></details>
+</section>
+<section class="related-tools">
+<h2>Related tools</h2><div class="related-grid"><a href="area.html">Area Calculator</a><a href="flooring.html">Flooring Calculator</a><a href="unit-converter.html">Unit Converter</a></div>
+</section>
+<a class="back" href="index.html">← Back to all tools</a>
+</main>
+<script>function calculate(){let a=+area.value,c=+coats.value,cv=+coverage.value,w=+waste.value;
+if(!(a>0&&c>0&&cv>0&&w>=0)){result.textContent='—';working.textContent='Enter valid paint details.';return}
+let litres=(a*c/cv)*(1+w/100);
+result.textContent=litres.toLocaleString('en-GB',{maximumFractionDigits:2})+' L';
+working.textContent=`Based on ${c} coat${c===1?'':'s'}, ${cv} m²/L coverage and ${w}% extra allowance.`;}
+document.getElementById('clearBtn').addEventListener('click',()=>{document.querySelectorAll('.panel input').forEach(x=>x.value='');calculate();});
+document.querySelectorAll('.panel input,.panel select').forEach(x=>x.addEventListener('input',calculate));
+calculate();
+</script>
+</body>
+</html>

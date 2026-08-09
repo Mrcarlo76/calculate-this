@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraction Simplifier | Calculate This</title>
+<meta name="description" content="Simplify a numerator and denominator to lowest terms and convert the fraction to a decimal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.calc-shell{width:min(980px,88vw);margin:auto;padding:145px 0 110px}
+.calc-shell h1{font-family:"Playfair Display",serif;font-size:clamp(50px,7vw,82px);line-height:.98;margin:14px 0 16px;font-weight:500}
+.lead{color:rgba(255,255,255,.6);font-size:18px;max-width:720px;line-height:1.65}
+.panel{margin-top:42px;border:1px solid rgba(255,255,255,.12);border-radius:26px;background:linear-gradient(145deg,#11191c,#0a0f11);padding:clamp(24px,5vw,48px)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.field label{display:block;font-size:13px;color:#9ca8ad;margin-bottom:8px}
+.field input,.field select{width:100%;padding:17px;border-radius:13px;border:1px solid #334044;background:#080d0f;color:white;font:inherit;font-size:18px;outline:0}
+.field input:focus,.field select:focus{border-color:#f1a978;box-shadow:0 0 0 3px rgba(241,169,120,.08)}
+.result-box{margin-top:24px;padding:28px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07)}
+.result-label{font-size:12px;color:#8f9b9f;text-transform:uppercase;letter-spacing:.15em}
+.result{display:block;font-family:"Playfair Display",serif;color:#f1a978;font-size:clamp(42px,7vw,66px);line-height:1.1;margin:8px 0 6px}
+.working{color:#a7b0b3;line-height:1.65}
+.back{display:inline-block;margin-top:35px;color:#f1a978}
+.action-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.action{border:1px solid rgba(255,255,255,.12);background:#101719;color:#e9eeee;border-radius:11px;padding:10px 13px;cursor:pointer}
+@media(max-width:680px){.grid{grid-template-columns:1fr}.calc-shell{padding-top:115px}}
+</style>
+<link rel="canonical" href="https://calculatethis.uk/fraction.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:site_name" content="Calculate This">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fraction Simplifier | Calculate This">
+<meta property="og:description" content="Simplify a numerator and denominator to lowest terms and convert the fraction to a decimal.">
+<meta property="og:url" content="https://calculatethis.uk/fraction.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Fraction Simplifier","url":"https://calculatethis.uk/fraction.html","applicationCategory":"CalculatorApplication","operatingSystem":"Any","isAccessibleForFree":true,"description":"Simplify a numerator and denominator to lowest terms and convert the fraction to a decimal.","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I simplify 24/36?","acceptedAnswer":{"@type":"Answer","text":"The greatest common divisor is 12, so the simplified fraction is 2/3."}},{"@type":"Question","name":"Can the denominator be zero?","acceptedAnswer":{"@type":"Answer","text":"No. Division by zero is undefined."}},{"@type":"Question","name":"Can the fraction be negative?","acceptedAnswer":{"@type":"Answer","text":"Yes. The calculator keeps the negative sign with the numerator."}}]}</script>
+</head>
+<body>
+<header class="nav">
+<a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
+<nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav>
+</header>
+<main class="calc-shell">
+<a class="tool-hero-back" href="education.html">← Education calculators</a>
+<p class="eyebrow">EDUCATION &amp; MATHS</p>
+<h1>Fraction Simplifier</h1>
+<p class="lead">Reduce a fraction to its simplest form and see its decimal value.</p>
+<section class="panel">
+<div class="grid"><div class="field"><label for="num">Numerator</label><input id="num" type="number" step="1" placeholder="24"></div><div class="field"><label for="den">Denominator</label><input id="den" type="number" step="1" placeholder="36"></div></div>
+<div class="result-box">
+<span class="result-label">Simplified fraction</span>
+<strong class="result" id="result">—</strong>
+<div class="working" id="working">Enter your details to calculate.</div>
+<div class="action-row"><button class="action" id="clearBtn" type="button">Clear</button></div>
+</div>
+</section>
+<section class="tool-content">
+<h2>Fraction Simplifier guide</h2>
+<div class="formula-grid"><article><h3>Lowest terms</h3><p>Divide numerator and denominator by their greatest common divisor.</p></article><article><h3>Denominator</h3><p>The denominator cannot be zero.</p></article><article><h3>Decimal form</h3><p>Divide the numerator by the denominator to convert the fraction to a decimal.</p></article></div>
+</section>
+<section class="faq-section">
+<h2>Frequently asked questions</h2><details><summary>How do I simplify 24/36?</summary><p>The greatest common divisor is 12, so the simplified fraction is 2/3.</p></details><details><summary>Can the denominator be zero?</summary><p>No. Division by zero is undefined.</p></details><details><summary>Can the fraction be negative?</summary><p>Yes. The calculator keeps the negative sign with the numerator.</p></details>
+</section>
+<section class="related-tools">
+<h2>Related tools</h2><div class="related-grid"><a href="ratio.html">Ratio Calculator</a><a href="percentage.html">Percentage Calculator</a><a href="average.html">Average Calculator</a></div>
+</section>
+<a class="back" href="index.html">← Back to all tools</a>
+</main>
+<script>function gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){let t=b;b=a%b;a=t}return a||1}
+function calculate(){let n=+num.value,d=+den.value;if(!Number.isInteger(n)||!Number.isInteger(d)||d===0){result.textContent='—';working.textContent='Enter whole numbers and a non-zero denominator.';return}
+let sign=d<0?-1:1;n*=sign;d*=sign;let g=gcd(n,d),sn=n/g,sd=d/g;
+result.textContent=`${sn}/${sd}`;
+working.textContent=`Decimal ${(sn/sd).toLocaleString('en-GB',{maximumFractionDigits:10})} · Divided numerator and denominator by ${g}.`;}
+document.getElementById('clearBtn').addEventListener('click',()=>{document.querySelectorAll('.panel input').forEach(x=>x.value='');calculate();});
+document.querySelectorAll('.panel input,.panel select').forEach(x=>x.addEventListener('input',calculate));
+calculate();
+</script>
+</body>
+</html>
