@@ -1,128 +1,116 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Free, fast calculators and everyday tools for money, travel, health, education, home, business, percentages, dates, words and more.">
-  <title>Calculate This — Free Calculators &amp; Everyday Tools</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-
-<link rel="canonical" href="https://calculatethis.uk/">
-<meta name="robots" content="index,follow,max-image-preview:large">
-<meta property="og:site_name" content="Calculate This">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Calculate This — Free Calculators &amp; Everyday Tools">
-<meta property="og:description" content="Free, fast calculators and everyday tools for money, travel, health, education, home, business, percentages, dates, words and more.">
-<meta property="og:url" content="https://calculatethis.uk/">
-<meta property="og:image" content="https://calculatethis.uk/images/hero.webp">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Calculate This — Free Calculators &amp; Everyday Tools">
-<meta name="twitter:description" content="Free, fast calculators and everyday tools for money, travel, health, education, home, business, percentages, dates, words and more.">
-<meta name="twitter:image" content="https://calculatethis.uk/images/hero.webp">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Calculate This","url":"https://calculatethis.uk/","description":"Free, fast calculators and everyday tools for money, travel, health, education, home, business, percentages, dates, words and more."}</script>
-<link rel="preload" as="image" href="images/hero.webp" fetchpriority="high">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Free, simple online calculators and tools for money, health, travel, home, business, education and everyday life. Fast answers without the fuss." name="description"/>
+<title>CalculateThis | Free Online Calculators &amp; Everyday Tools</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=Playfair+Display:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<link href="https://calculatethis.uk/" rel="canonical"/>
+<meta content="index,follow,max-image-preview:large" name="robots"/>
+<meta content="Calculate This" property="og:site_name"/>
+<meta content="website" property="og:type"/>
+<meta content="CalculateThis | Free Online Calculators &amp; Everyday Tools" property="og:title"/>
+<meta content="Free, simple online calculators and tools for money, health, travel, home, business, education and everyday life. Fast answers without the fuss." property="og:description"/>
+<meta content="https://calculatethis.uk/" property="og:url"/>
+<meta content="https://calculatethis.uk/images/hero.webp" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="CalculateThis | Free Online Calculators &amp; Everyday Tools" name="twitter:title"/>
+<meta content="Free, simple online calculators and tools for money, health, travel, home, business, education and everyday life. Fast answers without the fuss." name="twitter:description"/>
+<meta content="https://calculatethis.uk/images/hero.webp" name="twitter:image"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Calculate This","url":"https://calculatethis.uk/","description":"Free, simple online calculators and tools for money, health, travel, home, business, education and everyday life. Fast answers without the fuss."}</script>
+<link as="image" fetchpriority="high" href="images/hero.webp" rel="preload"/>
 </head>
 <body>
-  <header class="nav">
-    <a class="brand" href="index.html" aria-label="Calculate This home">
-      <span class="mark" aria-hidden="true">⌁</span><span>Calculate This</span>
-    </a>
-    <nav aria-label="Primary">
-      <a href="#tools">Tools</a>
-      <a href="#categories">Categories</a>
-      <a href="#about">About</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="hero-photo" aria-hidden="true"></div>
-      <div class="hero-overlay" aria-hidden="true"></div>
-
-      <div class="hero-content">
-        <p class="eyebrow">FAST · FREE · BEAUTIFUL</p>
-        <h1>Calculate This</h1>
-        <p class="tagline">Tools for everyday life.</p>
-
-        <form class="search" id="toolSearch" role="search">
-          <input id="searchInput" type="search" autocomplete="off"
-                 placeholder="What do you need to calculate?"
-                 aria-label="Search calculators">
-          <button type="submit">Search</button>
-          <div class="suggestions" id="suggestions" hidden></div>
-        </form>
-      </div>
-
-      <a class="scroll" href="#tools" aria-label="Scroll to tools">⌄</a>
-    </section>
-
-    <section class="section featured" id="tools">
-      <div class="section-head"><span>FEATURED TOOL</span></div>
-      <article class="feature-card">
-        <div>
-          <p class="kicker">Quick & useful</p>
-          <h2>Percentage Calculator</h2>
-          <p>Work out percentages instantly — no clutter, no fuss.</p>
-        </div>
-        <a class="cta" href="percentage.html">Open calculator <span>→</span></a>
-      </article>
-    </section>
-
-    <section class="section" id="categories">
-      <div class="section-head">
-        <span>BROWSE</span>
-        <h2>Everyday calculations, beautifully simple.</h2>
-      </div>
-      <div class="cards">
-        <a class="card money" href="salary.html"><h3>Money</h3><p>Percentages, interest, savings and more.</p><b>Explore →</b></a>
-        <a class="card travel" href="fuel.html"><h3>Travel</h3><p>Fuel, distance, time and trip planning.</p><b>Explore →</b></a>
-        <a class="card home" href="unit-converter.html"><h3>Home</h3><p>Practical tools for everyday projects.</p><b>Explore →</b></a>
-        <a class="card health" href="bmi.html"><h3>Health</h3><p>Simple personal health calculations.</p><b>Explore →</b></a>
-        <a class="card education" href="percentage.html"><h3>Education</h3><p>Numbers, formulas and study helpers.</p><b>Explore →</b></a>
-        <a class="card business" href="vat.html"><h3>Business</h3><p>Margins, VAT, profit and useful figures.</p><b>Explore →</b></a><a class="card words" href="word-finder.html"><h3>Words &amp; Text</h3><p>Word finding, anagrams and text tools.</p><b>Explore →</b></a>
-      </div>
-    </section>
-
-    <section class="section popular">
-      <div class="section-head"><span>POPULAR</span><h2>Get to the answer faster.</h2></div>
-      <div class="tool-list">
-        <a href="percentage.html"><span>Percentage Calculator</span><b>→</b></a>
-        <a href="vat.html"><span>VAT Calculator</span><b>→</b></a>
-        <a href="mortgage.html"><span>Mortgage Calculator</span><b>→</b></a>
-        <a href="salary.html"><span>UK Take-Home Pay Calculator</span><b>→</b></a>
-        <a href="compound-interest.html"><span>Compound Interest Calculator</span><b>→</b></a>
-        <a href="age.html"><span>Age Calculator</span><b>→</b></a>
-        <a href="fuel.html"><span>Fuel Cost Calculator</span><b>→</b></a>
-        <a href="bmi.html"><span>BMI Calculator</span><b>→</b></a>
-        <a href="days-between-dates.html"><span>Days Between Dates</span><b>→</b></a>
-        <a href="unit-converter.html"><span>Unit Converter</span><b>→</b></a>
-        <a href="loan.html"><span>Loan Repayment Calculator</span><b>→</b></a>
-        <a href="discount.html"><span>Discount Calculator</span><b>→</b></a>
-        <a href="word-finder.html"><span>Word Finder</span><b>→</b></a>
-        <a href="savings.html"><span>Savings Calculator</span><b>→</b></a>
-        <a href="tip.html"><span>Tip Calculator</span><b>→</b></a>
-        <a href="pace.html"><span>Running Pace Calculator</span><b>→</b></a>
-        <a href="percentage-change.html"><span>Percentage Change Calculator</span><b>→</b></a>
-        <a href="ltv.html"><span>Loan-to-Value (LTV) Calculator</span><b>→</b></a>
-      </div>
-    </section>
-
-    <section class="section about" id="about">
-      <p class="eyebrow">WHY CALCULATE THIS?</p>
-      <h2>The answer should be the easy part.</h2>
-      <p>Fast, focused tools designed to give you the number you need without distractions.</p>
-    </section>
-  </main>
-
-  <footer>
-    <a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
-    <p>Tools for everyday life.</p>
-    <small>© 2026 Calculate This</small>
-  </footer>
-
-  <script src="js/app.js"></script>
+<header class="nav">
+<a aria-label="Calculate This home" class="brand" href="index.html">
+<span aria-hidden="true" class="mark">⌁</span><span>Calculate This</span>
+</a>
+<nav aria-label="Primary">
+<a href="#tools">Tools</a>
+<a href="#categories">Categories</a>
+<a href="#about">About</a>
+</nav>
+</header>
+<main>
+<section class="hero">
+<div aria-hidden="true" class="hero-photo"></div>
+<div aria-hidden="true" class="hero-overlay"></div>
+<div class="hero-content">
+<p class="eyebrow">FAST · FREE · BEAUTIFUL</p>
+<h1>Calculate This</h1>
+<p class="tagline">Tools for everyday life.</p>
+<form class="search" id="toolSearch" role="search">
+<input aria-label="Search calculators" autocomplete="off" id="searchInput" placeholder="What do you need to calculate?" type="search"/>
+<button type="submit">Search</button>
+<div class="suggestions" hidden="" id="suggestions"></div>
+</form>
+</div>
+<a aria-label="Scroll to tools" class="scroll" href="#tools">⌄</a>
+</section>
+<section class="section featured" id="tools">
+<div class="section-head"><span>FEATURED TOOL</span></div>
+<article class="feature-card">
+<div>
+<p class="kicker">Quick &amp; useful</p>
+<h2>Percentage Calculator</h2>
+<p>Work out percentages instantly — no clutter, no fuss.</p>
+</div>
+<a class="cta" href="percentage.html">Open calculator <span>→</span></a>
+</article>
+</section>
+<section class="section" id="categories">
+<div class="section-head">
+<span>BROWSE</span>
+<h2>Everyday calculations, beautifully simple.</h2>
+</div>
+<div class="cards">
+<a class="card money" href="salary.html"><h3>Money</h3><p>Percentages, interest, savings and more.</p><b>Explore →</b></a>
+<a class="card travel" href="fuel.html"><h3>Travel</h3><p>Fuel, distance, time and trip planning.</p><b>Explore →</b></a>
+<a class="card home" href="unit-converter.html"><h3>Home</h3><p>Practical tools for everyday projects.</p><b>Explore →</b></a>
+<a class="card health" href="bmi.html"><h3>Health</h3><p>Simple personal health calculations.</p><b>Explore →</b></a>
+<a class="card education" href="percentage.html"><h3>Education</h3><p>Numbers, formulas and study helpers.</p><b>Explore →</b></a>
+<a class="card business" href="vat.html"><h3>Business</h3><p>Margins, VAT, profit and useful figures.</p><b>Explore →</b></a><a class="card words" href="word-finder.html"><h3>Words &amp; Text</h3><p>Word finding, anagrams and text tools.</p><b>Explore →</b></a>
+</div>
+</section>
+<section class="section popular">
+<div class="section-head"><span>POPULAR</span><h2>Get to the answer faster.</h2></div>
+<div class="tool-list">
+<a href="percentage.html"><span>Percentage Calculator</span><b>→</b></a>
+<a href="vat.html"><span>VAT Calculator</span><b>→</b></a>
+<a href="mortgage.html"><span>Mortgage Calculator</span><b>→</b></a>
+<a href="salary.html"><span>UK Take-Home Pay Calculator</span><b>→</b></a>
+<a href="compound-interest.html"><span>Compound Interest Calculator</span><b>→</b></a>
+<a href="age.html"><span>Age Calculator</span><b>→</b></a>
+<a href="fuel.html"><span>Fuel Cost Calculator</span><b>→</b></a>
+<a href="bmi.html"><span>BMI Calculator</span><b>→</b></a>
+<a href="days-between-dates.html"><span>Days Between Dates</span><b>→</b></a>
+<a href="unit-converter.html"><span>Unit Converter</span><b>→</b></a>
+<a href="loan.html"><span>Loan Repayment Calculator</span><b>→</b></a>
+<a href="discount.html"><span>Discount Calculator</span><b>→</b></a>
+<a href="word-finder.html"><span>Word Finder</span><b>→</b></a>
+<a href="savings.html"><span>Savings Calculator</span><b>→</b></a>
+<a href="tip.html"><span>Tip Calculator</span><b>→</b></a>
+<a href="pace.html"><span>Running Pace Calculator</span><b>→</b></a>
+<a href="percentage-change.html"><span>Percentage Change Calculator</span><b>→</b></a>
+<a href="ltv.html"><span>Loan-to-Value (LTV) Calculator</span><b>→</b></a>
+</div>
+</section>
+<section class="section about" id="about">
+<p class="eyebrow">WHY CALCULATE THIS?</p>
+<h2>The answer should be the easy part.</h2>
+<p>Fast, focused tools designed to give you the number you need without distractions.</p>
+</section>
+</main>
+<footer>
+<a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
+<p>Tools for everyday life.</p>
+<small>© 2026 Calculate This</small>
+</footer>
+<script src="js/app.js"></script>
 </body>
 </html>
