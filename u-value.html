@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>U-Value Calculator | Calculate This</title>
+<meta name="description" content="Calculate the U-value of a wall, roof or floor from material layers, thicknesses and thermal conductivity values.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="canonical" href="https://calculatethis.uk/u-value.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:site_name" content="Calculate This">
+<meta property="og:type" content="website">
+<meta property="og:title" content="U-Value Calculator | Calculate This">
+<meta property="og:description" content="Calculate the U-value of a wall, roof or floor from material layers, thicknesses and thermal conductivity values.">
+<meta property="og:url" content="https://calculatethis.uk/u-value.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"U-Value Calculator","url":"https://calculatethis.uk/u-value.html","applicationCategory":"CalculatorApplication","operatingSystem":"Any","isAccessibleForFree":true,"description":"Calculate the U-value of a wall, roof or floor from material layers, thicknesses and thermal conductivity values.","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculatethis.uk/"},{"@type":"ListItem","position":2,"name":"Home Calculators","item":"https://calculatethis.uk/home.html"},{"@type":"ListItem","position":3,"name":"U-Value Calculator","item":"https://calculatethis.uk/u-value.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a U-value?","acceptedAnswer":{"@type":"Answer","text":"A U-value describes how easily heat passes through a building element. Lower U-values generally indicate better insulation."}},{"@type":"Question","name":"How is U-value calculated?","acceptedAnswer":{"@type":"Answer","text":"For a simple uniform construction, add the thermal resistances of each layer plus the selected surface resistances, then calculate U = 1 ÷ total resistance."}},{"@type":"Question","name":"Can I use this for Building Regulations compliance?","acceptedAnswer":{"@type":"Answer","text":"Use this as a planning estimate. Real compliance calculations can require treatment of repeating thermal bridges, cavities, fixings and other effects that a simple layer calculator does not model."}}]}</script>
+<style>
+.u-shell{width:min(1040px,88vw);margin:auto;padding:145px 0 110px}
+.u-shell h1{font-family:"Playfair Display",serif;font-size:clamp(50px,7vw,82px);line-height:.98;margin:14px 0 16px;font-weight:500}
+.u-lead{color:rgba(255,255,255,.62);font-size:18px;max-width:760px;line-height:1.7}
+.u-panel{margin-top:40px;border:1px solid rgba(255,255,255,.12);border-radius:26px;background:linear-gradient(145deg,#11191c,#0a0f11);padding:clamp(22px,4vw,40px)}
+.u-controls{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:22px}
+.u-field label{display:block;font-size:13px;color:#9ca8ad;margin-bottom:8px}
+.u-field select,.u-field input{width:100%;padding:14px 15px;border-radius:12px;border:1px solid #334044;background:#080d0f;color:white;font:inherit}
+.layers-head,.layer-row{display:grid;grid-template-columns:1.25fr .8fr .8fr .7fr auto;gap:10px;align-items:center}
+.layers-head{font-size:12px;color:#8f9b9f;text-transform:uppercase;letter-spacing:.1em;padding:0 2px 9px}
+.layer-row{margin-bottom:10px}
+.layer-row select,.layer-row input{width:100%;padding:13px;border-radius:11px;border:1px solid #334044;background:#080d0f;color:white;font:inherit}
+.layer-r{font-variant-numeric:tabular-nums;color:#f1a978;font-size:14px}
+.remove-layer{border:1px solid rgba(255,255,255,.12);background:transparent;color:#c8d0d2;border-radius:10px;padding:10px 11px;cursor:pointer}
+.layer-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.layer-actions button{border:1px solid rgba(255,255,255,.12);background:#101719;color:#e9eeee;border-radius:11px;padding:11px 14px;cursor:pointer}
+.layer-actions .primary{border-color:rgba(241,169,120,.42);color:#f1a978}
+.u-result{margin-top:24px;padding:28px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07)}
+.u-result .label{font-size:12px;color:#8f9b9f;text-transform:uppercase;letter-spacing:.15em}
+.u-number{display:block;font-family:"Playfair Display",serif;color:#f1a978;font-size:clamp(44px,7vw,68px);line-height:1.05;margin:8px 0}
+.u-working{color:#a7b0b3;line-height:1.65}
+.breakdown{margin-top:20px;border-top:1px solid rgba(255,255,255,.08);padding-top:18px}
+.breakdown-row{display:flex;justify-content:space-between;gap:16px;padding:7px 0;color:rgba(255,255,255,.6);font-size:14px}
+.breakdown-row strong{color:rgba(255,255,255,.82)}
+.estimate-note{margin-top:18px;padding:14px 16px;border-radius:13px;border:1px solid rgba(241,169,120,.18);background:rgba(241,169,120,.04);color:rgba(255,255,255,.58);line-height:1.6;font-size:13px}
+@media(max-width:760px){
+ .u-controls{grid-template-columns:1fr}
+ .layers-head{display:none}
+ .layer-row{grid-template-columns:1fr 1fr}
+ .layer-row select{grid-column:1/-1}
+ .layer-r{padding:0 3px}.remove-layer{justify-self:start}
+}
+</style>
+</head>
+<body>
+<header class="nav"><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav></header>
+<main class="u-shell">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="home.html">Home</a><span class="sep">/</span><span aria-current="page">U-Value Calculator</span></nav>
+<p class="eyebrow">HOME · BUILDING PERFORMANCE</p>
+<h1>U-Value Calculator</h1>
+<p class="u-lead">Build up a simple wall, roof or floor layer by layer. Enter each material’s thickness and thermal conductivity (λ) to estimate total thermal resistance and U-value.</p>
+
+<section class="u-panel">
+<div class="u-controls">
+  <div class="u-field">
+    <label for="rsi">Internal surface resistance (m²K/W)</label>
+    <select id="rsi">
+      <option value="0.13" selected>0.13 — typical vertical element</option>
+      <option value="0.10">0.10 — upward heat flow</option>
+      <option value="0.17">0.17 — downward heat flow</option>
+      <option value="0">0 — exclude</option>
+    </select>
+  </div>
+  <div class="u-field">
+    <label for="rse">External surface resistance (m²K/W)</label>
+    <select id="rse">
+      <option value="0.04" selected>0.04 — typical external surface</option>
+      <option value="0">0 — exclude</option>
+    </select>
+  </div>
+</div>
+
+<div class="layers-head">
+  <span>Material</span><span>Thickness (mm)</span><span>λ (W/mK)</span><span>R (m²K/W)</span><span></span>
+</div>
+<div id="layers"></div>
+
+<div class="layer-actions">
+  <button type="button" class="primary" id="addLayer">+ Add another layer</button>
+  <button type="button" id="clearLayers">Reset</button>
+</div>
+
+<div class="u-result">
+  <span class="label">Estimated U-value</span>
+  <strong class="u-number" id="uValue">—</strong>
+  <div class="u-working" id="working">Add one or more material layers to calculate.</div>
+  <div class="breakdown" id="breakdown"></div>
+  <div class="estimate-note">Planning estimate only. Simple 1D layer calculations do not model repeating thermal bridges, fixings, non-uniform cavities or every requirement of a formal compliance calculation.</div>
+</div>
+</section>
+
+<section class="tool-content">
+<h2>How the U-value calculation works</h2>
+<div class="formula-grid">
+  <article><h3>Layer resistance</h3><p>For each uniform layer, thermal resistance is R = thickness in metres ÷ thermal conductivity λ.</p></article>
+  <article><h3>Total resistance</h3><p>Add the resistance of every layer, plus the selected internal and external surface resistances.</p></article>
+  <article><h3>U-value</h3><p>For this simple construction model, U = 1 ÷ total thermal resistance. Lower U-values generally mean less heat flow.</p></article>
+</div>
+</section>
+
+<section class="faq-section">
+<h2>Frequently asked questions</h2>
+<details><summary>What is a U-value?</summary><p>A U-value describes the rate of heat transfer through a building element. Lower values generally indicate better thermal performance.</p></details>
+<details><summary>What does λ mean?</summary><p>Thermal conductivity, λ, is a material property measured in W/mK. A lower λ means the material conducts heat less readily.</p></details>
+<details><summary>Can I use manufacturer λ-values?</summary><p>Yes. For a useful estimate, use the declared or design thermal conductivity appropriate to the product and calculation method you are working with.</p></details>
+<details><summary>Is this suitable for Building Regulations sign-off?</summary><p>Use it as a planning estimate. Formal calculations can require treatment of repeating thermal bridges, fixings, cavities and other effects not included in this simple layer model.</p></details>
+</section>
+
+<section class="related-tools">
+<h2>Related tools</h2>
+<div class="related-grid"><a href="area.html">Area Calculator</a><a href="paint.html">Paint Calculator</a><a href="flooring.html">Flooring Calculator</a></div>
+</section>
+<div class="quality-note">Built for quick, transparent estimates. See <a href="methodology.html">how our calculators work</a> and check page-specific assumptions before relying on a result.</div>
+</main>
+
+<script>
+const presets=[
+  ["Custom material",""],
+  ["Plasterboard",0.25],
+  ["Gypsum plaster",0.57],
+  ["Brickwork",0.77],
+  ["Dense concrete block",1.13],
+  ["Lightweight block",0.19],
+  ["Concrete",1.75],
+  ["Timber",0.13],
+  ["Plywood",0.13],
+  ["OSB",0.13],
+  ["Mineral wool insulation",0.037],
+  ["Glass wool insulation",0.040],
+  ["PIR insulation",0.022],
+  ["Phenolic insulation",0.020],
+  ["EPS insulation",0.036],
+  ["XPS insulation",0.033],
+  ["Aerated concrete",0.16]
+];
+
+const layersEl=document.getElementById("layers");
+const uValue=document.getElementById("uValue");
+const working=document.getElementById("working");
+const breakdown=document.getElementById("breakdown");
+
+function materialOptions(selected=""){
+  return presets.map(([name,lambda])=>`<option value="${lambda}" ${String(lambda)===String(selected)?"selected":""}>${name}${lambda!==""?` — λ ${lambda}`:""}</option>`).join("");
+}
+function addLayer(name="",thickness="",lambda=""){
+  const row=document.createElement("div");
+  row.className="layer-row";
+  row.innerHTML=`<select class="material">${materialOptions(lambda)}</select>
+  <input class="thickness" type="number" min="0" step="any" placeholder="100" value="${thickness}">
+  <input class="lambda" type="number" min="0" step="any" placeholder="0.022" value="${lambda}">
+  <span class="layer-r">—</span>
+  <button class="remove-layer" type="button">Remove</button>`;
+  const mat=row.querySelector(".material"), lam=row.querySelector(".lambda");
+  mat.addEventListener("change",()=>{ if(mat.value!=="") lam.value=mat.value; calculate(); });
+  row.querySelectorAll("input").forEach(x=>x.addEventListener("input",calculate));
+  row.querySelector(".remove-layer").addEventListener("click",()=>{row.remove();calculate();});
+  layersEl.appendChild(row);
+  calculate();
+}
+function calculate(){
+  let total=Number(rsi.value)+Number(rse.value), valid=0, rows=[];
+  document.querySelectorAll(".layer-row").forEach((row,i)=>{
+    const t=Number(row.querySelector(".thickness").value);
+    const l=Number(row.querySelector(".lambda").value);
+    let r=0;
+    if(t>0&&l>0){ r=(t/1000)/l; total+=r; valid++; }
+    row.querySelector(".layer-r").textContent=r>0?r.toFixed(3):"—";
+    const label=row.querySelector(".material").selectedOptions[0]?.textContent?.split(" — ")[0]||`Layer ${i+1}`;
+    if(r>0) rows.push([label,r]);
+  });
+  if(!valid||!(total>0)){uValue.textContent="—";working.textContent="Add one or more valid material layers.";breakdown.innerHTML="";return;}
+  const u=1/total;
+  uValue.textContent=u.toFixed(3)+" W/m²K";
+  working.textContent=`Total thermal resistance ${total.toFixed(3)} m²K/W across ${valid} layer${valid===1?"":"s"} plus selected surface resistances.`;
+  breakdown.innerHTML=
+    rows.map(([n,r])=>`<div class="breakdown-row"><span>${n}</span><strong>${r.toFixed(3)} m²K/W</strong></div>`).join("")+
+    `<div class="breakdown-row"><span>Internal surface</span><strong>${Number(rsi.value).toFixed(3)} m²K/W</strong></div>
+     <div class="breakdown-row"><span>External surface</span><strong>${Number(rse.value).toFixed(3)} m²K/W</strong></div>
+     <div class="breakdown-row"><span>Total R</span><strong>${total.toFixed(3)} m²K/W</strong></div>`;
+}
+document.getElementById("addLayer").addEventListener("click",()=>addLayer());
+document.getElementById("clearLayers").addEventListener("click",()=>{
+  layersEl.innerHTML="";
+  addLayer("",12.5,0.25);
+  addLayer("",100,0.037);
+  addLayer("",100,0.77);
+});
+rsi.addEventListener("change",calculate); rse.addEventListener("change",calculate);
+addLayer("",12.5,0.25);
+addLayer("",100,0.037);
+addLayer("",100,0.77);
+</script>
+</body>
+</html>

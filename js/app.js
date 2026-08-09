@@ -1,4 +1,5 @@
 const tools = [
+  {"name":"U-Value Calculator","url":"u-value.html"},
   {"name": "Mortgage Calculator", "url": "mortgage.html"},
   {"name": "Mortgage Overpayment", "url": "mortgage-overpayment.html"},
   {"name": "Stamp Duty Calculator", "url": "stamp-duty.html"},
