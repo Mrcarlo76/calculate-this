@@ -39,6 +39,7 @@
 <meta name="twitter:description" content="Convert common units instantly, including miles and kilometres, inches and centimetres, kg and stone, Celsius and Fahrenheit.">
 <meta name="twitter:image" content="https://calculatethis.uk/images/tool-heroes/unit-converter.webp">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Unit Converter","url":"https://calculatethis.uk/unit-converter.html","applicationCategory":"CalculatorApplication","operatingSystem":"Any","isAccessibleForFree":true,"description":"Convert common units instantly, including miles and kilometres, inches and centimetres, kg and stone, Celsius and Fahrenheit.","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is temperature conversion different from length conversion?","acceptedAnswer":{"@type":"Answer","text":"Celsius and Fahrenheit use different zero points as well as different unit sizes."}},{"@type":"Question","name":"Are converted values exact?","acceptedAnswer":{"@type":"Answer","text":"The formulas are exact, but displayed values may be rounded for readability."}},{"@type":"Question","name":"Can I convert in both directions?","acceptedAnswer":{"@type":"Answer","text":"Yes. Choose the direction you need from the available conversion options."}}]}</script>
 </head><body class="has-tool-hero">
 <header class="nav"><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
 <nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav></header>
@@ -61,8 +62,19 @@
 <div class="result-box"><span class="result-label">Converted value</span><strong class="result" id="result">—</strong>
 <div class="working" id="working">Enter your details to calculate.</div><div id="summary" class="summary"></div>
 <div class="actions"><button class="action" id="copyBtn" type="button">Copy result</button><button class="action" id="clearBtn" type="button">Clear</button></div></div>
-</section>
-<section class="seo-info"><h2>Convert common everyday units</h2><p>Choose a conversion, enter a value and get the converted result instantly. The tool includes popular distance, length, weight and temperature conversions.</p></section><section class="related-tools"><h2>Related tools</h2><div class="related-grid"><a href="fuel.html">Fuel Cost</a><a href="pace.html">Running Pace</a><a href="days-between-dates.html">Days Between Dates</a></div></section><a class="back" href="index.html">← Back to all tools</a></main><script>
+</section><section class="tool-content">
+      <h2>Unit converter guide</h2>
+      <p>Convert common everyday measurements instantly. Choose the conversion you need, enter a value and the tool calculates the equivalent amount.</p>
+      <div class="formula-grid"><article><h3>Length and distance</h3><p>Convert common units such as miles, kilometres, inches and centimetres.</p></article><article><h3>Weight</h3><p>Useful for everyday conversions between metric and imperial measurements.</p></article><article><h3>Temperature</h3><p>Convert Celsius and Fahrenheit using the correct offset as well as the scale difference.</p></article></div>
+    </section>
+    <section class="faq-section">
+      <h2>Frequently asked questions</h2>
+      <details><summary>Why is temperature conversion different from length conversion?</summary><p>Celsius and Fahrenheit use different zero points as well as different unit sizes.</p></details><details><summary>Are converted values exact?</summary><p>The formulas are exact, but displayed values may be rounded for readability.</p></details><details><summary>Can I convert in both directions?</summary><p>Yes. Choose the direction you need from the available conversion options.</p></details>
+    </section>
+    <section class="related-tools">
+      <h2>Related tools</h2>
+      <div class="related-grid"><a href="fuel.html">Fuel Cost</a><a href="pace.html">Running Pace</a><a href="days-between-dates.html">Days Between Dates</a></div>
+    </section><a class="back" href="index.html">← Back to all tools</a></main><script>
 const resultEl=document.getElementById('result'),workingEl=document.getElementById('working'),summaryEl=document.getElementById('summary');
 function calculate(){const t=document.getElementById('type').value,v=+document.getElementById('value').value;if(!Number.isFinite(v)){resultEl.textContent='—';workingEl.textContent='Enter a value to convert.';summaryEl.innerHTML='';return}
 let x,label,formula;switch(t){case'mi-km':x=v*1.609344;label='km';formula=`${v} miles = ${x.toFixed(3)} km`;break;case'km-mi':x=v/1.609344;label='miles';formula=`${v} km = ${x.toFixed(3)} miles`;break;case'in-cm':x=v*2.54;label='cm';formula=`${v} inches = ${x.toFixed(2)} cm`;break;case'cm-in':x=v/2.54;label='inches';formula=`${v} cm = ${x.toFixed(2)} inches`;break;case'kg-st':x=v/6.35029318;label='stone';formula=`${v} kg = ${x.toFixed(3)} stone`;break;case'st-kg':x=v*6.35029318;label='kg';formula=`${v} stone = ${x.toFixed(3)} kg`;break;case'c-f':x=v*9/5+32;label='°F';formula=`${v}°C = ${x.toFixed(1)}°F`;break;default:x=(v-32)*5/9;label='°C';formula=`${v}°F = ${x.toFixed(1)}°C`}

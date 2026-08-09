@@ -34,6 +34,7 @@
 <meta name="twitter:description" content="Calculate a discount, sale price and exactly how much you save in seconds.">
 <meta name="twitter:image" content="https://calculatethis.uk/images/tool-heroes/discount.webp">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Discount Calculator","url":"https://calculatethis.uk/discount.html","applicationCategory":"CalculatorApplication","operatingSystem":"Any","isAccessibleForFree":true,"description":"Calculate a discount, sale price and exactly how much you save in seconds.","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I calculate 25% off?","acceptedAnswer":{"@type":"Answer","text":"Multiply the original price by 0.75, or enter 25% into the calculator."}},{"@type":"Question","name":"Is 50% off the same as half price?","acceptedAnswer":{"@type":"Answer","text":"Yes. A 50% discount leaves 50% of the original price."}},{"@type":"Question","name":"Can I stack two discounts by adding them together?","acceptedAnswer":{"@type":"Answer","text":"Not usually. Two sequential discounts are applied one after the other, so 20% off then 10% off is not the same as 30% off."}}]}</script>
 </head><body class="has-tool-hero">
 <header class="nav"><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
 <nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav></header>
@@ -51,8 +52,19 @@
 <div class="field"><label for="discount">Discount (%)</label><input id="discount" type="number" inputmode="decimal" placeholder="25"></div></div>
 <div class="result-box"><span class="result-label">Sale price</span><strong class="result" id="result">—</strong>
 <div class="working" id="working">Enter your details to calculate.</div>
-<div class="actions"><button class="action" id="copyBtn" type="button">Copy result</button><button class="action" id="clearBtn" type="button">Clear</button></div></div></section>
-<section class="seo-info"><h2>Work out a sale price</h2><p>Enter the original price and discount percentage to see the new price and your total saving.</p></section><section class="related-tools"><h2>Related tools</h2><div class="related-grid"><a href="percentage.html">Percentage Calculator</a><a href="vat.html">VAT Calculator</a><a href="tip.html">Tip Calculator</a></div></section><a class="back" href="index.html">← Back to all tools</a></main><script>function money(n){return new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP'}).format(n)}
+<div class="actions"><button class="action" id="copyBtn" type="button">Copy result</button><button class="action" id="clearBtn" type="button">Clear</button></div></div></section><section class="tool-content">
+      <h2>Discount calculator guide</h2>
+      <p>Enter the original price and discount percentage to see the sale price and the exact amount saved. It is useful for shopping, promotions and comparing deals.</p>
+      <div class="formula-grid"><article><h3>Sale price</h3><p>The calculator subtracts the percentage discount from the original price.</p></article><article><h3>Amount saved</h3><p>This is the cash difference between the original price and the discounted price.</p></article><article><h3>Compare offers</h3><p>You can quickly compare different discounts on the same item by changing the percentage.</p></article></div>
+    </section>
+    <section class="faq-section">
+      <h2>Frequently asked questions</h2>
+      <details><summary>How do I calculate 25% off?</summary><p>Multiply the original price by 0.75, or enter 25% into the calculator.</p></details><details><summary>Is 50% off the same as half price?</summary><p>Yes. A 50% discount leaves 50% of the original price.</p></details><details><summary>Can I stack two discounts by adding them together?</summary><p>Not usually. Two sequential discounts are applied one after the other, so 20% off then 10% off is not the same as 30% off.</p></details>
+    </section>
+    <section class="related-tools">
+      <h2>Related tools</h2>
+      <div class="related-grid"><a href="percentage.html">Percentage Calculator</a><a href="vat.html">VAT Calculator</a><a href="tip.html">Tip Calculator</a></div>
+    </section><a class="back" href="index.html">← Back to all tools</a></main><script>function money(n){return new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP'}).format(n)}
 function calculate(){const p=parseFloat(document.getElementById('price').value),d=parseFloat(document.getElementById('discount').value);
 if(!Number.isFinite(p)||!Number.isFinite(d)){resultEl.textContent='—';workingEl.textContent='Enter the price and discount.';return}
 const saving=p*d/100,total=p-saving;resultEl.textContent=money(total);workingEl.textContent=`You save ${money(saving)}. ${d}% off ${money(p)} = ${money(total)}.`}

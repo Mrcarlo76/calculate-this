@@ -34,6 +34,7 @@
 <meta name="twitter:description" content="Add or remove UK VAT instantly and see the net amount, VAT amount and total clearly.">
 <meta name="twitter:image" content="https://calculatethis.uk/images/tool-heroes/vat.webp">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"UK VAT Calculator","url":"https://calculatethis.uk/vat.html","applicationCategory":"CalculatorApplication","operatingSystem":"Any","isAccessibleForFree":true,"description":"Add or remove UK VAT instantly and see the net amount, VAT amount and total clearly.","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I add 20% VAT?","acceptedAnswer":{"@type":"Answer","text":"Multiply the net amount by 1.20."}},{"@type":"Question","name":"How do I remove 20% VAT?","acceptedAnswer":{"@type":"Answer","text":"Divide the VAT-inclusive total by 1.20."}},{"@type":"Question","name":"Is VAT always 20% in the UK?","acceptedAnswer":{"@type":"Answer","text":"No. Different goods and services can have different VAT treatments, so use the appropriate rate for your situation."}}]}</script>
 </head><body class="has-tool-hero">
 <header class="nav"><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
 <nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav></header>
@@ -52,8 +53,19 @@
 <div class="field"><label for="mode">Calculation</label><select id="mode"><option value="add">Add VAT</option><option value="remove">Remove VAT</option></select></div></div>
 <div class="result-box"><span class="result-label">Total</span><strong class="result" id="result">—</strong>
 <div class="working" id="working">Enter your details to calculate.</div>
-<div class="actions"><button class="action" id="copyBtn" type="button">Copy result</button><button class="action" id="clearBtn" type="button">Clear</button></div></div></section>
-<section class="seo-info"><h2>Add or remove VAT quickly</h2><p>Choose whether you want to add VAT to a net amount or remove VAT from a gross amount. The calculator separates the VAT element and the underlying amount.</p></section><section class="related-tools"><h2>Related tools</h2><div class="related-grid"><a href="percentage.html">Percentage Calculator</a><a href="discount.html">Discount Calculator</a><a href="salary.html">UK Take-Home Pay</a></div></section><a class="back" href="index.html">← Back to all tools</a></main><script>function money(n){return new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP'}).format(n)}
+<div class="actions"><button class="action" id="copyBtn" type="button">Copy result</button><button class="action" id="clearBtn" type="button">Clear</button></div></div></section><section class="tool-content">
+      <h2>VAT calculator guide</h2>
+      <p>Add VAT to a net price or remove VAT from a gross price. The calculator separates the underlying amount, VAT element and final total.</p>
+      <div class="formula-grid"><article><h3>Add VAT</h3><p>Multiply the net amount by 1 plus the VAT rate as a decimal.</p></article><article><h3>Remove VAT</h3><p>Divide the gross amount by 1 plus the VAT rate to find the net amount.</p></article><article><h3>VAT element</h3><p>The VAT amount is the difference between the gross and net figures.</p></article></div>
+    </section>
+    <section class="faq-section">
+      <h2>Frequently asked questions</h2>
+      <details><summary>How do I add 20% VAT?</summary><p>Multiply the net amount by 1.20.</p></details><details><summary>How do I remove 20% VAT?</summary><p>Divide the VAT-inclusive total by 1.20.</p></details><details><summary>Is VAT always 20% in the UK?</summary><p>No. Different goods and services can have different VAT treatments, so use the appropriate rate for your situation.</p></details>
+    </section>
+    <section class="related-tools">
+      <h2>Related tools</h2>
+      <div class="related-grid"><a href="percentage.html">Percentage Calculator</a><a href="discount.html">Discount Calculator</a><a href="salary.html">UK Take-Home Pay</a></div>
+    </section><a class="back" href="index.html">← Back to all tools</a></main><script>function money(n){return new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP'}).format(n)}
 function calculate(){const a=parseFloat(document.getElementById('amount').value),r=parseFloat(document.getElementById('rate').value),m=document.getElementById('mode').value;
 if(!Number.isFinite(a)){resultEl.textContent='—';workingEl.textContent='Enter an amount to calculate.';return}
 let total,vat;if(m==='add'){vat=a*r/100;total=a+vat;workingEl.textContent=`Net ${money(a)} + VAT ${money(vat)} = ${money(total)}`}

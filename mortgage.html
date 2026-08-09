@@ -39,6 +39,7 @@
 <meta name="twitter:description" content="Estimate monthly mortgage repayments, total repayment and total interest from loan amount, rate and term.">
 <meta name="twitter:image" content="https://calculatethis.uk/images/tool-heroes/mortgage.webp">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Mortgage Calculator","url":"https://calculatethis.uk/mortgage.html","applicationCategory":"CalculatorApplication","operatingSystem":"Any","isAccessibleForFree":true,"description":"Estimate monthly mortgage repayments, total repayment and total interest from loan amount, rate and term.","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does this include fees?","acceptedAnswer":{"@type":"Answer","text":"No, unless you add fees to the mortgage amount entered."}},{"@type":"Question","name":"Can the result change if my rate changes later?","acceptedAnswer":{"@type":"Answer","text":"Yes. Variable rates and future remortgage rates can change actual payments."}},{"@type":"Question","name":"Is this a mortgage offer?","acceptedAnswer":{"@type":"Answer","text":"No. It is an estimate for planning and comparison purposes."}}]}</script>
 </head><body class="has-tool-hero">
 <header class="nav"><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
 <nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav></header>
@@ -58,8 +59,19 @@
 <div class="result-box"><span class="result-label">Monthly repayment</span><strong class="result" id="result">—</strong>
 <div class="working" id="working">Enter your details to calculate.</div><div id="summary" class="summary"></div>
 <div class="actions"><button class="action" id="copyBtn" type="button">Copy result</button><button class="action" id="clearBtn" type="button">Clear</button></div></div>
-</section>
-<section class="seo-info"><h2>How to use this mortgage calculator</h2><p>Enter the mortgage amount, annual interest rate and term. The calculator estimates a monthly repayment and shows the total amount repaid and total interest over the full term.</p></section><section class="related-tools"><h2>Related tools</h2><div class="related-grid"><a href="ltv.html">LTV Calculator</a><a href="loan.html">Loan Repayment</a><a href="savings.html">Savings Calculator</a></div></section><a class="back" href="index.html">← Back to all tools</a></main><script>
+</section><section class="tool-content">
+      <h2>Mortgage calculator guide</h2>
+      <p>Estimate monthly mortgage repayments from the amount borrowed, interest rate and mortgage term. The calculator also shows the total amount repaid and total interest.</p>
+      <div class="formula-grid"><article><h3>Repayment mortgage</h3><p>The calculation assumes regular monthly payments that cover both interest and capital.</p></article><article><h3>Interest rate</h3><p>Even small changes in the mortgage rate can materially affect the monthly payment over a long term.</p></article><article><h3>Mortgage term</h3><p>A longer term usually reduces the monthly payment but increases total interest.</p></article></div>
+    </section>
+    <section class="faq-section">
+      <h2>Frequently asked questions</h2>
+      <details><summary>Does this include fees?</summary><p>No, unless you add fees to the mortgage amount entered.</p></details><details><summary>Can the result change if my rate changes later?</summary><p>Yes. Variable rates and future remortgage rates can change actual payments.</p></details><details><summary>Is this a mortgage offer?</summary><p>No. It is an estimate for planning and comparison purposes.</p></details>
+    </section>
+    <section class="related-tools">
+      <h2>Related tools</h2>
+      <div class="related-grid"><a href="ltv.html">LTV Calculator</a><a href="loan.html">Loan Repayment</a><a href="savings.html">Savings Calculator</a></div>
+    </section><a class="back" href="index.html">← Back to all tools</a></main><script>
 const resultEl=document.getElementById('result'),workingEl=document.getElementById('working'),summaryEl=document.getElementById('summary');
 function gbp(n){return new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',maximumFractionDigits:2}).format(n)}
 function calculate(){const P=+document.getElementById('principal').value,r=+document.getElementById('rate').value/100/12,n=+document.getElementById('years').value*12;

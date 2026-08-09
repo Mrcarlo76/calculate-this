@@ -34,6 +34,7 @@
 <meta name="twitter:description" content="Calculate an exact age in years, months and days from a date of birth to any chosen date.">
 <meta name="twitter:image" content="https://calculatethis.uk/images/tool-heroes/age.webp">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Age Calculator","url":"https://calculatethis.uk/age.html","applicationCategory":"CalculatorApplication","operatingSystem":"Any","isAccessibleForFree":true,"description":"Calculate an exact age in years, months and days from a date of birth to any chosen date.","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I calculate age on a past date?","acceptedAnswer":{"@type":"Answer","text":"Yes. Choose any comparison date after the date of birth to see the exact age on that day."}},{"@type":"Question","name":"Why is age not just days divided by 365?","acceptedAnswer":{"@type":"Answer","text":"Calendar years and months have different lengths, so dividing days by 365 only gives an approximation."}},{"@type":"Question","name":"Does the calculator account for leap years?","acceptedAnswer":{"@type":"Answer","text":"Yes. Because it works with actual calendar dates, leap years are naturally included."}}]}</script>
 </head><body class="has-tool-hero">
 <header class="nav"><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
 <nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav></header>
@@ -51,8 +52,19 @@
 <div class="field"><label for="ondate">Age on date</label><input id="ondate" type="date"></div></div>
 <div class="result-box"><span class="result-label">Age</span><strong class="result" id="result">—</strong>
 <div class="working" id="working">Enter your details to calculate.</div>
-<div class="actions"><button class="action" id="copyBtn" type="button">Copy result</button><button class="action" id="clearBtn" type="button">Clear</button></div></div></section>
-<section class="seo-info"><h2>Find your exact age</h2><p>Choose a date of birth and comparison date to calculate the elapsed time in years, months and days.</p></section><section class="related-tools"><h2>Related tools</h2><div class="related-grid"><a href="days-between-dates.html">Days Between Dates</a><a href="bmi.html">BMI Calculator</a><a href="percentage.html">Percentage Calculator</a></div></section><a class="back" href="index.html">← Back to all tools</a></main><script>document.getElementById('ondate').value=new Date().toISOString().slice(0,10);
+<div class="actions"><button class="action" id="copyBtn" type="button">Copy result</button><button class="action" id="clearBtn" type="button">Clear</button></div></div></section><section class="tool-content">
+      <h2>Age calculator guide</h2>
+      <p>Use the date fields to calculate an exact age between a date of birth and any comparison date. The result is shown in years, months and days rather than as an approximate decimal age.</p>
+      <div class="formula-grid"><article><h3>How age is calculated</h3><p>The calculator moves through complete years first, then complete months, then the remaining days. This keeps the result aligned with calendar dates.</p></article><article><h3>Useful for milestones</h3><p>You can use the comparison date for birthdays, eligibility dates, anniversaries or any other date where an exact age matters.</p></article><article><h3>Date order matters</h3><p>If the comparison date is earlier than the date of birth, there is no valid age to calculate.</p></article></div>
+    </section>
+    <section class="faq-section">
+      <h2>Frequently asked questions</h2>
+      <details><summary>Can I calculate age on a past date?</summary><p>Yes. Choose any comparison date after the date of birth to see the exact age on that day.</p></details><details><summary>Why is age not just days divided by 365?</summary><p>Calendar years and months have different lengths, so dividing days by 365 only gives an approximation.</p></details><details><summary>Does the calculator account for leap years?</summary><p>Yes. Because it works with actual calendar dates, leap years are naturally included.</p></details>
+    </section>
+    <section class="related-tools">
+      <h2>Related tools</h2>
+      <div class="related-grid"><a href="days-between-dates.html">Days Between Dates</a><a href="bmi.html">BMI Calculator</a><a href="percentage.html">Percentage Calculator</a></div>
+    </section><a class="back" href="index.html">← Back to all tools</a></main><script>document.getElementById('ondate').value=new Date().toISOString().slice(0,10);
 function calculate(){const ds=document.getElementById('dob').value,os=document.getElementById('ondate').value;if(!ds||!os){resultEl.textContent='—';workingEl.textContent='Choose a date of birth.';return}
 const d=new Date(ds+'T00:00:00'),o=new Date(os+'T00:00:00');if(o<d){resultEl.textContent='—';workingEl.textContent='The calculation date must be after the date of birth.';return}
 let y=o.getFullYear()-d.getFullYear(),m=o.getMonth()-d.getMonth(),days=o.getDate()-d.getDate();if(days<0){m--;const prev=new Date(o.getFullYear(),o.getMonth(),0);days+=prev.getDate()}if(m<0){y--;m+=12}
