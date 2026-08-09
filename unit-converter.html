@@ -74,7 +74,7 @@
     <section class="related-tools">
       <h2>Related tools</h2>
       <div class="related-grid"><a href="fuel.html">Fuel Cost</a><a href="pace.html">Running Pace</a><a href="days-between-dates.html">Days Between Dates</a></div>
-    </section><a class="back" href="index.html">← Back to all tools</a></main><script>
+    </section><a class="back" href="index.html">← Back to all tools</a><div class="quality-note">Built for quick, transparent estimates. See <a href="methodology.html">how our calculators work</a> and check page-specific assumptions before relying on a result.</div></main><script>
 const resultEl=document.getElementById('result'),workingEl=document.getElementById('working'),summaryEl=document.getElementById('summary');
 function calculate(){const t=document.getElementById('type').value,v=+document.getElementById('value').value;if(!Number.isFinite(v)){resultEl.textContent='—';workingEl.textContent='Enter a value to convert.';summaryEl.innerHTML='';return}
 let x,label,formula;switch(t){case'mi-km':x=v*1.609344;label='km';formula=`${v} miles = ${x.toFixed(3)} km`;break;case'km-mi':x=v/1.609344;label='miles';formula=`${v} km = ${x.toFixed(3)} miles`;break;case'in-cm':x=v*2.54;label='cm';formula=`${v} inches = ${x.toFixed(2)} cm`;break;case'cm-in':x=v/2.54;label='inches';formula=`${v} cm = ${x.toFixed(2)} inches`;break;case'kg-st':x=v/6.35029318;label='stone';formula=`${v} kg = ${x.toFixed(3)} stone`;break;case'st-kg':x=v*6.35029318;label='kg';formula=`${v} stone = ${x.toFixed(3)} kg`;break;case'c-f':x=v*9/5+32;label='°F';formula=`${v}°C = ${x.toFixed(1)}°F`;break;default:x=(v-32)*5/9;label='°C';formula=`${v}°F = ${x.toFixed(1)}°C`}
@@ -82,4 +82,4 @@ resultEl.textContent=`${Number(x.toFixed(4))} ${label}`;workingEl.textContent=fo
 document.querySelectorAll('.panel input,.panel select').forEach(x=>x.addEventListener('input',calculate));
 document.getElementById('clearBtn').onclick=()=>{document.querySelectorAll('.panel input').forEach(x=>x.value='');calculate();};
 document.getElementById('copyBtn').onclick=async()=>{if(resultEl.textContent==='—')return;try{await navigator.clipboard.writeText(resultEl.textContent);const b=document.getElementById('copyBtn');b.textContent='Copied';setTimeout(()=>b.textContent='Copy result',1200)}catch(e){}};
-calculate();</script></body></html>
+calculate();</script><footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer></body></html>

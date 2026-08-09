@@ -68,7 +68,7 @@
 <h2>Related tools</h2><div class="related-grid"><a href="fraction.html">Fraction Simplifier</a><a href="average.html">Average Calculator</a><a href="percentage.html">Percentage Calculator</a></div>
 </section>
 <a class="back" href="index.html">← Back to all tools</a>
-</main>
+<div class="quality-note">Built for quick, transparent estimates. See <a href="methodology.html">how our calculators work</a> and check page-specific assumptions before relying on a result.</div></main>
 <script>function gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){let t=b;b=a%b;a=t}return a||1}
 function calculate(){let x=+a.value,y=+b.value,m=+mult.value;if(!Number.isInteger(x)||!Number.isInteger(y)||x===0||y===0){result.textContent='—';working.textContent='Enter non-zero whole numbers for the ratio.';return}
 let g=gcd(x,y),sx=x/g,sy=y/g;result.textContent=`${sx}:${sy}`;
@@ -77,5 +77,5 @@ document.getElementById('clearBtn').addEventListener('click',()=>{document.query
 document.querySelectorAll('.panel input,.panel select').forEach(x=>x.addEventListener('input',calculate));
 calculate();
 </script>
-</body>
+<footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer></body>
 </html>

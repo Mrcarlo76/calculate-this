@@ -64,7 +64,7 @@
     <section class="related-tools">
       <h2>Related tools</h2>
       <div class="related-grid"><a href="days-between-dates.html">Days Between Dates</a><a href="bmi.html">BMI Calculator</a><a href="percentage.html">Percentage Calculator</a></div>
-    </section><a class="back" href="index.html">← Back to all tools</a></main><script>document.getElementById('ondate').value=new Date().toISOString().slice(0,10);
+    </section><a class="back" href="index.html">← Back to all tools</a><div class="quality-note">Built for quick, transparent estimates. See <a href="methodology.html">how our calculators work</a> and check page-specific assumptions before relying on a result.</div></main><script>document.getElementById('ondate').value=new Date().toISOString().slice(0,10);
 function calculate(){const ds=document.getElementById('dob').value,os=document.getElementById('ondate').value;if(!ds||!os){resultEl.textContent='—';workingEl.textContent='Choose a date of birth.';return}
 const d=new Date(ds+'T00:00:00'),o=new Date(os+'T00:00:00');if(o<d){resultEl.textContent='—';workingEl.textContent='The calculation date must be after the date of birth.';return}
 let y=o.getFullYear()-d.getFullYear(),m=o.getMonth()-d.getMonth(),days=o.getDate()-d.getDate();if(days<0){m--;const prev=new Date(o.getFullYear(),o.getMonth(),0);days+=prev.getDate()}if(m<0){y--;m+=12}
@@ -72,4 +72,4 @@ resultEl.textContent=`${y} years`;workingEl.textContent=`${y} years, ${m} months
 const resultEl=document.getElementById('result'),workingEl=document.getElementById('working');
 document.getElementById('clearBtn').onclick=()=>{document.querySelectorAll('.panel input').forEach(x=>x.value='');calculate();};
 document.getElementById('copyBtn').onclick=async()=>{if(resultEl.textContent==='—')return;try{await navigator.clipboard.writeText(resultEl.textContent);const b=document.getElementById('copyBtn');b.textContent='Copied';setTimeout(()=>b.textContent='Copy result',1200)}catch(e){}};
-document.querySelectorAll('.panel input,.panel select').forEach(x=>x.addEventListener('input',calculate));calculate();</script></body></html>
+document.querySelectorAll('.panel input,.panel select').forEach(x=>x.addEventListener('input',calculate));calculate();</script><footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer></body></html>

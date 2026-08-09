@@ -68,7 +68,7 @@
 <h2>Related tools</h2><div class="related-grid"><a href="bmi.html">BMI Calculator</a><a href="bmr.html">BMR Calculator</a><a href="pace.html">Running Pace</a></div>
 </section>
 <a class="back" href="index.html">← Back to all tools</a>
-</main>
+<div class="quality-note">Built for quick, transparent estimates. See <a href="methodology.html">how our calculators work</a> and check page-specific assumptions before relying on a result.</div></main>
 <script>function calculate(){let w=+waist.value,h=+height.value;if(!(w>0&&h>0)){result.textContent='—';working.textContent='Enter waist and height using the same unit.';return}
 let r=w/h;result.textContent=r.toFixed(3);
 working.textContent=`Waist is ${(r*100).toFixed(1)}% of height. This ratio alone is not a diagnosis or complete health assessment.`;}
@@ -76,5 +76,5 @@ document.getElementById('clearBtn').addEventListener('click',()=>{document.query
 document.querySelectorAll('.panel input,.panel select').forEach(x=>x.addEventListener('input',calculate));
 calculate();
 </script>
-</body>
+<footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer></body>
 </html>

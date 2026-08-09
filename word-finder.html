@@ -119,7 +119,7 @@
       <h2>Related tools</h2>
       <div class="related-grid"><a href="percentage.html">Percentage Calculator</a><a href="age.html">Age Calculator</a><a href="unit-converter.html">Unit Converter</a></div>
     </section><a class="back" href="index.html">← Back to all tools</a>
-</main>
+<div class="quality-note">Built for quick, transparent estimates. See <a href="methodology.html">how our calculators work</a> and check page-specific assumptions before relying on a result.</div></main>
 
 <script src="data/words.js"></script>
 <script>
@@ -151,5 +151,5 @@ starts.addEventListener('input',()=>{if(letters.value)search()}); contains.addEv
 document.getElementById('clearBtn').onclick=()=>{letters.value='';starts.value='';contains.value='';current=[];count.textContent='Enter some letters';status.textContent='Results are sorted by longest words first.';results.innerHTML='<div class="empty">Try letters such as <strong>react</strong>, <strong>listen</strong> or <strong>triangle</strong>.</div>';letters.focus()};
 document.getElementById('copyBtn').onclick=async()=>{if(!current.length)return;try{await navigator.clipboard.writeText(current.join('\\n'));const b=document.getElementById('copyBtn');b.textContent='Copied';setTimeout(()=>b.textContent='Copy all words',1200)}catch(e){}};
 </script>
-</body>
+<footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer></body>
 </html>
