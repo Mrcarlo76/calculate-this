@@ -172,3 +172,14 @@ footer small{text-align:right}
 .related-grid a{padding:11px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.025);color:rgba(255,255,255,.78);transition:.2s ease}
 .related-grid a:hover{border-color:rgba(241,169,120,.38);color:#f1a978;background:rgba(241,169,120,.045)}
 .section,.calc-shell,.word-shell{content-visibility:auto;contain-intrinsic-size:auto 700px}
+
+/* v2.5.3 percentage-page content template */
+.percentage-content,.faq-section{width:min(980px,88vw);margin:48px auto 0}
+.percentage-content>h2,.faq-section>h2{font-family:"Playfair Display",serif;font-size:clamp(30px,4vw,40px);font-weight:500;margin:0 0 14px}
+.percentage-content>p{max-width:800px;color:rgba(255,255,255,.6);line-height:1.75}
+.formula-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.formula-grid article{padding:22px;border:1px solid rgba(255,255,255,.1);border-radius:18px;background:rgba(255,255,255,.025)}
+.formula-grid h3{font-size:17px;margin:0 0 10px}.formula-grid p{color:rgba(255,255,255,.6);line-height:1.6;margin:7px 0}.formula-grid strong{color:rgba(255,255,255,.86)}
+.faq-section details{border-top:1px solid rgba(255,255,255,.1);padding:17px 0}.faq-section details:last-child{border-bottom:1px solid rgba(255,255,255,.1)}
+.faq-section summary{cursor:pointer;font-weight:600;color:rgba(255,255,255,.86)}.faq-section details p{color:rgba(255,255,255,.58);line-height:1.7;max-width:780px;margin:10px 0 0}
+@media(max-width:760px){.formula-grid{grid-template-columns:1fr}}
