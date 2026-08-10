@@ -26,6 +26,7 @@ const tools = [
   {"name": "Paint Calculator", "url": "paint.html"},
   {"name": "Flooring Calculator", "url": "flooring.html"},
   {"name": "BMI Calculator", "url": "bmi.html"},
+  {"name": "Calorie Calculator", "url": "calorie-calculator.html", "keywords": "calories calorie needs maintenance tdee bmr weight loss gain activity energy"},
   {"name": "Age Calculator", "url": "age.html"},
   {"name": "BMR Calculator", "url": "bmr.html"},
   {"name": "Waist-to-Height Ratio", "url": "waist-height.html"},
