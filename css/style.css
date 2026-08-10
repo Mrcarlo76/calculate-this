@@ -320,9 +320,10 @@ url("../images/construction-hero.webp") center/cover no-repeat}
 
 /* v2.9.4 featured carousel */
 .featured-carousel{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-inline:contain;padding:2px 2px 18px;scrollbar-width:thin;scrollbar-color:rgba(244,177,131,.38) transparent}
-.featured-carousel .feature-card{flex:0 0 min(900px,82vw);scroll-snap-align:start}
+.featured-carousel .feature-card{flex:0 0 min(760px,72vw);scroll-snap-align:start}
 .featured-carousel .feature-card:nth-child(2){background:radial-gradient(circle at 85% 15%,rgba(56,214,197,.16),transparent 30%),linear-gradient(135deg,#11191c,#0a0e10)}
-.featured-carousel .feature-card:nth-child(3),.featured-carousel .feature-card:nth-child(4){background:radial-gradient(circle at 85% 15%,rgba(242,198,164,.16),transparent 30%),linear-gradient(135deg,#11191c,#0a0e10)}
+.featured-carousel .feature-card:nth-child(3){background:radial-gradient(circle at 85% 15%,rgba(242,198,164,.16),transparent 30%),linear-gradient(135deg,#11191c,#0a0e10)}
+.featured-carousel .feature-card:nth-child(4){background:radial-gradient(circle at 85% 15%,rgba(126,207,136,.16),transparent 30%),linear-gradient(135deg,#11191c,#0a0e10)}
 .featured-carousel .feature-card:nth-child(5){background:radial-gradient(circle at 85% 15%,rgba(90,168,255,.16),transparent 30%),linear-gradient(135deg,#11191c,#0a0e10)}
 @media(max-width:760px){.featured-carousel{width:calc(100vw - 6vw);margin-right:calc(44vw - 50vw);gap:14px}.featured-carousel .feature-card{flex-basis:82vw;min-height:340px}.featured-carousel .feature-card h2{font-size:clamp(38px,12vw,58px)}}
 
