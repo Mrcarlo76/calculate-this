@@ -1,5 +1,4 @@
 const tools = [
-  {"name":"U-Value Calculator","url":"u-value.html"},
   {"name": "Mortgage Calculator", "url": "mortgage.html"},
   {"name": "Mortgage Overpayment", "url": "mortgage-overpayment.html"},
   {"name": "Stamp Duty Calculator", "url": "stamp-duty.html"},
@@ -20,6 +19,7 @@ const tools = [
   {"name": "Area Calculator", "url": "area.html"},
   {"name": "Paint Calculator", "url": "paint.html"},
   {"name": "Flooring Calculator", "url": "flooring.html"},
+  {"name": "U-Value Calculator", "url": "u-value.html"},
   {"name": "BMI Calculator", "url": "bmi.html"},
   {"name": "Age Calculator", "url": "age.html"},
   {"name": "BMR Calculator", "url": "bmr.html"},
@@ -34,7 +34,11 @@ const tools = [
   {"name": "VAT Calculator", "url": "vat.html"},
   {"name": "Profit Margin", "url": "profit-margin.html"},
   {"name": "Markup Calculator", "url": "markup.html"},
-  {"name": "Word Finder", "url": "word-finder.html"}
+  {"name": "Word Finder", "url": "word-finder.html"},
+  {"name": "Word Counter", "url": "word-counter.html"},
+  {"name": "Reading Time Calculator", "url": "reading-time.html"},
+  {"name": "Speaking Time Calculator", "url": "speaking-time.html"},
+  {"name": "Reading Level Calculator", "url": "reading-level.html"}
 ];
 const input=document.getElementById("searchInput"),box=document.getElementById("suggestions");
 function render(q=""){const m=tools.filter(t=>t.name.toLowerCase().includes(q.toLowerCase())).slice(0,7);if(!q||!m.length){box.hidden=true;box.innerHTML="";return}box.innerHTML=m.map(t=>`<a href="${t.url}">${t.name}</a>`).join("");box.hidden=false}
