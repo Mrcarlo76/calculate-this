@@ -1,5 +1,5 @@
 const tools = [
-{"name": "Mortgage Calculator", "url": "mortgage.html"},
+  {"name": "Mortgage Calculator", "url": "mortgage.html"},
   {"name": "Mortgage Overpayment", "url": "mortgage-overpayment.html"},
   {"name": "Stamp Duty Calculator", "url": "stamp-duty.html"},
   {"name": "Loan Repayment", "url": "loan.html"},
@@ -33,12 +33,20 @@ const tools = [
   {"name": "VAT Calculator", "url": "vat.html"},
   {"name": "Profit Margin", "url": "profit-margin.html"},
   {"name": "Markup Calculator", "url": "markup.html"},
+  {"name": "Ceiling Tile Calculator", "url": "ceiling-tile.html", "keywords": "ceiling tiles suspended ceiling grid main tee cross tee"},
+  {"name": "MF Ceiling Calculator", "url": "mf-ceiling.html", "keywords": "mf ceiling suspended ceiling drylining mf5 mf6 mf7"},
+  {"name": "Plasterboard Calculator", "url": "plasterboard.html"},
+  {"name": "Metal Stud Partition Calculator", "url": "metal-stud-partition.html"},
+  {"name": "Insulation Calculator", "url": "insulation.html"},
+  {"name": "Brick & Block Calculator", "url": "brick-block.html"},
+  {"name": "Concrete Calculator", "url": "concrete.html"},
+  {"name": "Screed Calculator", "url": "screed.html"},
+  {"name": "U-Value Calculator", "url": "u-value.html", "keywords": "u value u-value thermal insulation heat loss construction wall roof floor"},
   {"name": "Word Finder", "url": "word-finder.html"},
   {"name": "Word Counter", "url": "word-counter.html"},
   {"name": "Reading Time Calculator", "url": "reading-time.html"},
   {"name": "Speaking Time Calculator", "url": "speaking-time.html"},
-  {"name": "Reading Level Calculator", "url": "reading-level.html"},
-  {"name":"U-Value Calculator","url":"u-value.html","keywords":"u value u-value thermal insulation heat loss wall roof floor building construction"}
+  {"name": "Reading Level Calculator", "url": "reading-level.html"}
 ];
 const input=document.getElementById("searchInput"),box=document.getElementById("suggestions");
 function render(q=""){const m=tools.filter(t=>((t.name+" "+(t.keywords||"")).toLowerCase().includes(q.toLowerCase()))).slice(0,7);if(!q||!m.length){box.hidden=true;box.innerHTML="";return}box.innerHTML=m.map(t=>`<a href="${t.url}">${t.name}</a>`).join("");box.hidden=false}
