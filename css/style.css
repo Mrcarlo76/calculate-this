@@ -341,3 +341,75 @@ url("../images/construction-hero.webp") center/cover no-repeat}
 
 /* v2.9.7 Gym & Fitness */
 .card.gym{--card-accent:#ff6b62;--card-glow:rgba(255,80,70,.15);background-image:linear-gradient(180deg,rgba(7,11,13,.05) 0%,rgba(7,11,13,.28) 46%,rgba(7,11,13,.95) 100%),url('../images/gym-barbell-cinematic.png');background-position:center;background-size:cover}.card.gym h3,.card.gym b{color:#ff8178!important}.gym-tool-hero .tool-hero-bg{background-image:url('../images/gym-barbell-cinematic.png')!important;background-position:center 42%}.gym-tool-hero .tool-hero:before{background:linear-gradient(90deg,rgba(4,8,10,.94) 0%,rgba(4,8,10,.70) 44%,rgba(4,8,10,.20) 78%),linear-gradient(180deg,rgba(4,8,10,.06) 0%,rgba(4,8,10,.12) 62%,#070b0d 100%)}.gym-accent{color:#ff6b62!important}.gym-panel .result{color:#ff6b62}.gym-panel input:focus,.gym-panel select:focus{border-color:#ff6b62}.gym-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.gym-checks{display:flex;flex-wrap:wrap;gap:8px}.gym-checks label{border:1px solid #334044;border-radius:11px;padding:10px 12px;cursor:pointer}.gym-checks input{width:auto;margin-right:6px}@media(max-width:680px){.gym-grid{grid-template-columns:1fr}}
+
+/* v2.9.8 Gym & Fitness visual alignment */
+.card.gym{
+  --card-accent:#ff8178;
+  --card-glow:rgba(255,105,95,.15);
+  background-image:
+    linear-gradient(180deg,rgba(7,11,13,.06) 0%,rgba(7,11,13,.30) 45%,rgba(7,11,13,.95) 100%),
+    url('../images/gym-cinematic.webp')!important;
+  background-position:center!important;
+  background-size:cover!important;
+}
+.card.gym h3,.card.gym b{color:#ff8178!important}
+
+.gym-tool-hero .tool-hero-bg{
+  background-image:url('../images/gym-cinematic.webp')!important;
+  background-position:center 48%!important;
+}
+.gym-tool-hero .tool-hero:before{
+  background:
+    linear-gradient(90deg,rgba(4,8,10,.94) 0%,rgba(4,8,10,.70) 45%,rgba(4,8,10,.22) 80%),
+    linear-gradient(180deg,rgba(4,8,10,.03) 0%,rgba(4,8,10,.14) 64%,#070b0d 100%)!important;
+}
+.gym-accent{color:#ff8178!important}
+.gym-category .category-meta span{border-color:rgba(255,129,120,.22)}
+.gym-category-tool:hover{border-color:rgba(255,129,120,.40);background:rgba(255,129,120,.035)}
+.gym-category-tool b{color:#ff8178}
+
+.has-tool-hero .gym-shell{
+  width:min(1040px,88vw);
+  padding:48px 0 110px;
+}
+.gym-panel .takeoff-grid input,
+.gym-panel .takeoff-grid select{
+  width:100%;
+  box-sizing:border-box;
+  padding:14px 15px;
+  min-height:50px;
+  border-radius:12px;
+  border:1px solid #334044;
+  background:#080d0f;
+  color:white;
+  font:inherit;
+  font-size:16px;
+  outline:none;
+}
+.gym-panel .takeoff-grid label{
+  display:block;
+  color:#9ca8ad;
+  font-size:13px;
+  margin-bottom:7px;
+}
+.gym-panel .takeoff-grid input:focus,
+.gym-panel .takeoff-grid select:focus{
+  border-color:#ff8178;
+  box-shadow:0 0 0 3px rgba(255,129,120,.08);
+}
+.gym-result{grid-template-columns:minmax(0,1fr)}
+.gym-result-stat strong{color:#ff8178}
+.gym-checks{display:flex;flex-wrap:wrap;gap:8px}
+.gym-checks label{
+  color:#dce2e4!important;
+  border:1px solid #334044;
+  border-radius:11px;
+  padding:10px 12px;
+  cursor:pointer;
+  margin:0!important;
+}
+.gym-checks input{width:auto!important;min-height:auto!important;margin-right:6px}
+@media(max-width:700px){
+  .has-tool-hero .gym-shell{width:min(92vw,1040px);padding-top:38px}
+  .gym-category h1{font-size:clamp(44px,13vw,64px)}
+}
