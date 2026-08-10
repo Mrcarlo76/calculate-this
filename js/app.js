@@ -1,5 +1,5 @@
 const tools = [
-  {"name": "Mortgage Calculator", "url": "mortgage.html"},
+{"name": "Mortgage Calculator", "url": "mortgage.html"},
   {"name": "Mortgage Overpayment", "url": "mortgage-overpayment.html"},
   {"name": "Stamp Duty Calculator", "url": "stamp-duty.html"},
   {"name": "Loan Repayment", "url": "loan.html"},
@@ -18,8 +18,7 @@ const tools = [
   {"name": "Discount Calculator", "url": "discount.html"},
   {"name": "Area Calculator", "url": "area.html"},
   {"name": "Paint Calculator", "url": "paint.html"},
-  {"name": "Flooring Calculator", "url": "flooring.html"},
-  {"name": "U-Value Calculator", "url": "u-value.html"},
+  {"name": "Flooring Calculator", "url": "flooring.html"}
   {"name": "BMI Calculator", "url": "bmi.html"},
   {"name": "Age Calculator", "url": "age.html"},
   {"name": "BMR Calculator", "url": "bmr.html"},
@@ -38,10 +37,11 @@ const tools = [
   {"name": "Word Counter", "url": "word-counter.html"},
   {"name": "Reading Time Calculator", "url": "reading-time.html"},
   {"name": "Speaking Time Calculator", "url": "speaking-time.html"},
-  {"name": "Reading Level Calculator", "url": "reading-level.html"}
+  {"name": "Reading Level Calculator", "url": "reading-level.html"},
+  {"name":"U-Value Calculator","url":"u-value.html","keywords":"u value u-value thermal insulation heat loss wall roof floor building construction"}
 ];
 const input=document.getElementById("searchInput"),box=document.getElementById("suggestions");
-function render(q=""){const m=tools.filter(t=>t.name.toLowerCase().includes(q.toLowerCase())).slice(0,7);if(!q||!m.length){box.hidden=true;box.innerHTML="";return}box.innerHTML=m.map(t=>`<a href="${t.url}">${t.name}</a>`).join("");box.hidden=false}
+function render(q=""){const m=tools.filter(t=>((t.name+" "+(t.keywords||"")).toLowerCase().includes(q.toLowerCase()))).slice(0,7);if(!q||!m.length){box.hidden=true;box.innerHTML="";return}box.innerHTML=m.map(t=>`<a href="${t.url}">${t.name}</a>`).join("");box.hidden=false}
 input.addEventListener("input",e=>render(e.target.value.trim()));
 document.addEventListener("click",e=>{if(!e.target.closest(".search"))box.hidden=true});
-document.getElementById("toolSearch").addEventListener("submit",e=>{e.preventDefault();const q=input.value.trim().toLowerCase(),hit=tools.find(t=>t.name.toLowerCase().includes(q));if(hit)location.href=hit.url;else render(input.value.trim())});
+document.getElementById("toolSearch").addEventListener("submit",e=>{e.preventDefault();const q=input.value.trim().toLowerCase(),hit=tools.find(t=>((t.name+" "+(t.keywords||"")).toLowerCase().includes(q)));if(hit)location.href=hit.url;else render(input.value.trim())});
