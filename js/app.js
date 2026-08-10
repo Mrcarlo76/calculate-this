@@ -18,7 +18,7 @@ const tools = [
   {"name": "Discount Calculator", "url": "discount.html"},
   {"name": "Area Calculator", "url": "area.html"},
   {"name": "Paint Calculator", "url": "paint.html"},
-  {"name": "Flooring Calculator", "url": "flooring.html"}
+  {"name": "Flooring Calculator", "url": "flooring.html"},
   {"name": "BMI Calculator", "url": "bmi.html"},
   {"name": "Age Calculator", "url": "age.html"},
   {"name": "BMR Calculator", "url": "bmr.html"},
