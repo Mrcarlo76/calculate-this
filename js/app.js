@@ -1,4 +1,10 @@
 const tools = [
+  {"name": "Key & Scale Finder", "url": "key-scale.html", "keywords": "music key scale notes major minor modes"},
+  {"name": "Chord Finder", "url": "chord-finder.html", "keywords": "music chord notes major minor seventh"},
+  {"name": "Chord Transposer", "url": "chord-transposer.html", "keywords": "music transpose chords key semitones"},
+  {"name": "Note Frequency Calculator", "url": "note-frequency.html", "keywords": "music note frequency hz tuning a4"},
+  {"name": "Guitar Fret Note Finder", "url": "guitar-fretboard.html", "keywords": "guitar fretboard string fret note tuning"},
+  {"name": "Tempo & Delay Calculator", "url": "tempo-delay.html", "keywords": "music bpm tempo delay milliseconds dotted triplet"},
   {"name": "Mortgage Calculator", "url": "mortgage.html"},
   {"name": "Mortgage Overpayment", "url": "mortgage-overpayment.html"},
   {"name": "Stamp Duty Calculator", "url": "stamp-duty.html"},
