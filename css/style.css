@@ -416,10 +416,10 @@ url("../images/construction-hero.webp") center/cover no-repeat}
 }
 
 
-/* v3.0.0 — Music category */
+/* v3.0.1 — Music category image refresh */
 .card.music{
   --card-accent:#c9a7ff;--card-glow:rgba(201,167,255,.16);
-  background-image:linear-gradient(180deg,rgba(7,11,13,.06) 0%,rgba(7,11,13,.30) 45%,rgba(7,11,13,.96) 100%),url('https://images.pexels.com/photos/9418212/pexels-photo-9418212.jpeg?auto=compress&cs=tinysrgb&w=1600');
+  background-image:linear-gradient(180deg,rgba(7,11,13,.06) 0%,rgba(7,11,13,.30) 45%,rgba(7,11,13,.96) 100%),url('../images/category-music.webp');
   background-position:center 45%;background-size:cover
 }
 .card.music h3,.card.music b{color:#d7bdff!important}
@@ -427,7 +427,7 @@ url("../images/construction-hero.webp") center/cover no-repeat}
 .music-category .category-meta span{border-color:rgba(201,167,255,.23)}
 .music-category-tool:hover{border-color:rgba(201,167,255,.42);background:rgba(201,167,255,.04)}
 .music-category-tool b{color:#c9a7ff}
-.music-tool-hero .tool-hero-bg{background-image:url('https://images.pexels.com/photos/9418212/pexels-photo-9418212.jpeg?auto=compress&cs=tinysrgb&w=1800')!important;background-position:center 45%!important}
+.music-tool-hero .tool-hero-bg{background-image:url('../images/category-music.webp')!important;background-position:center 45%!important}
 .music-tool-hero .tool-hero:before{background:linear-gradient(90deg,rgba(4,8,10,.94) 0%,rgba(4,8,10,.72) 44%,rgba(4,8,10,.24) 78%),linear-gradient(180deg,rgba(4,8,10,.04) 0%,rgba(4,8,10,.14) 62%,#070b0d 100%)!important}
 .has-tool-hero .music-shell{width:min(1040px,88vw);padding:48px 0 110px}
 .music-panel .takeoff-grid input,.music-panel .takeoff-grid select,.music-panel textarea{width:100%;box-sizing:border-box;padding:14px 15px;min-height:50px;border-radius:12px;border:1px solid #334044;background:#080d0f;color:white;font:inherit;font-size:16px;outline:none}
