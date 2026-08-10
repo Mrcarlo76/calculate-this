@@ -1,4 +1,10 @@
 const tools = [
+  {"name": "Darts Checkout Calculator", "url": "darts-checkout.html", "keywords": "sports darts checkout finish double out"},
+  {"name": "Darts Average Calculator", "url": "darts-average.html", "keywords": "sports darts three dart average"},
+  {"name": "Football Points Calculator", "url": "football-points.html", "keywords": "sports football soccer league points wins draws"},
+  {"name": "Race Time Predictor", "url": "race-time.html", "keywords": "sports running race 5k 10k half marathon marathon prediction"},
+  {"name": "Cycling Speed Calculator", "url": "cycling-speed.html", "keywords": "sports cycling bike speed distance time"},
+  {"name": "Golf Handicap Differential", "url": "golf-differential.html", "keywords": "sports golf handicap differential slope course rating"},
   {"name": "Key & Scale Finder", "url": "key-scale.html", "keywords": "music key scale notes major minor modes"},
   {"name": "Chord Finder", "url": "chord-finder.html", "keywords": "music chord notes major minor seventh"},
   {"name": "Chord Transposer", "url": "chord-transposer.html", "keywords": "music transpose chords key semitones"},
