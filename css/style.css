@@ -330,3 +330,11 @@ url("../images/construction-hero.webp") center/cover no-repeat}
 @media(min-width:761px){
   .cards .card p{min-height:48px;display:flex;align-items:flex-start}
 }
+
+/* v2.9.6 — dedicated cinematic construction calculator heroes */
+.construction-tool-hero.hero-plasterboard .tool-hero-bg{background-image:url('../images/construction-plasterboard-cinematic.webp')}
+.construction-tool-hero.hero-metal-stud .tool-hero-bg{background-image:url('../images/construction-metal-stud-cinematic.webp')}
+.construction-tool-hero.hero-ceiling .tool-hero-bg{background-image:url('../images/construction-ceiling-cinematic.webp')}
+.construction-tool-hero.hero-insulation .tool-hero-bg{background-image:url('../images/construction-insulation-cinematic.webp')}
+.construction-tool-hero.hero-brick .tool-hero-bg{background-image:url('../images/construction-brick-cinematic.webp')}
+.construction-tool-hero.hero-blockwork .tool-hero-bg{background-image:url('../images/construction-blockwork-cinematic.webp')}
