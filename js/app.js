@@ -1,4 +1,10 @@
 const tools = [
+  {"name": "Recipe Scaler", "url": "recipe-scaler.html", "keywords": "cooking kitchen recipe scale servings ingredients"},
+  {"name": "Cups to Grams Converter", "url": "cups-to-grams.html", "keywords": "cooking kitchen cups grams tablespoons teaspoons flour sugar"},
+  {"name": "Oven Temperature Converter", "url": "oven-temperature.html", "keywords": "cooking kitchen oven temperature celsius fahrenheit fan gas mark"},
+  {"name": "Cooking Time Calculator", "url": "cooking-time.html", "keywords": "cooking kitchen time weight portion"},
+  {"name": "Portion Calculator", "url": "portion-calculator.html", "keywords": "cooking kitchen portions servings people pasta rice potatoes"},
+  {"name": "Baking Pan Converter", "url": "baking-pan.html", "keywords": "cooking kitchen baking pan tin cake round square rectangle"},
   {"name": "Macro Calculator", "url": "macro-calculator.html", "keywords": "health macros protein carbs fat calories nutrition"},
   {"name": "Protein Intake Calculator", "url": "protein-intake.html", "keywords": "health protein grams bodyweight weight nutrition"},
   {"name": "Water Intake Calculator", "url": "water-intake.html", "keywords": "health water hydration fluid glasses litres"},
