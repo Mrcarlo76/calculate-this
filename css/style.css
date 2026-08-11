@@ -649,3 +649,23 @@ button,.cta,.category-tool,.related-grid a,.category-jump a,.tool-list a{-webkit
   .ct-takeoff-assumptions li{margin:0 0 2mm}
   .ct-takeoff-note{margin-top:4mm;padding:3mm 4mm;background:#f8f9f9!important;border-left:2px solid #bd7548;color:#5c666a!important}
 }
+
+/* v3.3.0 — Marketing */
+.card.marketing{
+  --card-accent:#d2a6f4;--card-glow:rgba(210,166,244,.17);
+  background-image:linear-gradient(180deg,rgba(7,11,13,.05) 0%,rgba(7,11,13,.30) 45%,rgba(7,11,13,.96) 100%),url('../images/category-marketing-v1.webp');
+  background-position:center 50%;background-size:cover
+}
+.card.marketing h3,.card.marketing b{color:#dfb9ff!important}
+.marketing-accent{color:#d2a6f4!important}
+.marketing-category .category-meta span{border-color:rgba(210,166,244,.24)}
+.marketing-category-tool:hover{border-color:rgba(210,166,244,.44);background:rgba(210,166,244,.045)}
+.marketing-category-tool b{color:#d2a6f4}
+.marketing-tool-hero .tool-hero-bg{
+  background-image:url('../images/category-marketing-v1.webp')!important;
+  background-position:center 52%!important;background-size:cover!important
+}
+.marketing-tool-hero .tool-hero:before{
+  background:linear-gradient(90deg,rgba(4,8,10,.96) 0%,rgba(4,8,10,.74) 45%,rgba(4,8,10,.24) 80%),
+  linear-gradient(180deg,rgba(4,8,10,.04) 0%,rgba(4,8,10,.12) 62%,#070b0d 100%)!important
+}

@@ -1,4 +1,13 @@
 const tools = [
+  {"name": "ROAS Calculator", "url": "roas.html", "keywords": "marketing roas return ad spend advertising revenue break even"},
+  {"name": "Marketing ROI Calculator", "url": "marketing-roi.html", "keywords": "marketing roi return investment campaign profit cost"},
+  {"name": "Customer Acquisition Cost Calculator", "url": "cac.html", "keywords": "marketing cac customer acquisition cost sales spend"},
+  {"name": "Customer Lifetime Value Calculator", "url": "clv.html", "keywords": "marketing clv ltv lifetime customer value retention revenue margin"},
+  {"name": "Conversion Rate Calculator", "url": "conversion-rate.html", "keywords": "marketing conversion rate visitors leads sales ecommerce"},
+  {"name": "CPC Calculator", "url": "cpc.html", "keywords": "marketing cpc cost per click advertising ads"},
+  {"name": "CPM Calculator", "url": "cpm.html", "keywords": "marketing cpm cost per thousand impressions advertising"},
+  {"name": "Email Marketing Calculator", "url": "email-marketing.html", "keywords": "marketing email open rate ctr click conversion revenue"},
+
   {"name": "Car Finance Calculator", "url": "car-finance.html", "keywords": "automotive car finance apr monthly payment vehicle loan"},
   {"name": "MPG to L/100km Converter", "url": "mpg-converter.html", "keywords": "automotive mpg imperial uk litres 100km fuel economy"},
   {"name": "EV Charging Cost Calculator", "url": "ev-charging-cost.html", "keywords": "automotive electric ev charging kwh electricity cost"},
