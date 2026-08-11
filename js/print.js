@@ -1,5 +1,7 @@
 
 (function(){
+  const page=(location.pathname.split('/').pop()||'index.html').split('?')[0];
+
   const PRINTABLE_SELECTORS=[
     '.takeoff-result','.u-result','.result-box','.big-result',
     '.summary','#summary','#result','.sports-result','.cooking-result',
@@ -85,7 +87,7 @@
 
     const now=new Date();
     const date=now.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
-    const title=pageTitle();
+    const title=CONSTRUCTION_REPORTS[page]?.title || pageTitle();
     const rows=fieldRows();
     const nodes=resultNodes();
 
@@ -105,22 +107,59 @@
       <div class="ct-print-title"><p>CALCULATOR REPORT</p><h1>${escapeHtml(title)}</h1></div>
       ${inputs}
       ${uValueBuildUp()}
-      <section class="ct-print-section ct-print-results"><h2>Results</h2><div class="ct-print-result-content"></div></section>
+      ${constructionReport()}
+      ${CONSTRUCTION_REPORTS[page]?'':`<section class="ct-print-section ct-print-results"><h2>Results</h2><div class="ct-print-result-content"></div></section>`}
       <footer class="ct-print-footer">
         <strong>CalculateThis.uk</strong>
         <span>Generated ${date} · Results are estimates and should be checked where accuracy is critical.</span>
       </footer>`;
 
     const dest=sheet.querySelector('.ct-print-result-content');
-    if(nodes.length){
-      nodes.forEach(n=>dest.appendChild(cleanClone(n)));
-    }else{
-      const stats=document.querySelector('.text-workbench .stat-grid');
-      if(stats) dest.appendChild(cleanClone(stats));
+    if(dest){
+      if(nodes.length){
+        nodes.forEach(n=>dest.appendChild(cleanClone(n)));
+      }else{
+        const stats=document.querySelector('.text-workbench .stat-grid');
+        if(stats) dest.appendChild(cleanClone(stats));
+      }
     }
     document.body.appendChild(sheet);
   }
 
+
+
+  const CONSTRUCTION_REPORTS={
+    'plasterboard.html':{title:'Plasterboard Take-off',assumptions:['Board quantity is rounded up to full sheets.','Waste allowance is applied to the calculated board requirement.','Openings, layout and site cutting can alter final quantities.']},
+    'metal-stud-partition.html':{title:'Metal Stud Partition Take-off',assumptions:['Stud quantity is based on the selected centres plus an end stud.','Track includes head and floor runs.','Board estimate covers both faces of the partition.']},
+    'mf-ceiling.html':{title:'MF Ceiling Take-off',assumptions:['MF5 sections are estimated at approximately 400 mm centres.','MF7 primary channels are estimated at approximately 1200 mm centres.','Bulkheads, changes in level, hangers and manufacturer details are not fully modelled.']},
+    'screed.html':{title:'Screed Quantity Take-off',assumptions:['Volume uses the entered average screed depth.','Waste is added to the calculated net volume.','Falls, uneven substrates and minimum specified depths can increase requirements.']},
+    'concrete.html':{title:'Concrete Quantity Take-off',assumptions:['Net volume is length × width × depth.','Waste allowance is added after the net volume calculation.','Excavation tolerance, uneven formation and supplier minimum loads should be checked.']},
+    'insulation.html':{title:'Insulation Take-off',assumptions:['Pack quantity is rounded up to full packs.','Waste is applied to the surface area before pack quantity is calculated.','Cuts, framing centres and manufacturer installation requirements can change quantities.']},
+    'brick-block.html':{title:'Brick & Block Take-off',assumptions:['Unit quantity uses the selected nominal units-per-square-metre rate.','Waste allowance is added to the calculated unit requirement.','Openings, piers, bonding patterns and cuts should be measured separately where significant.']}
+  };
+
+  function constructionReport(){
+    const cfg=CONSTRUCTION_REPORTS[page];
+    if(!cfg) return '';
+    const stats=[...document.querySelectorAll('.takeoff-result .takeoff-stat')].map(x=>({
+      label:(x.querySelector('span')?.textContent||'').trim(),
+      value:(x.querySelector('strong')?.textContent||'—').trim()
+    })).filter(x=>x.label);
+    const note=(document.querySelector('.takeoff-note')?.textContent||'').trim();
+    return `
+      <section class="ct-print-section ct-takeoff-summary">
+        <h2>Material / quantity summary</h2>
+        <table class="ct-print-takeoff-table">
+          <thead><tr><th>Item</th><th>Calculated quantity</th></tr></thead>
+          <tbody>${stats.map(x=>`<tr><td>${escapeHtml(x.label)}</td><td><strong>${escapeHtml(x.value)}</strong></td></tr>`).join('')}</tbody>
+        </table>
+      </section>
+      <section class="ct-print-section ct-takeoff-assumptions">
+        <h2>Basis & assumptions</h2>
+        <ul>${cfg.assumptions.map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul>
+        ${note?`<p class="ct-takeoff-note">${escapeHtml(note)}</p>`:''}
+      </section>`;
+  }
 
   function uValueBuildUp(){
     if(!/u-value\.html$/i.test(location.pathname)) return '';
