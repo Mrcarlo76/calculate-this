@@ -39,6 +39,7 @@
     document.querySelectorAll('main input,main select,main textarea').forEach(el=>{
       if(!visible(el) || el.type==='button' || el.type==='submit' || el.type==='reset' || el.type==='hidden') return;
       if(el.closest('.ct-print-sheet')) return;
+      if(/u-value\.html$/i.test(location.pathname) && el.closest('.layer-row')) return;
       const label=(
         el.labels?.[0]?.textContent ||
         el.closest('label')?.textContent ||
@@ -103,6 +104,7 @@
       </header>
       <div class="ct-print-title"><p>CALCULATOR REPORT</p><h1>${escapeHtml(title)}</h1></div>
       ${inputs}
+      ${uValueBuildUp()}
       <section class="ct-print-section ct-print-results"><h2>Results</h2><div class="ct-print-result-content"></div></section>
       <footer class="ct-print-footer">
         <strong>CalculateThis.uk</strong>
@@ -117,6 +119,35 @@
       if(stats) dest.appendChild(cleanClone(stats));
     }
     document.body.appendChild(sheet);
+  }
+
+
+  function uValueBuildUp(){
+    if(!/u-value\.html$/i.test(location.pathname)) return '';
+    const rows=[...document.querySelectorAll('.layer-row')].map((row,i)=>{
+      const material=row.querySelector('.material')?.selectedOptions?.[0]?.textContent?.split(' — ')[0] || `Layer ${i+1}`;
+      const thickness=row.querySelector('.thickness')?.value || '';
+      const lambda=row.querySelector('.lambda')?.value || '';
+      const resistance=row.querySelector('.layer-r')?.textContent || '—';
+      if(!thickness && !lambda) return null;
+      return {material,thickness,lambda,resistance};
+    }).filter(Boolean);
+    if(!rows.length) return '';
+    return `
+      <section class="ct-print-section ct-uvalue-build">
+        <h2>Construction build-up</h2>
+        <table class="ct-print-u-table">
+          <thead><tr><th>Layer / material</th><th>Thickness</th><th>λ</th><th>R-value</th></tr></thead>
+          <tbody>
+            ${rows.map(r=>`<tr>
+              <td>${escapeHtml(r.material)}</td>
+              <td>${escapeHtml(r.thickness)} mm</td>
+              <td>${escapeHtml(r.lambda)} W/mK</td>
+              <td>${escapeHtml(r.resistance)} m²K/W</td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+      </section>`;
   }
 
   function escapeHtml(s){
