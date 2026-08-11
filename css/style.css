@@ -341,7 +341,7 @@ url("../images/construction-hero.webp") center/cover no-repeat}
 .construction-tool-hero.hero-blockwork .tool-hero-bg{background-image:url('../images/construction-blockwork-cinematic.webp')}
 
 /* v2.9.7 Gym & Fitness */
-.card.gym{--card-accent:#ff6b62;--card-glow:rgba(255,80,70,.15);background-image:linear-gradient(180deg,rgba(7,11,13,.05) 0%,rgba(7,11,13,.28) 46%,rgba(7,11,13,.95) 100%),url('../images/gym-barbell-cinematic.png');background-position:center;background-size:cover}.card.gym h3,.card.gym b{color:#ff8178!important}.gym-tool-hero .tool-hero-bg{background-image:url('../images/gym-barbell-cinematic.png')!important;background-position:center 42%}.gym-tool-hero .tool-hero:before{background:linear-gradient(90deg,rgba(4,8,10,.94) 0%,rgba(4,8,10,.70) 44%,rgba(4,8,10,.20) 78%),linear-gradient(180deg,rgba(4,8,10,.06) 0%,rgba(4,8,10,.12) 62%,#070b0d 100%)}.gym-accent{color:#ff6b62!important}.gym-panel .result{color:#ff6b62}.gym-panel input:focus,.gym-panel select:focus{border-color:#ff6b62}.gym-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.gym-checks{display:flex;flex-wrap:wrap;gap:8px}.gym-checks label{border:1px solid #334044;border-radius:11px;padding:10px 12px;cursor:pointer}.gym-checks input{width:auto;margin-right:6px}@media(max-width:680px){.gym-grid{grid-template-columns:1fr}}
+.card.gym{--card-accent:#ff6b62;--card-glow:rgba(255,80,70,.15);background-image:linear-gradient(180deg,rgba(7,11,13,.05) 0%,rgba(7,11,13,.28) 46%,rgba(7,11,13,.95) 100%),url('../images/gym-barbell-cinematic.webp');background-position:center;background-size:cover}.card.gym h3,.card.gym b{color:#ff8178!important}.gym-tool-hero .tool-hero-bg{background-image:url('../images/gym-barbell-cinematic.webp')!important;background-position:center 42%}.gym-tool-hero .tool-hero:before{background:linear-gradient(90deg,rgba(4,8,10,.94) 0%,rgba(4,8,10,.70) 44%,rgba(4,8,10,.20) 78%),linear-gradient(180deg,rgba(4,8,10,.06) 0%,rgba(4,8,10,.12) 62%,#070b0d 100%)}.gym-accent{color:#ff6b62!important}.gym-panel .result{color:#ff6b62}.gym-panel input:focus,.gym-panel select:focus{border-color:#ff6b62}.gym-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.gym-checks{display:flex;flex-wrap:wrap;gap:8px}.gym-checks label{border:1px solid #334044;border-radius:11px;padding:10px 12px;cursor:pointer}.gym-checks input{width:auto;margin-right:6px}@media(max-width:680px){.gym-grid{grid-template-columns:1fr}}
 
 /* v2.9.8 Gym & Fitness visual alignment */
 .card.gym{
@@ -419,7 +419,7 @@ url("../images/construction-hero.webp") center/cover no-repeat}
 /* v3.0.1 — Music category image refresh */
 .card.music{
   --card-accent:#c9a7ff;--card-glow:rgba(201,167,255,.16);
-  background-image:linear-gradient(180deg,rgba(7,11,13,.06) 0%,rgba(7,11,13,.30) 45%,rgba(7,11,13,.96) 100%),url('../images/category-music.webp');
+  background-image:linear-gradient(180deg,rgba(7,11,13,.06) 0%,rgba(7,11,13,.30) 45%,rgba(7,11,13,.96) 100%),url('../images/category-music-v2.webp');
   background-position:center 45%;background-size:cover
 }
 .card.music h3,.card.music b{color:#d7bdff!important}
@@ -427,7 +427,7 @@ url("../images/construction-hero.webp") center/cover no-repeat}
 .music-category .category-meta span{border-color:rgba(201,167,255,.23)}
 .music-category-tool:hover{border-color:rgba(201,167,255,.42);background:rgba(201,167,255,.04)}
 .music-category-tool b{color:#c9a7ff}
-.music-tool-hero .tool-hero-bg{background-image:url('../images/category-music.webp')!important;background-position:center 45%!important}
+.music-tool-hero .tool-hero-bg{background-image:url('../images/category-music-v2.webp')!important;background-position:center 45%!important}
 .music-tool-hero .tool-hero:before{background:linear-gradient(90deg,rgba(4,8,10,.94) 0%,rgba(4,8,10,.72) 44%,rgba(4,8,10,.24) 78%),linear-gradient(180deg,rgba(4,8,10,.04) 0%,rgba(4,8,10,.14) 62%,#070b0d 100%)!important}
 .has-tool-hero .music-shell{width:min(1040px,88vw);padding:48px 0 110px}
 .music-panel .takeoff-grid input,.music-panel .takeoff-grid select,.music-panel textarea{width:100%;box-sizing:border-box;padding:14px 15px;min-height:50px;border-radius:12px;border:1px solid #334044;background:#080d0f;color:white;font:inherit;font-size:16px;outline:none}
@@ -439,6 +439,24 @@ url("../images/construction-hero.webp") center/cover no-repeat}
 .music-output{font-family:"Playfair Display",serif;font-size:clamp(28px,5vw,46px);line-height:1.2;color:#d7bdff;overflow-wrap:anywhere}
 @media(max-width:700px){.has-tool-hero .music-shell{width:min(92vw,1040px);padding-top:38px}.music-category h1{font-size:clamp(44px,13vw,64px)}}
 
-/* v3.0.7 — Sports */
-.card.sports{--card-accent:#79d7b0;--card-glow:rgba(121,215,176,.15);background-image:linear-gradient(180deg,rgba(7,11,13,.06) 0%,rgba(7,11,13,.30) 45%,rgba(7,11,13,.96) 100%),url('../images/category-sports.webp');background-position:center 52%;background-size:cover}
-.card.sports h3,.card.sports b{color:#8de5c0!important}.sports-accent{color:#79d7b0!important}.sports-category .category-meta span{border-color:rgba(121,215,176,.23)}.sports-category-tool:hover{border-color:rgba(121,215,176,.42);background:rgba(121,215,176,.04)}.sports-category-tool b{color:#79d7b0}.sports-tool-hero .tool-hero-bg{background-image:url('../images/category-sports.webp')!important;background-position:center 52%!important}.sports-tool-hero .tool-hero:before{background:linear-gradient(90deg,rgba(4,8,10,.94) 0%,rgba(4,8,10,.72) 44%,rgba(4,8,10,.24) 78%),linear-gradient(180deg,rgba(4,8,10,.04) 0%,rgba(4,8,10,.14) 62%,#070b0d 100%)!important}.has-tool-hero .sports-shell{width:min(1040px,88vw);padding:48px 0 110px}.sports-panel .takeoff-grid input,.sports-panel .takeoff-grid select{width:100%;box-sizing:border-box;padding:14px 15px;min-height:50px;border-radius:12px;border:1px solid #334044;background:#080d0f;color:white;font:inherit;font-size:16px;outline:none}.sports-panel .takeoff-grid label{display:block;color:#9ca8ad;font-size:13px;margin-bottom:7px}.sports-panel input:focus,.sports-panel select:focus{border-color:#79d7b0;box-shadow:0 0 0 3px rgba(121,215,176,.08)}.sports-result{grid-template-columns:minmax(0,1fr)}.sports-result-stat strong{color:#79d7b0}.sports-output{font-family:"Playfair Display",serif;font-size:clamp(28px,5vw,46px);line-height:1.2;color:#8de5c0}.sports-list{display:grid;gap:8px;margin-top:12px}.sports-list div{padding:10px 12px;border:1px solid rgba(121,215,176,.18);border-radius:10px;background:rgba(121,215,176,.04)}@media(max-width:700px){.has-tool-hero .sports-shell{width:min(92vw,1040px);padding-top:38px}.sports-category h1{font-size:clamp(44px,13vw,64px)}}
+/* v3.1.0 — Sports */
+.card.sports{--card-accent:#79d7b0;--card-glow:rgba(121,215,176,.15);background-image:linear-gradient(180deg,rgba(7,11,13,.06) 0%,rgba(7,11,13,.30) 45%,rgba(7,11,13,.96) 100%),url('../images/category-sports-v2.webp');background-position:center 52%;background-size:cover}
+.card.sports h3,.card.sports b{color:#8de5c0!important}.sports-accent{color:#79d7b0!important}.sports-category .category-meta span{border-color:rgba(121,215,176,.23)}.sports-category-tool:hover{border-color:rgba(121,215,176,.42);background:rgba(121,215,176,.04)}.sports-category-tool b{color:#79d7b0}.sports-tool-hero .tool-hero-bg{background-image:url('../images/category-sports-v2.webp')!important;background-position:center 52%!important}.sports-tool-hero .tool-hero:before{background:linear-gradient(90deg,rgba(4,8,10,.94) 0%,rgba(4,8,10,.72) 44%,rgba(4,8,10,.24) 78%),linear-gradient(180deg,rgba(4,8,10,.04) 0%,rgba(4,8,10,.14) 62%,#070b0d 100%)!important}.has-tool-hero .sports-shell{width:min(1040px,88vw);padding:48px 0 110px}.sports-panel .takeoff-grid input,.sports-panel .takeoff-grid select{width:100%;box-sizing:border-box;padding:14px 15px;min-height:50px;border-radius:12px;border:1px solid #334044;background:#080d0f;color:white;font:inherit;font-size:16px;outline:none}.sports-panel .takeoff-grid label{display:block;color:#9ca8ad;font-size:13px;margin-bottom:7px}.sports-panel input:focus,.sports-panel select:focus{border-color:#79d7b0;box-shadow:0 0 0 3px rgba(121,215,176,.08)}.sports-result{grid-template-columns:minmax(0,1fr)}.sports-result-stat strong{color:#79d7b0}.sports-output{font-family:"Playfair Display",serif;font-size:clamp(28px,5vw,46px);line-height:1.2;color:#8de5c0}.sports-list{display:grid;gap:8px;margin-top:12px}.sports-list div{padding:10px 12px;border:1px solid rgba(121,215,176,.18);border-radius:10px;background:rgba(121,215,176,.04)}@media(max-width:700px){.has-tool-hero .sports-shell{width:min(92vw,1040px);padding-top:38px}.sports-category h1{font-size:clamp(44px,13vw,64px)}}
+
+
+/* v3.1.0 — site-wide polish & accessibility */
+:focus-visible{outline:2px solid #f4b183;outline-offset:3px}
+button,.cta,.category-tool,.related-grid a,.category-jump a,.tool-list a{-webkit-tap-highlight-color:transparent}
+.category-tool,.feature-card,.card{box-sizing:border-box}
+.category-tool h3,.feature-card h2,.card h3{overflow-wrap:anywhere}
+@media(max-width:760px){
+  input,select,textarea,button{font-size:16px!important}
+  .category-tool{padding:22px;min-height:0}
+  .card{min-height:250px}
+  .related-grid a,.category-jump a{min-height:44px;display:inline-flex;align-items:center}
+  .tool-list a{min-height:48px;align-items:center}
+  .cta{min-height:48px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
