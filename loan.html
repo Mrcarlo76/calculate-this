@@ -3,7 +3,7 @@
 <title>Loan Repayment Calculator — Monthly Payments | Calculate This</title><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3.1.0">
+<link rel="stylesheet" href="css/style.css?v=3.1.2">
 <style>
 .calc-shell{width:min(980px,88vw);margin:auto;padding:145px 0 110px}
 .calc-shell h1{font-family:"Playfair Display",serif;font-size:clamp(50px,7vw,82px);line-height:.98;margin:14px 0 16px;font-weight:500}
@@ -48,7 +48,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
 <link rel="manifest" href="/site.webmanifest"/>
 <meta name="theme-color" content="#101315"/>
-</head><body class="has-tool-hero">
+</head><body class="ct-tool-page has-tool-hero">
 <header class="nav"><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
 <nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav></header>
 <section class="tool-hero">
@@ -90,4 +90,4 @@ summaryEl.innerHTML=`<div class="stat"><small>Total repaid</small><strong>${gbp(
 document.querySelectorAll('.panel input,.panel select').forEach(x=>x.addEventListener('input',calculate));
 document.getElementById('clearBtn').onclick=()=>{document.querySelectorAll('.panel input').forEach(x=>x.value='');calculate();};
 document.getElementById('copyBtn').onclick=async()=>{if(resultEl.textContent==='—')return;try{await navigator.clipboard.writeText(resultEl.textContent);const b=document.getElementById('copyBtn');b.textContent='Copied';setTimeout(()=>b.textContent='Copy result',1200)}catch(e){}};
-calculate();</script><footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer></body></html>
+calculate();</script><footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.1.2"></script></body></html>
