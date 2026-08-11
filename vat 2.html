@@ -1,0 +1,85 @@
+<!doctype html><html lang="en"><head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4E4XM1SNS"></script><script>gtag('js',new Date());gtag('config','G-Z4E4XM1SNS');</script><script defer src="js/consent.js?v=3.1.0"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UK VAT Calculator — Add or Remove VAT | Calculate This</title><meta name="description" content="Add or remove UK VAT instantly and see the net amount, VAT amount and total clearly."><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=3.2.1">
+<style>
+.calc-shell{width:min(980px,88vw);margin:auto;padding:145px 0 110px}
+.calc-shell h1{font-family:"Playfair Display",serif;font-size:clamp(50px,7vw,82px);line-height:.98;margin:14px 0 16px;font-weight:500}
+.lead{color:rgba(255,255,255,.6);font-size:18px;max-width:680px}
+.panel{margin-top:42px;border:1px solid rgba(255,255,255,.12);border-radius:26px;background:linear-gradient(145deg,#11191c,#0a0f11);padding:clamp(24px,5vw,48px)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.field label{display:block;font-size:13px;color:#9ca8ad;margin-bottom:8px}
+.field input,.field select{width:100%;padding:17px;border-radius:13px;border:1px solid #334044;background:#080d0f;color:white;font:inherit;font-size:18px;outline:0}
+.field input:focus,.field select:focus{border-color:#f1a978;box-shadow:0 0 0 3px rgba(241,169,120,.08)}
+.result-box{margin-top:24px;padding:28px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07)}
+.result-label{font-size:12px;color:#8f9b9f;text-transform:uppercase;letter-spacing:.15em}
+.result{display:block;font-family:"Playfair Display",serif;color:#f1a978;font-size:clamp(44px,7vw,68px);line-height:1.1;margin:8px 0 6px}
+.working{color:#a7b0b3;line-height:1.55}
+.actions{display:flex;gap:10px;margin-top:18px}
+.action{border:1px solid rgba(255,255,255,.12);background:#101719;color:#e9eeee;border-radius:11px;padding:10px 13px;cursor:pointer}
+.back{display:inline-block;margin-top:35px;color:#f1a978}
+@media(max-width:680px){.calc-shell{padding-top:115px}.grid{grid-template-columns:1fr}.actions{flex-wrap:wrap}}
+</style>
+<link rel="canonical" href="https://calculatethis.uk/vat.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:site_name" content="Calculate This">
+<meta property="og:type" content="website">
+<meta property="og:title" content="UK VAT Calculator — Add or Remove VAT | Calculate This">
+<meta property="og:description" content="Add or remove UK VAT instantly and see the net amount, VAT amount and total clearly.">
+<meta property="og:url" content="https://calculatethis.uk/vat.html">
+<meta property="og:image" content="https://calculatethis.uk/images/tool-heroes/vat.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="UK VAT Calculator — Add or Remove VAT | Calculate This">
+<meta name="twitter:description" content="Add or remove UK VAT instantly and see the net amount, VAT amount and total clearly.">
+<meta name="twitter:image" content="https://calculatethis.uk/images/tool-heroes/vat.webp">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"UK VAT Calculator","url":"https://calculatethis.uk/vat.html","applicationCategory":"CalculatorApplication","operatingSystem":"Any","isAccessibleForFree":true,"description":"Add or remove UK VAT instantly and see the net amount, VAT amount and total clearly.","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I add 20% VAT?","acceptedAnswer":{"@type":"Answer","text":"Multiply the net amount by 1.20."}},{"@type":"Question","name":"How do I remove 20% VAT?","acceptedAnswer":{"@type":"Answer","text":"Divide the VAT-inclusive total by 1.20."}},{"@type":"Question","name":"Is VAT always 20% in the UK?","acceptedAnswer":{"@type":"Answer","text":"No. Different goods and services can have different VAT treatments, so use the appropriate rate for your situation."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculatethis.uk/"},{"@type":"ListItem","position":2,"name":"Business","item":"https://calculatethis.uk/business.html"},{"@type":"ListItem","position":3,"name":"VAT Calculator","item":"https://calculatethis.uk/vat.html"}]}</script><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+<meta name="theme-color" content="#101315"/>
+</head><body class="ct-tool-page has-tool-hero">
+<header class="nav"><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
+<nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav></header>
+<section class="tool-hero">
+  <div class="tool-hero-bg" style="background-image:url('images/tool-heroes/vat.webp')" aria-hidden="true"></div>
+  <div class="tool-hero-inner">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="business.html">Business</a><span class="sep">/</span><span aria-current="page">VAT Calculator</span></nav>
+    <p class="eyebrow">MONEY & BUSINESS</p>
+    <h1>VAT Calculator</h1>
+    <p class="hero-lead">Add or remove UK VAT and see the VAT amount clearly.</p>
+  </div>
+</section>
+<main class="calc-shell">
+<section class="panel"><div class="grid"><div class="field"><label for="amount">Amount (£)</label><input id="amount" type="number" inputmode="decimal" placeholder="100"></div>
+<div class="field"><label for="rate">VAT rate</label><select id="rate"><option value="20">20% — Standard</option><option value="5">5% — Reduced</option><option value="0">0% — Zero rate</option></select></div>
+<div class="field"><label for="mode">Calculation</label><select id="mode"><option value="add">Add VAT</option><option value="remove">Remove VAT</option></select></div></div>
+<div class="result-box"><span class="result-label">Total</span><strong class="result" id="result">—</strong>
+<div class="working" id="working">Enter your details to calculate.</div>
+<div class="actions"><button class="action" id="copyBtn" type="button">Copy result</button><button class="action" id="clearBtn" type="button">Clear</button></div></div></section><section class="tool-content">
+      <h2>VAT calculator guide</h2>
+      <p>Add VAT to a net price or remove VAT from a gross price. The calculator separates the underlying amount, VAT element and final total.</p>
+      <div class="formula-grid"><article><h3>Add VAT</h3><p>Multiply the net amount by 1 plus the VAT rate as a decimal.</p></article><article><h3>Remove VAT</h3><p>Divide the gross amount by 1 plus the VAT rate to find the net amount.</p></article><article><h3>VAT element</h3><p>The VAT amount is the difference between the gross and net figures.</p></article></div>
+    </section>
+    <section class="faq-section">
+      <h2>Frequently asked questions</h2>
+      <details><summary>How do I add 20% VAT?</summary><p>Multiply the net amount by 1.20.</p></details><details><summary>How do I remove 20% VAT?</summary><p>Divide the VAT-inclusive total by 1.20.</p></details><details><summary>Is VAT always 20% in the UK?</summary><p>No. Different goods and services can have different VAT treatments, so use the appropriate rate for your situation.</p></details>
+    </section>
+    <section class="related-tools">
+      <h2>Related tools</h2>
+      <div class="related-grid"><a href="percentage.html">Percentage Calculator</a><a href="discount.html">Discount Calculator</a><a href="salary.html">UK Take-Home Pay</a></div>
+    </section><a class="back" href="index.html">← Back to all tools</a><div class="quality-note">Built for quick, transparent estimates. See <a href="methodology.html">how our calculators work</a> and check page-specific assumptions before relying on a result.</div></main><script>function money(n){return new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP'}).format(n)}
+function calculate(){const a=parseFloat(document.getElementById('amount').value),r=parseFloat(document.getElementById('rate').value),m=document.getElementById('mode').value;
+if(!Number.isFinite(a)){resultEl.textContent='—';workingEl.textContent='Enter an amount to calculate.';return}
+let total,vat;if(m==='add'){vat=a*r/100;total=a+vat;workingEl.textContent=`Net ${money(a)} + VAT ${money(vat)} = ${money(total)}`}
+else{total=a/(1+r/100);vat=a-total;workingEl.textContent=`Gross ${money(a)} contains ${money(vat)} VAT. Net = ${money(total)}`}
+resultEl.textContent=money(m==='add'?total:total)}
+const resultEl=document.getElementById('result'),workingEl=document.getElementById('working');
+document.getElementById('clearBtn').onclick=()=>{document.querySelectorAll('.panel input').forEach(x=>x.value='');calculate();};
+document.getElementById('copyBtn').onclick=async()=>{if(resultEl.textContent==='—')return;try{await navigator.clipboard.writeText(resultEl.textContent);const b=document.getElementById('copyBtn');b.textContent='Copied';setTimeout(()=>b.textContent='Copy result',1200)}catch(e){}};
+document.querySelectorAll('.panel input,.panel select').forEach(x=>x.addEventListener('input',calculate));calculate();</script><footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.2.1"></script><script defer src="js/print.js?v=3.2.1"></script></body></html>
