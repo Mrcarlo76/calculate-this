@@ -1,4 +1,12 @@
 const tools = [
+  {"name": "Car Finance Calculator", "url": "car-finance.html", "keywords": "automotive car finance apr monthly payment vehicle loan"},
+  {"name": "MPG to L/100km Converter", "url": "mpg-converter.html", "keywords": "automotive mpg imperial uk litres 100km fuel economy"},
+  {"name": "EV Charging Cost Calculator", "url": "ev-charging-cost.html", "keywords": "automotive electric ev charging kwh electricity cost"},
+  {"name": "Journey Cost Calculator", "url": "journey-cost.html", "keywords": "automotive journey compare petrol diesel electric ev cost"},
+  {"name": "Mileage Reimbursement Calculator", "url": "mileage-reimbursement.html", "keywords": "automotive hmrc mileage business reimbursement 55p 25p"},
+  {"name": "Tyre Size Calculator", "url": "tyre-size.html", "keywords": "automotive tyre tire size diameter circumference speedometer"},
+  {"name": "Car Depreciation Calculator", "url": "car-depreciation.html", "keywords": "automotive car depreciation future value vehicle"},
+
   {"name": "Recipe Scaler", "url": "recipe-scaler.html", "keywords": "cooking kitchen recipe scale servings ingredients"},
   {"name": "Cups to Grams Converter", "url": "cups-to-grams.html", "keywords": "cooking kitchen cups grams tablespoons teaspoons flour sugar"},
   {"name": "Oven Temperature Converter", "url": "oven-temperature.html", "keywords": "cooking kitchen oven temperature celsius fahrenheit fan gas mark"},

@@ -617,3 +617,13 @@ button,.cta,.category-tool,.related-grid a,.category-jump a,.tool-list a{-webkit
   .ct-print-u-table tbody tr:last-child td{border-bottom:0!important}
   .ct-uvalue-build{break-inside:avoid}
 }
+
+/* v3.2.0 — Automotive */
+.card.automotive{--card-accent:#8fcfff;--card-glow:rgba(143,207,255,.16);background-image:linear-gradient(180deg,rgba(7,11,13,.04) 0%,rgba(7,11,13,.30) 45%,rgba(7,11,13,.96) 100%),url('../images/category-automotive-v1.webp');background-position:center 52%;background-size:cover}
+.card.automotive h3,.card.automotive b{color:#a7d9ff!important}
+.automotive-accent{color:#8fcfff!important}
+.automotive-category .category-meta span{border-color:rgba(143,207,255,.24)}
+.automotive-category-tool:hover{border-color:rgba(143,207,255,.42);background:rgba(143,207,255,.04)}
+.automotive-category-tool b{color:#8fcfff}
+.automotive-tool-hero .tool-hero-bg{background-image:url('../images/category-automotive-v1.webp')!important;background-position:center 52%!important;background-size:cover!important}
+.automotive-tool-hero .tool-hero:before{background:linear-gradient(90deg,rgba(4,8,10,.96) 0%,rgba(4,8,10,.74) 46%,rgba(4,8,10,.22) 80%),linear-gradient(180deg,rgba(4,8,10,.04) 0%,rgba(4,8,10,.12) 62%,#070b0d 100%)!important}
