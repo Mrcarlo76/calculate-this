@@ -130,7 +130,7 @@
 
   const CONSTRUCTION_REPORTS={
     'plasterboard.html':{title:'Plasterboard Take-off',assumptions:['Board quantity is rounded up to full sheets.','Waste allowance is applied to the calculated board requirement.','Openings, layout and site cutting can alter final quantities.']},
-    'metal-stud-partition.html':{title:'Metal Stud Partition Take-off',assumptions:['Stud quantity is based on the selected centres plus an end stud.','Track includes head and floor runs.','Board estimate covers both faces of the partition.']},
+    'metal-stud-partition.html':{title:'Metal Stud Partition Take-off',assumptions:['Upright quantity is based on the selected centres plus an end stud.','Every stud splice uses a 600 mm overlap; that overlap is included in the material requirement.','Stud ordering uses the selected single stock length and assumes usable offcuts can be reused elsewhere on the same partition. The recommended length minimises total extra stud material above installed upright length, including splice overlap.','Base track is calculated over the full partition length and is not reduced for door openings.','Head track is calculated over the full partition length plus 1.30 m for each single door and 2.10 m for each double door; these allowances include 150 mm turn-downs at both sides of each door head.','Base and head track are independently rounded up to their selected 3.0 m or 3.6 m stock lengths.','Board estimate covers both faces of the partition, supports one or two layers per side, applies the selected board waste allowance and does not deduct door openings.']},
     'mf-ceiling.html':{title:'MF Ceiling Take-off',assumptions:['MF5 sections are estimated at approximately 400 mm centres.','MF7 primary channels are estimated at approximately 1200 mm centres.','Bulkheads, changes in level, hangers and manufacturer details are not fully modelled.']},
     'screed.html':{title:'Screed Quantity Take-off',assumptions:['Volume uses the entered average screed depth.','Waste is added to the calculated net volume.','Falls, uneven substrates and minimum specified depths can increase requirements.']},
     'concrete.html':{title:'Concrete Quantity Take-off',assumptions:['Net volume is length × width × depth.','Waste allowance is added after the net volume calculation.','Excavation tolerance, uneven formation and supplier minimum loads should be checked.']},
@@ -146,7 +146,10 @@
       value:(x.querySelector('strong')?.textContent||'—').trim()
     })).filter(x=>x.label);
     const note=(document.querySelector('.takeoff-note')?.textContent||'').trim();
+    const rec=page==='metal-stud-partition.html' ? document.querySelector('#studRecommendation .stud-rec-head') : null;
+    const recText=rec ? (rec.textContent||'').replace(/\s+/g,' ').trim() : '';
     return `
+      ${recText?`<section class="ct-print-section ct-takeoff-recommendation"><h2>Recommended stud stock length</h2><p class="ct-print-rec">${escapeHtml(recText)}</p></section>`:''}
       <section class="ct-print-section ct-takeoff-summary">
         <h2>Material / quantity summary</h2>
         <table class="ct-print-takeoff-table">
