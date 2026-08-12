@@ -685,3 +685,8 @@ button,.cta,.category-tool,.related-grid a,.category-jump a,.tool-list a{-webkit
 @media print{
   .ct-print-rec{margin:0;padding:4mm 5mm;border:1px solid #dfe6ea;border-left:3px solid #7aabc8;background:#f7fafb!important;border-radius:6px;color:#344046!important;line-height:1.55}
 }
+
+/* v3.3.2 — separate base/head track + door heads */
+@media(max-width:700px){
+  #singleDoors,#doubleDoors{min-height:50px}
+}
