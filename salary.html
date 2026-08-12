@@ -3,7 +3,7 @@
 <title>UK Take-Home Pay Calculator 2026/27 | Calculate This</title><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3.3.5">
+<link rel="stylesheet" href="css/style.css?v=3.4.0">
 <style>
 .calc-shell{width:min(980px,88vw);margin:auto;padding:145px 0 110px}
 .calc-shell h1{font-family:"Playfair Display",serif;font-size:clamp(50px,7vw,82px);line-height:.98;margin:14px 0 16px;font-weight:500}
@@ -48,6 +48,17 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
 <link rel="manifest" href="/site.webmanifest"/>
 <meta name="theme-color" content="#101315"/>
+
+<style>
+.trust-panel{margin-top:28px;padding:24px;border:1px solid rgba(255,255,255,.10);border-radius:20px;background:rgba(255,255,255,.035)}
+.trust-meta{display:flex;flex-wrap:wrap;gap:10px 18px;margin:0 0 18px;color:#aab5b9;font-size:13px}
+.trust-meta strong{color:#fff}.trust-panel h2{margin-top:0}.rate-table{width:100%;border-collapse:collapse;margin:14px 0 8px;font-size:14px}
+.rate-table th,.rate-table td{padding:11px 10px;border-bottom:1px solid rgba(255,255,255,.09);text-align:left}
+.rate-table th{color:#fff}.rate-table td{color:#b8c1c4}.source-links{margin-top:16px;font-size:14px;color:#aab5b9}.source-links a{color:#f1a978}
+.example-box{margin-top:18px;padding:18px;border-radius:15px;background:rgba(241,169,120,.07);border:1px solid rgba(241,169,120,.16)}
+.example-box strong{color:#fff}
+@media(max-width:680px){.rate-table{font-size:12px}.rate-table th,.rate-table td{padding:9px 6px}}
+</style>
 </head><body class="ct-tool-page has-tool-hero">
 <header class="nav"><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
 <nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav></header>
@@ -71,7 +82,24 @@
       <p>Estimate take-home pay after Income Tax and employee National Insurance using the assumptions built into this calculator for the stated tax year.</p>
       <div class="formula-grid"><article><h3>Gross salary</h3><p>This is your pay before Income Tax, National Insurance and other deductions.</p></article><article><h3>Take-home pay</h3><p>This is the estimated amount left after the tax and NI calculations used by the tool.</p></article><article><h3>Other deductions</h3><p>Pension contributions, student loans, benefits and salary sacrifice can change your actual payslip.</p></article></div>
     </section>
-    <section class="faq-section">
+    
+<section class="trust-panel" aria-labelledby="salary-rates">
+<h2 id="salary-rates">Rates &amp; assumptions</h2>
+<div class="trust-meta"><span><strong>Tax year:</strong> 2026/27</span><span><strong>Rates last checked:</strong> 12 August 2026</span><span><strong>Source:</strong> HMRC / GOV.UK</span></div>
+<p>This calculator uses the standard Personal Allowance and employee Class 1 National Insurance assumptions shown below. The Personal Allowance reduces by £1 for every £2 of adjusted net income above £100,000 and is zero at £125,140.</p>
+<table class="rate-table"><thead><tr><th>England, Wales &amp; NI Income Tax</th><th>Taxable income</th><th>Rate</th></tr></thead><tbody>
+<tr><td>Basic</td><td>£1–£37,700</td><td>20%</td></tr><tr><td>Higher</td><td>£37,701–£125,140</td><td>40%</td></tr><tr><td>Additional</td><td>Over £125,140</td><td>45%</td></tr>
+</tbody></table>
+<table class="rate-table"><thead><tr><th>Scotland Income Tax</th><th>Taxable income</th><th>Rate</th></tr></thead><tbody>
+<tr><td>Starter</td><td>£1–£3,967</td><td>19%</td></tr><tr><td>Basic</td><td>£3,968–£16,956</td><td>20%</td></tr><tr><td>Intermediate</td><td>£16,957–£31,092</td><td>21%</td></tr><tr><td>Higher</td><td>£31,093–£62,430</td><td>42%</td></tr><tr><td>Advanced</td><td>£62,431–£125,140</td><td>45%</td></tr><tr><td>Top</td><td>Over £125,140</td><td>48%</td></tr>
+</tbody></table>
+<table class="rate-table"><thead><tr><th>Employee NI (standard category A)</th><th>Annual earnings</th><th>Rate</th></tr></thead><tbody>
+<tr><td>Below Primary Threshold</td><td>Up to £12,570</td><td>0%</td></tr><tr><td>Main rate</td><td>£12,570–£50,270</td><td>8%</td></tr><tr><td>Upper rate</td><td>Above £50,270</td><td>2%</td></tr>
+</tbody></table>
+<div class="example-box"><strong>Worked example:</strong> On a £40,000 salary in England, Wales or Northern Ireland with the standard allowance, estimated Income Tax is £5,486 and employee NI is about £2,194.40, leaving about £32,319.60 a year before pension, student loan or other deductions.</div>
+<p class="source-links">Official sources: <a href="https://www.gov.uk/income-tax-rates/current-rates-and-allowances" target="_blank" rel="noopener">Income Tax rates</a> · <a href="https://www.gov.uk/scottish-income-tax" target="_blank" rel="noopener">Scottish Income Tax</a> · <a href="https://www.gov.uk/national-insurance/how-much-you-pay" target="_blank" rel="noopener">National Insurance</a></p>
+</section>
+<section class="faq-section">
       <h2>Frequently asked questions</h2>
       <details><summary>Is this calculator for the UK?</summary><p>Yes. It is designed around UK Income Tax and employee National Insurance assumptions for the tax year shown.</p></details><details><summary>Does it include pension deductions?</summary><p>Not unless the calculator explicitly includes them in the inputs.</p></details><details><summary>Will my payslip match exactly?</summary><p>Not always. Tax codes, benefits, bonuses and other payroll deductions can change the final amount.</p></details>
     </section>
@@ -92,4 +120,4 @@ summaryEl.innerHTML=`<div class="stat"><small>Income Tax</small><strong>${gbp(tx
 document.querySelectorAll('.panel input,.panel select').forEach(x=>x.addEventListener('input',calculate));
 document.getElementById('clearBtn').onclick=()=>{document.querySelectorAll('.panel input').forEach(x=>x.value='');calculate();};
 document.getElementById('copyBtn').onclick=async()=>{if(resultEl.textContent==='—')return;try{await navigator.clipboard.writeText(resultEl.textContent);const b=document.getElementById('copyBtn');b.textContent='Copied';setTimeout(()=>b.textContent='Copy result',1200)}catch(e){}};
-calculate();</script><footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.3.5"></script><script defer src="js/print.js?v=3.3.5"></script></body></html>
+calculate();</script><footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="updates.html">Updates</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.4.0"></script><script defer src="js/print.js?v=3.4.0"></script></body></html>
