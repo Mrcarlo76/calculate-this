@@ -1,0 +1,26 @@
+Calculate This v3.2.1 — SEO Foundations
+Generated 11 August 2026
+
+QA
+- HTML pages: 107
+- Pages with titles: 107
+- Pages with meta descriptions: 105
+- Pages with canonical URLs: 105
+- Pages with H1: 107
+- Pages containing noindex text/rules: 1
+- Pages with JSON-LD: 78
+- Duplicate titles: 0
+- Duplicate meta descriptions: 0
+- Broken local references: 0
+- Invalid JSON-LD blocks: 0
+- sitemap.xml parses successfully: yes
+
+Implemented
+- Organization identity schema on homepage.
+- WebApplication + BreadcrumbList structured data standardised on Automotive tools.
+- Useful supporting search content on 16 first-wave opportunity pages.
+- Contextual links from those guides back to their category and methodology.
+- Existing calculator UI/logic preserved.
+
+Next growth step
+Connect Google Search Console performance/indexing data to prioritise pages by real impressions, queries, CTR and average position before expanding content site-wide.

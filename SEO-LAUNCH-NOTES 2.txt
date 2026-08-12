@@ -1,0 +1,14 @@
+Calculate This v2.5 SEO launch notes
+
+Canonical/sitemap base URL used in this build:
+https://calculatethis.uk/
+
+Production domain: https://calculatethis.uk/
+No analytics or advertising scripts have been added.
+
+
+v2.5.2 SEO refresh (2026-08-09)
+- Homepage title and meta description refined around free online calculators and everyday tools.
+- Open Graph/Twitter metadata kept aligned with homepage SEO copy.
+- Existing canonical URLs, index/follow directives, WebSite/WebApplication structured data, sitemap and robots.txt retained.
+- Sitemap lastmod values refreshed.

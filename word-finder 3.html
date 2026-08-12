@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4E4XM1SNS"></script><script>gtag('js',new Date());gtag('config','G-Z4E4XM1SNS');</script><script defer src="js/consent.js?v=3.1.0"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Enter letters and find words you can make, with length, starts-with and contains filters.">
+  <title>Word Finder — Find Words From Letters | Calculate This</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=3.2.2">
+  <style>
+    .word-shell{width:min(1050px,88vw);margin:auto;padding:145px 0 110px}
+    .word-shell h1{font-family:"Playfair Display",serif;font-size:clamp(50px,7vw,82px);line-height:.98;margin:14px 0 16px;font-weight:500}
+    .lead{color:rgba(255,255,255,.62);font-size:18px;max-width:720px;line-height:1.65}
+    .finder{margin-top:42px;border:1px solid rgba(255,255,255,.12);border-radius:26px;background:linear-gradient(145deg,#11191c,#0a0f11);padding:clamp(24px,5vw,48px)}
+    .letters-label{display:block;font-size:13px;color:#9ca8ad;margin-bottom:8px}
+    .letters-row{display:flex;gap:12px}
+    .letters-row input{flex:1;min-width:0;padding:18px;border-radius:14px;border:1px solid #334044;background:#080d0f;color:white;font:inherit;font-size:24px;text-transform:lowercase;letter-spacing:.08em;outline:0}
+    .letters-row input:focus,.filter input,.filter select:focus{border-color:#38d6c5}
+    .find-btn{border:0;border-radius:13px;background:#38d6c5;color:#06110f;font:inherit;font-weight:600;padding:0 24px;cursor:pointer}
+    .filters{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+    .filter label{display:block;font-size:12px;color:#89969b;margin-bottom:7px}
+    .filter input,.filter select{width:100%;padding:13px;border-radius:11px;border:1px solid #303b3f;background:#090e10;color:#fff;font:inherit;outline:0}
+    .summary{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:30px;padding-bottom:15px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .count{font-family:"Playfair Display",serif;font-size:28px}
+    .status{color:#849196;font-size:13px}
+    .results{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+    .word{padding:14px;border:1px solid rgba(255,255,255,.09);border-radius:12px;background:rgba(255,255,255,.028);display:flex;justify-content:space-between;gap:8px}
+    .word strong{font-weight:500}.word small{color:#6f7d82}
+    .word:hover{border-color:rgba(56,214,197,.35);background:rgba(56,214,197,.045)}
+    .empty{grid-column:1/-1;padding:35px 0;color:#869397;text-align:center}
+    .actions{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+    .ghost{border:1px solid rgba(255,255,255,.12);background:#101719;color:#e9eeee;border-radius:11px;padding:10px 13px;cursor:pointer}
+    .info{margin-top:60px;padding-top:35px;border-top:1px solid rgba(255,255,255,.1)}
+    .info h2{font-family:"Playfair Display",serif;font-size:34px;font-weight:500}
+    .info p{color:#8f9b9f;line-height:1.75;max-width:800px}
+    .source-note{font-size:12px!important;color:#657177!important}
+    .back{display:inline-block;margin-top:35px;color:#f1a978}
+    @media(max-width:800px){.filters{grid-template-columns:1fr 1fr}.results{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.word-shell{padding-top:115px}.letters-row{flex-direction:column}.find-btn{padding:15px}.filters{grid-template-columns:1fr 1fr}.results{grid-template-columns:1fr 1fr}.summary{align-items:flex-start;flex-direction:column}}
+  </style>
+
+<link rel="canonical" href="https://calculatethis.uk/word-finder.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:site_name" content="Calculate This">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Word Finder — Find Words From Letters | Calculate This">
+<meta property="og:description" content="Enter letters and find words you can make, with length, starts-with and contains filters.">
+<meta property="og:url" content="https://calculatethis.uk/word-finder.html">
+<meta property="og:image" content="https://calculatethis.uk/images/tool-heroes/word-finder.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Word Finder — Find Words From Letters | Calculate This">
+<meta name="twitter:description" content="Enter letters and find words you can make, with length, starts-with and contains filters.">
+<meta name="twitter:image" content="https://calculatethis.uk/images/tool-heroes/word-finder.webp">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Word Finder","url":"https://calculatethis.uk/word-finder.html","applicationCategory":"CalculatorApplication","operatingSystem":"Any","isAccessibleForFree":true,"description":"Enter letters and find words you can make, with length, starts-with and contains filters.","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can the Word Finder use a letter more than once?","acceptedAnswer":{"@type":"Answer","text":"Only when that letter appears more than once in the letters you entered."}},{"@type":"Question","name":"Can I filter by word length?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use the minimum and maximum length controls."}},{"@type":"Question","name":"Are my letters sent to a server?","acceptedAnswer":{"@type":"Answer","text":"No. The current tool checks a local word list in your browser."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculatethis.uk/"},{"@type":"ListItem","position":2,"name":"Words & Text","item":"https://calculatethis.uk/words.html"},{"@type":"ListItem","position":3,"name":"Word Finder","item":"https://calculatethis.uk/word-finder.html"}]}</script><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+<meta name="theme-color" content="#101315"/>
+</head>
+<body class="ct-tool-page has-tool-hero">
+<header class="nav">
+  <a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
+  <nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav>
+</header>
+
+<section class="tool-hero">
+  <div class="tool-hero-bg" style="background-image:url('images/tool-heroes/word-finder.webp')" aria-hidden="true"></div>
+  <div class="tool-hero-inner">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="words.html">Words & Text</a><span class="sep">/</span><span aria-current="page">Word Finder</span></nav>
+    <p class="eyebrow">WORDS & TEXT</p>
+    <h1>Word Finder</h1>
+    <p class="hero-lead">Enter a set of letters and instantly find words you can make from them. Each letter can only be used as many times as it appears in your letters.</p>
+  </div>
+</section>
+<main class="word-shell">
+
+  <section class="finder">
+    <label class="letters-label" for="letters">Your letters</label>
+    <div class="letters-row">
+      <input id="letters" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="e.g. react">
+      <button class="find-btn" id="findBtn" type="button">Find words</button>
+    </div>
+
+    <div class="filters">
+      <div class="filter"><label for="minLength">Minimum length</label><select id="minLength"><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option></select></div>
+      <div class="filter"><label for="maxLength">Maximum length</label><select id="maxLength"><option value="99" selected>Any</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+      <div class="filter"><label for="starts">Starts with</label><input id="starts" type="text" maxlength="5" placeholder="optional"></div>
+      <div class="filter"><label for="contains">Contains</label><input id="contains" type="text" maxlength="8" placeholder="optional"></div>
+    </div>
+
+    <div class="summary">
+      <div class="count" id="count">Enter some letters</div>
+      <div class="status" id="status">Results are sorted by longest words first.</div>
+    </div>
+
+    <div class="results" id="results">
+      <div class="empty">Try letters such as <strong>react</strong>, <strong>listen</strong> or <strong>triangle</strong>.</div>
+    </div>
+
+    <div class="actions">
+      <button class="ghost" id="copyBtn" type="button">Copy all words</button>
+      <button class="ghost" id="clearBtn" type="button">Clear</button>
+    </div>
+  </section>
+
+  <section class="info">
+    <h2>How the Word Finder works</h2>
+    <p>The search checks a local English word list in your browser, so results appear without sending your letters to a server. Repeated letters are respected: for example, a word needing two E's will only appear if your letter set contains at least two E's.</p>
+    <p class="source-note">Word list attribution is included with the site in <code>data/WORDLIST-LICENSE.txt</code>.</p>
+  </section><section class="tool-content">
+      <h2>Word Finder guide</h2>
+      <p>Enter your available letters and use the filters to find words that can be made without using any letter more times than it appears in your set.</p>
+      <div class="formula-grid"><article><h3>Repeated letters</h3><p>A word that needs two of the same letter only appears if your input contains that letter at least twice.</p></article><article><h3>Length filters</h3><p>Set minimum and maximum lengths to narrow down the results.</p></article><article><h3>Extra filters</h3><p>Use starts-with and contains filters when you know part of the word you are looking for.</p></article></div>
+    </section>
+    <section class="faq-section">
+      <h2>Frequently asked questions</h2>
+      <details><summary>Can the Word Finder use a letter more than once?</summary><p>Only when that letter appears more than once in the letters you entered.</p></details><details><summary>Can I filter by word length?</summary><p>Yes. Use the minimum and maximum length controls.</p></details><details><summary>Are my letters sent to a server?</summary><p>No. The current tool checks a local word list in your browser.</p></details>
+    </section>
+    <section class="related-tools">
+      <h2>Related tools</h2>
+      <div class="related-grid"><a href="percentage.html">Percentage Calculator</a><a href="age.html">Age Calculator</a><a href="unit-converter.html">Unit Converter</a></div>
+    </section><a class="back" href="index.html">← Back to all tools</a>
+<div class="quality-note">Built for quick, transparent estimates. See <a href="methodology.html">how our calculators work</a> and check page-specific assumptions before relying on a result.</div></main>
+
+<script src="data/words.js"></script>
+<script>
+const WORDS=window.CALCULATE_THIS_WORDS||[];
+const letters=document.getElementById('letters'),minLength=document.getElementById('minLength'),maxLength=document.getElementById('maxLength');
+const starts=document.getElementById('starts'),contains=document.getElementById('contains'),results=document.getElementById('results'),count=document.getElementById('count'),status=document.getElementById('status');
+let current=[];
+
+function clean(s){return (s||'').toLowerCase().replace(/[^a-z]/g,'')}
+function bag(s){const b={};for(const ch of s)b[ch]=(b[ch]||0)+1;return b}
+function canMake(word,available){const used={};for(const ch of word){used[ch]=(used[ch]||0)+1;if(used[ch]>(available[ch]||0))return false}return true}
+
+function search(){
+  const chars=clean(letters.value),min=+minLength.value,max=+maxLength.value,prefix=clean(starts.value),inside=clean(contains.value);
+  if(chars.length<2){current=[];count.textContent='Enter some letters';results.innerHTML='<div class="empty">Enter at least two letters to start.</div>';return}
+  const available=bag(chars);
+  current=WORDS.filter(w=>w.length>=min&&w.length<=Math.min(max,chars.length)&&(!prefix||w.startsWith(prefix))&&(!inside||w.includes(inside))&&canMake(w,available));
+  current.sort((a,b)=>b.length-a.length||a.localeCompare(b));
+  count.textContent=`${current.length.toLocaleString()} word${current.length===1?'':'s'} found`;
+  status.textContent=`Using ${chars.length} letter${chars.length===1?'':'s'} · longest first`;
+  if(!current.length){results.innerHTML='<div class="empty">No matching words found. Try relaxing the filters.</div>';return}
+  results.innerHTML=current.slice(0,400).map(w=>`<div class="word"><strong>${w}</strong><small>${w.length}</small></div>`).join('');
+  if(current.length>400) status.textContent+=` · showing first 400`;
+}
+document.getElementById('findBtn').onclick=search;
+letters.addEventListener('keydown',e=>{if(e.key==='Enter')search()});
+[minLength,maxLength,starts,contains].forEach(x=>x.addEventListener('change',search));
+starts.addEventListener('input',()=>{if(letters.value)search()}); contains.addEventListener('input',()=>{if(letters.value)search()});
+document.getElementById('clearBtn').onclick=()=>{letters.value='';starts.value='';contains.value='';current=[];count.textContent='Enter some letters';status.textContent='Results are sorted by longest words first.';results.innerHTML='<div class="empty">Try letters such as <strong>react</strong>, <strong>listen</strong> or <strong>triangle</strong>.</div>';letters.focus()};
+document.getElementById('copyBtn').onclick=async()=>{if(!current.length)return;try{await navigator.clipboard.writeText(current.join('\\n'));const b=document.getElementById('copyBtn');b.textContent='Copied';setTimeout(()=>b.textContent='Copy all words',1200)}catch(e){}};
+</script>
+<footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.2.2"></script><script defer src="js/print.js?v=3.2.2"></script></body>
+</html>

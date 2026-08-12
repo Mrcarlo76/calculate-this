@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4E4XM1SNS"></script><script>gtag('js',new Date());gtag('config','G-Z4E4XM1SNS');</script><script defer src="js/consent.js?v=3.1.0"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scientific Calculator | Calculate This</title>
+<meta name="description" content="Calculate arithmetic expressions using powers, roots, trigonometric functions, logarithms, π and e.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=3.2.2">
+<style>
+.calc-shell{width:min(980px,88vw);margin:auto;padding:145px 0 110px}
+.calc-shell h1{font-family:"Playfair Display",serif;font-size:clamp(50px,7vw,82px);line-height:.98;margin:14px 0 16px;font-weight:500}
+.lead{color:rgba(255,255,255,.6);font-size:18px;max-width:720px;line-height:1.65}
+.panel{margin-top:42px;border:1px solid rgba(255,255,255,.12);border-radius:26px;background:linear-gradient(145deg,#11191c,#0a0f11);padding:clamp(24px,5vw,48px)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.field label{display:block;font-size:13px;color:#9ca8ad;margin-bottom:8px}
+.field input,.field select{width:100%;padding:17px;border-radius:13px;border:1px solid #334044;background:#080d0f;color:white;font:inherit;font-size:18px;outline:0}
+.field input:focus,.field select:focus{border-color:#f1a978;box-shadow:0 0 0 3px rgba(241,169,120,.08)}
+.result-box{margin-top:24px;padding:28px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07)}
+.result-label{font-size:12px;color:#8f9b9f;text-transform:uppercase;letter-spacing:.15em}
+.result{display:block;font-family:"Playfair Display",serif;color:#f1a978;font-size:clamp(42px,7vw,66px);line-height:1.1;margin:8px 0 6px}
+.working{color:#a7b0b3;line-height:1.65}
+.back{display:inline-block;margin-top:35px;color:#f1a978}
+.action-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.action{border:1px solid rgba(255,255,255,.12);background:#101719;color:#e9eeee;border-radius:11px;padding:10px 13px;cursor:pointer}
+@media(max-width:680px){.grid{grid-template-columns:1fr}.calc-shell{padding-top:115px}}
+</style>
+<link rel="canonical" href="https://calculatethis.uk/scientific.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:site_name" content="Calculate This">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Scientific Calculator | Calculate This">
+<meta property="og:description" content="Calculate arithmetic expressions using powers, roots, trigonometric functions, logarithms, π and e.">
+<meta property="og:url" content="https://calculatethis.uk/scientific.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Scientific Calculator","url":"https://calculatethis.uk/scientific.html","applicationCategory":"CalculatorApplication","operatingSystem":"Any","isAccessibleForFree":true,"description":"Calculate arithmetic expressions using powers, roots, trigonometric functions, logarithms, \u03c0 and e.","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I enter a square root?","acceptedAnswer":{"@type":"Answer","text":"Use sqrt(number), for example sqrt(144)."}},{"@type":"Question","name":"How do I enter a power?","acceptedAnswer":{"@type":"Answer","text":"Use ^, for example 2^8."}},{"@type":"Question","name":"Are trig functions in degrees?","acceptedAnswer":{"@type":"Answer","text":"No. This calculator uses radians."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculatethis.uk/"},{"@type":"ListItem","position":2,"name":"Education","item":"https://calculatethis.uk/education.html"},{"@type":"ListItem","position":3,"name":"Scientific Calculator","item":"https://calculatethis.uk/scientific.html"}]}</script><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+<meta name="theme-color" content="#101315"/>
+</head>
+<body class="ct-tool-page">
+<header class="nav">
+<a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
+<nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav>
+</header>
+<main class="calc-shell">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="education.html">Education</a><span class="sep">/</span><span aria-current="page">Scientific Calculator</span></nav>
+<p class="eyebrow">EDUCATION &amp; MATHS</p>
+<h1>Scientific Calculator</h1>
+<p class="lead">Evaluate common arithmetic and scientific expressions.</p>
+<section class="panel">
+<div class="grid"><div class="field"><label for="expr">Expression</label><input id="expr" type="text" placeholder="sqrt(144) + 2^5"></div></div>
+<div class="result-box">
+<span class="result-label">Result</span>
+<strong class="result" id="result">—</strong>
+<div class="working" id="working">Enter your details to calculate.</div>
+<div class="action-row"><button class="action" id="clearBtn" type="button">Clear</button></div>
+</div>
+</section>
+<section class="tool-content">
+<h2>Scientific Calculator guide</h2>
+<div class="formula-grid"><article><h3>Powers and roots</h3><p>Use ^ for powers and sqrt(...) for square roots.</p></article><article><h3>Trigonometry</h3><p>sin, cos and tan use radians.</p></article><article><h3>Logs and constants</h3><p>Use log(...) for base-10 logarithms, ln(...) for natural logs, plus pi and e.</p></article></div>
+</section>
+<section class="faq-section">
+<h2>Frequently asked questions</h2><details><summary>How do I enter a square root?</summary><p>Use sqrt(number), for example sqrt(144).</p></details><details><summary>How do I enter a power?</summary><p>Use ^, for example 2^8.</p></details><details><summary>Are trig functions in degrees?</summary><p>No. This calculator uses radians.</p></details>
+</section>
+<section class="related-tools">
+<h2>Related tools</h2><div class="related-grid"><a href="percentage.html">Percentage Calculator</a><a href="fraction.html">Fraction Simplifier</a><a href="ratio.html">Ratio Calculator</a></div>
+</section>
+<a class="back" href="index.html">← Back to all tools</a>
+<div class="quality-note">Built for quick, transparent estimates. See <a href="methodology.html">how our calculators work</a> and check page-specific assumptions before relying on a result.</div></main>
+<script>function calculate(){let raw=expr.value.trim();if(!raw){result.textContent='—';working.textContent='Enter an expression.';return}
+let x=raw.toLowerCase().replace(/π/g,'pi').replace(/\^/g,'**');
+if(!/^[0-9+\-*/().,\s_a-z*]+$/.test(x)){result.textContent='—';working.textContent='Expression contains unsupported characters.';return}
+const allowed=['sqrt','sin','cos','tan','log','ln','abs','pow','pi','e'];
+let words=x.match(/[a-z_]+/g)||[];if(words.some(w=>!allowed.includes(w))){result.textContent='—';working.textContent='Use supported functions only.';return}
+x=x.replace(/\bpi\b/g,'Math.PI').replace(/\be\b/g,'Math.E').replace(/\bsqrt\b/g,'Math.sqrt').replace(/\bsin\b/g,'Math.sin').replace(/\bcos\b/g,'Math.cos').replace(/\btan\b/g,'Math.tan').replace(/\bln\b/g,'Math.log').replace(/\blog\b/g,'Math.log10').replace(/\babs\b/g,'Math.abs').replace(/\bpow\b/g,'Math.pow');
+try{let v=Function('"use strict";return ('+x+')')();if(!Number.isFinite(v))throw 0;result.textContent=Number(v.toPrecision(12)).toLocaleString('en-GB',{maximumFractionDigits:12});working.textContent='Trig functions use radians. Examples: sqrt(81), sin(pi/2), log(100), 2^8.'}catch(e){result.textContent='—';working.textContent='Check the expression and try again.'}}
+document.getElementById('clearBtn').addEventListener('click',()=>{document.querySelectorAll('.panel input').forEach(x=>x.value='');calculate();});
+document.querySelectorAll('.panel input,.panel select').forEach(x=>x.addEventListener('input',calculate));
+calculate();
+</script>
+<footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.2.2"></script><script defer src="js/print.js?v=3.2.2"></script></body>
+</html>

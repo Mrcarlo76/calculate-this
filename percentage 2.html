@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4E4XM1SNS"></script><script>gtag('js',new Date());gtag('config','G-Z4E4XM1SNS');</script><script defer src="js/consent.js?v=3.1.0"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Calculate percentages instantly. Find X% of Y, percentage increases and decreases with clear working shown.">
+  <title>Percentage Calculator — Free &amp; Instant | Calculate This</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=3.2.2">
+  <style>
+    .calc-shell{width:min(980px,88vw);margin:auto;padding:145px 0 110px}
+    .calc-shell h1{font-family:"Playfair Display",serif;font-size:clamp(50px,7vw,82px);line-height:.98;margin:14px 0 16px;font-weight:500}
+    .lead{color:rgba(255,255,255,.6);font-size:18px;max-width:680px}
+    .tabs{display:flex;gap:10px;flex-wrap:wrap;margin:42px 0 20px}
+    .tab{border:1px solid rgba(255,255,255,.13);background:#0f1518;color:#d9dfe1;padding:11px 14px;border-radius:999px;cursor:pointer}
+    .tab.active{background:#f1a978;color:#1a100a;border-color:#f1a978}
+    .panel{border:1px solid rgba(255,255,255,.12);border-radius:26px;background:linear-gradient(145deg,#11191c,#0a0f11);padding:clamp(24px,5vw,48px)}
+    .calc-row{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:end}
+    .field label{display:block;font-size:13px;color:#9ca8ad;margin-bottom:8px}
+    .field input{width:100%;padding:17px;border-radius:13px;border:1px solid #334044;background:#080d0f;color:white;font:inherit;font-size:19px;outline:0}
+    .field input:focus{border-color:#f1a978;box-shadow:0 0 0 3px rgba(241,169,120,.08)}
+    .between{padding-bottom:17px;color:#7f8a8e;font-size:18px}
+    .result-box{margin-top:24px;padding:28px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07)}
+    .result-label{font-size:12px;color:#8f9b9f;text-transform:uppercase;letter-spacing:.15em}
+    .result{display:block;font-family:"Playfair Display",serif;color:#f1a978;font-size:clamp(48px,8vw,74px);line-height:1.1;margin:8px 0 6px}
+    .working{color:#a7b0b3}
+    .actions{display:flex;gap:10px;margin-top:18px}
+    .action{border:1px solid rgba(255,255,255,.12);background:#101719;color:#e9eeee;border-radius:11px;padding:10px 13px;cursor:pointer}
+    .explain{margin-top:55px;display:grid;grid-template-columns:1fr 1fr;gap:26px}
+    .info{padding:26px;border-top:1px solid rgba(255,255,255,.12)}
+    .info h2{font-family:"Playfair Display",serif;font-size:30px;margin:0 0 10px;font-weight:500}
+    .info p{color:#9aa5a9;line-height:1.7}
+    .related{margin-top:50px}
+    .related h2{font-family:"Playfair Display",serif;font-size:34px}
+    .related-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .related-links a{padding:12px 14px;border:1px solid rgba(255,255,255,.12);border-radius:999px;color:#dce2e4}
+    @media(max-width:680px){
+      .calc-shell{padding-top:115px}
+      .calc-row{grid-template-columns:1fr}
+      .between{display:none}
+      .explain{grid-template-columns:1fr}
+      .actions{flex-wrap:wrap}
+    }
+  </style>
+
+<link rel="canonical" href="https://calculatethis.uk/percentage.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:site_name" content="Calculate This">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Percentage Calculator — Free &amp; Instant | Calculate This">
+<meta property="og:description" content="Calculate percentages instantly. Find X% of Y, percentage increases and decreases with clear working shown.">
+<meta property="og:url" content="https://calculatethis.uk/percentage.html">
+<meta property="og:image" content="https://calculatethis.uk/images/tool-heroes/percentage.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Percentage Calculator — Free &amp; Instant | Calculate This">
+<meta name="twitter:description" content="Calculate percentages instantly. Find X% of Y, percentage increases and decreases with clear working shown.">
+<meta name="twitter:image" content="https://calculatethis.uk/images/tool-heroes/percentage.webp">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Percentage Calculator","url":"https://calculatethis.uk/percentage.html","applicationCategory":"CalculatorApplication","operatingSystem":"Any","isAccessibleForFree":true,"description":"Calculate percentages instantly. Find X% of Y, percentage increases and decreases with clear working shown.","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I work out 20% of a number?","acceptedAnswer":{"@type":"Answer","text":"Multiply the number by 0.20. For example, 20% of 250 is 50."}},{"@type":"Question","name":"How do I add a percentage to a number?","acceptedAnswer":{"@type":"Answer","text":"Convert the percentage to a decimal, add 1, then multiply by the starting number. To add 10%, multiply by 1.10."}},{"@type":"Question","name":"How do I subtract a percentage from a number?","acceptedAnswer":{"@type":"Answer","text":"Convert the percentage to a decimal and subtract it from 1. To reduce a number by 25%, multiply it by 0.75."}},{"@type":"Question","name":"Is a percentage decrease the same as percentage change?","acceptedAnswer":{"@type":"Answer","text":"Not quite. Decreasing a number by a chosen percentage gives a new value. Percentage change measures the relative difference between an original value and a new value."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculatethis.uk/"},{"@type":"ListItem","position":2,"name":"Education","item":"https://calculatethis.uk/education.html"},{"@type":"ListItem","position":3,"name":"Percentage Calculator","item":"https://calculatethis.uk/percentage.html"}]}</script><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+<meta name="theme-color" content="#101315"/>
+</head>
+<body class="ct-tool-page has-tool-hero">
+  <header class="nav">
+    <a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
+    <nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav>
+  </header>
+
+  <section class="tool-hero">
+  <div class="tool-hero-bg" style="background-image:url('images/tool-heroes/percentage.webp')" aria-hidden="true"></div>
+  <div class="tool-hero-inner">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="education.html">Education</a><span class="sep">/</span><span aria-current="page">Percentage Calculator</span></nav>
+    <p class="eyebrow">EVERYDAY MATHS</p>
+    <h1>Percentage Calculator</h1>
+    <p class="hero-lead">Calculate percentages instantly, with the working shown clearly underneath.</p>
+  </div>
+</section>
+<main class="calc-shell">
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-mode="of">What is X% of Y?</button>
+      <button class="tab" data-mode="increase">Increase by %</button>
+      <button class="tab" data-mode="decrease">Decrease by %</button>
+    </div>
+
+    <section class="panel">
+      <div class="calc-row">
+        <div class="field">
+          <label id="leftLabel" for="left">Percentage</label>
+          <input id="left" type="number" inputmode="decimal" placeholder="20">
+        </div>
+        <div class="between" id="betweenText">% of</div>
+        <div class="field">
+          <label id="rightLabel" for="right">Number</label>
+          <input id="right" type="number" inputmode="decimal" placeholder="150">
+        </div>
+      </div>
+
+      <div class="result-box" aria-live="polite">
+        <span class="result-label">Result</span>
+        <strong class="result" id="result">—</strong>
+        <div class="working" id="working">Enter two numbers to calculate.</div>
+        <div class="actions">
+          <button class="action" id="copyBtn" type="button">Copy result</button>
+          <button class="action" id="clearBtn" type="button">Clear</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="explain percentage-guide">
+      <article class="info">
+        <h2>How to calculate a percentage</h2>
+        <p>To find a percentage of a number, divide the percentage by 100 and multiply by the number. For example, 20% of 150 is 30 because 20 ÷ 100 × 150 = 30.</p>
+      </article>
+      <article class="info">
+        <h2>Increase or decrease by a percentage</h2>
+        <p>For an increase, multiply the starting number by 1 plus the percentage as a decimal. For a decrease, multiply by 1 minus the percentage as a decimal. Use the tabs above and the calculator does the working for you.</p>
+      </article>
+    </section>
+
+    <section class="percentage-content">
+      <h2>Percentage calculator guide</h2>
+      <p>Percentages are a quick way to describe a part of a whole as an amount out of 100. This calculator handles three common percentage calculations: finding a percentage of a number, increasing a number by a percentage, and decreasing a number by a percentage.</p>
+      <div class="formula-grid">
+        <article><h3>Find X% of Y</h3><p><strong>Formula:</strong> (X ÷ 100) × Y</p><p>Example: 15% of 80 = 12.</p></article>
+        <article><h3>Increase by X%</h3><p><strong>Formula:</strong> Y × (1 + X ÷ 100)</p><p>Example: 80 increased by 15% = 92.</p></article>
+        <article><h3>Decrease by X%</h3><p><strong>Formula:</strong> Y × (1 − X ÷ 100)</p><p>Example: 80 decreased by 15% = 68.</p></article>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2>Percentage calculator FAQs</h2>
+      <details><summary>How do I work out 20% of a number?</summary><p>Multiply the number by 0.20. For example, 20% of 250 is 50.</p></details>
+      <details><summary>How do I add a percentage to a number?</summary><p>Convert the percentage to a decimal, add 1, then multiply by the starting number. To add 10%, multiply by 1.10.</p></details>
+      <details><summary>How do I subtract a percentage from a number?</summary><p>Convert the percentage to a decimal and subtract it from 1. To reduce a number by 25%, multiply it by 0.75.</p></details>
+      <details><summary>Is a percentage decrease the same as percentage change?</summary><p>Not quite. Decreasing a number by a chosen percentage gives a new value. Percentage change measures the relative difference between an original value and a new value.</p></details>
+    </section>
+
+    <section class="related-tools">
+      <h2>Related tools</h2>
+      <div class="related-grid"><a href="percentage-change.html">Percentage Change</a><a href="vat.html">VAT Calculator</a><a href="discount.html">Discount Calculator</a></div>
+    </section>
+<a class="back" href="index.html">← Back to all tools</a>
+<div class="quality-note">Built for quick, transparent estimates. See <a href="methodology.html">how our calculators work</a> and check page-specific assumptions before relying on a result.</div></main>
+
+  <script>
+    const left=document.getElementById('left');
+    const right=document.getElementById('right');
+    const result=document.getElementById('result');
+    const working=document.getElementById('working');
+    const leftLabel=document.getElementById('leftLabel');
+    const rightLabel=document.getElementById('rightLabel');
+    const betweenText=document.getElementById('betweenText');
+    const tabs=[...document.querySelectorAll('.tab')];
+    let mode='of';
+
+    const fmt=n=>new Intl.NumberFormat(undefined,{maximumFractionDigits:8}).format(n);
+
+    function calculate(){
+      const a=parseFloat(left.value), b=parseFloat(right.value);
+      if(!Number.isFinite(a)||!Number.isFinite(b)){
+        result.textContent='—';
+        working.textContent='Enter two numbers to calculate.';
+        return;
+      }
+      let value, text;
+      if(mode==='of'){
+        value=(a/100)*b;
+        text=`${a}% of ${b} = ${fmt(value)}`;
+      }else if(mode==='increase'){
+        value=b*(1+a/100);
+        text=`${b} increased by ${a}% = ${fmt(value)}`;
+      }else{
+        value=b*(1-a/100);
+        text=`${b} decreased by ${a}% = ${fmt(value)}`;
+      }
+      result.textContent=fmt(value);
+      working.textContent=text;
+    }
+
+    function setMode(next){
+      mode=next;
+      tabs.forEach(t=>t.classList.toggle('active',t.dataset.mode===mode));
+      leftLabel.textContent='Percentage';
+      rightLabel.textContent=mode==='of'?'Number':'Starting number';
+      betweenText.textContent=mode==='of'?'% of':'%';
+      calculate();
+    }
+
+    tabs.forEach(t=>t.addEventListener('click',()=>setMode(t.dataset.mode)));
+    left.addEventListener('input',calculate);
+    right.addEventListener('input',calculate);
+
+    document.getElementById('clearBtn').addEventListener('click',()=>{
+      left.value=''; right.value=''; calculate(); left.focus();
+    });
+
+    document.getElementById('copyBtn').addEventListener('click',async()=>{
+      if(result.textContent==='—') return;
+      try{
+        await navigator.clipboard.writeText(result.textContent);
+        const btn=document.getElementById('copyBtn');
+        const old=btn.textContent; btn.textContent='Copied';
+        setTimeout(()=>btn.textContent=old,1200);
+      }catch{}
+    });
+  </script>
+<footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.2.2"></script><script defer src="js/print.js?v=3.2.2"></script></body>
+</html>
