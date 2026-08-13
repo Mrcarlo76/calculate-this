@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3.5.0">
+<link rel="stylesheet" href="css/style.css?v=3.5.1">
 <style>
 .calc-shell{width:min(980px,88vw);margin:auto;padding:145px 0 110px}
 .calc-shell h1{font-family:"Playfair Display",serif;font-size:clamp(50px,7vw,82px);line-height:.98;margin:14px 0 16px;font-weight:500}
@@ -45,6 +45,15 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
 <link rel="manifest" href="/site.webmanifest"/>
 <meta name="theme-color" content="#101315"/>
+
+<style>
+.related-tools{margin:30px 0}.related-tools h2{margin:0 0 14px}
+.related-tools-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.related-tool-link{display:block;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:16px;background:rgba(255,255,255,.035);text-decoration:none;transition:transform .18s ease,border-color .18s ease,background .18s ease}
+.related-tool-link:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.20);background:rgba(255,255,255,.055)}
+.related-tool-link strong{display:block;color:#fff;margin-bottom:4px}.related-tool-link span{font-size:13px;color:#9da9ad}
+@media(max-width:640px){.related-tools-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body class="ct-tool-page">
 <header class="nav">
@@ -71,7 +80,7 @@
 </section>
 <section class="faq-section">
 <h2>Frequently asked questions</h2><details><summary>Is UK MPG the same as US MPG?</summary><p>No. The gallons are different sizes, so the numeric MPG values differ.</p></details><details><summary>Is lower L/100 km better?</summary><p>Yes. It means fewer litres are used to travel 100 km.</p></details><details><summary>Can I convert from any of the three units?</summary><p>Yes. Choose the unit you already have and the calculator shows all three.</p></details>
-</section>
+</section><section class="related-tools" aria-labelledby="related-tools-heading"><h2 id="related-tools-heading">Related calculators</h2><div class="related-tools-grid"><a class="related-tool-link" href="mpg-converter.html"><strong>MPG ↔ L/100km Converter</strong><span>Open calculator →</span></a><a class="related-tool-link" href="tyre-size.html"><strong>Tyre Size Calculator</strong><span>Open calculator →</span></a><a class="related-tool-link" href="ev-charging-cost.html"><strong>EV Charging Cost Calculator</strong><span>Open calculator →</span></a><a class="related-tool-link" href="fuel.html"><strong>Fuel Cost Calculator</strong><span>Open calculator →</span></a></div></section>
 <section class="related-tools">
 <h2>Related tools</h2><div class="related-grid"><a href="fuel.html">Fuel Cost Calculator</a><a href="travel-time.html">Travel Time Calculator</a><a href="unit-converter.html">Unit Converter</a></div>
 </section>
@@ -86,5 +95,5 @@ document.getElementById('clearBtn').addEventListener('click',()=>{document.query
 document.querySelectorAll('.panel input,.panel select').forEach(x=>x.addEventListener('input',calculate));
 calculate();
 </script>
-<footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="updates.html">Updates</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.5.0"></script><script defer src="js/print.js?v=3.5.0"></script></body>
+<footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="updates.html">Updates</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.5.1"></script><script defer src="js/print.js?v=3.5.1"></script></body>
 </html>

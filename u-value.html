@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3.5.0">
+<link rel="stylesheet" href="css/style.css?v=3.5.1">
 <link rel="canonical" href="https://calculatethis.uk/u-value.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:site_name" content="Calculate This">
@@ -61,6 +61,15 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
 <link rel="manifest" href="/site.webmanifest"/>
 <meta name="theme-color" content="#101315"/>
+
+<style>
+.related-tools{margin:30px 0}.related-tools h2{margin:0 0 14px}
+.related-tools-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.related-tool-link{display:block;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:16px;background:rgba(255,255,255,.035);text-decoration:none;transition:transform .18s ease,border-color .18s ease,background .18s ease}
+.related-tool-link:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.20);background:rgba(255,255,255,.055)}
+.related-tool-link strong{display:block;color:#fff;margin-bottom:4px}.related-tool-link span{font-size:13px;color:#9da9ad}
+@media(max-width:640px){.related-tools-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body class="ct-tool-page">
 <header class="nav"><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav></header>
@@ -124,7 +133,7 @@
 <details><summary>What does λ mean?</summary><p>Thermal conductivity, λ, is a material property measured in W/mK. A lower λ means the material conducts heat less readily.</p></details>
 <details><summary>Can I use manufacturer λ-values?</summary><p>Yes. For a useful estimate, use the declared or design thermal conductivity appropriate to the product and calculation method you are working with.</p></details>
 <details><summary>Is this suitable for Building Regulations sign-off?</summary><p>Use it as a planning estimate. Formal calculations can require treatment of repeating thermal bridges, fixings, cavities and other effects not included in this simple layer model.</p></details>
-</section>
+</section><section class="related-tools" aria-labelledby="related-tools-heading"><h2 id="related-tools-heading">Related calculators</h2><div class="related-tools-grid"><a class="related-tool-link" href="concrete.html"><strong>Concrete Calculator</strong><span>Open calculator →</span></a><a class="related-tool-link" href="brick-block.html"><strong>Brick & Block Calculator</strong><span>Open calculator →</span></a><a class="related-tool-link" href="plasterboard.html"><strong>Plasterboard Calculator</strong><span>Open calculator →</span></a><a class="related-tool-link" href="insulation.html"><strong>Insulation Calculator</strong><span>Open calculator →</span></a></div></section>
 
 <section class="related-tools">
 <h2>Related tools</h2>
@@ -210,5 +219,5 @@ addLayer("",12.5,0.25);
 addLayer("",100,0.037);
 addLayer("",100,0.77);
 </script>
-<script defer src="js/ux.js?v=3.5.0"></script><script defer src="js/print.js?v=3.5.0"></script></body>
+<script defer src="js/ux.js?v=3.5.1"></script><script defer src="js/print.js?v=3.5.1"></script></body>
 </html>

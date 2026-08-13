@@ -3,7 +3,7 @@
 <title>Compound Interest Calculator | Calculate This</title><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3.5.0">
+<link rel="stylesheet" href="css/style.css?v=3.5.1">
 <style>
 .calc-shell{width:min(980px,88vw);margin:auto;padding:145px 0 110px}
 .calc-shell h1{font-family:"Playfair Display",serif;font-size:clamp(50px,7vw,82px);line-height:.98;margin:14px 0 16px;font-weight:500}
@@ -55,7 +55,16 @@
 .source-links{margin-top:16px;font-size:14px;color:#aab5b9}.source-links a{color:#f1a978}.example-box{margin-top:18px;padding:18px;border-radius:15px;background:rgba(241,169,120,.07);border:1px solid rgba(241,169,120,.16)}.example-box strong{color:#fff}
 .sensitivity{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.sensitivity .scenario{padding:14px;border-radius:13px;background:#0d1315;border:1px solid rgba(255,255,255,.07)}.sensitivity small{display:block;color:#859196;margin-bottom:5px}.sensitivity strong{color:#fff;font-size:16px}
 @media(max-width:680px){.rate-table{font-size:12px}.rate-table th,.rate-table td{padding:9px 6px}.sensitivity{grid-template-columns:1fr}}
-</style></head><body class="ct-tool-page has-tool-hero">
+</style>
+<style>
+.related-tools{margin:30px 0}.related-tools h2{margin:0 0 14px}
+.related-tools-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.related-tool-link{display:block;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:16px;background:rgba(255,255,255,.035);text-decoration:none;transition:transform .18s ease,border-color .18s ease,background .18s ease}
+.related-tool-link:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.20);background:rgba(255,255,255,.055)}
+.related-tool-link strong{display:block;color:#fff;margin-bottom:4px}.related-tool-link span{font-size:13px;color:#9da9ad}
+@media(max-width:640px){.related-tools-grid{grid-template-columns:1fr}}
+</style>
+</head><body class="ct-tool-page has-tool-hero">
 <header class="nav"><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
 <nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav></header>
 <section class="tool-hero">
@@ -83,7 +92,7 @@
     <section class="trust-panel"><h2>Projection assumptions &amp; sensitivity</h2><div class="trust-meta"><span><strong>Method last checked:</strong> 13 August 2026</span><span><strong>Compounding:</strong> monthly</span><span><strong>Contribution timing:</strong> end of each month</span></div><p>This is a mathematical projection, not a forecast. It assumes the same annual return every month for the whole period, regular contributions continue unchanged, and ignores investment fees, tax, inflation and market volatility.</p><p>The result now shows scenarios at the entered annual return and two percentage points lower/higher. This is a sensitivity check, not an expected range of outcomes.</p><div class="example-box"><strong>Why this matters:</strong> long-term compound results are very sensitive to the return assumption. A small change in annual return can create a large difference over many years.</div><p class="source-links">Consumer guidance: <a href="https://www.moneyhelper.org.uk/en/savings/investing" target="_blank" rel="noopener">MoneyHelper investing guidance</a></p></section><section class="faq-section">
       <h2>Frequently asked questions</h2>
       <details><summary>What is compound interest?</summary><p>It is growth earned on both the original amount and previously accumulated growth.</p></details><details><summary>Why does time matter so much?</summary><p>Compounding has more opportunities to build on itself over longer periods.</p></details><details><summary>Are investment returns guaranteed?</summary><p>No. Investment returns can rise or fall, so projections are estimates only.</p></details>
-    </section>
+    </section><section class="related-tools" aria-labelledby="related-tools-heading"><h2 id="related-tools-heading">Related calculators</h2><div class="related-tools-grid"><a class="related-tool-link" href="loan.html"><strong>Loan Repayment Calculator</strong><span>Open calculator →</span></a><a class="related-tool-link" href="discount.html"><strong>Discount Calculator</strong><span>Open calculator →</span></a><a class="related-tool-link" href="savings.html"><strong>Savings Calculator</strong><span>Open calculator →</span></a><a class="related-tool-link" href="simple-interest.html"><strong>Simple Interest Calculator</strong><span>Open calculator →</span></a></div></section>
     <section class="related-tools">
       <h2>Related tools</h2>
       <div class="related-grid"><a href="savings.html">Savings Calculator</a><a href="mortgage.html">Mortgage Calculator</a><a href="loan.html">Loan Repayment</a></div>
@@ -99,4 +108,4 @@ function valueAt(ratePct){const rr=Math.max(-99.9,ratePct)/100/12;let v=start;fo
 document.querySelectorAll('.panel input,.panel select').forEach(x=>x.addEventListener('input',calculate));
 document.getElementById('clearBtn').onclick=()=>{document.querySelectorAll('.panel input').forEach(x=>x.value='');calculate();};
 document.getElementById('copyBtn').onclick=async()=>{if(resultEl.textContent==='—')return;try{await navigator.clipboard.writeText(resultEl.textContent);const b=document.getElementById('copyBtn');b.textContent='Copied';setTimeout(()=>b.textContent='Copy result',1200)}catch(e){}};
-calculate();</script><footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="updates.html">Updates</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.5.0"></script><script defer src="js/print.js?v=3.5.0"></script></body></html>
+calculate();</script><footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="updates.html">Updates</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.5.1"></script><script defer src="js/print.js?v=3.5.1"></script></body></html>
