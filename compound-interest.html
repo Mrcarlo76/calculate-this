@@ -3,7 +3,7 @@
 <title>Compound Interest Calculator | Calculate This</title><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3.4.3">
+<link rel="stylesheet" href="css/style.css?v=3.4.4">
 <style>
 .calc-shell{width:min(980px,88vw);margin:auto;padding:145px 0 110px}
 .calc-shell h1{font-family:"Playfair Display",serif;font-size:clamp(50px,7vw,82px);line-height:.98;margin:14px 0 16px;font-weight:500}
@@ -48,7 +48,14 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
 <link rel="manifest" href="/site.webmanifest"/>
 <meta name="theme-color" content="#101315"/>
-</head><body class="ct-tool-page has-tool-hero">
+<style>
+.trust-panel{margin-top:28px;padding:24px;border:1px solid rgba(255,255,255,.10);border-radius:20px;background:rgba(255,255,255,.035)}
+.trust-meta{display:flex;flex-wrap:wrap;gap:10px 18px;margin:0 0 18px;color:#aab5b9;font-size:13px}.trust-meta strong{color:#fff}.trust-panel h2{margin-top:0}
+.rate-table{width:100%;border-collapse:collapse;margin:14px 0 8px;font-size:14px}.rate-table th,.rate-table td{padding:11px 10px;border-bottom:1px solid rgba(255,255,255,.09);text-align:left}.rate-table th{color:#fff}.rate-table td{color:#b8c1c4}
+.source-links{margin-top:16px;font-size:14px;color:#aab5b9}.source-links a{color:#f1a978}.example-box{margin-top:18px;padding:18px;border-radius:15px;background:rgba(241,169,120,.07);border:1px solid rgba(241,169,120,.16)}.example-box strong{color:#fff}
+.sensitivity{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.sensitivity .scenario{padding:14px;border-radius:13px;background:#0d1315;border:1px solid rgba(255,255,255,.07)}.sensitivity small{display:block;color:#859196;margin-bottom:5px}.sensitivity strong{color:#fff;font-size:16px}
+@media(max-width:680px){.rate-table{font-size:12px}.rate-table th,.rate-table td{padding:9px 6px}.sensitivity{grid-template-columns:1fr}}
+</style></head><body class="ct-tool-page has-tool-hero">
 <header class="nav"><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
 <nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav></header>
 <section class="tool-hero">
@@ -66,14 +73,14 @@
 <div class="field"><label for="rate">Annual return (%)</label><input id="rate" type="number" inputmode="decimal" step="0.1" placeholder="7"></div>
 <div class="field"><label for="years">Years</label><input id="years" type="number" inputmode="numeric" placeholder="20"></div></div>
 <div class="result-box"><span class="result-label">Estimated final value</span><strong class="result" id="result">—</strong>
-<div class="working" id="working">Enter your details to calculate.</div><div id="summary" class="summary"></div>
+<div class="working" id="working">Enter your details to calculate.</div><div id="summary" class="summary"></div><div id="sensitivity" class="sensitivity" aria-live="polite"></div>
 <div class="actions"><button class="action" id="copyBtn" type="button">Copy result</button><button class="action" id="clearBtn" type="button">Clear</button></div></div>
 </section><section class="tool-content">
       <h2>Compound interest calculator guide</h2>
       <p>Compound growth means returns can build on both your original balance and previous returns. Add regular contributions to see how saving consistently can change the long-term result.</p>
       <div class="formula-grid"><article><h3>Starting balance</h3><p>This is the amount already saved or invested at the beginning.</p></article><article><h3>Regular contributions</h3><p>Adding money each month can have a major effect because each contribution gets more time to grow.</p></article><article><h3>Annual return</h3><p>The rate is an estimate, not a guarantee. Small differences in rate can become more noticeable over long periods.</p></article></div>
     </section>
-    <section class="faq-section">
+    <section class="trust-panel"><h2>Projection assumptions &amp; sensitivity</h2><div class="trust-meta"><span><strong>Method last checked:</strong> 13 August 2026</span><span><strong>Compounding:</strong> monthly</span><span><strong>Contribution timing:</strong> end of each month</span></div><p>This is a mathematical projection, not a forecast. It assumes the same annual return every month for the whole period, regular contributions continue unchanged, and ignores investment fees, tax, inflation and market volatility.</p><p>The result now shows scenarios at the entered annual return and two percentage points lower/higher. This is a sensitivity check, not an expected range of outcomes.</p><div class="example-box"><strong>Why this matters:</strong> long-term compound results are very sensitive to the return assumption. A small change in annual return can create a large difference over many years.</div><p class="source-links">Consumer guidance: <a href="https://www.moneyhelper.org.uk/en/savings/investing" target="_blank" rel="noopener">MoneyHelper investing guidance</a></p></section><section class="faq-section">
       <h2>Frequently asked questions</h2>
       <details><summary>What is compound interest?</summary><p>It is growth earned on both the original amount and previously accumulated growth.</p></details><details><summary>Why does time matter so much?</summary><p>Compounding has more opportunities to build on itself over longer periods.</p></details><details><summary>Are investment returns guaranteed?</summary><p>No. Investment returns can rise or fall, so projections are estimates only.</p></details>
     </section>
@@ -81,14 +88,15 @@
       <h2>Related tools</h2>
       <div class="related-grid"><a href="savings.html">Savings Calculator</a><a href="mortgage.html">Mortgage Calculator</a><a href="loan.html">Loan Repayment</a></div>
     </section><a class="back" href="index.html">← Back to all tools</a><div class="quality-note">Built for quick, transparent estimates. See <a href="methodology.html">how our calculators work</a> and check page-specific assumptions before relying on a result.</div></main><script>
-const resultEl=document.getElementById('result'),workingEl=document.getElementById('working'),summaryEl=document.getElementById('summary');
+const resultEl=document.getElementById('result'),workingEl=document.getElementById('working'),summaryEl=document.getElementById('summary'),sensitivityEl=document.getElementById('sensitivity');
 function gbp(n){return new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',maximumFractionDigits:0}).format(n)}
 function calculate(){const start=+document.getElementById('start').value,monthly=+document.getElementById('monthly').value,annual=+document.getElementById('rate').value/100,years=+document.getElementById('years').value;
-if(start<0||monthly<0||!Number.isFinite(start)||!Number.isFinite(monthly)||!Number.isFinite(annual)||!(years>0)){resultEl.textContent='—';workingEl.textContent='Enter your starting amount, contribution, return and time period.';summaryEl.innerHTML='';return}
+if(start<0||monthly<0||!Number.isFinite(start)||!Number.isFinite(monthly)||!Number.isFinite(annual)||!(years>0)){resultEl.textContent='—';workingEl.textContent='Enter your starting amount, contribution, return and time period.';summaryEl.innerHTML='';sensitivityEl.innerHTML='';return}
 const months=Math.round(years*12),mr=annual/12;let balance=start;for(let i=0;i<months;i++){balance=balance*(1+mr)+monthly}
 const paid=start+monthly*months,growth=balance-paid;resultEl.textContent=gbp(balance);workingEl.textContent=`Estimated value after ${years} years.`;
-summaryEl.innerHTML=`<div class="stat"><small>You contribute</small><strong>${gbp(paid)}</strong></div><div class="stat"><small>Estimated growth</small><strong>${gbp(growth)}</strong></div><div class="stat"><small>Final value</small><strong>${gbp(balance)}</strong></div>`}
+summaryEl.innerHTML=`<div class="stat"><small>You contribute</small><strong>${gbp(paid)}</strong></div><div class="stat"><small>Estimated growth</small><strong>${gbp(growth)}</strong></div><div class="stat"><small>Final value</small><strong>${gbp(balance)}</strong></div>`;
+function valueAt(ratePct){const rr=Math.max(-99.9,ratePct)/100/12;let v=start;for(let i=0;i<months;i++){v=v*(1+rr)+monthly}return v}const entered=annual*100,low=entered-2,high=entered+2;sensitivityEl.innerHTML=`<div class="scenario"><small>${low.toFixed(1)}% annual return</small><strong>${gbp(valueAt(low))}</strong></div><div class="scenario"><small>Entered ${entered.toFixed(1)}%</small><strong>${gbp(balance)}</strong></div><div class="scenario"><small>${high.toFixed(1)}% annual return</small><strong>${gbp(valueAt(high))}</strong></div>`}
 document.querySelectorAll('.panel input,.panel select').forEach(x=>x.addEventListener('input',calculate));
 document.getElementById('clearBtn').onclick=()=>{document.querySelectorAll('.panel input').forEach(x=>x.value='');calculate();};
 document.getElementById('copyBtn').onclick=async()=>{if(resultEl.textContent==='—')return;try{await navigator.clipboard.writeText(resultEl.textContent);const b=document.getElementById('copyBtn');b.textContent='Copied';setTimeout(()=>b.textContent='Copy result',1200)}catch(e){}};
-calculate();</script><footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="updates.html">Updates</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.4.3"></script><script defer src="js/print.js?v=3.4.3"></script></body></html>
+calculate();</script><footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="updates.html">Updates</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.4.4"></script><script defer src="js/print.js?v=3.4.4"></script></body></html>
