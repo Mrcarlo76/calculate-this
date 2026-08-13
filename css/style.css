@@ -690,3 +690,20 @@ button,.cta,.category-tool,.related-grid a,.category-jump a,.tool-list a{-webkit
 @media(max-width:700px){
   #singleDoors,#doubleDoors{min-height:50px}
 }
+
+/* v3.5.2 — performance & mobile */
+button,.btn,.save-tool-btn,.takeoff-action,.related-tool-link,.category-card,.tool-card,a{touch-action:manipulation}
+@media(max-width:760px){
+  input,select,textarea{font-size:16px!important}
+  button,.btn,.takeoff-action,.ct-consent-actions button{min-height:46px}
+  input,select{min-height:48px}
+}
+@supports(content-visibility:auto){
+  .faq-section,.seo-support,.related-tools,.tool-content,.editorial-note,.trust-panel{
+    content-visibility:auto;
+    contain-intrinsic-size:auto 520px;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
