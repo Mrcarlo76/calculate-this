@@ -3,7 +3,7 @@
 <title>Mortgage Calculator — Monthly Repayments | Calculate This</title><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3.4.4">
+<link rel="stylesheet" href="css/style.css?v=3.5.0">
 <style>
 .calc-shell{width:min(980px,88vw);margin:auto;padding:145px 0 110px}
 .calc-shell h1{font-family:"Playfair Display",serif;font-size:clamp(50px,7vw,82px);line-height:.98;margin:14px 0 16px;font-weight:500}
@@ -55,7 +55,14 @@
 .source-links{margin-top:16px;font-size:14px;color:#aab5b9}.source-links a{color:#f1a978}.example-box{margin-top:18px;padding:18px;border-radius:15px;background:rgba(241,169,120,.07);border:1px solid rgba(241,169,120,.16)}.example-box strong{color:#fff}
 .sensitivity{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.sensitivity .scenario{padding:14px;border-radius:13px;background:#0d1315;border:1px solid rgba(255,255,255,.07)}.sensitivity small{display:block;color:#859196;margin-bottom:5px}.sensitivity strong{color:#fff;font-size:16px}
 @media(max-width:680px){.rate-table{font-size:12px}.rate-table th,.rate-table td{padding:9px 6px}.sensitivity{grid-template-columns:1fr}}
-</style></head><body class="ct-tool-page has-tool-hero">
+</style>
+<style>
+.editorial-note{margin:28px 0;padding:22px;border:1px solid rgba(255,255,255,.10);border-radius:18px;background:rgba(255,255,255,.035)}
+.editorial-note h2{margin:0 0 10px;font-size:1.15rem}.editorial-note p{margin:8px 0;color:#b7c0c4}
+.editorial-meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:13px;color:#96a3a8}
+.editorial-meta strong{color:#fff}.editorial-note a{color:#f1a978}
+</style>
+</head><body class="ct-tool-page has-tool-hero">
 <header class="nav"><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
 <nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav></header>
 <section class="tool-hero">
@@ -79,7 +86,7 @@
       <p>Estimate monthly mortgage repayments from the amount borrowed, interest rate and mortgage term. The calculator also shows the total amount repaid and total interest.</p>
       <div class="formula-grid"><article><h3>Repayment mortgage</h3><p>The calculation assumes regular monthly payments that cover both interest and capital.</p></article><article><h3>Interest rate</h3><p>Even small changes in the mortgage rate can materially affect the monthly payment over a long term.</p></article><article><h3>Mortgage term</h3><p>A longer term usually reduces the monthly payment but increases total interest.</p></article></div>
     </section>
-    <section class="trust-panel"><h2>Mortgage assumptions &amp; sensitivity</h2><div class="trust-meta"><span><strong>Method last checked:</strong> 13 August 2026</span><span><strong>Calculation:</strong> standard amortising repayment formula</span></div><p>Mortgage repayment estimates assume a capital-and-interest repayment mortgage with the entered rate remaining constant for the full term. Fees, changing rates, product switches, overpayments and lender-specific rounding are not included.</p><p>The three scenarios shown with your result use the entered rate and rates one percentage point lower/higher. They are not forecasts — they show how sensitive the monthly payment is to the rate assumption.</p><p class="source-links">Useful references: <a href="https://www.moneyhelper.org.uk/en/homes/buying-a-home/mortgage-calculator" target="_blank" rel="noopener">MoneyHelper mortgage calculator</a> · <a href="https://www.fca.org.uk/news/statements/annual-percentage-rate-charge-aprc-calculations" target="_blank" rel="noopener">FCA APRC explanation</a></p></section><section class="faq-section">
+    <section class="trust-panel"><h2>Mortgage assumptions &amp; sensitivity</h2><div class="trust-meta"><span><strong>Method last checked:</strong> 13 August 2026</span><span><strong>Calculation:</strong> standard amortising repayment formula</span></div><p>Mortgage repayment estimates assume a capital-and-interest repayment mortgage with the entered rate remaining constant for the full term. Fees, changing rates, product switches, overpayments and lender-specific rounding are not included.</p><p>The three scenarios shown with your result use the entered rate and rates one percentage point lower/higher. They are not forecasts — they show how sensitive the monthly payment is to the rate assumption.</p><p class="source-links">Useful references: <a href="https://www.moneyhelper.org.uk/en/homes/buying-a-home/mortgage-calculator" target="_blank" rel="noopener">MoneyHelper mortgage calculator</a> · <a href="https://www.fca.org.uk/news/statements/annual-percentage-rate-charge-aprc-calculations" target="_blank" rel="noopener">FCA APRC explanation</a></p></section><section class="editorial-note"><h2>How to interpret the mortgage result</h2><p>The monthly payment assumes a repayment mortgage with a constant interest rate for the full term. Real payments can differ when a fixed or tracker deal ends, the rate changes, fees are added to the balance or the loan is altered. The sensitivity figures show how the same balance and term respond to a one-point rate movement.</p><div class="editorial-meta"><span><strong>Reviewed:</strong> 13 August 2026</span><span>Method: capital-and-interest amortisation · Sensitivity: ±1 percentage point</span><span><a href="methodology.html">How Calculate This checks calculators</a></span></div></section><section class="faq-section">
       <h2>Frequently asked questions</h2>
       <details><summary>Does this include fees?</summary><p>No, unless you add fees to the mortgage amount entered.</p></details><details><summary>Can the result change if my rate changes later?</summary><p>Yes. Variable rates and future remortgage rates can change actual payments.</p></details><details><summary>Is this a mortgage offer?</summary><p>No. It is an estimate for planning and comparison purposes.</p></details>
     </section>
@@ -99,4 +106,4 @@ const low=Math.max(0,annualRate-1),high=annualRate+1;sensitivityEl.innerHTML=`<d
 document.querySelectorAll('.panel input,.panel select').forEach(x=>x.addEventListener('input',calculate));
 document.getElementById('clearBtn').onclick=()=>{document.querySelectorAll('.panel input').forEach(x=>x.value='');calculate();};
 document.getElementById('copyBtn').onclick=async()=>{if(resultEl.textContent==='—')return;try{await navigator.clipboard.writeText(resultEl.textContent);const b=document.getElementById('copyBtn');b.textContent='Copied';setTimeout(()=>b.textContent='Copy result',1200)}catch(e){}};
-calculate();</script><footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="updates.html">Updates</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.4.4"></script><script defer src="js/print.js?v=3.4.4"></script></body></html>
+calculate();</script><footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="updates.html">Updates</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.5.0"></script><script defer src="js/print.js?v=3.5.0"></script></body></html>

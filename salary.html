@@ -3,7 +3,7 @@
 <title>UK Take-Home Pay Calculator 2026/27 | Calculate This</title><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3.4.4">
+<link rel="stylesheet" href="css/style.css?v=3.5.0">
 <style>
 .calc-shell{width:min(980px,88vw);margin:auto;padding:145px 0 110px}
 .calc-shell h1{font-family:"Playfair Display",serif;font-size:clamp(50px,7vw,82px);line-height:.98;margin:14px 0 16px;font-weight:500}
@@ -59,6 +59,13 @@
 .example-box strong{color:#fff}
 @media(max-width:680px){.rate-table{font-size:12px}.rate-table th,.rate-table td{padding:9px 6px}}
 </style>
+
+<style>
+.editorial-note{margin:28px 0;padding:22px;border:1px solid rgba(255,255,255,.10);border-radius:18px;background:rgba(255,255,255,.035)}
+.editorial-note h2{margin:0 0 10px;font-size:1.15rem}.editorial-note p{margin:8px 0;color:#b7c0c4}
+.editorial-meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:13px;color:#96a3a8}
+.editorial-meta strong{color:#fff}.editorial-note a{color:#f1a978}
+</style>
 </head><body class="ct-tool-page has-tool-hero">
 <header class="nav"><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
 <nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav></header>
@@ -99,7 +106,7 @@
 <div class="example-box"><strong>Worked example:</strong> On a £40,000 salary in England, Wales or Northern Ireland with the standard allowance, estimated Income Tax is £5,486 and employee NI is about £2,194.40, leaving about £32,319.60 a year before pension, student loan or other deductions.</div>
 <p class="source-links">Official sources: <a href="https://www.gov.uk/income-tax-rates/current-rates-and-allowances" target="_blank" rel="noopener">Income Tax rates</a> · <a href="https://www.gov.uk/scottish-income-tax" target="_blank" rel="noopener">Scottish Income Tax</a> · <a href="https://www.gov.uk/national-insurance/how-much-you-pay" target="_blank" rel="noopener">National Insurance</a></p>
 </section>
-<section class="faq-section">
+<section class="editorial-note"><h2>Why these take-home figures are checkable</h2><p>The result is built from the tax bands and employee National Insurance assumptions shown on this page rather than from a hidden flat-rate estimate. Use the visible rates and official source links below to sanity-check the calculation, especially if your tax code, benefits, pension method or other deductions differ from the standard assumptions.</p><div class="editorial-meta"><span><strong>Reviewed:</strong> 13 August 2026</span><span>Tax year: 2026/27 · Official rates linked below</span><span><a href="methodology.html">How Calculate This checks calculators</a></span></div></section><section class="faq-section">
       <h2>Frequently asked questions</h2>
       <details><summary>Is this calculator for the UK?</summary><p>Yes. It is designed around UK Income Tax and employee National Insurance assumptions for the tax year shown.</p></details><details><summary>Does it include pension deductions?</summary><p>Not unless the calculator explicitly includes them in the inputs.</p></details><details><summary>Will my payslip match exactly?</summary><p>Not always. Tax codes, benefits, bonuses and other payroll deductions can change the final amount.</p></details>
     </section>
@@ -120,4 +127,4 @@ summaryEl.innerHTML=`<div class="stat"><small>Income Tax</small><strong>${gbp(tx
 document.querySelectorAll('.panel input,.panel select').forEach(x=>x.addEventListener('input',calculate));
 document.getElementById('clearBtn').onclick=()=>{document.querySelectorAll('.panel input').forEach(x=>x.value='');calculate();};
 document.getElementById('copyBtn').onclick=async()=>{if(resultEl.textContent==='—')return;try{await navigator.clipboard.writeText(resultEl.textContent);const b=document.getElementById('copyBtn');b.textContent='Copied';setTimeout(()=>b.textContent='Copy result',1200)}catch(e){}};
-calculate();</script><footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="updates.html">Updates</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.4.4"></script><script defer src="js/print.js?v=3.4.4"></script></body></html>
+calculate();</script><footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="updates.html">Updates</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.5.0"></script><script defer src="js/print.js?v=3.5.0"></script></body></html>
