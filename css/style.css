@@ -707,3 +707,18 @@ button,.btn,.save-tool-btn,.takeoff-action,.related-tool-link,.category-card,.to
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+/* v3.5.3 — accessibility & UX QA */
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.skip-link{position:fixed;left:16px;top:12px;z-index:10000;padding:11px 15px;border-radius:10px;background:#fff;color:#111!important;font-weight:700;text-decoration:none;transform:translateY(-160%);transition:transform .15s ease}
+.skip-link:focus{transform:translateY(0)}
+:where(a,button,input,select,textarea):focus-visible{outline:3px solid #f1a978!important;outline-offset:3px!important}
+input[aria-invalid="true"],select[aria-invalid="true"],textarea[aria-invalid="true"]{outline:2px solid #e9a2a2;outline-offset:1px}
+main{scroll-margin-top:100px}
+main table{max-width:100%}
+@media(max-width:760px){
+  main table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .actions,.takeoff-actions{gap:10px}
+  .actions button,.takeoff-actions button{flex:1 1 140px}
+  .result,.big-result strong,.takeoff-stat strong{overflow-wrap:anywhere}
+}

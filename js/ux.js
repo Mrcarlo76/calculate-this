@@ -80,5 +80,49 @@
       </div>`;
   }
 
-  document.addEventListener('DOMContentLoaded',()=>{recordRecent();saveButton();renderHome()});
+
+  function accessibilityEnhancements(){
+    // Announce changing calculator results without making every keystroke overly verbose.
+    document.querySelectorAll('.result-box,.big-result,.takeoff-result,.summary,.stat-grid,.u-result').forEach(el=>{
+      if(!el.hasAttribute('aria-live')) el.setAttribute('aria-live','polite');
+      if(!el.hasAttribute('aria-atomic')) el.setAttribute('aria-atomic','true');
+    });
+
+    // Expose native number constraints to assistive technology after interaction.
+    document.querySelectorAll('input[type="number"]').forEach(el=>{
+      const validate=()=>{
+        const bad=el.value!=='' && !el.checkValidity();
+        el.setAttribute('aria-invalid',bad?'true':'false');
+      };
+      el.addEventListener('blur',validate);
+      el.addEventListener('input',()=>{if(el.getAttribute('aria-invalid')==='true')validate();});
+    });
+
+    // Keyboard behaviour for tab-style calculator modes.
+    document.querySelectorAll('[role="tablist"]').forEach(list=>{
+      const tabs=[...list.querySelectorAll('[role="tab"]')];
+      if(!tabs.length)return;
+      const sync=()=>{
+        tabs.forEach(tab=>{
+          const on=tab.classList.contains('active');
+          tab.setAttribute('aria-selected',String(on));
+          tab.tabIndex=on?0:-1;
+        });
+      };
+      tabs.forEach((tab,i)=>{
+        tab.addEventListener('click',()=>requestAnimationFrame(sync));
+        tab.addEventListener('keydown',e=>{
+          let next=null;
+          if(e.key==='ArrowRight'||e.key==='ArrowDown')next=(i+1)%tabs.length;
+          if(e.key==='ArrowLeft'||e.key==='ArrowUp')next=(i-1+tabs.length)%tabs.length;
+          if(e.key==='Home')next=0;
+          if(e.key==='End')next=tabs.length-1;
+          if(next!==null){e.preventDefault();tabs[next].focus();tabs[next].click();}
+        });
+      });
+      sync();
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded',()=>{recordRecent();saveButton();renderHome();accessibilityEnhancements()});
 })();
