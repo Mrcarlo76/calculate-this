@@ -722,3 +722,16 @@ main table{max-width:100%}
   .actions button,.takeoff-actions button{flex:1 1 140px}
   .result,.big-result strong,.takeoff-stat strong{overflow-wrap:anywhere}
 }
+
+
+/* v3.6.4 — mobile focus + date-mode polish */
+.search:focus-within{
+  outline:none;
+  border-color:rgba(241,169,120,.82);
+  box-shadow:0 0 0 2px rgba(241,169,120,.18);
+}
+.search input:focus,
+.search input:focus-visible{
+  outline:none!important;
+  box-shadow:none!important;
+}
