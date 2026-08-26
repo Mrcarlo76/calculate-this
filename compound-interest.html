@@ -1,9 +1,9 @@
-<!doctype html><html lang="en"><head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});</script><script defer src="js/consent.js?v=3.6.5"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Estimate compound growth from a starting amount, regular contributions, annual return and time period.">
+<!doctype html><html lang="en"><head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});</script><script defer src="js/consent.js?v=3.6.6"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Estimate compound growth from a starting amount, regular monthly contributions, one-off lump sums, annual return and time period.">
 <title>Compound Interest Calculator | Calculate This</title><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3.6.5">
+<link rel="stylesheet" href="css/style.css?v=3.6.6">
 <style>
 .calc-shell{width:min(980px,88vw);margin:auto;padding:145px 0 110px}
 .calc-shell h1{font-family:"Playfair Display",serif;font-size:clamp(50px,7vw,82px);line-height:.98;margin:14px 0 16px;font-weight:500}
@@ -23,6 +23,24 @@
 .stat{padding:16px;border-radius:14px;background:#0d1315;border:1px solid rgba(255,255,255,.07)}
 .stat small{display:block;color:#869297;margin-bottom:5px}.stat strong{font-size:18px}
 .note{margin-top:22px;color:#859196;font-size:13px;line-height:1.6}
+.lump-section{margin-top:22px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08)}
+.lump-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:12px}
+.lump-head h2{font-family:"DM Sans",sans-serif;font-size:16px;margin:0 0 4px;font-weight:600}
+.lump-head p{margin:0;color:#8f9b9f;font-size:13px;line-height:1.5}
+.lump-add{border:1px solid rgba(241,169,120,.30);background:rgba(241,169,120,.06);color:#f1a978;border-radius:11px;padding:10px 13px;cursor:pointer;white-space:nowrap}
+.lump-list{display:grid;gap:10px}
+.lump-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(150px,.65fr) auto;gap:10px;align-items:end;padding:14px;border-radius:15px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07)}
+.lump-remove{height:54px;min-width:46px;border:1px solid rgba(255,255,255,.10);background:#0d1315;color:#9ba6aa;border-radius:12px;cursor:pointer;font-size:20px;line-height:1}
+.lump-remove:hover{color:#fff;border-color:rgba(255,255,255,.20)}
+.lump-empty{color:#7f8a8f;font-size:13px;margin:2px 0 0}
+.lump-timing{margin-top:10px;color:#7f8a8f;font-size:12px;line-height:1.5}
+.summary.has-lumps{grid-template-columns:repeat(4,1fr)}
+@media(max-width:680px){
+  .lump-head{display:block}.lump-add{margin-top:12px;width:100%}
+  .lump-row{grid-template-columns:1fr 1fr}.lump-remove{grid-column:1/-1;height:42px}
+  .summary.has-lumps{grid-template-columns:1fr}
+}
+
 .back{display:inline-block;margin-top:35px;color:#f1a978}
 @media(max-width:680px){.calc-shell{padding-top:115px}.grid,.summary{grid-template-columns:1fr}.actions{flex-wrap:wrap}}
 </style>
@@ -31,12 +49,12 @@
 <meta property="og:site_name" content="Calculate This">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Compound Interest Calculator | Calculate This">
-<meta property="og:description" content="Estimate compound growth from a starting amount, regular contributions, annual return and time period.">
+<meta property="og:description" content="Estimate compound growth from a starting amount, regular monthly contributions, one-off lump sums, annual return and time period.">
 <meta property="og:url" content="https://calculatethis.uk/compound-interest.html">
 <meta property="og:image" content="https://calculatethis.uk/images/tool-heroes/compound-interest.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Compound Interest Calculator | Calculate This">
-<meta name="twitter:description" content="Estimate compound growth from a starting amount, regular contributions, annual return and time period.">
+<meta name="twitter:description" content="Estimate compound growth from a starting amount, regular monthly contributions, one-off lump sums, annual return and time period.">
 <meta name="twitter:image" content="https://calculatethis.uk/images/tool-heroes/compound-interest.webp">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Compound Interest Calculator | Calculate This","url":"https://calculatethis.uk/compound-interest.html","applicationCategory":"CalculatorApplication","operatingSystem":"Any","isAccessibleForFree":true,"description":"Estimate compound growth from a starting amount, regular contributions, annual return and time period.","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is compound interest?","acceptedAnswer":{"@type":"Answer","text":"It is growth earned on both the original amount and previously accumulated growth."}},{"@type":"Question","name":"Why does time matter so much?","acceptedAnswer":{"@type":"Answer","text":"Compounding has more opportunities to build on itself over longer periods."}},{"@type":"Question","name":"Are investment returns guaranteed?","acceptedAnswer":{"@type":"Answer","text":"No. Investment returns can rise or fall, so projections are estimates only."}}]}</script>
@@ -73,7 +91,7 @@
     <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="money.html">Money</a><span class="sep">/</span><span aria-current="page">Compound Interest Calculator</span></nav>
     <p class="eyebrow">MONEY</p>
     <h1>Compound Interest Calculator</h1>
-    <p class="hero-lead">See how savings or investments could grow with compound returns and regular contributions.</p>
+    <p class="hero-lead">See how savings or investments could grow with compound returns, regular contributions and optional one-off lump sums.</p>
   </div>
 </section>
 <main id="main-content" class="calc-shell">
@@ -81,15 +99,24 @@
 <div class="field"><label for="monthly">Monthly contribution (£)</label><input id="monthly" type="number" inputmode="decimal" placeholder="250"></div>
 <div class="field"><label for="rate">Annual return (%)</label><input id="rate" type="number" inputmode="decimal" step="0.1" placeholder="7"></div>
 <div class="field"><label for="years">Years</label><input id="years" type="number" inputmode="numeric" placeholder="20"></div></div>
+<div class="lump-section">
+  <div class="lump-head">
+    <div><h2>One-off lump sums <span style="color:#7f8a8f;font-weight:400">(optional)</span></h2><p>Add extra contributions in specific years without changing the regular monthly amount.</p></div>
+    <button class="lump-add" id="addLumpBtn" type="button">+ Add lump sum</button>
+  </div>
+  <div class="lump-list" id="lumpList"></div>
+  <p class="lump-empty" id="lumpEmpty">No additional lump sums added.</p>
+  <p class="lump-timing">Timing assumption: each lump sum is added at the <strong>start of the selected year</strong>. For example, Year 3 is added after 24 months and then compounds for the rest of the term.</p>
+</div>
 <div class="result-box"><span class="result-label">Estimated final value</span><strong class="result" id="result">—</strong>
 <div class="working" id="working">Enter your details to calculate.</div><div id="summary" class="summary"></div><div id="sensitivity" class="sensitivity" aria-live="polite"></div>
 <div class="actions"><button class="action" id="copyBtn" type="button">Copy result</button><button class="action" id="clearBtn" type="button">Clear</button></div></div>
 </section><section class="tool-content">
       <h2>Compound interest calculator guide</h2>
-      <p>Compound growth means returns can build on both your original balance and previous returns. Add regular contributions to see how saving consistently can change the long-term result.</p>
-      <div class="formula-grid"><article><h3>Starting balance</h3><p>This is the amount already saved or invested at the beginning.</p></article><article><h3>Regular contributions</h3><p>Adding money each month can have a major effect because each contribution gets more time to grow.</p></article><article><h3>Annual return</h3><p>The rate is an estimate, not a guarantee. Small differences in rate can become more noticeable over long periods.</p></article></div>
+      <p>Compound growth means returns can build on both your original balance and previous returns. Add regular monthly contributions and optional one-off lump sums to model a more realistic saving or investment plan.</p>
+      <div class="formula-grid"><article><h3>Starting balance</h3><p>This is the amount already saved or invested at the beginning.</p></article><article><h3>Regular contributions</h3><p>Adding money each month can have a major effect because each contribution gets more time to grow.</p></article><article><h3>One-off lump sums</h3><p>Add one or more extra contributions in a chosen year. Each is assumed to be invested at the start of that year.</p></article><article><h3>Annual return</h3><p>The rate is an estimate, not a guarantee. Small differences in rate can become more noticeable over long periods.</p></article></div>
     </section>
-    <section class="trust-panel"><h2>Projection assumptions &amp; sensitivity</h2><div class="trust-meta"><span><strong>Method last checked:</strong> 13 August 2026</span><span><strong>Compounding:</strong> monthly</span><span><strong>Contribution timing:</strong> end of each month</span></div><p>This is a mathematical projection, not a forecast. It assumes the same annual return every month for the whole period, regular contributions continue unchanged, and ignores investment fees, tax, inflation and market volatility.</p><p>The result now shows scenarios at the entered annual return and two percentage points lower/higher. This is a sensitivity check, not an expected range of outcomes.</p><div class="example-box"><strong>Why this matters:</strong> long-term compound results are very sensitive to the return assumption. A small change in annual return can create a large difference over many years.</div><p class="source-links">Consumer guidance: <a href="https://www.moneyhelper.org.uk/en/savings/investing" target="_blank" rel="noopener">MoneyHelper investing guidance</a></p></section><section class="faq-section">
+    <section class="trust-panel"><h2>Projection assumptions &amp; sensitivity</h2><div class="trust-meta"><span><strong>Method last checked:</strong> 13 August 2026</span><span><strong>Compounding:</strong> monthly</span><span><strong>Monthly contributions:</strong> end of each month</span><span><strong>Lump sums:</strong> start of selected year</span></div><p>This is a mathematical projection, not a forecast. It assumes the same annual return every month for the whole period, regular contributions continue unchanged, selected lump sums are added at the start of their chosen year, and ignores investment fees, tax, inflation and market volatility.</p><p>The result now shows scenarios at the entered annual return and two percentage points lower/higher. This is a sensitivity check, not an expected range of outcomes.</p><div class="example-box"><strong>Why this matters:</strong> long-term compound results are very sensitive to the return assumption. A small change in annual return can create a large difference over many years.</div><p class="source-links">Consumer guidance: <a href="https://www.moneyhelper.org.uk/en/savings/investing" target="_blank" rel="noopener">MoneyHelper investing guidance</a></p></section><section class="faq-section">
       <h2>Frequently asked questions</h2>
       <details><summary>What is compound interest?</summary><p>It is growth earned on both the original amount and previously accumulated growth.</p></details><details><summary>Why does time matter so much?</summary><p>Compounding has more opportunities to build on itself over longer periods.</p></details><details><summary>Are investment returns guaranteed?</summary><p>No. Investment returns can rise or fall, so projections are estimates only.</p></details>
     </section><section class="related-tools" aria-labelledby="related-tools-heading"><h2 id="related-tools-heading">Related calculators</h2><div class="related-tools-grid"><a class="related-tool-link" href="loan.html"><strong>Loan Repayment Calculator</strong><span>Open calculator →</span></a><a class="related-tool-link" href="discount.html"><strong>Discount Calculator</strong><span>Open calculator →</span></a><a class="related-tool-link" href="savings.html"><strong>Savings Calculator</strong><span>Open calculator →</span></a><a class="related-tool-link" href="simple-interest.html"><strong>Simple Interest Calculator</strong><span>Open calculator →</span></a></div></section>
@@ -97,15 +124,144 @@
       <h2>Related tools</h2>
       <div class="related-grid"><a href="savings.html">Savings Calculator</a><a href="mortgage.html">Mortgage Calculator</a><a href="loan.html">Loan Repayment</a></div>
     </section><a class="back" href="index.html">← Back to all tools</a><div class="quality-note">Built for quick, transparent estimates. See <a href="methodology.html">how our calculators work</a> and check page-specific assumptions before relying on a result.</div></main><script>
-const resultEl=document.getElementById('result'),workingEl=document.getElementById('working'),summaryEl=document.getElementById('summary'),sensitivityEl=document.getElementById('sensitivity');
-function gbp(n){return new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',maximumFractionDigits:0}).format(n)}
-function calculate(){const start=+document.getElementById('start').value,monthly=+document.getElementById('monthly').value,annual=+document.getElementById('rate').value/100,years=+document.getElementById('years').value;
-if(start<0||monthly<0||!Number.isFinite(start)||!Number.isFinite(monthly)||!Number.isFinite(annual)||!(years>0)){resultEl.textContent='—';workingEl.textContent='Enter your starting amount, contribution, return and time period.';summaryEl.innerHTML='';sensitivityEl.innerHTML='';return}
-const months=Math.round(years*12),mr=annual/12;let balance=start;for(let i=0;i<months;i++){balance=balance*(1+mr)+monthly}
-const paid=start+monthly*months,growth=balance-paid;resultEl.textContent=gbp(balance);workingEl.textContent=`Estimated value after ${years} years.`;
-summaryEl.innerHTML=`<div class="stat"><small>You contribute</small><strong>${gbp(paid)}</strong></div><div class="stat"><small>Estimated growth</small><strong>${gbp(growth)}</strong></div><div class="stat"><small>Final value</small><strong>${gbp(balance)}</strong></div>`;
-function valueAt(ratePct){const rr=Math.max(-99.9,ratePct)/100/12;let v=start;for(let i=0;i<months;i++){v=v*(1+rr)+monthly}return v}const entered=annual*100,low=entered-2,high=entered+2;sensitivityEl.innerHTML=`<div class="scenario"><small>${low.toFixed(1)}% annual return</small><strong>${gbp(valueAt(low))}</strong></div><div class="scenario"><small>Entered ${entered.toFixed(1)}%</small><strong>${gbp(balance)}</strong></div><div class="scenario"><small>${high.toFixed(1)}% annual return</small><strong>${gbp(valueAt(high))}</strong></div>`}
+const resultEl=document.getElementById('result'),
+      workingEl=document.getElementById('working'),
+      summaryEl=document.getElementById('summary'),
+      sensitivityEl=document.getElementById('sensitivity'),
+      lumpList=document.getElementById('lumpList'),
+      lumpEmpty=document.getElementById('lumpEmpty'),
+      yearsEl=document.getElementById('years');
+let lumpId=0;
+
+function gbp(n){
+  return new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',maximumFractionDigits:0}).format(n)
+}
+
+function maxLumpYear(){
+  const years=+yearsEl.value;
+  return years>0 ? Math.max(1,Math.ceil(years)) : 1;
+}
+
+function yearOptions(selected){
+  const max=maxLumpYear();
+  let html='';
+  for(let y=1;y<=max;y++) html+=`<option value="${y}"${y===selected?' selected':''}>Year ${y}</option>`;
+  return html;
+}
+
+function syncLumpYears(){
+  const max=maxLumpYear();
+  lumpList.querySelectorAll('.lump-year').forEach(sel=>{
+    const current=Math.min(Math.max(1,+sel.value||1),max);
+    sel.innerHTML=yearOptions(current);
+  });
+}
+
+function updateLumpEmpty(){
+  lumpEmpty.hidden=!!lumpList.children.length;
+}
+
+function addLump(amount='',year=1){
+  lumpId++;
+  const row=document.createElement('div');
+  row.className='lump-row';
+  row.dataset.lumpId=String(lumpId);
+  row.innerHTML=`
+    <div class="field">
+      <label for="lumpAmount${lumpId}">Lump sum amount (£)</label>
+      <input id="lumpAmount${lumpId}" class="lump-amount" type="number" inputmode="decimal" min="0" placeholder="5000" value="${amount}">
+    </div>
+    <div class="field">
+      <label for="lumpYear${lumpId}">Added in</label>
+      <select id="lumpYear${lumpId}" class="lump-year">${yearOptions(Math.min(year,maxLumpYear()))}</select>
+    </div>
+    <button class="lump-remove" type="button" aria-label="Remove this lump sum" title="Remove lump sum">×</button>`;
+  row.querySelectorAll('input,select').forEach(el=>el.addEventListener('input',calculate));
+  row.querySelector('.lump-remove').addEventListener('click',()=>{row.remove();updateLumpEmpty();calculate()});
+  lumpList.appendChild(row);
+  updateLumpEmpty();
+  calculate();
+}
+
+function getLumps(){
+  return [...lumpList.querySelectorAll('.lump-row')].map(row=>({
+    amount:+row.querySelector('.lump-amount').value||0,
+    year:+row.querySelector('.lump-year').value||1
+  })).filter(x=>x.amount>0);
+}
+
+function projectedValue(ratePct,start,monthly,months,lumps){
+  const rr=Math.max(-99.9,ratePct)/100/12;
+  let v=start;
+  for(let i=0;i<months;i++){
+    // Start of Year N: month index (N-1)*12.
+    for(const lump of lumps){
+      if(i===(lump.year-1)*12) v+=lump.amount;
+    }
+    v=v*(1+rr)+monthly;
+  }
+  return v;
+}
+
+function calculate(){
+  const start=+document.getElementById('start').value,
+        monthly=+document.getElementById('monthly').value,
+        annual=+document.getElementById('rate').value/100,
+        years=+yearsEl.value;
+
+  if(start<0||monthly<0||!Number.isFinite(start)||!Number.isFinite(monthly)||!Number.isFinite(annual)||!(years>0)){
+    resultEl.textContent='—';
+    workingEl.textContent='Enter your starting amount, contribution, return and time period.';
+    summaryEl.innerHTML='';
+    summaryEl.classList.remove('has-lumps');
+    sensitivityEl.innerHTML='';
+    return;
+  }
+
+  syncLumpYears();
+
+  const months=Math.round(years*12),
+        lumps=getLumps(),
+        lumpTotal=lumps.reduce((sum,x)=>sum+x.amount,0),
+        entered=annual*100,
+        balance=projectedValue(entered,start,monthly,months,lumps),
+        regularPaid=monthly*months,
+        paid=start+regularPaid+lumpTotal,
+        growth=balance-paid;
+
+  resultEl.textContent=gbp(balance);
+  const lumpText=lumps.length ? ` Includes ${lumps.length} one-off lump sum${lumps.length===1?'':'s'} totalling ${gbp(lumpTotal)}.` : '';
+  workingEl.textContent=`Estimated value after ${years} years.${lumpText}`;
+
+  if(lumps.length){
+    summaryEl.classList.add('has-lumps');
+    summaryEl.innerHTML=`<div class="stat"><small>Starting amount</small><strong>${gbp(start)}</strong></div><div class="stat"><small>Regular contributions</small><strong>${gbp(regularPaid)}</strong></div><div class="stat"><small>Additional lump sums</small><strong>${gbp(lumpTotal)}</strong></div><div class="stat"><small>Estimated growth</small><strong>${gbp(growth)}</strong></div>`;
+  }else{
+    summaryEl.classList.remove('has-lumps');
+    summaryEl.innerHTML=`<div class="stat"><small>You contribute</small><strong>${gbp(paid)}</strong></div><div class="stat"><small>Estimated growth</small><strong>${gbp(growth)}</strong></div><div class="stat"><small>Final value</small><strong>${gbp(balance)}</strong></div>`;
+  }
+
+  const low=entered-2,high=entered+2;
+  sensitivityEl.innerHTML=`<div class="scenario"><small>${low.toFixed(1)}% annual return</small><strong>${gbp(projectedValue(low,start,monthly,months,lumps))}</strong></div><div class="scenario"><small>Entered ${entered.toFixed(1)}%</small><strong>${gbp(balance)}</strong></div><div class="scenario"><small>${high.toFixed(1)}% annual return</small><strong>${gbp(projectedValue(high,start,monthly,months,lumps))}</strong></div>`;
+}
+
 document.querySelectorAll('.panel input,.panel select').forEach(x=>x.addEventListener('input',calculate));
-document.getElementById('clearBtn').onclick=()=>{document.querySelectorAll('.panel input').forEach(x=>x.value='');calculate();};
-document.getElementById('copyBtn').onclick=async()=>{if(resultEl.textContent==='—')return;try{await navigator.clipboard.writeText(resultEl.textContent);const b=document.getElementById('copyBtn');b.textContent='Copied';setTimeout(()=>b.textContent='Copy result',1200)}catch(e){}};
-calculate();</script><footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="updates.html">Updates</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.6.5"></script><script>window.addEventListener('DOMContentLoaded',function(){var load=function(){if(document.querySelector('script[data-ct-print]'))return;var s=document.createElement('script');s.src='js/print.js?v=3.6.5';s.defer=true;s.dataset.ctPrint='1';document.head.appendChild(s)};if('requestIdleCallback'in window)requestIdleCallback(load,{timeout:1800});else setTimeout(load,700);});</script></body></html>
+yearsEl.addEventListener('input',()=>{syncLumpYears();calculate()});
+document.getElementById('addLumpBtn').addEventListener('click',()=>addLump('',1));
+document.getElementById('clearBtn').onclick=()=>{
+  document.querySelectorAll('.panel input').forEach(x=>x.value='');
+  lumpList.innerHTML='';
+  updateLumpEmpty();
+  calculate();
+};
+document.getElementById('copyBtn').onclick=async()=>{
+  if(resultEl.textContent==='—')return;
+  try{
+    await navigator.clipboard.writeText(resultEl.textContent);
+    const b=document.getElementById('copyBtn');
+    b.textContent='Copied';
+    setTimeout(()=>b.textContent='Copy result',1200)
+  }catch(e){}
+};
+updateLumpEmpty();
+calculate();</script><footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="updates.html">Updates</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.6.6"></script><script>window.addEventListener('DOMContentLoaded',function(){var load=function(){if(document.querySelector('script[data-ct-print]'))return;var s=document.createElement('script');s.src='js/print.js?v=3.6.6';s.defer=true;s.dataset.ctPrint='1';document.head.appendChild(s)};if('requestIdleCallback'in window)requestIdleCallback(load,{timeout:1800});else setTimeout(load,700);});</script></body></html>
