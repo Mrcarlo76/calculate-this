@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});</script><script defer src="js/consent.js?v=3.6.13"></script>
+<head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});</script><script defer src="js/consent.js?v=3.6.14"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>U-Value Calculator | Calculate This</title>
@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3.6.13">
+<link rel="stylesheet" href="css/style.css?v=3.6.14">
 <link rel="canonical" href="https://calculatethis.uk/u-value.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:site_name" content="Calculate This">
@@ -32,6 +32,16 @@
 
 .metal-title-row{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:16px}.metal-title-row h3{margin:2px 0 0!important}.metal-kicker{display:block;font-size:10px;letter-spacing:.14em;color:#f1a978}.wall-mode-pills{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:4px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:#080d0f}.wall-mode-pill{appearance:none;border:0;background:transparent;color:#8f9b9f;border-radius:8px;padding:9px 12px;font:600 12px "DM Sans",sans-serif;cursor:pointer}.wall-mode-pill.active{background:rgba(241,169,120,.12);color:#f1a978}.twin-controls{display:grid;grid-template-columns:1.35fr 1fr;gap:18px;align-items:end;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.07)}.void-summary{display:grid;grid-template-columns:1fr auto;gap:3px 12px;margin-top:16px;padding:13px 14px;border-radius:12px;background:#090f11;border:1px solid rgba(255,255,255,.07)}.void-summary span{color:#8f9b9f;font-size:12px}.void-summary strong{color:#f1a978;font-size:16px}.void-summary small{grid-column:1/-1;color:#68767b;font-size:10px}.soffit-note{margin-top:10px;padding:11px 13px;border-radius:11px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);color:#8d999d;font-size:11px;line-height:1.55}
 @media(max-width:650px){.metal-title-row{display:block}.wall-mode-pills{margin-top:12px}.twin-controls{grid-template-columns:1fr}.void-summary{grid-template-columns:1fr auto}}
+
+.layer-actions{display:flex;gap:7px;align-items:center;justify-content:flex-end}
+.move-layer{width:38px;height:38px;border-radius:10px;border:1px solid rgba(255,255,255,.09);background:#0b1113;color:#98a3a7;cursor:pointer;font-size:17px;line-height:1}
+.move-layer:hover,.move-layer:focus-visible{color:#f1a978;border-color:rgba(241,169,120,.35);background:rgba(241,169,120,.05)}
+.layer-actions .remove-layer{min-width:74px}
+@media(max-width:680px){.layer-actions{grid-column:1/-1;justify-content:flex-start}.layer-actions .remove-layer{height:38px}}
+
+.mf-ceiling-controls{margin-top:18px;padding:16px;border:1px solid rgba(241,169,120,.18);border-radius:16px;background:rgba(241,169,120,.035)}
+.mf-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media(max-width:650px){.mf-grid{grid-template-columns:1fr}}
 </style>
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
 <link rel="icon" href="/favicon.ico" sizes="any"/>
@@ -63,11 +73,21 @@
 <div class="mode-tabs" role="tablist" aria-label="Calculation mode"><button class="mode-tab active" id="simpleMode" type="button">Simple</button><button class="mode-tab" id="proMode" type="button">Pro controls</button></div>
 <div class="u-controls">
  <div class="u-field"><label for="elementType">Building element</label><select id="elementType"><option value="wall">Wall — horizontal heat flow</option><option value="roof">Roof / ceiling — heat flow upwards</option><option value="floor">Floor — heat flow downwards</option><option value="soffit">Concrete soffit / floor over unheated space</option></select></div>
- <div class="u-field"><label for="template">Quick build-up</label><select id="template"><option value="custom">Custom build-up</option><option value="cavity">Cavity wall — brick / cavity / insulation / block / plasterboard</option><option value="metal">Metal stud partition — board / insulated stud / board</option><option value="timber">Timber frame wall — sheathing / insulated frame / plasterboard</option><option value="warmroof">Warm roof — plasterboard / insulation / deck</option><option value="soffit">Concrete floor + soffit insulation</option></select></div>
+ <div class="u-field"><label for="template">Quick build-up</label><select id="template"><option value="custom">Custom build-up</option><option value="cavity">Cavity wall — brick / cavity / insulation / block / plasterboard</option><option value="metal">Metal stud partition — board / insulated stud / board</option><option value="timber">Timber frame wall — sheathing / insulated frame / plasterboard</option><option value="warmroof">Warm roof — plasterboard / insulation / deck</option><option value="soffit">Concrete floor + soffit insulation</option><option value="mfsoffit">Concrete soffit + insulated MF ceiling</option></select></div>
  <div class="u-field"><label for="targetU">Design target (optional, W/m²K)</label><input id="targetU" type="number" min="0" step="0.01" placeholder="e.g. 0.18" inputmode="decimal"></div>
  <div class="method-note"><strong>Automatic surface resistances:</strong> <span id="surfaceText">Rsi 0.13 + Rse 0.04 m²K/W</span>. Change the element and the calculator applies the appropriate heat-flow direction automatically.</div>
 </div>
-<div class="metal-stud-controls" id="metalStudControls" hidden>
+<div class="mf-ceiling-controls" id="mfCeilingControls" hidden>
+<div class="metal-title-row"><div><span class="metal-kicker">SUSPENDED CEILING</span><h3>MF ceiling / insulated void</h3></div></div>
+<div class="mf-grid">
+<div><label class="metal-label" for="mfVoidDepth">Suspended void depth</label><select class="metal-select" id="mfVoidDepth"><option value="100">100 mm</option><option value="150" selected>150 mm</option><option value="200">200 mm</option><option value="250">250 mm</option><option value="300">300 mm</option><option value="400">400 mm</option><option value="500">500 mm</option></select></div>
+<div><label class="metal-label" for="mfInsulationPosition">Insulation position</label><select class="metal-select" id="mfInsulationPosition"><option value="soffit">Tight to soffit</option><option value="ceiling" selected>At ceiling level</option><option value="full">Fill available void</option></select></div>
+<div><label class="metal-label" for="mfBoardLayers">Plasterboard layers</label><select class="metal-select" id="mfBoardLayers"><option value="1" selected>1 layer</option><option value="2">2 layers</option></select></div>
+<div><label class="metal-label" for="mfInsulationThickness">Insulation thickness</label><select class="metal-select" id="mfInsulationThickness"><option value="50">50 mm</option><option value="75">75 mm</option><option value="100" selected>100 mm</option><option value="125">125 mm</option><option value="150">150 mm</option><option value="200">200 mm</option><option value="250">250 mm</option><option value="300">300 mm</option></select></div>
+</div>
+<div class="void-summary"><span>MF build-up</span><strong id="mfSummaryValue">150 mm void · 100 mm insulation</strong><small id="mfSummaryText">Insulation at ceiling level beneath concrete soffit</small></div>
+<p class="micro-note">This models the insulation layer within the suspended ceiling zone and the plasterboard lining below. MF5/MF7 sections, hangers and perimeter channels are <strong>not treated as a zero-bridge layer</strong>; the displayed U-value is the plane insulated path and should be checked against system-specific thermal-bridge data where compliance accuracy is required.</p>
+</div><div class="metal-stud-controls" id="metalStudControls" hidden>
 <div class="metal-title-row"><div><span class="metal-kicker">FRAMING</span><h3>Metal stud wall</h3></div><div class="wall-mode-pills" role="group" aria-label="Metal stud wall type"><button type="button" class="wall-mode-pill active" data-wall-mode="single">Single wall</button><button type="button" class="wall-mode-pill" data-wall-mode="twin">Twin wall</button></div></div>
 <div class="metal-stud-grid">
 <div><span class="metal-label">First stud size</span><div class="stud-pills" id="studPillsA" role="group" aria-label="First metal stud size"><button type="button" class="stud-pill" data-size="50">50 mm</button><button type="button" class="stud-pill active" data-size="70">70 mm</button><button type="button" class="stud-pill" data-size="90">90 mm</button><button type="button" class="stud-pill" data-size="146">146 mm</button></div><input type="hidden" id="metalStudSize" value="70"></div>
@@ -107,7 +127,7 @@
 </div>
 </section>
 
-<section class="tool-content"><h2>Material values and sources</h2><p>The material picker now separates generic reference values from named UK products. Named product λ-values are taken from current manufacturer technical information; use the source link shown beneath the selected layer to verify it. Product values can change, and the appropriate design value may depend on application and calculation convention.</p><p><strong>Starter verified products:</strong> Kingspan Thermawall TW50 (λ 0.022 W/mK), Knauf DriTherm Cavity Slab 32 (λ 0.032 W/mK), Knauf FrameTherm Slab 32 (λ 0.032 W/mK), and ROCKWOOL Thermal Insulation Cavity Slab 32 (λ 0.032 W/mK).</p></section><section class="tool-content"><h2>Concrete soffit insulation</h2><p>Use the <strong>Concrete floor + soffit insulation</strong> quick build-up for floors over car parks, undercrofts and other unheated spaces. ROCKWOOL Soffit Slab is included as a sourced product with declared thermal conductivity of <strong>0.034 W/mK</strong> and common thicknesses of 50, 130, 145, 160, 180, 200 and 220 mm.</p><p class="soffit-note"><strong>Design note:</strong> soffit constructions can also require checks for condensation, fixings, fire performance and junction thermal bridging. The U-value calculation should therefore be treated as the plane-element calculation, with project-specific corrections added where required.</p></section><section class="tool-content"><h2>Expanded verified UK insulation library</h2><p>The verified product library now includes current UK loft, partition and soffit products from ROCKWOOL, Knauf Insulation, Isover and Superglass. Each named product shows its manufacturer source and stored practical thicknesses where published.</p><p><strong>Isover APR 1200:</strong> its declared conductivity varies by thickness, so the calculator automatically uses λ 0.039 W/mK at 25/50 mm, 0.040 at 65 mm, and 0.043 at 75/100 mm.</p></section><section class="faq-section">
+<section class="tool-content"><h2>Material values and sources</h2><p>The material picker now separates generic reference values from named UK products. Named product λ-values are taken from current manufacturer technical information; use the source link shown beneath the selected layer to verify it. Product values can change, and the appropriate design value may depend on application and calculation convention.</p><p><strong>Starter verified products:</strong> Kingspan Thermawall TW50 (λ 0.022 W/mK), Knauf DriTherm Cavity Slab 32 (λ 0.032 W/mK), Knauf FrameTherm Slab 32 (λ 0.032 W/mK), and ROCKWOOL Thermal Insulation Cavity Slab 32 (λ 0.032 W/mK).</p></section><section class="tool-content"><h2>Concrete soffit insulation</h2><p>Use the <strong>Concrete floor + soffit insulation</strong> quick build-up for floors over car parks, undercrofts and other unheated spaces. ROCKWOOL Soffit Slab is included as a sourced product with declared thermal conductivity of <strong>0.034 W/mK</strong> and common thicknesses of 50, 130, 145, 160, 180, 200 and 220 mm.</p><p class="soffit-note"><strong>Design note:</strong> soffit constructions can also require checks for condensation, fixings, fire performance and junction thermal bridging. The U-value calculation should therefore be treated as the plane-element calculation, with project-specific corrections added where required.</p></section><section class="tool-content"><h2>Expanded verified UK insulation library</h2><p>The verified product library now includes current UK loft, partition and soffit products from ROCKWOOL, Knauf Insulation, Isover and Superglass. Each named product shows its manufacturer source and stored practical thicknesses where published.</p><p><strong>Isover APR 1200:</strong> its declared conductivity varies by thickness, so the calculator automatically uses λ 0.039 W/mK at 25/50 mm, 0.040 at 65 mm, and 0.043 at 75/100 mm.</p></section><section class="tool-content"><h2>MF ceiling with insulation below a soffit</h2><p>The <strong>Concrete soffit + insulated MF ceiling</strong> build-up is intended for suspended drylining ceilings beneath concrete slabs where mineral wool is installed within the ceiling zone rather than using a dedicated soffit board. Set the suspension depth, insulation position and thickness, and the calculator updates the build-up automatically.</p><p class="soffit-note"><strong>Thermal-bridge note:</strong> the insulation path is calculated as a plane element. MF5 ceiling sections, MF7 primary channels, hangers and perimeter channels can create local thermal bridges, particularly where insulation is interrupted or compressed. For compliance-critical design, use project/system-specific thermal bridge information where available.</p></section><section class="faq-section">
 <h2>Frequently asked questions</h2>
 <details><summary>What is a U-value?</summary><p>A U-value describes the rate of heat transfer through a building element. Lower values generally indicate better thermal performance.</p></details>
 <details><summary>What does λ mean?</summary><p>Thermal conductivity, λ, is a material property measured in W/mK. A lower λ means the material conducts heat less readily.</p></details>
@@ -170,14 +190,15 @@ const templates={
  metal:[["Plasterboard — generic",12.5,.25],["Mineral wool — λ 0.037",70,.037],["Plasterboard — generic",12.5,.25]],
  timber:[["OSB",11,.13],["Knauf FrameTherm Slab 32",140,.032],["Plasterboard — generic",12.5,.25]],
  warmroof:[["Plasterboard — generic",12.5,.25],["PIR insulation — generic",120,.022],["OSB",18,.13]],
- soffit:[["Concrete",150,1.40],["ROCKWOOL Soffit Slab",130,.034]]
+ soffit:[["Concrete",150,1.40],["ROCKWOOL Soffit Slab",130,.034]],
+ mfsoffit:[["Concrete",150,1.40],["Mineral wool — λ 0.037",100,.037],["Plasterboard — generic",12.5,.25]]
 };
 const layersEl=document.getElementById("layers"),uValue=document.getElementById("uValue"),working=document.getElementById("working"),breakdown=document.getElementById("breakdown"),visual=document.getElementById("buildVisual");
 let pro=false;
 function options(selectedName="") {let out='',last='';materials.forEach(m=>{if(m.g!==last){if(last)out+='</optgroup>';out+=`<optgroup label="${m.g}">`;last=m.g}out+=`<option value="${m.n}" ${m.n===selectedName?'selected':''}>${m.n}${m.l!==undefined&&m.l!==''?` — λ ${m.l}`:m.r?` — R ${m.r}`:''}</option>`});return out+'</optgroup>'}
 function getMat(n){return materials.find(m=>m.n===n)||materials[0]}
 function addLayer(name="Custom material",thickness="",value=""){
- const m=getMat(name),row=document.createElement('div');row.className='layer-row';row.innerHTML=`<select class="material" aria-label="Layer material">${options(name)}</select><input class="thickness" type="number" min="0" step="any" placeholder="100" value="${thickness}" aria-label="Thickness millimetres"><input class="lambda" type="number" min="0" step="any" placeholder="0.022" value="${String(value).startsWith('R:')?String(value).slice(2):(value||m.l||m.r||'')}" aria-label="Thermal conductivity or resistance"><span class="layer-r">—</span><button class="remove-layer" type="button">Remove</button><small class="material-meta" style="grid-column:1/-1">${m.src||''}</small>`;
+ const m=getMat(name),row=document.createElement('div');row.className='layer-row';row.innerHTML=`<select class="material" aria-label="Layer material">${options(name)}</select><input class="thickness" type="number" min="0" step="any" placeholder="100" value="${thickness}" aria-label="Thickness millimetres"><input class="lambda" type="number" min="0" step="any" placeholder="0.022" value="${String(value).startsWith('R:')?String(value).slice(2):(value||m.l||m.r||'')}" aria-label="Thermal conductivity or resistance"><span class="layer-r">—</span><div class="layer-actions"><button class="move-layer move-up" type="button" aria-label="Move layer up" title="Move layer up">↑</button><button class="move-layer move-down" type="button" aria-label="Move layer down" title="Move layer down">↓</button><button class="remove-layer" type="button">Remove</button></div><small class="material-meta" style="grid-column:1/-1">${m.src||''}</small>`;
  const mat=row.querySelector('.material'),val=row.querySelector('.lambda');
  function sync(){
  const x=getMat(mat.value),th=Math.round(+row.querySelector('.thickness').value||0),variant=x.lambdaByThickness&&x.lambdaByThickness[String(th)];
@@ -191,9 +212,11 @@ function addLayer(name="Custom material",thickness="",value=""){
  mat.addEventListener('change',sync);
  row.querySelectorAll('input').forEach(x=>x.addEventListener('input',calculate));
  row.querySelector('.thickness').addEventListener('change',()=>{const x=getMat(mat.value),th=Math.round(+row.querySelector('.thickness').value||0),variant=x.lambdaByThickness&&x.lambdaByThickness[String(th)];if(variant){val.value=variant;calculate()}});
+ row.querySelector('.move-up').onclick=()=>{const prev=row.previousElementSibling;if(prev){layersEl.insertBefore(row,prev);calculate()}};
+ row.querySelector('.move-down').onclick=()=>{const next=row.nextElementSibling;if(next){layersEl.insertBefore(next,row);calculate()}};
  row.querySelector('.remove-layer').onclick=()=>{row.remove();calculate()};layersEl.appendChild(row);val.dataset.mode=m.r?'r':'lambda';calculate();
 }
-function setTemplate(k){layersEl.innerHTML='';if(k==='custom'){addLayer('Plasterboard — generic',12.5,.25);addLayer('Mineral wool — λ 0.037',100,.037);addLayer('Facing brickwork',102.5,.77)}else (templates[k]||templates.cavity).forEach(x=>addLayer(...x));if(k==='timber'){pro=true;setMode(true);bridgeOn.checked=true;setTimeout(()=>{bridgeLayer.value='1';bridgeLayer.dataset.keep='1';calculate()},0)}else if(k==='metal'){bridgeOn.checked=false;setTimeout(syncMetalUI,0)}else if(k==='soffit'){elementType.value='soffit';bridgeOn.checked=false;setTimeout(()=>{syncMetalUI();calculate()},0)}calculate()}
+function setTemplate(k){layersEl.innerHTML='';if(k==='custom'){addLayer('Plasterboard — generic',12.5,.25);addLayer('Mineral wool — λ 0.037',100,.037);addLayer('Facing brickwork',102.5,.77)}else (templates[k]||templates.cavity).forEach(x=>addLayer(...x));if(k==='timber'){pro=true;setMode(true);bridgeOn.checked=true;setTimeout(()=>{bridgeLayer.value='1';bridgeLayer.dataset.keep='1';calculate()},0)}else if(k==='metal'){bridgeOn.checked=false;setTimeout(syncMetalUI,0)}else if(k==='soffit'){elementType.value='soffit';bridgeOn.checked=false;setTimeout(()=>{syncMetalUI();syncMFUI();calculate()},0)}else if(k==='mfsoffit'){elementType.value='soffit';bridgeOn.checked=false;setTimeout(()=>{syncMetalUI();syncMFUI();calculate()},0)}calculate()}
 function setMode(v){pro=v;simpleMode.classList.toggle('active',!v);proMode.classList.toggle('active',v);proOptions.classList.toggle('show',v);calculate()}
 function calcData(){const [rsi,rse]=surfaces[elementType.value],rows=[];document.querySelectorAll('.layer-row').forEach((row,i)=>{const m=getMat(row.querySelector('.material').value),t=+row.querySelector('.thickness').value,lambdaEl=row.querySelector('.lambda'),mode=lambdaEl.dataset.mode,variant=m.lambdaByThickness&&m.lambdaByThickness[String(Math.round(t))];let val=+lambdaEl.value;if(mode!=='r'&&variant){val=variant;lambdaEl.value=variant}let r=0;if(mode==='r'&&val>0)r=val;else if(t>0&&val>0)r=(t/1000)/val;row.querySelector('.layer-r').textContent=r?r.toFixed(3):'—';rows.push({i,n:m.n,t,l:mode==='r'?null:val,r,mode,kind:m.g})});return {rsi,rse,rows:rows.filter(x=>x.r>0)}}
 function calculate(){const d=calcData();surfaceText.textContent=`Rsi ${d.rsi.toFixed(2)} + Rse ${d.rse.toFixed(2)} m²K/W (${surfaces[elementType.value][2]})`;bridgeLayer.innerHTML=d.rows.map((x,j)=>`<option value="${j}">${x.n} — ${x.t||'—'} mm</option>`).join('');let total=d.rsi+d.rse+d.rows.reduce((a,x)=>a+x.r,0),method='Uniform layer method',baseU=total?1/total:0;
@@ -258,7 +281,7 @@ function runSolver(){
 
 simpleMode.onclick=()=>setMode(false);proMode.onclick=()=>setMode(true);addLayerBtn=document.getElementById('addLayer');addLayerBtn.onclick=()=>addLayer();clearLayers.onclick=()=>{template.value='custom';setTemplate('custom')};template.onchange=()=>setTemplate(template.value);elementType.onchange=calculate;targetU.oninput=calculate;[bridgeOn,bridgeFraction,bridgeLambda,fixingCorrection,otherCorrection].forEach(x=>{x.oninput=calculate;x.onchange=calculate});bridgeLayer.onchange=()=>{bridgeLayer.dataset.keep=bridgeLayer.value;calculate()};solveThickness.onclick=runSolver;solverTarget.oninput=()=>{};setTemplate('custom');
 </script>
-<script defer src="js/ux.js?v=3.6.13"></script><script>window.addEventListener('DOMContentLoaded',function(){var load=function(){if(document.querySelector('script[data-ct-print]'))return;var s=document.createElement('script');s.src='js/print.js?v=3.6.13';s.defer=true;s.dataset.ctPrint='1';document.head.appendChild(s)};if('requestIdleCallback'in window)requestIdleCallback(load,{timeout:1800});else setTimeout(load,700);});</script>
+<script defer src="js/ux.js?v=3.6.14"></script><script>window.addEventListener('DOMContentLoaded',function(){var load=function(){if(document.querySelector('script[data-ct-print]'))return;var s=document.createElement('script');s.src='js/print.js?v=3.6.14';s.defer=true;s.dataset.ctPrint='1';document.head.appendChild(s)};if('requestIdleCallback'in window)requestIdleCallback(load,{timeout:1800});else setTimeout(load,700);});</script>
 
 
 <script>
@@ -294,6 +317,35 @@ document.getElementById('metalStudCentres')?.addEventListener('change',calculate
 document.getElementById('twinGap')?.addEventListener('change',syncMetalUI);
 template.addEventListener('change',()=>setTimeout(syncMetalUI,0));
 setTimeout(syncMetalUI,0);
+</script>
+
+<script>
+function syncMFUI(){
+ const box=document.getElementById('mfCeilingControls'),isMF=template.value==='mfsoffit';
+ if(box)box.hidden=!isMF;
+ if(!isMF)return;
+ const voidDepth=+document.getElementById('mfVoidDepth').value||150,
+       pos=document.getElementById('mfInsulationPosition').value,
+       layers=+document.getElementById('mfBoardLayers').value||1,
+       selected=+document.getElementById('mfInsulationThickness').value||100;
+ let insulation=selected;
+ if(pos==='full') insulation=voidDepth;
+ if(insulation>voidDepth) insulation=voidDepth;
+ const rows=[...document.querySelectorAll('.layer-row')];
+ const ins=rows.find(r=>{const m=getMat(r.querySelector('.material').value);return m.insulation===true || m.g?.startsWith('Insulation')});
+ const boards=rows.filter(r=>getMat(r.querySelector('.material').value).n==='Plasterboard — generic');
+ if(ins){ins.querySelector('.thickness').value=insulation}
+ if(boards.length){
+   boards[0].querySelector('.thickness').value=12.5*layers;
+ }
+ const val=document.getElementById('mfSummaryValue'),txt=document.getElementById('mfSummaryText');
+ if(val)val.textContent=`${voidDepth} mm void · ${insulation} mm insulation`;
+ if(txt)txt.textContent=pos==='soffit'?'Insulation tight to underside of concrete soffit':pos==='full'?'Insulation fills the available MF void':'Insulation at ceiling level beneath concrete soffit';
+ calculate();
+}
+['mfVoidDepth','mfInsulationPosition','mfBoardLayers','mfInsulationThickness'].forEach(id=>document.getElementById(id)?.addEventListener('change',syncMFUI));
+template.addEventListener('change',()=>setTimeout(syncMFUI,0));
+setTimeout(syncMFUI,0);
 </script>
 </body>
 </html>

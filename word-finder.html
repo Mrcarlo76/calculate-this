@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});</script><script defer src="js/consent.js?v=3.6.13"></script>
+<head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});</script><script defer src="js/consent.js?v=3.6.14"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Enter letters and find words you can make, with length, starts-with and contains filters.">
@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=3.6.13">
+  <link rel="stylesheet" href="css/style.css?v=3.6.14">
   <style>
     .word-shell{width:min(1050px,88vw);margin:auto;padding:145px 0 110px}
     .word-shell h1{font-family:"Playfair Display",serif;font-size:clamp(50px,7vw,82px);line-height:.98;margin:14px 0 16px;font-weight:500}
@@ -168,5 +168,5 @@ starts.addEventListener('input',()=>{if(letters.value)search()}); contains.addEv
 document.getElementById('clearBtn').onclick=()=>{letters.value='';starts.value='';contains.value='';current=[];count.textContent='Enter some letters';status.textContent='Results are sorted by longest words first.';results.innerHTML='<div class="empty">Try letters such as <strong>react</strong>, <strong>listen</strong> or <strong>triangle</strong>.</div>';letters.focus()};
 document.getElementById('copyBtn').onclick=async()=>{if(!current.length)return;try{await navigator.clipboard.writeText(current.join('\\n'));const b=document.getElementById('copyBtn');b.textContent='Copied';setTimeout(()=>b.textContent='Copy all words',1200)}catch(e){}};
 </script>
-<footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="updates.html">Updates</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.6.13"></script><script>window.addEventListener('DOMContentLoaded',function(){var load=function(){if(document.querySelector('script[data-ct-print]'))return;var s=document.createElement('script');s.src='js/print.js?v=3.6.13';s.defer=true;s.dataset.ctPrint='1';document.head.appendChild(s)};if('requestIdleCallback'in window)requestIdleCallback(load,{timeout:1800});else setTimeout(load,700);});</script></body>
+<footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="updates.html">Updates</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.6.14"></script><script>window.addEventListener('DOMContentLoaded',function(){var load=function(){if(document.querySelector('script[data-ct-print]'))return;var s=document.createElement('script');s.src='js/print.js?v=3.6.14';s.defer=true;s.dataset.ctPrint='1';document.head.appendChild(s)};if('requestIdleCallback'in window)requestIdleCallback(load,{timeout:1800});else setTimeout(load,700);});</script></body>
 </html>
