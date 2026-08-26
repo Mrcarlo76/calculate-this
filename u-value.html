@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});</script><script defer src="js/consent.js?v=3.6.15"></script>
+<head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});</script><script defer src="js/consent.js?v=3.6.16"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>U-Value Calculator | Calculate This</title>
@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3.6.15">
+<link rel="stylesheet" href="css/style.css?v=3.6.16">
 <link rel="canonical" href="https://calculatethis.uk/u-value.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:site_name" content="Calculate This">
@@ -58,8 +58,10 @@
 @media print{
  html,body{background:#fff!important;color:#1b2225!important}
  body>*:not(main){display:none!important}
- main.u-shell>*:not(.u-print-sheet){display:none!important}
- .u-print-sheet{display:block!important;position:static!important;width:auto!important;margin:0!important;padding:0!important;background:#fff!important;color:#1b2225!important;font-family:Arial,Helvetica,sans-serif!important}
+ main{display:block!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;background:#fff!important}
+ .u-shell{display:block!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;background:#fff!important}
+ .u-shell>*:not(.u-print-sheet){display:none!important}
+ .u-print-sheet{display:block!important;visibility:visible!important;position:static!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;background:#fff!important;color:#1b2225!important;font-family:Arial,Helvetica,sans-serif!important}
  .upr-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1.5pt solid #c77b49;padding:0 0 8mm;margin-bottom:7mm}
  .upr-brand{display:flex;align-items:center;gap:9px}.upr-mark{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#111719;color:#c77b49;font-size:25px;font-weight:700}
  .upr-brand strong{display:block;font-size:15pt;letter-spacing:-.2pt;color:#121719}.upr-brand small{display:block;margin-top:2px;color:#657176;font-size:7.5pt;letter-spacing:.08em;text-transform:uppercase}
@@ -369,7 +371,7 @@ function runSolver(){
 
 simpleMode.onclick=()=>setMode(false);proMode.onclick=()=>setMode(true);addLayerBtn=document.getElementById('addLayer');addLayerBtn.onclick=()=>addLayer();clearLayers.onclick=()=>{template.value='custom';setTemplate('custom')};template.onchange=()=>setTemplate(template.value);elementType.onchange=calculate;targetU.oninput=calculate;[bridgeOn,bridgeFraction,bridgeLambda,fixingCorrection,otherCorrection].forEach(x=>{x.oninput=calculate;x.onchange=calculate});bridgeLayer.onchange=()=>{bridgeLayer.dataset.keep=bridgeLayer.value;calculate()};solveThickness.onclick=runSolver;solverTarget.oninput=()=>{};setTemplate('custom');
 </script>
-<script defer src="js/ux.js?v=3.6.15"></script>
+<script defer src="js/ux.js?v=3.6.16"></script>
 
 
 <script>
@@ -498,7 +500,13 @@ setTimeout(syncMFUI,0);
    uprSources.innerHTML=unique.map(x=>`<div class="upr-source"><strong>${esc(x.n)}</strong><span>${esc(x.src||'Manufacturer product data')}</span><code>${esc(x.url)}</code></div>`).join('');
    uprAssumptions.textContent=assumptions(m);
  }
- btn.addEventListener('click',()=>{if(uValue.textContent==='—')return;build();uPrintSheet.setAttribute('aria-hidden','false');setTimeout(()=>window.print(),40)});
+ btn.addEventListener('click',()=>{
+   if(uValue.textContent==='—')return;
+   build();
+   uPrintSheet.setAttribute('aria-hidden','false');
+   void uPrintSheet.offsetHeight;
+   requestAnimationFrame(()=>requestAnimationFrame(()=>window.print()));
+ });
  window.addEventListener('afterprint',()=>uPrintSheet?.setAttribute('aria-hidden','true'));
 })();
 </script>
