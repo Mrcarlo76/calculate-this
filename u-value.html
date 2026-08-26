@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});</script><script defer src="js/consent.js?v=3.6.14"></script>
+<head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});</script><script defer src="js/consent.js?v=3.6.15"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>U-Value Calculator | Calculate This</title>
@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3.6.14">
+<link rel="stylesheet" href="css/style.css?v=3.6.15">
 <link rel="canonical" href="https://calculatethis.uk/u-value.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:site_name" content="Calculate This">
@@ -42,6 +42,40 @@
 .mf-ceiling-controls{margin-top:18px;padding:16px;border:1px solid rgba(241,169,120,.18);border-radius:16px;background:rgba(241,169,120,.035)}
 .mf-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 @media(max-width:650px){.mf-grid{grid-template-columns:1fr}}
+
+.report-controls{margin-top:22px;padding:19px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:rgba(255,255,255,.025)}
+.report-controls-head{display:flex;justify-content:space-between;gap:22px;align-items:flex-start}
+.report-controls-head h2{font:600 19px "DM Sans",sans-serif;margin:4px 0 5px}
+.report-controls-head p{margin:0;color:#8f9b9f;font-size:12px;line-height:1.55;max-width:680px}
+.report-print-btn{border:1px solid rgba(241,169,120,.44);background:rgba(241,169,120,.10);color:#f1a978;border-radius:12px;padding:12px 15px;font:600 13px "DM Sans",sans-serif;cursor:pointer;white-space:nowrap}
+.report-print-btn:hover{background:rgba(241,169,120,.16);border-color:rgba(241,169,120,.68)}
+.report-details-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+.report-details-grid input{width:100%;box-sizing:border-box;background:#080d0f;color:#fff;border:1px solid #293438;border-radius:11px;padding:12px 13px;font:inherit}
+.u-print-sheet{display:none}
+@media(max-width:680px){.report-controls-head{display:block}.report-print-btn{width:100%;margin-top:13px}.report-details-grid{grid-template-columns:1fr}}
+
+@page{size:A4 portrait;margin:13mm 12mm 14mm}
+@media print{
+ html,body{background:#fff!important;color:#1b2225!important}
+ body>*:not(main){display:none!important}
+ main.u-shell>*:not(.u-print-sheet){display:none!important}
+ .u-print-sheet{display:block!important;position:static!important;width:auto!important;margin:0!important;padding:0!important;background:#fff!important;color:#1b2225!important;font-family:Arial,Helvetica,sans-serif!important}
+ .upr-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1.5pt solid #c77b49;padding:0 0 8mm;margin-bottom:7mm}
+ .upr-brand{display:flex;align-items:center;gap:9px}.upr-mark{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#111719;color:#c77b49;font-size:25px;font-weight:700}
+ .upr-brand strong{display:block;font-size:15pt;letter-spacing:-.2pt;color:#121719}.upr-brand small{display:block;margin-top:2px;color:#657176;font-size:7.5pt;letter-spacing:.08em;text-transform:uppercase}
+ .upr-docmeta{text-align:right;color:#3d494d;font-size:8pt}.upr-docmeta small{display:block;margin-top:3px;color:#7a8589}
+ .upr-titlebar{display:grid;grid-template-columns:1fr 64mm;gap:8mm;align-items:end;margin-bottom:7mm}
+ .upr-titlebar>div:first-child>span{font-size:7pt;letter-spacing:.16em;color:#a45f35;font-weight:700}.upr-titlebar h1{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:25pt;line-height:1;margin:2mm 0 0;color:#172024}
+ .upr-result{border-left:2pt solid #c77b49;padding:4mm 0 4mm 5mm;background:#f7f4f1}.upr-result small{display:block;font-size:6.8pt;letter-spacing:.12em;color:#6c777a}.upr-result strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:21pt;color:#a85f34;margin-top:1.5mm}.upr-result span{display:block;font-size:7.2pt;color:#536064;margin-top:1.5mm}
+ .upr-project-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#d7dcde;border:1px solid #d7dcde;margin-bottom:7mm}.upr-project-item{background:#fff;padding:3mm}.upr-project-item small{display:block;font-size:6.5pt;text-transform:uppercase;letter-spacing:.08em;color:#7a8589;margin-bottom:1.2mm}.upr-project-item strong{display:block;font-size:8.5pt;font-weight:600;color:#20282b;word-break:break-word}
+ .upr-section{break-inside:avoid;margin-bottom:6mm}.upr-section-head{display:flex;align-items:baseline;gap:2.5mm;border-bottom:1px solid #d9dddf;padding-bottom:2mm;margin-bottom:3mm}.upr-section-head>span{font-size:7pt;color:#a85f34;font-weight:700}.upr-section-head h2{font-size:11pt;margin:0;color:#20282b}.upr-section-head small{margin-left:auto;color:#7c868a;font-size:6.5pt}
+ .upr-table{width:100%;border-collapse:collapse;font-size:7.5pt}.upr-table th{padding:2.4mm 2mm;text-align:left;background:#edf0f1;color:#49565a;font-size:6.5pt;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid #ccd2d4}.upr-table td{padding:2.4mm 2mm;border-bottom:1px solid #e1e5e6;vertical-align:top}.upr-table .num{text-align:right;font-variant-numeric:tabular-nums}.upr-table tfoot td{font-weight:600;background:#fafafa}.upr-source-line{display:block;font-size:6pt;color:#7a8589;margin-top:1mm}
+ .upr-two-col{display:grid;grid-template-columns:1fr 1fr;gap:7mm;break-inside:avoid}.upr-summary-list{border:1px solid #dce1e2}.upr-summary-row{display:flex;justify-content:space-between;gap:4mm;padding:2.5mm 3mm;border-bottom:1px solid #e2e6e7;font-size:7.5pt}.upr-summary-row:last-child{border-bottom:0}.upr-summary-row span{color:#667276}.upr-summary-row strong{text-align:right;color:#20282b;font-weight:600}
+ .upr-sources{display:grid;grid-template-columns:1fr 1fr;gap:2.5mm}.upr-source{padding:3mm;border:1px solid #dde2e3;break-inside:avoid}.upr-source strong{display:block;font-size:7.6pt}.upr-source span{display:block;color:#657176;font-size:6.4pt;line-height:1.4;margin-top:1mm}.upr-source code{display:block;color:#8a9396;font:5.6pt Arial,sans-serif;word-break:break-all;margin-top:1mm}
+ .upr-assumptions{break-inside:avoid;margin-top:3mm;padding:4mm;border:1px solid #e1d6ce;background:#faf7f4}.upr-assumptions strong{display:block;color:#8f512f;font-size:8pt;margin-bottom:1.5mm}.upr-assumptions p{margin:0;color:#566267;font-size:6.7pt;line-height:1.5}
+ .upr-footer{display:flex;justify-content:space-between;gap:5mm;margin-top:7mm;padding-top:3mm;border-top:1px solid #d7dcde;color:#778286;font-size:6pt}
+ a{color:inherit!important;text-decoration:none!important}
+}
 </style>
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
 <link rel="icon" href="/favicon.ico" sizes="any"/>
@@ -116,6 +150,18 @@
 </div></div>
 <div class="build-visual" id="buildVisual" aria-label="Construction build-up preview"></div>
 <div class="u-result"><div class="result-top"><div><span class="label">Calculated U-value</span><strong class="u-number" id="uValue">—</strong></div><div class="target-status" id="targetStatus" hidden></div></div><div class="u-working" id="working">Add one or more material layers to calculate.</div><div class="breakdown" id="breakdown"></div><div class="estimate-note"><strong>Professional, transparent estimate.</strong> Based on simplified methods in BS EN ISO 6946 and UK BR 443 conventions. Complex steel frames, significant point/linear thermal bridges, ground floors and constructions requiring 2D/3D numerical analysis need an appropriate specialist method. Always verify product design values and project-specific compliance requirements.</div></div>
+<div class="report-controls screen-only">
+  <div class="report-controls-head">
+    <div><span class="solver-kicker">CALCULATION REPORT</span><h2>Print / Save professional PDF</h2><p>Add optional project details, then create a clean A4 calculation sheet using your browser’s Save as PDF option.</p></div>
+    <button type="button" class="report-print-btn" id="uPrintReport">Print / Save PDF</button>
+  </div>
+  <div class="report-details-grid">
+    <div class="u-field"><label for="reportProject">Project</label><input id="reportProject" type="text" placeholder="e.g. Redditch Apartments"></div>
+    <div class="u-field"><label for="reportReference">Element / reference</label><input id="reportReference" type="text" placeholder="e.g. External Wall EW-01"></div>
+    <div class="u-field"><label for="reportPreparedBy">Prepared by</label><input id="reportPreparedBy" type="text" placeholder="Name or company"></div>
+    <div class="u-field"><label for="reportNotes">Report note</label><input id="reportNotes" type="text" placeholder="Optional short note"></div>
+  </div>
+</div>
 </section>
 
 <section class="tool-content">
@@ -140,7 +186,49 @@
 <div class="related-grid"><a href="area.html">Area Calculator</a><a href="paint.html">Paint Calculator</a><a href="flooring.html">Flooring Calculator</a></div>
 </section>
 <div class="quality-note">Built for quick, transparent estimates. See <a href="methodology.html">how our calculators work</a> and check page-specific assumptions before relying on a result.</div>
-<section class="seo-support" aria-labelledby="seo-u-value"><p class="seo-kicker">CALCULATOR GUIDE</p><h2 id="seo-u-value">How the U-value calculation works</h2><p>A U-value measures heat flow through a building element. The calculator converts each material layer into thermal resistance using its thickness and thermal conductivity (λ-value), adds the internal and external surface resistances, then calculates U = 1 ÷ total R.</p><p class="seo-formula">For each layer: R = thickness in metres ÷ λ. Add all layer R-values and surface resistances, then divide 1 by the total resistance to obtain W/m²K.</p><div class="seo-links"><a href="construction.html">All Construction tools</a><a href="methodology.html">How we calculate</a></div></section></main>
+<section class="seo-support" aria-labelledby="seo-u-value"><p class="seo-kicker">CALCULATOR GUIDE</p><h2 id="seo-u-value">How the U-value calculation works</h2><p>A U-value measures heat flow through a building element. The calculator converts each material layer into thermal resistance using its thickness and thermal conductivity (λ-value), adds the internal and external surface resistances, then calculates U = 1 ÷ total R.</p><p class="seo-formula">For each layer: R = thickness in metres ÷ λ. Add all layer R-values and surface resistances, then divide 1 by the total resistance to obtain W/m²K.</p><div class="seo-links"><a href="construction.html">All Construction tools</a><a href="methodology.html">How we calculate</a></div></section>
+<section id="uPrintSheet" class="u-print-sheet" aria-hidden="true">
+  <header class="upr-header">
+    <div class="upr-brand"><span class="upr-mark">⌁</span><div><strong>Calculate This</strong><small>U-Value Calculation Report</small></div></div>
+    <div class="upr-docmeta"><span id="uprDate"></span><small>calculatethis.uk</small></div>
+  </header>
+  <div class="upr-titlebar">
+    <div><span>BUILDING PERFORMANCE</span><h1>U-Value Calculation</h1></div>
+    <div class="upr-result"><small>CALCULATED U-VALUE</small><strong id="uprValue">—</strong><span id="uprTarget"></span></div>
+  </div>
+  <div class="upr-project-grid" id="uprProjectGrid"></div>
+  <section class="upr-section">
+    <div class="upr-section-head"><span>01</span><h2>Construction build-up</h2><small>Layers shown in calculation order</small></div>
+    <table class="upr-table">
+      <thead><tr><th>#</th><th>Material / layer</th><th class="num">Thickness</th><th class="num">λ / R input</th><th class="num">R-value</th></tr></thead>
+      <tbody id="uprLayers"></tbody>
+      <tfoot id="uprSurfaces"></tfoot>
+    </table>
+  </section>
+  <div class="upr-two-col">
+    <section class="upr-section">
+      <div class="upr-section-head"><span>02</span><h2>Calculation summary</h2></div>
+      <div class="upr-summary-list" id="uprSummary"></div>
+    </section>
+    <section class="upr-section">
+      <div class="upr-section-head"><span>03</span><h2>System details</h2></div>
+      <div class="upr-summary-list" id="uprSystem"></div>
+    </section>
+  </div>
+  <section class="upr-section" id="uprSourcesSection">
+    <div class="upr-section-head"><span>04</span><h2>Material sources</h2><small>Named products used in this calculation</small></div>
+    <div class="upr-sources" id="uprSources"></div>
+  </section>
+  <section class="upr-assumptions">
+    <strong>Calculation basis &amp; assumptions</strong>
+    <p id="uprAssumptions"></p>
+  </section>
+  <footer class="upr-footer">
+    <span>Calculate This · U-Value Calculation · calculatethis.uk</span>
+    <span>Generated <span id="uprFooterDate"></span></span>
+  </footer>
+</section>
+</main>
 
 <script>
 const materials=[
@@ -281,7 +369,7 @@ function runSolver(){
 
 simpleMode.onclick=()=>setMode(false);proMode.onclick=()=>setMode(true);addLayerBtn=document.getElementById('addLayer');addLayerBtn.onclick=()=>addLayer();clearLayers.onclick=()=>{template.value='custom';setTemplate('custom')};template.onchange=()=>setTemplate(template.value);elementType.onchange=calculate;targetU.oninput=calculate;[bridgeOn,bridgeFraction,bridgeLambda,fixingCorrection,otherCorrection].forEach(x=>{x.oninput=calculate;x.onchange=calculate});bridgeLayer.onchange=()=>{bridgeLayer.dataset.keep=bridgeLayer.value;calculate()};solveThickness.onclick=runSolver;solverTarget.oninput=()=>{};setTemplate('custom');
 </script>
-<script defer src="js/ux.js?v=3.6.14"></script><script>window.addEventListener('DOMContentLoaded',function(){var load=function(){if(document.querySelector('script[data-ct-print]'))return;var s=document.createElement('script');s.src='js/print.js?v=3.6.14';s.defer=true;s.dataset.ctPrint='1';document.head.appendChild(s)};if('requestIdleCallback'in window)requestIdleCallback(load,{timeout:1800});else setTimeout(load,700);});</script>
+<script defer src="js/ux.js?v=3.6.15"></script>
 
 
 <script>
@@ -346,6 +434,73 @@ function syncMFUI(){
 ['mfVoidDepth','mfInsulationPosition','mfBoardLayers','mfInsulationThickness'].forEach(id=>document.getElementById(id)?.addEventListener('change',syncMFUI));
 template.addEventListener('change',()=>setTimeout(syncMFUI,0));
 setTimeout(syncMFUI,0);
+</script>
+
+<script>
+(function(){
+ const btn=document.getElementById('uPrintReport');
+ if(!btn)return;
+ function text(id){return (document.getElementById(id)?.value||'').trim()}
+ function esc(v){return String(v??'').replace(/[&<>"']/g,s=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]))}
+ function selectedText(el){return el?.options?.[el.selectedIndex]?.text||''}
+ function fmt(n,d=3){return Number.isFinite(+n)?(+n).toFixed(d):'—'}
+ function reportModel(){
+   const d=calcData(),surface=surfaces[elementType.value];
+   let total=d.rsi+d.rse+d.rows.reduce((a,x)=>a+x.r,0),method='Uniform layer method',baseU=total?1/total:0,bridgeDetail='Not applied';
+   if(pro&&bridgeOn.checked&&d.rows.length){
+     const j=Math.min(+bridgeLayer.dataset.keep||+bridgeLayer.value||0,d.rows.length-1),x=d.rows[j],f=Math.max(.01,Math.min(.5,+bridgeFraction.value/100||.15)),tl=+bridgeLambda.value||.13;
+     if(x.t>0&&x.l>0){
+       const rb=(x.t/1000)/tl,otherR=d.rsi+d.rse+d.rows.reduce((a,y,k)=>a+(k===j?0:y.r),0),upper=1/(f/(otherR+rb)+(1-f)/(otherR+x.r)),equiv=1/(f/rb+(1-f)/x.r),lower=otherR+equiv;
+       total=(upper+lower)/2;baseU=1/total;method='ISO 6946 repeating bridge method';bridgeDetail=`${(f*100).toFixed(1)}% timber · λ ${tl.toFixed(3)} W/mK · ${x.n}`;
+     }
+   }
+   const fixing=pro?(+fixingCorrection.value||0):0,other=pro?(+otherCorrection.value||0):0,corr=fixing+other,u=baseU+corr;
+   return {d,surface,total,method,bridgeDetail,baseU,fixing,other,corr,u};
+ }
+ function systemRows(){
+   const rows=[['Element',selectedText(elementType)],['Build-up',selectedText(template)]];
+   if(template.value==='metal'&&typeof currentMetalGeometry==='function'){
+     const g=currentMetalGeometry();
+     rows.push(['Metal framing',g.twin?'Twin stud wall':'Single stud wall'],['Stud geometry',g.twin?`${g.a} + ${g.g} gap + ${g.b} mm`:`${g.a} mm stud`],['Stud centres',`${document.getElementById('metalStudCentres').value} mm`],['Available insulation depth',`${g.depth} mm`]);
+   }
+   if(template.value==='mfsoffit'){
+     rows.push(['MF suspended void',`${document.getElementById('mfVoidDepth').value} mm`],['Insulation position',selectedText(document.getElementById('mfInsulationPosition'))],['Plasterboard',`${document.getElementById('mfBoardLayers').value} layer(s)`]);
+   }
+   return rows;
+ }
+ function assumptions(m){
+   const bits=[
+     'Plane-element U-value calculation based on simplified BS EN ISO 6946 principles and UK BR 443 conventions.',
+     `Surface resistances used: Rsi ${m.d.rsi.toFixed(2)} and Rse ${m.d.rse.toFixed(2)} m²K/W (${m.surface[2]}).`,
+     'Generic material values are indicative; named product values should be checked against current manufacturer technical data for the specified application.'
+   ];
+   if(m.corr)bits.push(`Applied ΔU correction: ${m.corr.toFixed(3)} W/m²K (${m.fixing.toFixed(3)} fixings + ${m.other.toFixed(3)} other).`);
+   if(pro&&bridgeOn.checked)bits.push(`Repeating timber bridge included: ${m.bridgeDetail}.`);
+   if(template.value==='metal')bits.push('Metal-stud result is the unbridged insulated-path calculation. Steel studs, tracks and junctions can materially increase heat flow; use tested system data or appropriate numerical modelling for the completed framed-element U-value.');
+   if(template.value==='mfsoffit')bits.push('MF ceiling result is the plane insulated path. MF5/MF7 channels, hangers, perimeter sections and local insulation interruptions are not explicitly modelled.');
+   if(elementType.value==='soffit')bits.push('Soffit constructions may require separate checks for fixings, condensation, fire performance and junction thermal bridging.');
+   return bits.join(' ');
+ }
+ function build(){
+   calculate();
+   const m=reportModel(),now=new Date(),date=now.toLocaleDateString('en-GB',{day:'2-digit',month:'long',year:'numeric'});
+   uprDate.textContent=date;uprFooterDate.textContent=date;uprValue.textContent=Number.isFinite(m.u)?`${m.u.toFixed(3)} W/m²K`:'—';
+   const target=+targetU.value||0;uprTarget.textContent=target?`${m.u<=target?'✓ Meets':'Above'} design target ${target.toFixed(2)} W/m²K`:'No design target entered';
+   const meta=[['Project',text('reportProject')||'—'],['Element / reference',text('reportReference')||selectedText(elementType)],['Prepared by',text('reportPreparedBy')||'—'],['Report note',text('reportNotes')||'—']];
+   uprProjectGrid.innerHTML=meta.map(([a,b])=>`<div class="upr-project-item"><small>${esc(a)}</small><strong>${esc(b)}</strong></div>`).join('');
+   uprLayers.innerHTML=m.d.rows.map((x,i)=>{const mat=getMat(x.n),input=x.mode==='r'?`R ${fmt(x.r)}`:`λ ${fmt(x.l,3)}`,source=mat.src?`<span class="upr-source-line">${esc(mat.src)}</span>`:'';return `<tr><td>${i+1}</td><td><strong>${esc(x.n)}</strong>${source}</td><td class="num">${x.t?`${esc(x.t)} mm`:'—'}</td><td class="num">${input}</td><td class="num">${fmt(x.r)}</td></tr>`}).join('');
+   uprSurfaces.innerHTML=`<tr><td></td><td>Internal surface resistance (Rsi)</td><td></td><td></td><td class="num">${m.d.rsi.toFixed(3)}</td></tr><tr><td></td><td>External surface resistance (Rse)</td><td></td><td></td><td class="num">${m.d.rse.toFixed(3)}</td></tr>`;
+   const summary=[['Total thermal resistance',`${m.total.toFixed(3)} m²K/W`],['Base U-value',`${m.baseU.toFixed(3)} W/m²K`],['ΔU corrections',`${m.corr?'+':''}${m.corr.toFixed(3)} W/m²K`],['Final U-value',`${m.u.toFixed(3)} W/m²K`],['Calculation method',m.method]];
+   uprSummary.innerHTML=summary.map(([a,b])=>`<div class="upr-summary-row"><span>${esc(a)}</span><strong>${esc(b)}</strong></div>`).join('');
+   uprSystem.innerHTML=systemRows().map(([a,b])=>`<div class="upr-summary-row"><span>${esc(a)}</span><strong>${esc(b)}</strong></div>`).join('');
+   const unique=[...new Map(m.d.rows.map(x=>getMat(x.n)).filter(x=>x.url).map(x=>[x.n,x])).values()];
+   uprSourcesSection.style.display=unique.length?'block':'none';
+   uprSources.innerHTML=unique.map(x=>`<div class="upr-source"><strong>${esc(x.n)}</strong><span>${esc(x.src||'Manufacturer product data')}</span><code>${esc(x.url)}</code></div>`).join('');
+   uprAssumptions.textContent=assumptions(m);
+ }
+ btn.addEventListener('click',()=>{if(uValue.textContent==='—')return;build();uPrintSheet.setAttribute('aria-hidden','false');setTimeout(()=>window.print(),40)});
+ window.addEventListener('afterprint',()=>uPrintSheet?.setAttribute('aria-hidden','true'));
+})();
 </script>
 </body>
 </html>
