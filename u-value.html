@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});</script><script defer src="js/consent.js?v=3.6.16"></script>
+<head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});</script><script defer src="js/consent.js?v=3.6.17"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>U-Value Calculator | Calculate This</title>
@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3.6.16">
+<link rel="stylesheet" href="css/style.css?v=3.6.17">
 <link rel="canonical" href="https://calculatethis.uk/u-value.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:site_name" content="Calculate This">
@@ -371,7 +371,7 @@ function runSolver(){
 
 simpleMode.onclick=()=>setMode(false);proMode.onclick=()=>setMode(true);addLayerBtn=document.getElementById('addLayer');addLayerBtn.onclick=()=>addLayer();clearLayers.onclick=()=>{template.value='custom';setTemplate('custom')};template.onchange=()=>setTemplate(template.value);elementType.onchange=calculate;targetU.oninput=calculate;[bridgeOn,bridgeFraction,bridgeLambda,fixingCorrection,otherCorrection].forEach(x=>{x.oninput=calculate;x.onchange=calculate});bridgeLayer.onchange=()=>{bridgeLayer.dataset.keep=bridgeLayer.value;calculate()};solveThickness.onclick=runSolver;solverTarget.oninput=()=>{};setTemplate('custom');
 </script>
-<script defer src="js/ux.js?v=3.6.16"></script>
+<script defer src="js/ux.js?v=3.6.17"></script>
 
 
 <script>
@@ -500,14 +500,75 @@ setTimeout(syncMFUI,0);
    uprSources.innerHTML=unique.map(x=>`<div class="upr-source"><strong>${esc(x.n)}</strong><span>${esc(x.src||'Manufacturer product data')}</span><code>${esc(x.url)}</code></div>`).join('');
    uprAssumptions.textContent=assumptions(m);
  }
+ function openReportDocument(){
+   const reportWindow=window.open('','_blank');
+   build();
+
+   const reportMarkup=uPrintSheet.innerHTML;
+   const css=`
+*{box-sizing:border-box}
+html{background:#e9ecee}
+body{margin:0;padding:18px;background:#e9ecee;color:#1b2225;font-family:Arial,Helvetica,sans-serif}
+.report-toolbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;width:min(210mm,100%);margin:0 auto 14px;padding:10px 12px;border-radius:12px;background:#111719;color:#fff;box-shadow:0 8px 25px rgba(0,0,0,.16)}
+.report-toolbar strong{font-size:13px}.report-toolbar span{display:block;color:#a8b1b4;font-size:11px;margin-top:2px}
+.report-toolbar button{border:1px solid rgba(241,169,120,.55);background:#2a201b;color:#f1a978;border-radius:9px;padding:10px 13px;font:600 12px Arial,sans-serif;cursor:pointer}
+.u-print-sheet{display:block!important;width:210mm;min-height:297mm;margin:0 auto;padding:13mm 12mm 14mm;background:#fff;color:#1b2225;box-shadow:0 10px 35px rgba(0,0,0,.14)}
+.upr-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1.5pt solid #c77b49;padding:0 0 8mm;margin-bottom:7mm}
+.upr-brand{display:flex;align-items:center;gap:9px}.upr-mark{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#111719;color:#c77b49;font-size:25px;font-weight:700}
+.upr-brand strong{display:block;font-size:15pt;letter-spacing:-.2pt;color:#121719}.upr-brand small{display:block;margin-top:2px;color:#657176;font-size:7.5pt;letter-spacing:.08em;text-transform:uppercase}
+.upr-docmeta{text-align:right;color:#3d494d;font-size:8pt}.upr-docmeta small{display:block;margin-top:3px;color:#7a8589}
+.upr-titlebar{display:grid;grid-template-columns:1fr 64mm;gap:8mm;align-items:end;margin-bottom:7mm}
+.upr-titlebar>div:first-child>span{font-size:7pt;letter-spacing:.16em;color:#a45f35;font-weight:700}.upr-titlebar h1{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:25pt;line-height:1;margin:2mm 0 0;color:#172024}
+.upr-result{border-left:2pt solid #c77b49;padding:4mm 0 4mm 5mm;background:#f7f4f1}.upr-result small{display:block;font-size:6.8pt;letter-spacing:.12em;color:#6c777a}.upr-result strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:21pt;color:#a85f34;margin-top:1.5mm}.upr-result span{display:block;font-size:7.2pt;color:#536064;margin-top:1.5mm}
+.upr-project-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#d7dcde;border:1px solid #d7dcde;margin-bottom:7mm}.upr-project-item{background:#fff;padding:3mm}.upr-project-item small{display:block;font-size:6.5pt;text-transform:uppercase;letter-spacing:.08em;color:#7a8589;margin-bottom:1.2mm}.upr-project-item strong{display:block;font-size:8.5pt;font-weight:600;color:#20282b;word-break:break-word}
+.upr-section{break-inside:avoid;margin-bottom:6mm}.upr-section-head{display:flex;align-items:baseline;gap:2.5mm;border-bottom:1px solid #d9dddf;padding-bottom:2mm;margin-bottom:3mm}.upr-section-head>span{font-size:7pt;color:#a85f34;font-weight:700}.upr-section-head h2{font-size:11pt;margin:0;color:#20282b}.upr-section-head small{margin-left:auto;color:#7c868a;font-size:6.5pt}
+.upr-table{width:100%;border-collapse:collapse;font-size:7.5pt}.upr-table th{padding:2.4mm 2mm;text-align:left;background:#edf0f1;color:#49565a;font-size:6.5pt;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid #ccd2d4}.upr-table td{padding:2.4mm 2mm;border-bottom:1px solid #e1e5e6;vertical-align:top}.upr-table .num{text-align:right;font-variant-numeric:tabular-nums}.upr-table tfoot td{font-weight:600;background:#fafafa}.upr-source-line{display:block;font-size:6pt;color:#7a8589;margin-top:1mm}
+.upr-two-col{display:grid;grid-template-columns:1fr 1fr;gap:7mm;break-inside:avoid}.upr-summary-list{border:1px solid #dce1e2}.upr-summary-row{display:flex;justify-content:space-between;gap:4mm;padding:2.5mm 3mm;border-bottom:1px solid #e2e6e7;font-size:7.5pt}.upr-summary-row:last-child{border-bottom:0}.upr-summary-row span{color:#667276}.upr-summary-row strong{text-align:right;color:#20282b;font-weight:600}
+.upr-sources{display:grid;grid-template-columns:1fr 1fr;gap:2.5mm}.upr-source{padding:3mm;border:1px solid #dde2e3;break-inside:avoid}.upr-source strong{display:block;font-size:7.6pt}.upr-source span{display:block;color:#657176;font-size:6.4pt;line-height:1.4;margin-top:1mm}.upr-source code{display:block;color:#8a9396;font:5.6pt Arial,sans-serif;word-break:break-all;margin-top:1mm}
+.upr-assumptions{break-inside:avoid;margin-top:3mm;padding:4mm;border:1px solid #e1d6ce;background:#faf7f4}.upr-assumptions strong{display:block;color:#8f512f;font-size:8pt;margin-bottom:1.5mm}.upr-assumptions p{margin:0;color:#566267;font-size:6.7pt;line-height:1.5}
+.upr-footer{display:flex;justify-content:space-between;gap:5mm;margin-top:7mm;padding-top:3mm;border-top:1px solid #d7dcde;color:#778286;font-size:6pt}
+a{color:inherit;text-decoration:none}
+@page{size:A4 portrait;margin:0}
+@media print{
+ html,body{background:#fff!important}
+ body{padding:0!important}
+ .report-toolbar{display:none!important}
+ .u-print-sheet{width:210mm!important;min-height:297mm!important;margin:0!important;padding:13mm 12mm 14mm!important;box-shadow:none!important}
+}
+@media(max-width:760px){
+ body{padding:8px}.report-toolbar{width:100%}
+ .u-print-sheet{width:100%;min-height:0;padding:18px 14px}
+ .upr-titlebar{grid-template-columns:1fr}.upr-result{margin-top:4px}
+ .upr-project-grid{grid-template-columns:1fr 1fr}.upr-two-col{grid-template-columns:1fr}
+ .upr-sources{grid-template-columns:1fr}
+}`;
+
+   if(!reportWindow){
+     uPrintSheet.setAttribute('aria-hidden','false');
+     uPrintSheet.style.display='block';
+     alert('Your browser blocked the report preview. Please allow pop-ups for Calculate This, then try Print / Save PDF again.');
+     return;
+   }
+
+   reportWindow.document.open();
+   reportWindow.document.write(`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>U-Value Calculation Report</title><style>${css}</style></head><body><div class="report-toolbar"><div><strong>U-Value Calculation Report</strong><span>Preview ready — print or save as PDF</span></div><button id="printReportNow" type="button">Print / Save PDF</button></div><section class="u-print-sheet">${reportMarkup}</section></body></html>`);
+   reportWindow.document.close();
+
+   const trigger=()=>{
+     try{
+       reportWindow.document.getElementById('printReportNow')?.addEventListener('click',()=>reportWindow.print());
+       reportWindow.focus();
+       setTimeout(()=>reportWindow.print(),350);
+     }catch(e){}
+   };
+   if(reportWindow.document.readyState==='complete')trigger();
+   else reportWindow.addEventListener('load',trigger,{once:true});
+ }
+
  btn.addEventListener('click',()=>{
    if(uValue.textContent==='—')return;
-   build();
-   uPrintSheet.setAttribute('aria-hidden','false');
-   void uPrintSheet.offsetHeight;
-   requestAnimationFrame(()=>requestAnimationFrame(()=>window.print()));
+   openReportDocument();
  });
- window.addEventListener('afterprint',()=>uPrintSheet?.setAttribute('aria-hidden','true'));
 })();
 </script>
 </body>

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});</script><script defer src="js/consent.js?v=3.6.16"></script>
+<head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});</script><script defer src="js/consent.js?v=3.6.17"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>BMR Calculator | Calculate This</title>
@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3.6.16">
+<link rel="stylesheet" href="css/style.css?v=3.6.17">
 <style>
 .calc-shell{width:min(980px,88vw);margin:auto;padding:145px 0 110px}
 .calc-shell h1{font-family:"Playfair Display",serif;font-size:clamp(50px,7vw,82px);line-height:.98;margin:14px 0 16px;font-weight:500}
@@ -87,5 +87,5 @@
 <a class="back" href="index.html">← Back to all tools</a>
 <div class="quality-note">Built for quick, transparent estimates. See <a href="methodology.html">how our calculators work</a> and check page-specific assumptions before relying on a result.</div></main>
 <script>function measurements(){const u=units.value;if(u==='metric')return{w:+weight.value,h:+height.value};const h=(+feet.value*12 + +inches.value)*2.54;if(u==='uk')return{w:(+stones.value*14 + +stonePounds.value)*0.45359237,h};return{w:+pounds.value*0.45359237,h}}function syncUnits(){const u=units.value;document.querySelectorAll('.metric-field').forEach(x=>x.hidden=u!=='metric');document.querySelector('.uk-weight').hidden=u!=='uk';document.querySelector('.imperial-weight').hidden=u!=='imperial';document.querySelector('.imperial-height').hidden=u==='metric';calculate()}function calculate(){let {w,h}=measurements(),a=+age.value,s=sex.value;if(!(w>0&&h>0&&a>0)){result.textContent='—';working.textContent='Enter weight, height and age.';return}let b=10*w+6.25*h-5*a+(s==='male'?5:-161);result.textContent=Math.round(b).toLocaleString('en-GB')+' kcal/day';working.textContent='Estimate only. Resting energy needs vary between individuals and this is not a medical assessment.';}document.getElementById('clearBtn').addEventListener('click',()=>{document.querySelectorAll('.panel input').forEach(x=>x.value='');calculate();});document.querySelectorAll('.panel input,.panel select').forEach(x=>x.addEventListener('input',calculate));units.addEventListener('change',syncUnits);syncUnits();</script>
-<footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="updates.html">Updates</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.6.16"></script><script>window.addEventListener('DOMContentLoaded',function(){var load=function(){if(document.querySelector('script[data-ct-print]'))return;var s=document.createElement('script');s.src='js/print.js?v=3.6.16';s.defer=true;s.dataset.ctPrint='1';document.head.appendChild(s)};if('requestIdleCallback'in window)requestIdleCallback(load,{timeout:1800});else setTimeout(load,700);});</script></body>
+<footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="updates.html">Updates</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.6.17"></script><script>window.addEventListener('DOMContentLoaded',function(){var load=function(){if(document.querySelector('script[data-ct-print]'))return;var s=document.createElement('script');s.src='js/print.js?v=3.6.17';s.defer=true;s.dataset.ctPrint='1';document.head.appendChild(s)};if('requestIdleCallback'in window)requestIdleCallback(load,{timeout:1800});else setTimeout(load,700);});</script></body>
 </html>
