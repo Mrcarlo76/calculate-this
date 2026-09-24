@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});</script><script defer src="js/consent.js?v=3.6.18"></script>
+<head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4E4XM1SNS"></script><script>gtag('js',new Date());gtag('config','G-Z4E4XM1SNS');</script><script defer src="js/consent.js?v=2.10.0"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Paint Calculator | Calculate This</title>
@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3.6.18">
+<link rel="stylesheet" href="css/style.css?v=2.10.0">
 <style>
 .calc-shell{width:min(980px,88vw);margin:auto;padding:145px 0 110px}
 .calc-shell h1{font-family:"Playfair Display",serif;font-size:clamp(50px,7vw,82px);line-height:.98;margin:14px 0 16px;font-weight:500}
@@ -37,36 +37,19 @@
 <meta name="twitter:card" content="summary">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Paint Calculator","url":"https://calculatethis.uk/paint.html","applicationCategory":"CalculatorApplication","operatingSystem":"Any","isAccessibleForFree":true,"description":"Estimate paint required from wall area, number of coats and paint coverage per litre.","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Should I subtract windows and doors?","acceptedAnswer":{"@type":"Answer","text":"For a closer estimate, use the paintable wall area after subtracting large openings."}},{"@type":"Question","name":"How many coats should I use?","acceptedAnswer":{"@type":"Answer","text":"That depends on the paint, colour change and surface. Use the number recommended for your project."}},{"@type":"Question","name":"Is paint coverage exact?","acceptedAnswer":{"@type":"Answer","text":"No. Surface texture, application method and product can change real coverage."}}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculatethis.uk/"},{"@type":"ListItem","position":2,"name":"Home","item":"https://calculatethis.uk/home.html"},{"@type":"ListItem","position":3,"name":"Paint Calculator","item":"https://calculatethis.uk/paint.html"}]}</script><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
-<link rel="icon" href="/favicon.ico" sizes="any"/>
-<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"/>
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
-<link rel="manifest" href="/site.webmanifest"/>
-<meta name="theme-color" content="#101315"/>
-
-<style>
-.related-tools{margin:30px 0}.related-tools h2{margin:0 0 14px}
-.related-tools-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.related-tool-link{display:block;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:16px;background:rgba(255,255,255,.035);text-decoration:none;transition:transform .18s ease,border-color .18s ease,background .18s ease}
-.related-tool-link:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.20);background:rgba(255,255,255,.055)}
-.related-tool-link strong{display:block;color:#fff;margin-bottom:4px}.related-tool-link span{font-size:13px;color:#9da9ad}
-@media(max-width:640px){.related-tools-grid{grid-template-columns:1fr}}
-</style>
-</head>
-<body class="ct-tool-page"><a class="skip-link" href="#main-content">Skip to main content</a>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculatethis.uk/"},{"@type":"ListItem","position":2,"name":"Home","item":"https://calculatethis.uk/home.html"},{"@type":"ListItem","position":3,"name":"Paint Calculator","item":"https://calculatethis.uk/paint.html"}]}</script><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"></head>
+<body>
 <header class="nav">
 <a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a>
 <nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav>
 </header>
-<main id="main-content" class="calc-shell">
+<main class="calc-shell">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="home.html">Home</a><span class="sep">/</span><span aria-current="page">Paint Calculator</span></nav>
 <p class="eyebrow">HOME &amp; DIY</p>
 <h1>Paint Calculator</h1>
 <p class="lead">Estimate how many litres of paint you may need for walls or a room.</p>
 <section class="panel">
-<div class="grid"><div class="field"><label for="area">Paintable area (m²)</label><input id="area" type="number" step="any" placeholder="45" inputmode="decimal"></div><div class="field"><label for="coats">Number of coats</label><input id="coats" type="number" step="1" value="2" min="1" inputmode="decimal"></div><div class="field"><label for="coverage">Coverage per litre (m²)</label><input id="coverage" type="number" step="any" value="10" inputmode="decimal"></div><div class="field"><label for="waste">Extra allowance (%)</label><input id="waste" type="number" step="any" value="10" inputmode="decimal"></div></div>
+<div class="grid"><div class="field"><label for="area">Paintable area (m²)</label><input id="area" type="number" step="any" placeholder="45"></div><div class="field"><label for="coats">Number of coats</label><input id="coats" type="number" step="1" value="2" min="1"></div><div class="field"><label for="coverage">Coverage per litre (m²)</label><input id="coverage" type="number" step="any" value="10"></div><div class="field"><label for="waste">Extra allowance (%)</label><input id="waste" type="number" step="any" value="10"></div></div>
 <div class="result-box">
 <span class="result-label">Estimated paint needed</span>
 <strong class="result" id="result">—</strong>
@@ -80,7 +63,7 @@
 </section>
 <section class="faq-section">
 <h2>Frequently asked questions</h2><details><summary>Should I subtract windows and doors?</summary><p>For a closer estimate, use the paintable wall area after subtracting large openings.</p></details><details><summary>How many coats should I use?</summary><p>That depends on the paint, colour change and surface. Use the number recommended for your project.</p></details><details><summary>Is paint coverage exact?</summary><p>No. Surface texture, application method and product can change real coverage.</p></details>
-</section><section class="related-tools" aria-labelledby="related-tools-heading"><h2 id="related-tools-heading">Related calculators</h2><div class="related-tools-grid"><a class="related-tool-link" href="flooring.html"><strong>Flooring Calculator</strong><span>Open calculator →</span></a><a class="related-tool-link" href="u-value.html"><strong>U-Value Calculator</strong><span>Open calculator →</span></a><a class="related-tool-link" href="concrete.html"><strong>Concrete Calculator</strong><span>Open calculator →</span></a><a class="related-tool-link" href="brick-block.html"><strong>Brick & Block Calculator</strong><span>Open calculator →</span></a></div></section>
+</section>
 <section class="related-tools">
 <h2>Related tools</h2><div class="related-grid"><a href="area.html">Area Calculator</a><a href="flooring.html">Flooring Calculator</a><a href="unit-converter.html">Unit Converter</a></div>
 </section>
@@ -95,5 +78,5 @@ document.getElementById('clearBtn').addEventListener('click',()=>{document.query
 document.querySelectorAll('.panel input,.panel select').forEach(x=>x.addEventListener('input',calculate));
 calculate();
 </script>
-<footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="updates.html">Updates</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer><script defer src="js/ux.js?v=3.6.18"></script><script>window.addEventListener('DOMContentLoaded',function(){var load=function(){if(document.querySelector('script[data-ct-print]'))return;var s=document.createElement('script');s.src='js/print.js?v=3.6.18';s.defer=true;s.dataset.ctPrint='1';document.head.appendChild(s)};if('requestIdleCallback'in window)requestIdleCallback(load,{timeout:1800});else setTimeout(load,700);});</script></body>
+<footer><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><p>Tools for everyday life.</p><div class="footer-links"><a href="about.html">About</a><a href="methodology.html">How we calculate</a><a href="privacy.html">Privacy</a></div><small>© 2026 Calculate This</small></footer></body>
 </html>

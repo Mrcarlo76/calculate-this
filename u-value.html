@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="en">
-<head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});</script><script defer src="js/consent.js?v=3.6.18"></script>
+<head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4E4XM1SNS"></script><script>gtag('js',new Date());gtag('config','G-Z4E4XM1SNS');</script><script defer src="js/consent.js?v=2.10.0"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>U-Value Calculator | Calculate This</title>
+<title>U-Value & Condensation Risk Calculator | Calculate This</title>
 <meta name="description" content="Calculate the U-value of a wall, roof or floor from material layers, thicknesses and thermal conductivity values.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3.6.18">
+<link rel="stylesheet" href="css/style.css?v=2.10.0">
 <link rel="canonical" href="https://calculatethis.uk/u-value.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:site_name" content="Calculate This">
@@ -21,546 +21,171 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calculatethis.uk/"},{"@type":"ListItem","position":2,"name":"Construction","item":"https://calculatethis.uk/construction.html"},{"@type":"ListItem","position":3,"name":"U-Value Calculator","item":"https://calculatethis.uk/u-value.html"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a U-value?","acceptedAnswer":{"@type":"Answer","text":"A U-value describes how easily heat passes through a building element. Lower U-values generally indicate better insulation."}},{"@type":"Question","name":"How is U-value calculated?","acceptedAnswer":{"@type":"Answer","text":"For a simple uniform construction, add the thermal resistances of each layer plus the selected surface resistances, then calculate U = 1 ÷ total resistance."}},{"@type":"Question","name":"Can I use this for Building Regulations compliance?","acceptedAnswer":{"@type":"Answer","text":"Use this as a planning estimate. Real compliance calculations can require treatment of repeating thermal bridges, cavities, fixings and other effects that a simple layer calculator does not model."}}]}</script>
 <style>
-.u-shell{width:min(1120px,90vw);margin:auto;padding:145px 0 110px}.u-shell h1{font-family:"Playfair Display",serif;font-size:clamp(50px,7vw,82px);line-height:.98;margin:14px 0 16px;font-weight:500}.u-lead{color:rgba(255,255,255,.62);font-size:18px;max-width:800px;line-height:1.7}.pro-badge{display:inline-flex;align-items:center;gap:7px;margin-left:10px;padding:6px 10px;border:1px solid rgba(241,169,120,.28);border-radius:999px;color:#f1a978;font:600 11px "DM Sans",sans-serif;letter-spacing:.1em;vertical-align:middle}.u-panel{margin-top:40px;border:1px solid rgba(255,255,255,.12);border-radius:26px;background:linear-gradient(145deg,#11191c,#0a0f11);padding:clamp(20px,4vw,38px)}
-.mode-tabs{display:flex;gap:7px;padding:5px;background:#080d0f;border:1px solid #283337;border-radius:14px;width:max-content;margin-bottom:24px}.mode-tab{border:0;background:transparent;color:#8f9b9f;padding:10px 15px;border-radius:10px;font:600 13px inherit;cursor:pointer}.mode-tab.active{background:#182225;color:#fff}.u-controls{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}.u-field label{display:block;font-size:12px;color:#9ca8ad;margin-bottom:8px}.u-field select,.u-field input{width:100%;padding:13px 14px;border-radius:12px;border:1px solid #334044;background:#080d0f;color:white;font:inherit}.method-note{grid-column:1/-1;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.035);color:#9eaaad;font-size:12px;line-height:1.55}.method-note strong{color:#dce3e5}.layers-head,.layer-row{display:grid;grid-template-columns:1.35fr .7fr .7fr .65fr auto;gap:9px;align-items:center}.layers-head{font-size:11px;color:#8f9b9f;text-transform:uppercase;letter-spacing:.09em;padding:0 2px 9px}.layer-row{margin-bottom:9px}.layer-row select,.layer-row input{width:100%;padding:12px;border-radius:10px;border:1px solid #334044;background:#080d0f;color:white;font:inherit}.layer-r{font-variant-numeric:tabular-nums;color:#f1a978;font-size:13px}.remove-layer{border:1px solid rgba(255,255,255,.12);background:transparent;color:#b8c2c5;border-radius:10px;padding:9px 10px;cursor:pointer}.layer-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.layer-actions button{border:1px solid rgba(255,255,255,.12);background:#101719;color:#e9eeee;border-radius:11px;padding:10px 13px;cursor:pointer}.layer-actions .primary{border-color:rgba(241,169,120,.42);color:#f1a978}.pro-options{display:none;margin-top:22px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08)}.pro-options.show{display:block}.pro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.pro-card{border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:16px;background:rgba(255,255,255,.025)}.pro-card h3{font-size:14px;margin:0 0 6px}.pro-card p{font-size:12px;color:#8f9b9f;line-height:1.5;margin:0 0 12px}.toggle-line{display:flex;gap:9px;align-items:center;color:#d9dfe1;font-size:13px}.bridge-fields{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:11px}.bridge-fields label{font-size:11px;color:#8f9b9f}.bridge-fields input{margin-top:5px;width:100%;padding:10px;border-radius:9px;border:1px solid #334044;background:#080d0f;color:#fff}.u-result{margin-top:24px;padding:25px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07)}.result-top{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end}.u-result .label{font-size:11px;color:#8f9b9f;text-transform:uppercase;letter-spacing:.15em}.u-number{display:block;font-family:"Playfair Display",serif;color:#f1a978;font-size:clamp(42px,7vw,66px);line-height:1.05;margin:7px 0}.target-status{padding:9px 12px;border-radius:999px;background:rgba(255,255,255,.05);font-size:12px;color:#c6d0d2;margin-bottom:8px}.target-status.pass{color:#a8d9b4;border:1px solid rgba(168,217,180,.22)}.target-status.fail{color:#f0b5a7;border:1px solid rgba(240,181,167,.22)}.u-working{color:#a7b0b3;line-height:1.6;font-size:14px}.breakdown{margin-top:18px;border-top:1px solid rgba(255,255,255,.08);padding-top:15px}.breakdown-row{display:flex;justify-content:space-between;gap:16px;padding:6px 0;color:rgba(255,255,255,.58);font-size:13px}.breakdown-row strong{color:rgba(255,255,255,.82)}.estimate-note{margin-top:17px;padding:13px 15px;border-radius:13px;border:1px solid rgba(241,169,120,.18);background:rgba(241,169,120,.04);color:rgba(255,255,255,.58);line-height:1.55;font-size:12px}.build-visual{display:flex;min-height:82px;margin:20px 0 5px;border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;background:#080d0f}.build-slice{min-width:24px;display:flex;align-items:center;justify-content:center;border-right:1px solid rgba(255,255,255,.12);position:relative;background:rgba(255,255,255,.05)}.build-slice span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:9px;color:rgba(255,255,255,.65);max-height:70px;overflow:hidden}.build-slice.ins{background:repeating-linear-gradient(45deg,rgba(241,169,120,.14),rgba(241,169,120,.14) 5px,rgba(241,169,120,.04) 5px,rgba(241,169,120,.04) 10px)}.build-slice.air{background:rgba(120,180,210,.05)}
-@media(max-width:800px){.u-controls,.pro-grid{grid-template-columns:1fr}.layers-head{display:none}.layer-row{grid-template-columns:1fr 1fr}.layer-row select{grid-column:1/-1}.layer-r{padding:0 3px}.remove-layer{justify-self:start}.result-top{grid-template-columns:1fr}.target-status{width:max-content}}
-.metal-stud-controls{margin-top:18px;padding:18px;border:1px solid rgba(241,169,120,.18);border-radius:18px;background:rgba(241,169,120,.035)}.metal-stud-controls h3{margin:0 0 15px;font:600 16px "DM Sans",sans-serif}.metal-stud-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:18px;align-items:end}.metal-label{display:block;font-size:12px;color:#9ca8ad;margin-bottom:9px}.stud-pills{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.stud-pill{appearance:none;border:1px solid #334044;background:#080d0f;color:#aeb9bc;border-radius:11px;padding:12px 8px;font:600 13px "DM Sans",sans-serif;cursor:pointer;transition:.15s ease}.stud-pill:hover{border-color:rgba(241,169,120,.45);color:#fff}.stud-pill.active{border-color:rgba(241,169,120,.62);background:rgba(241,169,120,.11);color:#f1a978;box-shadow:inset 0 0 0 1px rgba(241,169,120,.08)}.metal-select{width:100%;padding:12px 14px;border-radius:11px;border:1px solid #334044;background:#080d0f;color:#fff;font:inherit}.micro-note{margin:14px 0 0;color:#8d999d;font-size:12px;line-height:1.55}@media(max-width:650px){.metal-stud-grid{grid-template-columns:1fr}.stud-pills{grid-template-columns:repeat(4,1fr)}}
-.material-meta{display:block;margin-top:5px;color:#718085;font-size:10px;line-height:1.35}
-.solver-panel{margin-top:22px;padding:18px;border:1px solid rgba(241,169,120,.16);border-radius:17px;background:rgba(241,169,120,.025)}
-.solver-head{display:block}.solver-head h2{font:600 18px "DM Sans",sans-serif;margin:3px 0 5px}.solver-head p{margin:0;color:#8f9b9f;font-size:12px;line-height:1.55;max-width:650px}.solver-kicker{font-size:10px;letter-spacing:.14em;color:#f1a978}.solver-action{margin-top:12px;width:100%;border:1px solid rgba(241,169,120,.4);background:rgba(241,169,120,.08);color:#f1a978;border-radius:11px;padding:12px 14px;cursor:pointer;font:600 14px inherit}.solver-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}.solver-metric{padding:11px;border-radius:10px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06)}.solver-metric span{display:block;color:#7f8b8f;font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}.solver-metric strong{color:#edf1f2;font-size:15px}.solver-metric .good{color:#a8d9b4}.solver-note{display:block;color:#8f9b9f;font-size:11px;line-height:1.5}.solver-note.caution{color:#d9a27f}@media(max-width:650px){.solver-metrics{grid-template-columns:1fr}}.solver-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.solver-result{margin-top:13px;padding:13px 14px;border-radius:12px;background:#0b1113;border:1px solid rgba(255,255,255,.07);color:#aab4b7;font-size:13px;line-height:1.55}.solver-result strong{color:#fff}.solver-result .good{color:#a8d9b4}.solver-result .warn{color:#f1a978}.solver-soffit-hint{margin:10px 2px 0;color:#748186;font-size:11px;line-height:1.5}
-@media(max-width:680px){.solver-head{display:block}.solver-head button{width:100%;margin-top:12px}.solver-grid{grid-template-columns:1fr}}
-
-.metal-title-row{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:16px}.metal-title-row h3{margin:2px 0 0!important}.metal-kicker{display:block;font-size:10px;letter-spacing:.14em;color:#f1a978}.wall-mode-pills{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:4px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:#080d0f}.wall-mode-pill{appearance:none;border:0;background:transparent;color:#8f9b9f;border-radius:8px;padding:9px 12px;font:600 12px "DM Sans",sans-serif;cursor:pointer}.wall-mode-pill.active{background:rgba(241,169,120,.12);color:#f1a978}.twin-controls{display:grid;grid-template-columns:1.35fr 1fr;gap:18px;align-items:end;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.07)}.twin-controls[hidden]{display:none!important}.void-summary{display:grid;grid-template-columns:1fr auto;gap:3px 12px;margin-top:16px;padding:13px 14px;border-radius:12px;background:#090f11;border:1px solid rgba(255,255,255,.07)}.void-summary span{color:#8f9b9f;font-size:12px}.void-summary strong{color:#f1a978;font-size:16px}.void-summary small{grid-column:1/-1;color:#68767b;font-size:10px}.soffit-note{margin-top:10px;padding:11px 13px;border-radius:11px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);color:#8d999d;font-size:11px;line-height:1.55}
-@media(max-width:650px){.metal-title-row{display:block}.wall-mode-pills{margin-top:12px}.twin-controls{grid-template-columns:1fr}.void-summary{grid-template-columns:1fr auto}}
-
-.layer-actions{display:flex;gap:7px;align-items:center;justify-content:flex-end}
-.move-layer{width:38px;height:38px;border-radius:10px;border:1px solid rgba(255,255,255,.09);background:#0b1113;color:#98a3a7;cursor:pointer;font-size:17px;line-height:1}
-.move-layer:hover,.move-layer:focus-visible{color:#f1a978;border-color:rgba(241,169,120,.35);background:rgba(241,169,120,.05)}
-.layer-actions .remove-layer{min-width:74px}
-@media(max-width:680px){.layer-actions{grid-column:1/-1;justify-content:flex-start}.layer-actions .remove-layer{height:38px}}
-
-.mf-ceiling-controls{margin-top:18px;padding:16px;border:1px solid rgba(241,169,120,.18);border-radius:16px;background:rgba(241,169,120,.035)}
-.mf-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-@media(max-width:650px){.mf-grid{grid-template-columns:1fr}}
-
-.report-controls{margin-top:22px;padding:19px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:rgba(255,255,255,.025)}
-.report-controls-head{display:flex;justify-content:space-between;gap:22px;align-items:flex-start}
-.report-controls-head h2{font:600 19px "DM Sans",sans-serif;margin:4px 0 5px}
-.report-controls-head p{margin:0;color:#8f9b9f;font-size:12px;line-height:1.55;max-width:680px}
-.report-print-btn{border:1px solid rgba(241,169,120,.44);background:rgba(241,169,120,.10);color:#f1a978;border-radius:12px;padding:12px 15px;font:600 13px "DM Sans",sans-serif;cursor:pointer;white-space:nowrap}
-.report-print-btn:hover{background:rgba(241,169,120,.16);border-color:rgba(241,169,120,.68)}
-.report-details-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
-.report-details-grid input{width:100%;box-sizing:border-box;background:#080d0f;color:#fff;border:1px solid #293438;border-radius:11px;padding:12px 13px;font:inherit}
-.u-print-sheet{display:none}
-@media(max-width:680px){.report-controls-head{display:block}.report-print-btn{width:100%;margin-top:13px}.report-details-grid{grid-template-columns:1fr}}
-
-@page{size:A4 portrait;margin:13mm 12mm 14mm}
-@media print{
- html,body{background:#fff!important;color:#1b2225!important}
- body>*:not(main){display:none!important}
- main{display:block!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;background:#fff!important}
- .u-shell{display:block!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;background:#fff!important}
- .u-shell>*:not(.u-print-sheet){display:none!important}
- .u-print-sheet{display:block!important;visibility:visible!important;position:static!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;background:#fff!important;color:#1b2225!important;font-family:Arial,Helvetica,sans-serif!important}
- .upr-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1.5pt solid #c77b49;padding:0 0 8mm;margin-bottom:7mm}
- .upr-brand{display:flex;align-items:center;gap:9px}.upr-mark{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#111719;color:#c77b49;font-size:25px;font-weight:700}
- .upr-brand strong{display:block;font-size:15pt;letter-spacing:-.2pt;color:#121719}.upr-brand small{display:block;margin-top:2px;color:#657176;font-size:7.5pt;letter-spacing:.08em;text-transform:uppercase}
- .upr-docmeta{text-align:right;color:#3d494d;font-size:8pt}.upr-docmeta small{display:block;margin-top:3px;color:#7a8589}
- .upr-titlebar{display:grid;grid-template-columns:1fr 64mm;gap:8mm;align-items:end;margin-bottom:7mm}
- .upr-titlebar>div:first-child>span{font-size:7pt;letter-spacing:.16em;color:#a45f35;font-weight:700}.upr-titlebar h1{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:25pt;line-height:1;margin:2mm 0 0;color:#172024}
- .upr-result{border-left:2pt solid #c77b49;padding:4mm 0 4mm 5mm;background:#f7f4f1}.upr-result small{display:block;font-size:6.8pt;letter-spacing:.12em;color:#6c777a}.upr-result strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:21pt;color:#a85f34;margin-top:1.5mm}.upr-result span{display:block;font-size:7.2pt;color:#536064;margin-top:1.5mm}
- .upr-project-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#d7dcde;border:1px solid #d7dcde;margin-bottom:7mm}.upr-project-item{background:#fff;padding:3mm}.upr-project-item small{display:block;font-size:6.5pt;text-transform:uppercase;letter-spacing:.08em;color:#7a8589;margin-bottom:1.2mm}.upr-project-item strong{display:block;font-size:8.5pt;font-weight:600;color:#20282b;word-break:break-word}
- .upr-section{break-inside:avoid;margin-bottom:6mm}.upr-section-head{display:flex;align-items:baseline;gap:2.5mm;border-bottom:1px solid #d9dddf;padding-bottom:2mm;margin-bottom:3mm}.upr-section-head>span{font-size:7pt;color:#a85f34;font-weight:700}.upr-section-head h2{font-size:11pt;margin:0;color:#20282b}.upr-section-head small{margin-left:auto;color:#7c868a;font-size:6.5pt}
- .upr-table{width:100%;border-collapse:collapse;font-size:7.5pt}.upr-table th{padding:2.4mm 2mm;text-align:left;background:#edf0f1;color:#49565a;font-size:6.5pt;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid #ccd2d4}.upr-table td{padding:2.4mm 2mm;border-bottom:1px solid #e1e5e6;vertical-align:top}.upr-table .num{text-align:right;font-variant-numeric:tabular-nums}.upr-table tfoot td{font-weight:600;background:#fafafa}.upr-source-line{display:block;font-size:6pt;color:#7a8589;margin-top:1mm}
- .upr-two-col{display:grid;grid-template-columns:1fr 1fr;gap:7mm;break-inside:avoid}.upr-summary-list{border:1px solid #dce1e2}.upr-summary-row{display:flex;justify-content:space-between;gap:4mm;padding:2.5mm 3mm;border-bottom:1px solid #e2e6e7;font-size:7.5pt}.upr-summary-row:last-child{border-bottom:0}.upr-summary-row span{color:#667276}.upr-summary-row strong{text-align:right;color:#20282b;font-weight:600}
- .upr-sources{display:grid;grid-template-columns:1fr 1fr;gap:2.5mm}.upr-source{padding:3mm;border:1px solid #dde2e3;break-inside:avoid}.upr-source strong{display:block;font-size:7.6pt}.upr-source span{display:block;color:#657176;font-size:6.4pt;line-height:1.4;margin-top:1mm}.upr-source code{display:block;color:#8a9396;font:5.6pt Arial,sans-serif;word-break:break-all;margin-top:1mm}
- .upr-assumptions{break-inside:avoid;margin-top:3mm;padding:4mm;border:1px solid #e1d6ce;background:#faf7f4}.upr-assumptions strong{display:block;color:#8f512f;font-size:8pt;margin-bottom:1.5mm}.upr-assumptions p{margin:0;color:#566267;font-size:6.7pt;line-height:1.5}
- .upr-footer{display:flex;justify-content:space-between;gap:5mm;margin-top:7mm;padding-top:3mm;border-top:1px solid #d7dcde;color:#778286;font-size:6pt}
- a{color:inherit!important;text-decoration:none!important}
+.u-shell{width:min(1040px,88vw);margin:auto;padding:145px 0 110px}
+.u-shell h1{font-family:"Playfair Display",serif;font-size:clamp(50px,7vw,82px);line-height:.98;margin:14px 0 16px;font-weight:500}
+.u-lead{color:rgba(255,255,255,.62);font-size:18px;max-width:760px;line-height:1.7}
+.u-panel{margin-top:40px;border:1px solid rgba(255,255,255,.12);border-radius:26px;background:linear-gradient(145deg,#11191c,#0a0f11);padding:clamp(22px,4vw,40px)}
+.u-controls{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:22px}
+.u-field label{display:block;font-size:13px;color:#9ca8ad;margin-bottom:8px}
+.u-field select,.u-field input{width:100%;padding:14px 15px;border-radius:12px;border:1px solid #334044;background:#080d0f;color:white;font:inherit}
+.layers-head,.layer-row{display:grid;grid-template-columns:1.25fr .72fr .72fr .65fr .72fr auto;gap:10px;align-items:center}
+.layers-head{font-size:12px;color:#8f9b9f;text-transform:uppercase;letter-spacing:.1em;padding:0 2px 9px}
+.layer-row{margin-bottom:10px}
+.layer-row select,.layer-row input{width:100%;padding:13px;border-radius:11px;border:1px solid #334044;background:#080d0f;color:white;font:inherit}
+.layer-r{font-variant-numeric:tabular-nums;color:#f1a978;font-size:14px}
+.remove-layer{border:1px solid rgba(255,255,255,.12);background:transparent;color:#c8d0d2;border-radius:10px;padding:10px 11px;cursor:pointer}
+.layer-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.layer-actions button{border:1px solid rgba(255,255,255,.12);background:#101719;color:#e9eeee;border-radius:11px;padding:11px 14px;cursor:pointer}
+.layer-actions .primary{border-color:rgba(241,169,120,.42);color:#f1a978}
+.u-result{margin-top:24px;padding:28px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07)}
+.u-result .label{font-size:12px;color:#8f9b9f;text-transform:uppercase;letter-spacing:.15em}
+.u-number{display:block;font-family:"Playfair Display",serif;color:#f1a978;font-size:clamp(44px,7vw,68px);line-height:1.05;margin:8px 0}
+.u-working{color:#a7b0b3;line-height:1.65}
+.breakdown{margin-top:20px;border-top:1px solid rgba(255,255,255,.08);padding-top:18px}
+.breakdown-row{display:flex;justify-content:space-between;gap:16px;padding:7px 0;color:rgba(255,255,255,.6);font-size:14px}
+.breakdown-row strong{color:rgba(255,255,255,.82)}
+.estimate-note{margin-top:18px;padding:14px 16px;border-radius:13px;border:1px solid rgba(241,169,120,.18);background:rgba(241,169,120,.04);color:rgba(255,255,255,.58);line-height:1.6;font-size:13px}
+.cond-panel{margin-top:26px;border:1px solid rgba(255,255,255,.12);border-radius:26px;background:linear-gradient(145deg,#10181b,#090e10);padding:clamp(22px,4vw,40px)}.cond-panel h2{font-family:"Playfair Display",serif;font-size:clamp(30px,4vw,44px);margin:0 0 8px}.cond-intro{color:#9ca8ad;line-height:1.65}.cond-controls{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}.cond-field label{display:block;font-size:12px;color:#9ca8ad;margin-bottom:7px}.cond-field input{width:100%;box-sizing:border-box;padding:13px;border-radius:11px;border:1px solid #334044;background:#080d0f;color:#fff;font:inherit}.cond-result{margin-top:20px;padding:20px;border-radius:16px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.035)}.cond-status{font-family:"Playfair Display",serif;font-size:30px;color:#f1a978;margin:4px 0 8px}.cond-status.ok{color:#83d4ae}.cond-status.risk{color:#ff8f82}.cond-summary{color:#b0b9bc;line-height:1.6}.cond-table-wrap{overflow-x:auto;margin-top:18px}.cond-table{width:100%;border-collapse:collapse;min-width:720px;font-size:13px}.cond-table th,.cond-table td{text-align:left;padding:10px 9px;border-bottom:1px solid rgba(255,255,255,.08)}.cond-table th{color:#8f9b9f}.cond-table td{color:#d7dddf}.cond-risk{color:#ff9b8e!important;font-weight:600}.cond-note{margin-top:16px;color:#8f9b9f;font-size:12px;line-height:1.6}.sd-input{width:90px!important}.preset-row{margin-top:14px}.preset-row button{border:1px solid rgba(241,169,120,.25);background:rgba(241,169,120,.04);color:#f1a978;border-radius:10px;padding:9px 12px;cursor:pointer}
+@media(max-width:760px){
+ .cond-controls{grid-template-columns:1fr 1fr}
+ .u-controls{grid-template-columns:1fr}
+ .layers-head{display:none}
+ .layer-row{grid-template-columns:1fr 1fr}
+ .layer-row select{grid-column:1/-1}
+ .layer-r{padding:0 3px}.remove-layer{justify-self:start}
 }
 </style>
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
-<link rel="icon" href="/favicon.ico" sizes="any"/>
-<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"/>
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
-<link rel="manifest" href="/site.webmanifest"/>
-<meta name="theme-color" content="#101315"/>
-
-<style>
-.related-tools{margin:30px 0}.related-tools h2{margin:0 0 14px}
-.related-tools-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.related-tool-link{display:block;padding:16px 18px;border:1px solid rgba(255,255,255,.10);border-radius:16px;background:rgba(255,255,255,.035);text-decoration:none;transition:transform .18s ease,border-color .18s ease,background .18s ease}
-.related-tool-link:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.20);background:rgba(255,255,255,.055)}
-.related-tool-link strong{display:block;color:#fff;margin-bottom:4px}.related-tool-link span{font-size:13px;color:#9da9ad}
-@media(max-width:640px){.related-tools-grid{grid-template-columns:1fr}}
-</style>
-</head>
-<body class="ct-tool-page"><a class="skip-link" href="#main-content">Skip to main content</a>
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"></head>
+<body>
 <header class="nav"><a class="brand" href="index.html"><span class="mark">⌁</span><span>Calculate This</span></a><nav><a href="index.html#tools">Tools</a><a href="index.html#categories">Categories</a></nav></header>
-<main id="main-content" class="u-shell">
+<main class="u-shell">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="construction.html">Construction</a><span class="sep">/</span><span aria-current="page">U-Value Calculator</span></nav>
 <p class="eyebrow">HOME · BUILDING PERFORMANCE</p>
-<h1>U-Value Calculator</h1>
-<p class="u-lead">A simple calculator when you want speed, with professional controls when you need them. Build a wall, roof or floor layer by layer and keep every assumption visible.</p>
+<h1>U-Value &amp; Condensation Risk Calculator</h1>
+<p class="u-lead">Build up a wall, roof, soffit or ceiling layer by layer. Estimate U-value, then optionally run a simplified vapour-diffusion condensation risk check through the same construction.</p>
 
 <section class="u-panel">
-<div class="mode-tabs" role="tablist" aria-label="Calculation mode"><button class="mode-tab active" id="simpleMode" type="button">Simple</button><button class="mode-tab" id="proMode" type="button">Pro controls</button></div>
 <div class="u-controls">
- <div class="u-field"><label for="elementType">Building element</label><select id="elementType"><option value="wall">Wall — horizontal heat flow</option><option value="roof">Roof / ceiling — heat flow upwards</option><option value="floor">Floor — heat flow downwards</option><option value="soffit">Concrete soffit / floor over unheated space</option></select></div>
- <div class="u-field"><label for="template">Quick build-up</label><select id="template"><option value="custom">Custom build-up</option><option value="cavity">Cavity wall — brick / cavity / insulation / block / plasterboard</option><option value="metal">Metal stud partition — board / insulated stud / board</option><option value="timber">Timber frame wall — sheathing / insulated frame / plasterboard</option><option value="warmroof">Warm roof — plasterboard / insulation / deck</option><option value="soffit">Concrete floor + soffit insulation</option><option value="mfsoffit">Concrete soffit + insulated MF ceiling</option></select></div>
- <div class="u-field"><label for="targetU">Design target (optional, W/m²K)</label><input id="targetU" type="number" min="0" step="0.01" placeholder="e.g. 0.18" inputmode="decimal"></div>
- <div class="method-note"><strong>Automatic surface resistances:</strong> <span id="surfaceText">Rsi 0.13 + Rse 0.04 m²K/W</span>. Change the element and the calculator applies the appropriate heat-flow direction automatically.</div>
-</div>
-<div class="mf-ceiling-controls" id="mfCeilingControls" hidden>
-<div class="metal-title-row"><div><span class="metal-kicker">SUSPENDED CEILING</span><h3>MF ceiling below concrete soffit</h3></div></div>
-<div class="mf-grid">
-<div><label class="metal-label" for="mfInsulationThickness">Insulation thickness</label><select class="metal-select" id="mfInsulationThickness"><option value="50">50 mm</option><option value="75">75 mm</option><option value="100" selected>100 mm</option><option value="125">125 mm</option><option value="150">150 mm</option><option value="200">200 mm</option><option value="250">250 mm</option><option value="300">300 mm</option></select></div>
-<div><label class="metal-label" for="mfBoardLayers">Plasterboard layers</label><select class="metal-select" id="mfBoardLayers"><option value="1" selected>1 layer</option><option value="2">2 layers</option></select></div>
-</div>
-<div class="void-summary"><span>MF build-up</span><strong id="mfSummaryValue">100 mm insulation</strong><small id="mfSummaryText">Concrete soffit · insulated MF ceiling zone · plasterboard</small></div>
-<p class="micro-note">The suspended void depth is not used as a separate thermal layer. This models the insulation within the MF ceiling zone and the plasterboard lining below. MF5/MF7 sections, hangers and perimeter channels are <strong>not treated as a zero-bridge layer</strong>; the displayed U-value is the plane insulated path and should be checked against system-specific thermal-bridge data where compliance accuracy is required.</p>
-</div>
-<div class="metal-stud-controls" id="metalStudControls" hidden>
-<div class="metal-title-row"><div><span class="metal-kicker">FRAMING</span><h3>Metal stud wall</h3></div><div class="wall-mode-pills" role="group" aria-label="Metal stud wall type"><button type="button" class="wall-mode-pill active" data-wall-mode="single">Single wall</button><button type="button" class="wall-mode-pill" data-wall-mode="twin">Twin wall</button></div></div>
-<div class="metal-stud-grid">
-<div><span class="metal-label">First stud size</span><div class="stud-pills" id="studPillsA" role="group" aria-label="First metal stud size"><button type="button" class="stud-pill" data-size="50">50 mm</button><button type="button" class="stud-pill active" data-size="70">70 mm</button><button type="button" class="stud-pill" data-size="90">90 mm</button><button type="button" class="stud-pill" data-size="146">146 mm</button></div><input type="hidden" id="metalStudSize" value="70"></div>
-<div><label class="metal-label" for="metalStudCentres">Stud centres</label><select class="metal-select" id="metalStudCentres"><option value="400">400 mm</option><option value="600" selected>600 mm</option></select></div>
-</div>
-<div class="twin-controls" id="twinControls" hidden>
-<div><span class="metal-label">Second stud size</span><div class="stud-pills" id="studPillsB" role="group" aria-label="Second metal stud size"><button type="button" class="stud-pill stud-pill-b" data-size-b="50">50 mm</button><button type="button" class="stud-pill stud-pill-b active" data-size-b="70">70 mm</button><button type="button" class="stud-pill stud-pill-b" data-size-b="90">90 mm</button><button type="button" class="stud-pill stud-pill-b" data-size-b="146">146 mm</button></div><input type="hidden" id="metalStudSizeB" value="70"></div>
-<div><label class="metal-label" for="twinGap">Clear gap between frames</label><select class="metal-select" id="twinGap"><option value="0">No gap</option><option value="25">25 mm</option><option value="50" selected>50 mm</option><option value="75">75 mm</option><option value="100">100 mm</option><option value="150">150 mm</option></select></div>
-</div>
-<div class="void-summary"><span>Available insulation depth</span><strong id="metalVoidDepth">70 mm</strong><small id="metalVoidFormula">Single 70 mm stud cavity</small></div>
-<p class="micro-note">For a twin wall, the calculator assumes insulation can occupy both stud zones and the clear gap between them. The displayed U-value remains an <strong>unbridged theoretical path</strong>: steel studs, tracks and junctions require system data or an appropriate numerical method for a final framed-element U-value.</p>
-</div>
-<div class="layers-head"><span>Material / layer</span><span>Thickness</span><span>λ or R</span><span>R-value</span><span></span></div><div id="layers"></div>
-<div class="layer-actions"><button type="button" class="primary" id="addLayer">+ Add layer</button><button type="button" id="clearLayers">Reset</button></div>
-<div class="solver-panel" id="solverPanel">
-<div class="solver-head"><span class="solver-kicker">TARGET SOLVER</span><h2>What insulation thickness do I need?</h2><p>Choose an insulation layer and target U-value. We’ll calculate the minimum theoretical thickness and suggest the next practical board/slab thickness.</p></div>
-<div class="solver-grid">
-<div class="u-field"><label for="solverLayer">Insulation layer</label><select id="solverLayer"></select></div>
-<div class="u-field"><label for="solverTarget">Target U-value (W/m²K)</label><input id="solverTarget" type="number" min="0.05" step="0.01" value="0.18" inputmode="decimal"></div>
-</div><button class="solver-action" type="button" id="solveThickness">Find thickness</button>
-<div class="solver-result" id="solverResult">Choose an insulation layer and target U-value.</div><p class="solver-soffit-hint" id="solverSoffitHint" hidden>For soffit build-ups, the solver will use the selected soffit insulation product and suggest the next stored practical slab thickness where available.</p>
-</div><div class="pro-options" id="proOptions"><div class="pro-grid">
- <div class="pro-card"><h3>Repeating timber bridge</h3><p>For insulation interrupted by regular timber studs or joists. Uses the ISO 6946 upper/lower resistance approach.</p><label class="toggle-line"><input type="checkbox" id="bridgeOn"> Include timber bridge</label><div class="bridge-fields"><label>Timber fraction %<input id="bridgeFraction" type="number" min="1" max="50" value="15"></label><label>Timber λ W/mK<input id="bridgeLambda" type="number" min="0.01" step="0.01" value="0.13"></label></div><div class="bridge-fields"><label style="grid-column:1/-1">Bridged layer<select id="bridgeLayer" style="margin-top:5px;width:100%;padding:10px;border-radius:9px;border:1px solid #334044;background:#080d0f;color:#fff"></select></label></div></div>
- <div class="pro-card"><h3>U-value corrections</h3><p>Add a known ΔU correction from your specification or calculation for fixings, air gaps or other effects.</p><div class="bridge-fields"><label>Fixings ΔU<input id="fixingCorrection" type="number" min="0" step="0.001" value="0"></label><label>Other ΔU<input id="otherCorrection" type="number" min="0" step="0.001" value="0"></label></div></div>
- <div class="pro-card"><h3>Calculation standard</h3><p>Uniform layers use R = d/λ. Timber repeating bridges use the combined upper/lower resistance method. Steel framing is not approximated here because it can require numerical modelling.</p><div class="toggle-line">Method: <strong style="color:#f1a978">ISO 6946 / BR 443 conventions</strong></div></div>
-</div></div>
-<div class="build-visual" id="buildVisual" aria-label="Construction build-up preview"></div>
-<div class="u-result"><div class="result-top"><div><span class="label">Calculated U-value</span><strong class="u-number" id="uValue">—</strong></div><div class="target-status" id="targetStatus" hidden></div></div><div class="u-working" id="working">Add one or more material layers to calculate.</div><div class="breakdown" id="breakdown"></div><div class="estimate-note"><strong>Professional, transparent estimate.</strong> Based on simplified methods in BS EN ISO 6946 and UK BR 443 conventions. Complex steel frames, significant point/linear thermal bridges, ground floors and constructions requiring 2D/3D numerical analysis need an appropriate specialist method. Always verify product design values and project-specific compliance requirements.</div></div>
-<div class="report-controls screen-only">
-  <div class="report-controls-head">
-    <div><span class="solver-kicker">CALCULATION REPORT</span><h2>Print / Save professional PDF</h2><p>Add optional project details, then create a clean A4 calculation sheet using your browser’s Save as PDF option.</p></div>
-    <button type="button" class="report-print-btn" id="uPrintReport">Print / Save PDF</button>
+  <div class="u-field">
+    <label for="rsi">Internal surface resistance (m²K/W)</label>
+    <select id="rsi">
+      <option value="0.13" selected>0.13 — typical vertical element</option>
+      <option value="0.10">0.10 — upward heat flow</option>
+      <option value="0.17">0.17 — downward heat flow</option>
+      <option value="0">0 — exclude</option>
+    </select>
   </div>
-  <div class="report-details-grid">
-    <div class="u-field"><label for="reportProject">Project</label><input id="reportProject" type="text" placeholder="e.g. Redditch Apartments"></div>
-    <div class="u-field"><label for="reportReference">Element / reference</label><input id="reportReference" type="text" placeholder="e.g. External Wall EW-01"></div>
-    <div class="u-field"><label for="reportPreparedBy">Prepared by</label><input id="reportPreparedBy" type="text" placeholder="Name or company"></div>
-    <div class="u-field"><label for="reportNotes">Report note</label><input id="reportNotes" type="text" placeholder="Optional short note"></div>
+  <div class="u-field">
+    <label for="rse">External surface resistance (m²K/W)</label>
+    <select id="rse">
+      <option value="0.04" selected>0.04 — typical external surface</option>
+      <option value="0">0 — exclude</option>
+    </select>
   </div>
 </div>
-</section>
 
-<section class="tool-content">
-<h2>How the U-value calculation works</h2>
+<div class="layers-head">
+  <span>Material</span><span>Thickness (mm)</span><span>λ (W/mK)</span><span>R (m²K/W)</span><span>s<sub>d</sub> (m)</span><span></span>
+</div>
+<div id="layers"></div>
+
+<div class="layer-actions">
+  <button type="button" class="primary" id="addLayer">+ Add another layer</button>
+  <button type="button" id="clearLayers">Reset</button>
+</div>
+
+<div class="u-result">
+  <span class="label">Estimated U-value</span>
+  <strong class="u-number" id="uValue">—</strong>
+  <div class="u-working" id="working">Add one or more material layers to calculate.</div>
+  <div class="breakdown" id="breakdown"></div>
+  <div class="estimate-note">Planning estimate only. Simple 1D layer calculations do not model repeating thermal bridges, fixings, non-uniform cavities or every requirement of a formal compliance calculation.</div>
+</div>
+</section><section class="cond-panel" id="condensation"><h2>Condensation Risk Analysis</h2><p class="cond-intro">Optional simplified interstitial condensation check. Layer order is assumed to run <strong>inside → outside / soffit</strong>. Enter each layer’s equivalent air layer thickness (s<sub>d</sub>) or use the preset estimates.</p><div class="cond-controls"><div class="cond-field"><label>Internal temperature (°C)</label><input id="ti" type="number" value="20"></div><div class="cond-field"><label>Internal RH (%)</label><input id="rhi" type="number" value="60"></div><div class="cond-field"><label>External / soffit temperature (°C)</label><input id="te" type="number" value="5"></div><div class="cond-field"><label>External / soffit RH (%)</label><input id="rhe" type="number" value="80"></div></div><div class="preset-row"><button type="button" id="soffitPreset">Load MF ceiling + insulated concrete soffit example</button></div><div class="cond-result"><div class="label">Simplified assessment</div><div class="cond-status" id="condStatus">Add layers to analyse</div><div class="cond-summary" id="condSummary">Calculated vapour pressure is compared with saturation vapour pressure at each interface.</div><div class="cond-table-wrap"><table class="cond-table"><thead><tr><th>Interface</th><th>Temp.</th><th>Vapour pressure</th><th>Saturation</th><th>Margin</th><th>Assessment</th></tr></thead><tbody id="condRows"></tbody></table></div><div class="cond-note">Screening calculation only. It does not model air leakage, liquid/capillary moisture, hygroscopic storage, thermal bridges or transient drying. A professional BS 5250 moisture-risk assessment may require more detailed modelling.</div></div></section><section class="tool-content"><h2>How the U-value &amp; condensation calculation works</h2>
 <div class="formula-grid">
   <article><h3>Layer resistance</h3><p>For each uniform layer, thermal resistance is R = thickness in metres ÷ thermal conductivity λ.</p></article>
   <article><h3>Total resistance</h3><p>Add the resistance of every layer, plus the selected internal and external surface resistances.</p></article>
-  <article><h3>U-value</h3><p>For uniform layers, U = 1 ÷ total thermal resistance. In Pro mode, repeating timber bridges can be included using upper and lower resistance limits before corrections are applied.</p></article>
+  <article><h3>U-value</h3><p>For this simple construction model, U = 1 ÷ total thermal resistance. Lower U-values generally mean less heat flow.</p></article>
 </div>
 </section>
 
-<section class="tool-content"><h2>Material values and sources</h2><p>The material picker now separates generic reference values from named UK products. Named product λ-values are taken from current manufacturer technical information; use the source link shown beneath the selected layer to verify it. Product values can change, and the appropriate design value may depend on application and calculation convention.</p><p><strong>Starter verified products:</strong> Kingspan Thermawall TW50 (λ 0.022 W/mK), Knauf DriTherm Cavity Slab 32 (λ 0.032 W/mK), Knauf FrameTherm Slab 32 (λ 0.032 W/mK), and ROCKWOOL Thermal Insulation Cavity Slab 32 (λ 0.032 W/mK).</p></section><section class="tool-content"><h2>Concrete soffit insulation</h2><p>Use the <strong>Concrete floor + soffit insulation</strong> quick build-up for floors over car parks, undercrofts and other unheated spaces. ROCKWOOL Soffit Slab is included as a sourced product with declared thermal conductivity of <strong>0.034 W/mK</strong> and common thicknesses of 50, 130, 145, 160, 180, 200 and 220 mm.</p><p class="soffit-note"><strong>Design note:</strong> soffit constructions can also require checks for condensation, fixings, fire performance and junction thermal bridging. The U-value calculation should therefore be treated as the plane-element calculation, with project-specific corrections added where required.</p></section><section class="tool-content"><h2>Expanded verified UK insulation library</h2><p>The verified product library now includes current UK loft, partition and soffit products from ROCKWOOL, Knauf Insulation, Isover and Superglass. Each named product shows its manufacturer source and stored practical thicknesses where published.</p><p><strong>Isover APR 1200:</strong> its declared conductivity varies by thickness, so the calculator automatically uses λ 0.039 W/mK at 25/50 mm, 0.040 at 65 mm, and 0.043 at 75/100 mm.</p></section><section class="tool-content"><h2>MF ceiling with insulation below a soffit</h2><p>The <strong>Concrete soffit + insulated MF ceiling</strong> build-up is intended for suspended drylining ceilings beneath concrete slabs where mineral wool is installed within the ceiling zone rather than using a dedicated soffit board. Set the insulation thickness and plasterboard layers, and the calculator updates the build-up automatically.</p><p class="soffit-note"><strong>Thermal-bridge note:</strong> the insulation path is calculated as a plane element. MF5 ceiling sections, MF7 primary channels, hangers and perimeter channels can create local thermal bridges, particularly where insulation is interrupted or compressed. For compliance-critical design, use project/system-specific thermal bridge information where available.</p></section><section class="faq-section">
+<section class="faq-section">
 <h2>Frequently asked questions</h2>
 <details><summary>What is a U-value?</summary><p>A U-value describes the rate of heat transfer through a building element. Lower values generally indicate better thermal performance.</p></details>
 <details><summary>What does λ mean?</summary><p>Thermal conductivity, λ, is a material property measured in W/mK. A lower λ means the material conducts heat less readily.</p></details>
 <details><summary>Can I use manufacturer λ-values?</summary><p>Yes. For a useful estimate, use the declared or design thermal conductivity appropriate to the product and calculation method you are working with.</p></details>
-<details><summary>Is this suitable for Building Regulations sign-off?</summary><p>The calculator supports transparent simplified ISO 6946 calculations, including repeating timber bridges in Pro mode. Some constructions still require specialist numerical methods, so project-specific compliance should be checked by a competent person.</p></details>
-</section><section class="related-tools" aria-labelledby="related-tools-heading"><h2 id="related-tools-heading">Related calculators</h2><div class="related-tools-grid"><a class="related-tool-link" href="concrete.html"><strong>Concrete Calculator</strong><span>Open calculator →</span></a><a class="related-tool-link" href="brick-block.html"><strong>Brick & Block Calculator</strong><span>Open calculator →</span></a><a class="related-tool-link" href="plasterboard.html"><strong>Plasterboard Calculator</strong><span>Open calculator →</span></a><a class="related-tool-link" href="insulation.html"><strong>Insulation Calculator</strong><span>Open calculator →</span></a></div></section>
+<details><summary>Is this suitable for Building Regulations sign-off?</summary><p>Use it as a planning estimate. Formal calculations can require treatment of repeating thermal bridges, fixings, cavities and other effects not included in this simple layer model.</p></details>
+</section>
 
 <section class="related-tools">
 <h2>Related tools</h2>
 <div class="related-grid"><a href="area.html">Area Calculator</a><a href="paint.html">Paint Calculator</a><a href="flooring.html">Flooring Calculator</a></div>
 </section>
 <div class="quality-note">Built for quick, transparent estimates. See <a href="methodology.html">how our calculators work</a> and check page-specific assumptions before relying on a result.</div>
-<section class="seo-support" aria-labelledby="seo-u-value"><p class="seo-kicker">CALCULATOR GUIDE</p><h2 id="seo-u-value">How the U-value calculation works</h2><p>A U-value measures heat flow through a building element. The calculator converts each material layer into thermal resistance using its thickness and thermal conductivity (λ-value), adds the internal and external surface resistances, then calculates U = 1 ÷ total R.</p><p class="seo-formula">For each layer: R = thickness in metres ÷ λ. Add all layer R-values and surface resistances, then divide 1 by the total resistance to obtain W/m²K.</p><div class="seo-links"><a href="construction.html">All Construction tools</a><a href="methodology.html">How we calculate</a></div></section>
-<section id="uPrintSheet" class="u-print-sheet" aria-hidden="true">
-  <header class="upr-header">
-    <div class="upr-brand"><span class="upr-mark">⌁</span><div><strong>Calculate This</strong><small>U-Value Calculation Report</small></div></div>
-    <div class="upr-docmeta"><span id="uprDate"></span><small>calculatethis.uk</small></div>
-  </header>
-  <div class="upr-titlebar">
-    <div><span>BUILDING PERFORMANCE</span><h1>U-Value Calculation</h1></div>
-    <div class="upr-result"><small>CALCULATED U-VALUE</small><strong id="uprValue">—</strong><span id="uprTarget"></span></div>
-  </div>
-  <div class="upr-project-grid" id="uprProjectGrid"></div>
-  <section class="upr-section">
-    <div class="upr-section-head"><span>01</span><h2>Construction build-up</h2><small>Layers shown in calculation order</small></div>
-    <table class="upr-table">
-      <thead><tr><th>#</th><th>Material / layer</th><th class="num">Thickness</th><th class="num">λ / R input</th><th class="num">R-value</th></tr></thead>
-      <tbody id="uprLayers"></tbody>
-      <tfoot id="uprSurfaces"></tfoot>
-    </table>
-  </section>
-  <div class="upr-two-col">
-    <section class="upr-section">
-      <div class="upr-section-head"><span>02</span><h2>Calculation summary</h2></div>
-      <div class="upr-summary-list" id="uprSummary"></div>
-    </section>
-    <section class="upr-section">
-      <div class="upr-section-head"><span>03</span><h2>System details</h2></div>
-      <div class="upr-summary-list" id="uprSystem"></div>
-    </section>
-  </div>
-  <section class="upr-section" id="uprSourcesSection">
-    <div class="upr-section-head"><span>04</span><h2>Material sources</h2><small>Named products used in this calculation</small></div>
-    <div class="upr-sources" id="uprSources"></div>
-  </section>
-  <section class="upr-assumptions">
-    <strong>Calculation basis &amp; assumptions</strong>
-    <p id="uprAssumptions"></p>
-  </section>
-  <footer class="upr-footer">
-    <span>Calculate This · U-Value Calculation · calculatethis.uk</span>
-    <span>Generated <span id="uprFooterDate"></span></span>
-  </footer>
-</section>
 </main>
 
 <script>
-const materials=[
- {n:"Custom material",l:"",g:"Custom",src:"Enter a verified design or declared value"},
- {n:"Plasterboard — generic",l:.25,g:"Linings",src:"Generic reference value"},
- {n:"Gypsum plaster",l:.57,g:"Linings",src:"Generic reference value"},
- {n:"Cement board",l:.35,g:"Linings",src:"Generic reference value"},
- {n:"Facing brickwork",l:.77,g:"Masonry",src:"Published modelling reference"},
- {n:"Dense concrete block",l:1.13,g:"Masonry",src:"Published modelling reference"},
- {n:"Medium concrete block",l:.51,g:"Masonry",src:"Published modelling reference"},
- {n:"Lightweight block",l:.19,g:"Masonry",src:"Published modelling reference"},
- {n:"Aerated concrete block",l:.15,g:"Masonry",src:"Published modelling reference"},
- {n:"Concrete",l:1.40,g:"Masonry",src:"Published modelling reference"},
- {n:"Softwood / timber",l:.13,g:"Timber",src:"Generic reference value"},
- {n:"Plywood",l:.13,g:"Timber",src:"Generic reference value"},
- {n:"OSB",l:.13,g:"Timber",src:"Generic reference value"},
- {n:"PIR insulation — generic",l:.022,g:"Insulation — generic",insulation:true,src:"Typical value; verify product"},
- {n:"Phenolic insulation — generic",l:.020,g:"Insulation — generic",insulation:true,src:"Typical value; verify product"},
- {n:"Mineral wool — λ 0.032",l:.032,g:"Insulation — generic",insulation:true,src:"Generic performance class"},
- {n:"Mineral wool — λ 0.035",l:.035,g:"Insulation — generic",insulation:true,src:"Generic performance class"},
- {n:"Mineral wool — λ 0.037",l:.037,g:"Insulation — generic",insulation:true,src:"Generic performance class"},
- {n:"Mineral wool — λ 0.040",l:.040,g:"Insulation — generic",insulation:true,src:"Generic performance class"},
- {n:"EPS insulation — generic",l:.036,g:"Insulation — generic",insulation:true,src:"Typical value; verify product"},
- {n:"XPS insulation — generic",l:.033,g:"Insulation — generic",insulation:true,src:"Typical value; verify product"},
- {n:"Kingspan Thermawall TW50",l:.022,g:"Verified UK products",insulation:true,src:"Kingspan declared λ 0.022 W/mK",url:"https://www.insulation.kingspan.com/gb/en/products/insulation-boards/wall-insulation-boards/thermawall-tw50",common:[40,50,60,70,75,80,90,100,110,120,130,140,150]},
- {n:"Knauf DriTherm Cavity Slab 32",l:.032,g:"Verified UK products",insulation:true,src:"Knauf declared λ 0.032 W/mK",url:"https://knauf.com/en-GB/p/product/dritherm-r-cavity-slab-32-26322_4206",common:[75,85,100,125,150]},
- {n:"Knauf FrameTherm Slab 32",l:.032,g:"Verified UK products",insulation:true,src:"Knauf declared λ 0.032 W/mK",url:"https://knauf.com/en-GB/p/product/frametherm-r-slab-32-26331_4206",common:[140]},
- {n:"ROCKWOOL Thermal Insulation Cavity Slab 32",l:.032,g:"Verified UK products",insulation:true,src:"ROCKWOOL declared λ 0.032 W/mK",url:"https://www.rockwool.com/uk/products/thermal-insulation-cavity-slab-32/",common:[100,150]},
- {n:"ROCKWOOL Soffit Slab",l:.034,g:"Verified UK products",insulation:true,src:"ROCKWOOL declared λ 0.034 W/mK · concrete soffit insulation",url:"https://www.rockwool.com/uk/products/soffit-slab/",common:[50,130,145,160,180,200,220]},
- {n:"ROCKWOOL Thermal Insulation Roll",l:.044,g:"Verified UK products",insulation:true,src:"ROCKWOOL declared λ 0.044 W/mK · loft/cold pitched roof",url:"https://www.rockwool.com/uk/products/thermal-insulation-roll/",common:[100,200]},
- {n:"ROCKWOOL Rollbatt",l:.044,g:"Verified UK products",insulation:true,src:"ROCKWOOL declared λ 0.044 W/mK · roof/loft insulation",url:"https://www.rockwool.com/uk/products/rollbatt/",common:[100,150]},
- {n:"Knauf Loft Roll 40",l:.040,g:"Verified UK products",insulation:true,src:"Knauf declared λ 0.040 W/mK · cold loft insulation",url:"https://knauf.com/en-GB/p/product/loft-roll-40-combi-cut-26332_4206",common:[100,150,200]},
- {n:"Knauf Loft Roll 44",l:.044,g:"Verified UK products",insulation:true,src:"Knauf declared λ 0.044 W/mK · cold loft insulation",url:"https://knauf.com/en-GB/p/product/loft-roll-44-un-cut-26334_4206",common:[100,150,200]},
- {n:"Superglass Multi-Roll 40",l:.040,g:"Verified UK products",insulation:true,src:"Superglass declared λ 0.040 W/mK · loft/cold pitched roof",url:"https://www.superglass.co.uk/en/products/glass-mineral-wool/glass-mineral-wool-superglass/superglass-multi-roll-40/",common:[100,150,170,200]},
- {n:"Superglass Multi-Roll 44",l:.044,g:"Verified UK products",insulation:true,src:"Superglass declared λ 0.044 W/mK · loft/cold pitched roof",url:"https://www.superglass.co.uk/en/products/glass-mineral-wool/glass-mineral-wool-superglass/superglass-multi-roll-44/",common:[100,150,170,200]},
- {n:"Isover Acoustic Partition Roll APR 1200",l:.043,g:"Verified UK products",insulation:true,src:"Isover APR 1200 · declared λ varies by thickness",url:"https://www.isover.co.uk/products/isover-acoustic-partition-roll-apr-1200",common:[25,50,65,75,100],lambdaByThickness:{"25":.039,"50":.039,"65":.040,"75":.043,"100":.043}},
- {n:"Knauf Rocksilk Soffit Linerboard Standard",l:.034,g:"Verified UK products",insulation:true,src:"Knauf declared λ 0.034 W/mK · structural soffit insulation",url:"https://knauf.com/en-GB/p/product/rocksilk-r-soffit-linerboard-standard-26624_4206",common:[50,75,130,160,185,220]},
- {n:"Knauf Rocksilk Soffit Linerboard Extra",l:.034,g:"Verified UK products",insulation:true,src:"Knauf mineral wool λ 0.034 W/mK · cementitious-faced structural soffit board",url:"https://knauf.com/en-GB/p/product/rocksilk-r-soffit-linerboard-extra-26797_4206",common:[136,166,191,226]},
+const presets=[["Custom material","",""],["Plasterboard",0.25,0.10],["Gypsum plaster",0.57,0.10],["Brickwork",0.77,1.00],["Dense concrete block",1.13,2.00],["Lightweight block",0.19,0.50],["Concrete",1.75,20.00],["Timber",0.13,2.50],["Plywood",0.13,5.00],["OSB",0.13,2.00],["Mineral wool insulation",0.037,0.10],["Glass wool insulation",0.040,0.10],["PIR insulation",0.022,5.00],["Phenolic insulation",0.020,3.00],["EPS insulation",0.036,3.00],["XPS insulation",0.033,10.00],["Aerated concrete",0.16,0.50]];
 
- {n:"Air cavity — unventilated, vertical",r:.18,g:"Air layers",src:"Fixed layer resistance"},
- {n:"Air layer — unventilated, heat flow up",r:.16,g:"Air layers",src:"Fixed layer resistance"},
- {n:"Air layer — unventilated, heat flow down",r:.21,g:"Air layers",src:"Fixed layer resistance"}
-];
-const surfaces={wall:[.13,.04,"horizontal heat flow"],roof:[.10,.04,"heat flow upwards"],floor:[.17,.04,"heat flow downwards"],soffit:[.17,.04,"heat flow downwards through floor to soffit"]};
-const templates={
- cavity:[["Facing brickwork",102.5,.77],["Air cavity — unventilated, vertical",50,"R:.18"],["Kingspan Thermawall TW50",100,.022],["Lightweight block",100,.19],["Plasterboard — generic",12.5,.25]],
- metal:[["Plasterboard — generic",12.5,.25],["Mineral wool — λ 0.037",70,.037],["Plasterboard — generic",12.5,.25]],
- timber:[["OSB",11,.13],["Knauf FrameTherm Slab 32",140,.032],["Plasterboard — generic",12.5,.25]],
- warmroof:[["Plasterboard — generic",12.5,.25],["PIR insulation — generic",120,.022],["OSB",18,.13]],
- soffit:[["Concrete",150,1.40],["ROCKWOOL Soffit Slab",130,.034]],
- mfsoffit:[["Concrete",150,1.40],["Mineral wool — λ 0.037",100,.037],["Plasterboard — generic",12.5,.25]]
-};
-const layersEl=document.getElementById("layers"),uValue=document.getElementById("uValue"),working=document.getElementById("working"),breakdown=document.getElementById("breakdown"),visual=document.getElementById("buildVisual");
-let pro=false;
-function options(selectedName="") {let out='',last='';materials.forEach(m=>{if(m.g!==last){if(last)out+='</optgroup>';out+=`<optgroup label="${m.g}">`;last=m.g}out+=`<option value="${m.n}" ${m.n===selectedName?'selected':''}>${m.n}${m.l!==undefined&&m.l!==''?` — λ ${m.l}`:m.r?` — R ${m.r}`:''}</option>`});return out+'</optgroup>'}
-function getMat(n){return materials.find(m=>m.n===n)||materials[0]}
-function addLayer(name="Custom material",thickness="",value=""){
- const m=getMat(name),row=document.createElement('div');row.className='layer-row';row.innerHTML=`<select class="material" aria-label="Layer material">${options(name)}</select><input class="thickness" type="number" min="0" step="any" placeholder="100" value="${thickness}" aria-label="Thickness millimetres"><input class="lambda" type="number" min="0" step="any" placeholder="0.022" value="${String(value).startsWith('R:')?String(value).slice(2):(value||m.l||m.r||'')}" aria-label="Thermal conductivity or resistance"><span class="layer-r">—</span><div class="layer-actions"><button class="move-layer move-up" type="button" aria-label="Move layer up" title="Move layer up">↑</button><button class="move-layer move-down" type="button" aria-label="Move layer down" title="Move layer down">↓</button><button class="remove-layer" type="button">Remove</button></div><small class="material-meta" style="grid-column:1/-1">${m.src||''}</small>`;
- const mat=row.querySelector('.material'),val=row.querySelector('.lambda');
- function sync(){
- const x=getMat(mat.value),th=Math.round(+row.querySelector('.thickness').value||0),variant=x.lambdaByThickness&&x.lambdaByThickness[String(th)];
- val.value=x.r||variant||x.l||'';
- val.dataset.mode=x.r?'r':'lambda';
- val.placeholder=x.r?'R-value':'λ W/mK';
- const meta=row.querySelector('.material-meta'),variantNote=x.lambdaByThickness?' · λ varies with published thickness':'';
- meta.innerHTML=x.url?`${x.src}${variantNote} · <a href="${x.url}" target="_blank" rel="noopener">source</a>`:(x.src||'');
- calculate()
-}
- mat.addEventListener('change',sync);
- row.querySelectorAll('input').forEach(x=>x.addEventListener('input',calculate));
- row.querySelector('.thickness').addEventListener('change',()=>{const x=getMat(mat.value),th=Math.round(+row.querySelector('.thickness').value||0),variant=x.lambdaByThickness&&x.lambdaByThickness[String(th)];if(variant){val.value=variant;calculate()}});
- row.querySelector('.move-up').onclick=()=>{const prev=row.previousElementSibling;if(prev){layersEl.insertBefore(row,prev);calculate()}};
- row.querySelector('.move-down').onclick=()=>{const next=row.nextElementSibling;if(next){layersEl.insertBefore(next,row);calculate()}};
- row.querySelector('.remove-layer').onclick=()=>{row.remove();calculate()};layersEl.appendChild(row);val.dataset.mode=m.r?'r':'lambda';calculate();
-}
-function setTemplate(k){layersEl.innerHTML='';if(k==='custom'){addLayer('Plasterboard — generic',12.5,.25);addLayer('Mineral wool — λ 0.037',100,.037);addLayer('Facing brickwork',102.5,.77)}else (templates[k]||templates.cavity).forEach(x=>addLayer(...x));if(k==='timber'){pro=true;setMode(true);bridgeOn.checked=true;setTimeout(()=>{bridgeLayer.value='1';bridgeLayer.dataset.keep='1';calculate()},0)}else if(k==='metal'){bridgeOn.checked=false;setTimeout(syncMetalUI,0)}else if(k==='soffit'){elementType.value='soffit';bridgeOn.checked=false;setTimeout(()=>{syncMetalUI();syncMFUI();calculate()},0)}else if(k==='mfsoffit'){elementType.value='soffit';bridgeOn.checked=false;setTimeout(()=>{syncMetalUI();syncMFUI();calculate()},0)}calculate()}
-function setMode(v){pro=v;simpleMode.classList.toggle('active',!v);proMode.classList.toggle('active',v);proOptions.classList.toggle('show',v);calculate()}
-function calcData(){const [rsi,rse]=surfaces[elementType.value],rows=[];document.querySelectorAll('.layer-row').forEach((row,i)=>{const m=getMat(row.querySelector('.material').value),t=+row.querySelector('.thickness').value,lambdaEl=row.querySelector('.lambda'),mode=lambdaEl.dataset.mode,variant=m.lambdaByThickness&&m.lambdaByThickness[String(Math.round(t))];let val=+lambdaEl.value;if(mode!=='r'&&variant){val=variant;lambdaEl.value=variant}let r=0;if(mode==='r'&&val>0)r=val;else if(t>0&&val>0)r=(t/1000)/val;row.querySelector('.layer-r').textContent=r?r.toFixed(3):'—';rows.push({i,n:m.n,t,l:mode==='r'?null:val,r,mode,kind:m.g})});return {rsi,rse,rows:rows.filter(x=>x.r>0)}}
-function calculate(){const d=calcData();surfaceText.textContent=`Rsi ${d.rsi.toFixed(2)} + Rse ${d.rse.toFixed(2)} m²K/W (${surfaces[elementType.value][2]})`;bridgeLayer.innerHTML=d.rows.map((x,j)=>`<option value="${j}">${x.n} — ${x.t||'—'} mm</option>`).join('');let total=d.rsi+d.rse+d.rows.reduce((a,x)=>a+x.r,0),method='Uniform layer method',baseU=total?1/total:0;
- if(pro&&bridgeOn.checked&&d.rows.length){const j=Math.min(+bridgeLayer.dataset.keep||+bridgeLayer.value||0,d.rows.length-1),x=d.rows[j],f=Math.max(.01,Math.min(.5,+bridgeFraction.value/100||.15)),tl=+bridgeLambda.value||.13;if(x.t>0&&x.l>0){const rb=(x.t/1000)/tl,other=d.rsi+d.rse+d.rows.reduce((a,y,k)=>a+(k===j?0:y.r),0),upper=1/(f/(other+rb)+(1-f)/(other+x.r)),equiv=1/(f/rb+(1-f)/x.r),lower=other+equiv,totalCombined=(upper+lower)/2;baseU=1/totalCombined;total=totalCombined;method=`ISO 6946 repeating bridge method (${(f*100).toFixed(1)}% timber)`}}
- const corr=pro?(+fixingCorrection.value||0)+(+otherCorrection.value||0):0,u=baseU+corr;if(!d.rows.length||!u){uValue.textContent='—';working.textContent='Add one or more valid material layers.';breakdown.innerHTML='';renderVisual(d.rows);return}uValue.textContent=u.toFixed(3)+' W/m²K';working.textContent=`${method}. ${corr?`Base U ${baseU.toFixed(3)} + ΔU corrections ${corr.toFixed(3)}.`:`Total thermal resistance ${total.toFixed(3)} m²K/W.`}`;
- breakdown.innerHTML=d.rows.map(x=>`<div class="breakdown-row"><span>${x.n}${x.t?` · ${x.t} mm`:''}</span><strong>R ${x.r.toFixed(3)}</strong></div>`).join('')+`<div class="breakdown-row"><span>Internal / external surfaces</span><strong>R ${(d.rsi+d.rse).toFixed(3)}</strong></div>${corr?`<div class="breakdown-row"><span>Total ΔU corrections</span><strong>+${corr.toFixed(3)} W/m²K</strong></div>`:''}<div class="breakdown-row"><span>Calculation method</span><strong>${method}</strong></div>`;
- refreshSolver();const target=+targetU.value;if(target>0){targetStatus.hidden=false;targetStatus.className='target-status '+(u<=target?'pass':'fail');targetStatus.textContent=(u<=target?'✓ Meets':'Above')+` ${target.toFixed(2)} target`}else targetStatus.hidden=true;renderVisual(d.rows)}
-function renderVisual(rows){visual.innerHTML=rows.map(x=>{const w=Math.max(28,Math.min(170,(x.t||35)*.7)),c=x.kind==='Insulation'?'ins':x.kind==='Air layers'?'air':'';return `<div class="build-slice ${c}" style="flex:${w} 1 0"><span>${x.n}</span></div>`}).join('')||'<span style="padding:25px;color:#657176;font-size:12px">Your construction build-up will appear here</span>'}
+const layersEl=document.getElementById("layers");
+const uValue=document.getElementById("uValue");
+const working=document.getElementById("working");
+const breakdown=document.getElementById("breakdown");
 
-function insulationRows(){
- return [...document.querySelectorAll('.layer-row')]
-   .map((row,i)=>({row,i,m:getMat(row.querySelector('.material').value)}))
-   .filter(x=>x.m.insulation===true || (x.m.g&&x.m.g.startsWith('Insulation')));
+function materialOptions(selected=""){
+  return presets.map(([name,lambda,sd])=>`<option value="${lambda}" data-sd="${sd}" ${String(lambda)===String(selected)?"selected":""}>${name}${lambda!==""?` — λ ${lambda}`:""}</option>`).join("");
 }
-function refreshSolver(){
- const ins=insulationRows(),keep=solverLayer.value;
- solverLayer.innerHTML=ins.map(x=>`<option value="${x.i}">${x.m.n}</option>`).join('');
- if(ins.some(x=>String(x.i)===keep))solverLayer.value=keep;
- solveThickness.disabled=!ins.length;
- const soffitHint=document.getElementById('solverSoffitHint');
- if(soffitHint)soffitHint.hidden=template.value!=='soffit';
- if(!ins.length)solverResult.textContent='No insulation layer is currently available for the solver.';
+function addLayer(name="",thickness="",lambda="",sd=""){
+  const row=document.createElement("div");
+  row.className="layer-row";
+  row.innerHTML=`<select class="material">${materialOptions(lambda)}</select>
+  <input class="thickness" type="number" min="0" step="any" placeholder="100" value="${thickness}">
+  <input class="lambda" type="number" min="0" step="any" placeholder="0.022" value="${lambda}">
+  <span class="layer-r">—</span>
+  <input class="sd sd-input" type="number" min="0" step="any" placeholder="0.10" value="${sd}">
+  <button class="remove-layer" type="button">Remove</button>`;
+  const mat=row.querySelector(".material"), lam=row.querySelector(".lambda");
+  mat.addEventListener("change",()=>{if(mat.value!==""){lam.value=mat.value;const ps=mat.selectedOptions[0]?.dataset?.sd;if(ps!==undefined&&ps!=="")row.querySelector(".sd").value=ps;}calculate();});
+  row.querySelectorAll("input").forEach(x=>x.addEventListener("input",calculate));
+  row.querySelector(".remove-layer").addEventListener("click",()=>{row.remove();calculate();});
+  layersEl.appendChild(row);
+  calculate();
 }
-function calcUForThickness(rowIndex,mm){
- const rows=[...document.querySelectorAll('.layer-row')],inp=rows[rowIndex]?.querySelector('.thickness');
- if(!inp)return Infinity;
- const old=inp.value;inp.value=mm;
- const d=calcData();let total=d.rsi+d.rse+d.rows.reduce((a,x)=>a+x.r,0),u=total?1/total:Infinity;
- // Solver supports the timber repeating bridge method, but intentionally not steel-frame numerical modelling.
- if(pro&&bridgeOn.checked&&d.rows.length){
-   const j=Math.min(+bridgeLayer.dataset.keep||+bridgeLayer.value||0,d.rows.length-1),x=d.rows[j],f=Math.max(.01,Math.min(.5,+bridgeFraction.value/100||.15)),tl=+bridgeLambda.value||.13;
-   if(x.t>0&&x.l>0){const rb=(x.t/1000)/tl,other=d.rsi+d.rse+d.rows.reduce((a,y,k)=>a+(k===j?0:y.r),0),upper=1/(f/(other+rb)+(1-f)/(other+x.r)),equiv=1/(f/rb+(1-f)/x.r),lower=other+equiv;u=1/((upper+lower)/2)}
- }
- u+=pro?((+fixingCorrection.value||0)+(+otherCorrection.value||0)):0;
- inp.value=old;calcData();return u;
+function calculate(){
+  let total=Number(rsi.value)+Number(rse.value), valid=0, rows=[];
+  document.querySelectorAll(".layer-row").forEach((row,i)=>{
+    const t=Number(row.querySelector(".thickness").value);
+    const l=Number(row.querySelector(".lambda").value);
+    let r=0;
+    if(t>0&&l>0){ r=(t/1000)/l; total+=r; valid++; }
+    row.querySelector(".layer-r").textContent=r>0?r.toFixed(3):"—";
+    const label=row.querySelector(".material").selectedOptions[0]?.textContent?.split(" — ")[0]||`Layer ${i+1}`;
+    if(r>0) rows.push([label,r]);
+  });
+  if(!valid||!(total>0)){uValue.textContent="—";working.textContent="Add one or more valid material layers.";breakdown.innerHTML="";calculateCondensation();return;}
+  const u=1/total;
+  uValue.textContent=u.toFixed(3)+" W/m²K";
+  working.textContent=`Total thermal resistance ${total.toFixed(3)} m²K/W across ${valid} layer${valid===1?"":"s"} plus selected surface resistances.`;
+  breakdown.innerHTML=
+    rows.map(([n,r])=>`<div class="breakdown-row"><span>${n}</span><strong>${r.toFixed(3)} m²K/W</strong></div>`).join("")+
+    `<div class="breakdown-row"><span>Internal surface</span><strong>${Number(rsi.value).toFixed(3)} m²K/W</strong></div>
+     <div class="breakdown-row"><span>External surface</span><strong>${Number(rse.value).toFixed(3)} m²K/W</strong></div>
+     <div class="breakdown-row"><span>Total R</span><strong>${total.toFixed(3)} m²K/W</strong></div>`;calculateCondensation();
 }
-function nextPractical(mm,m){
- const standard=m.common||[20,25,30,40,50,60,70,75,80,90,100,110,120,125,130,140,150,160,180,200,220,240,250,300];
- return standard.find(x=>x>=mm)||Math.ceil(mm/10)*10;
-}
-
-function metalGeometry(){
- const twin=document.querySelector('.wall-mode-pill[data-wall-mode="twin"]')?.classList.contains('active');
- const a=+document.getElementById('metalStudSize')?.value||70,b=+document.getElementById('metalStudSizeB')?.value||70,g=+document.getElementById('twinGap')?.value||0;
- return {twin,a,b,g,depth:twin?a+g+b:a};
-}
-function metalSolverNote(theoretical,practical){
- const geo=metalGeometry(),fits=practical<=geo.depth;
- return `<strong>Metal stud note:</strong> This is the theoretical insulation requirement through the insulated path only. Current ${geo.twin?'twin':'single'}-wall void: <strong>${geo.depth} mm</strong>. ${fits?`The suggested ${practical} mm insulation <strong>fits within the available void</strong>.`:`The suggested ${practical} mm insulation <strong>exceeds the available void</strong>; increase the stud/gap depth or use a lower-λ insulation.`} Steel bridging is not included, so this is not the final framed-system U-value.`;
-}
-function runSolver(){
- const target=+solverTarget.value,idx=+solverLayer.value,rows=[...document.querySelectorAll('.layer-row')],row=rows[idx];
- if(!(target>0)||!row){solverResult.textContent='Choose an insulation layer and enter a valid target U-value.';return}
- const m=getMat(row.querySelector('.material').value);
- if(calcUForThickness(idx,1000)>target){solverResult.innerHTML=`<span class="warn">This target cannot be reached by increasing this insulation layer alone with the current build-up/corrections.</span>`;return}
- let lo=1,hi=1000;
- for(let n=0;n<45;n++){const mid=(lo+hi)/2;if(calcUForThickness(idx,mid)<=target)hi=mid;else lo=mid}
- const theoretical=Math.ceil(hi),practical=nextPractical(theoretical,m),practicalU=calcUForThickness(idx,practical);
- const metal=template.value==='metal';
- solverResult.innerHTML=`<div class="solver-metrics"><div class="solver-metric"><span>Target</span><strong>${target.toFixed(2)} W/m²K</strong></div><div class="solver-metric"><span>Calculated minimum</span><strong>${theoretical} mm</strong></div><div class="solver-metric"><span>Recommended thickness</span><strong class="good">${practical} mm</strong></div></div><div class="solver-metric" style="margin-bottom:10px"><span>${metal?'Unbridged theoretical U-value':'Estimated U-value'} at ${practical} mm</span><strong>${practicalU.toFixed(3)} W/m²K</strong></div><small class="solver-note ${metal?'caution':''}">${metal?metalSolverNote(theoretical,practical):(m.common?'Recommended thickness uses the stored common product sizes where available.':'Recommended thickness is rounded up to a practical nominal size. Confirm product availability and project-specific design values.')}</small>`;
-}
-
-simpleMode.onclick=()=>setMode(false);proMode.onclick=()=>setMode(true);addLayerBtn=document.getElementById('addLayer');addLayerBtn.onclick=()=>addLayer();clearLayers.onclick=()=>{template.value='custom';setTemplate('custom')};template.onchange=()=>setTemplate(template.value);elementType.onchange=calculate;targetU.oninput=calculate;[bridgeOn,bridgeFraction,bridgeLambda,fixingCorrection,otherCorrection].forEach(x=>{x.oninput=calculate;x.onchange=calculate});bridgeLayer.onchange=()=>{bridgeLayer.dataset.keep=bridgeLayer.value;calculate()};solveThickness.onclick=runSolver;solverTarget.oninput=()=>{};setTemplate('custom');
-</script>
-<script defer src="js/ux.js?v=3.6.18"></script>
-
-
-<script>
-function currentMetalGeometry(){
- const twin=document.querySelector('.wall-mode-pill[data-wall-mode="twin"]')?.classList.contains('active');
- const a=+document.getElementById('metalStudSize')?.value||70,b=+document.getElementById('metalStudSizeB')?.value||70,g=+document.getElementById('twinGap')?.value||0;
- return {twin,a,b,g,depth:twin?a+g+b:a};
-}
-function updateMetalVoid(){
- const geo=currentMetalGeometry(),depth=document.getElementById('metalVoidDepth'),formula=document.getElementById('metalVoidFormula'),tc=document.getElementById('twinControls');
- if(tc)tc.hidden=!geo.twin;
- if(depth)depth.textContent=`${geo.depth} mm`;
- if(formula)formula.textContent=geo.twin?`${geo.a} + ${geo.g} + ${geo.b} mm = full twin-wall insulation zone`:`Single ${geo.a} mm stud cavity`;
- return geo;
-}
-function syncMetalUI(){
- const box=document.getElementById('metalStudControls'),metal=template.value==='metal';
- if(box)box.hidden=!metal;
- if(!metal)return;
- const geo=updateMetalVoid(),rows=[...document.querySelectorAll('.layer-row')],ins=rows.find(r=>(m=>m.insulation===true || m.g?.startsWith('Insulation'))(getMat(r.querySelector('.material').value)));
- if(ins){const inp=ins.querySelector('.thickness');if(+inp.value!==geo.depth){inp.value=geo.depth;calculate()}}
-}
-document.querySelectorAll('#studPillsA .stud-pill').forEach(btn=>btn.addEventListener('click',()=>{
- document.querySelectorAll('#studPillsA .stud-pill').forEach(x=>x.classList.remove('active'));btn.classList.add('active');document.getElementById('metalStudSize').value=btn.dataset.size;syncMetalUI()
-}));
-document.querySelectorAll('#studPillsB .stud-pill').forEach(btn=>btn.addEventListener('click',()=>{
- document.querySelectorAll('#studPillsB .stud-pill').forEach(x=>x.classList.remove('active'));btn.classList.add('active');document.getElementById('metalStudSizeB').value=btn.dataset.sizeB;syncMetalUI()
-}));
-document.querySelectorAll('.wall-mode-pill').forEach(btn=>btn.addEventListener('click',()=>{
- document.querySelectorAll('.wall-mode-pill').forEach(x=>x.classList.remove('active'));btn.classList.add('active');syncMetalUI()
-}));
-document.getElementById('metalStudCentres')?.addEventListener('change',calculate);
-document.getElementById('twinGap')?.addEventListener('change',syncMetalUI);
-template.addEventListener('change',()=>setTimeout(syncMetalUI,0));
-setTimeout(syncMetalUI,0);
-</script>
-
-<script>
-function syncMFUI(){
- const box=document.getElementById('mfCeilingControls'),isMF=template.value==='mfsoffit';
- if(box)box.hidden=!isMF;
- if(!isMF)return;
- const layers=+document.getElementById('mfBoardLayers').value||1,
-       insulation=+document.getElementById('mfInsulationThickness').value||100;
- const rows=[...document.querySelectorAll('.layer-row')];
- const ins=rows.find(r=>{const m=getMat(r.querySelector('.material').value);return m.insulation===true || m.g?.startsWith('Insulation')});
- const boards=rows.filter(r=>getMat(r.querySelector('.material').value).n==='Plasterboard — generic');
- if(ins)ins.querySelector('.thickness').value=insulation;
- if(boards.length)boards[0].querySelector('.thickness').value=12.5*layers;
- const val=document.getElementById('mfSummaryValue');
- if(val)val.textContent=`${insulation} mm insulation`;
- calculate();
-}
-['mfBoardLayers','mfInsulationThickness'].forEach(id=>document.getElementById(id)?.addEventListener('change',syncMFUI));
-template.addEventListener('change',()=>setTimeout(syncMFUI,0));
-setTimeout(syncMFUI,0);
-</script>
-
-<script>
-(function(){
- const btn=document.getElementById('uPrintReport');
- if(!btn)return;
- function text(id){return (document.getElementById(id)?.value||'').trim()}
- function esc(v){return String(v??'').replace(/[&<>"']/g,s=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]))}
- function selectedText(el){return el?.options?.[el.selectedIndex]?.text||''}
- function fmt(n,d=3){return Number.isFinite(+n)?(+n).toFixed(d):'—'}
- function reportModel(){
-   const d=calcData(),surface=surfaces[elementType.value];
-   let total=d.rsi+d.rse+d.rows.reduce((a,x)=>a+x.r,0),method='Uniform layer method',baseU=total?1/total:0,bridgeDetail='Not applied';
-   if(pro&&bridgeOn.checked&&d.rows.length){
-     const j=Math.min(+bridgeLayer.dataset.keep||+bridgeLayer.value||0,d.rows.length-1),x=d.rows[j],f=Math.max(.01,Math.min(.5,+bridgeFraction.value/100||.15)),tl=+bridgeLambda.value||.13;
-     if(x.t>0&&x.l>0){
-       const rb=(x.t/1000)/tl,otherR=d.rsi+d.rse+d.rows.reduce((a,y,k)=>a+(k===j?0:y.r),0),upper=1/(f/(otherR+rb)+(1-f)/(otherR+x.r)),equiv=1/(f/rb+(1-f)/x.r),lower=otherR+equiv;
-       total=(upper+lower)/2;baseU=1/total;method='ISO 6946 repeating bridge method';bridgeDetail=`${(f*100).toFixed(1)}% timber · λ ${tl.toFixed(3)} W/mK · ${x.n}`;
-     }
-   }
-   const fixing=pro?(+fixingCorrection.value||0):0,other=pro?(+otherCorrection.value||0):0,corr=fixing+other,u=baseU+corr;
-   return {d,surface,total,method,bridgeDetail,baseU,fixing,other,corr,u};
- }
- function systemRows(){
-   const rows=[['Element',selectedText(elementType)],['Build-up',selectedText(template)]];
-   if(template.value==='metal'&&typeof currentMetalGeometry==='function'){
-     const g=currentMetalGeometry();
-     rows.push(['Metal framing',g.twin?'Twin stud wall':'Single stud wall'],['Stud geometry',g.twin?`${g.a} + ${g.g} gap + ${g.b} mm`:`${g.a} mm stud`],['Stud centres',`${document.getElementById('metalStudCentres').value} mm`],['Available insulation depth',`${g.depth} mm`]);
-   }
-   if(template.value==='mfsoffit'){
-     rows.push(['Insulation thickness',`${document.getElementById('mfInsulationThickness').value} mm`],['Plasterboard',`${document.getElementById('mfBoardLayers').value} layer(s)`]);
-   }
-   return rows;
- }
- function assumptions(m){
-   const bits=[
-     'Plane-element U-value calculation based on simplified BS EN ISO 6946 principles and UK BR 443 conventions.',
-     `Surface resistances used: Rsi ${m.d.rsi.toFixed(2)} and Rse ${m.d.rse.toFixed(2)} m²K/W (${m.surface[2]}).`,
-     'Generic material values are indicative; named product values should be checked against current manufacturer technical data for the specified application.'
-   ];
-   if(m.corr)bits.push(`Applied ΔU correction: ${m.corr.toFixed(3)} W/m²K (${m.fixing.toFixed(3)} fixings + ${m.other.toFixed(3)} other).`);
-   if(pro&&bridgeOn.checked)bits.push(`Repeating timber bridge included: ${m.bridgeDetail}.`);
-   if(template.value==='metal')bits.push('Metal-stud result is the unbridged insulated-path calculation. Steel studs, tracks and junctions can materially increase heat flow; use tested system data or appropriate numerical modelling for the completed framed-element U-value.');
-   if(template.value==='mfsoffit')bits.push('MF ceiling result is the plane insulated path. MF5/MF7 channels, hangers, perimeter sections and local insulation interruptions are not explicitly modelled.');
-   if(elementType.value==='soffit')bits.push('Soffit constructions may require separate checks for fixings, condensation, fire performance and junction thermal bridging.');
-   return bits.join(' ');
- }
- function build(){
-   calculate();
-   const m=reportModel(),now=new Date(),date=now.toLocaleDateString('en-GB',{day:'2-digit',month:'long',year:'numeric'});
-   uprDate.textContent=date;uprFooterDate.textContent=date;uprValue.textContent=Number.isFinite(m.u)?`${m.u.toFixed(3)} W/m²K`:'—';
-   const target=+targetU.value||0;uprTarget.textContent=target?`${m.u<=target?'✓ Meets':'Above'} design target ${target.toFixed(2)} W/m²K`:'No design target entered';
-   const meta=[['Project',text('reportProject')||'—'],['Element / reference',text('reportReference')||selectedText(elementType)],['Prepared by',text('reportPreparedBy')||'—'],['Report note',text('reportNotes')||'—']];
-   uprProjectGrid.innerHTML=meta.map(([a,b])=>`<div class="upr-project-item"><small>${esc(a)}</small><strong>${esc(b)}</strong></div>`).join('');
-   uprLayers.innerHTML=m.d.rows.map((x,i)=>{const mat=getMat(x.n),input=x.mode==='r'?`R ${fmt(x.r)}`:`λ ${fmt(x.l,3)}`,source=mat.src?`<span class="upr-source-line">${esc(mat.src)}</span>`:'';return `<tr><td>${i+1}</td><td><strong>${esc(x.n)}</strong>${source}</td><td class="num">${x.t?`${esc(x.t)} mm`:'—'}</td><td class="num">${input}</td><td class="num">${fmt(x.r)}</td></tr>`}).join('');
-   uprSurfaces.innerHTML=`<tr><td></td><td>Internal surface resistance (Rsi)</td><td></td><td></td><td class="num">${m.d.rsi.toFixed(3)}</td></tr><tr><td></td><td>External surface resistance (Rse)</td><td></td><td></td><td class="num">${m.d.rse.toFixed(3)}</td></tr>`;
-   const summary=[['Total thermal resistance',`${m.total.toFixed(3)} m²K/W`],['Base U-value',`${m.baseU.toFixed(3)} W/m²K`],['ΔU corrections',`${m.corr?'+':''}${m.corr.toFixed(3)} W/m²K`],['Final U-value',`${m.u.toFixed(3)} W/m²K`],['Calculation method',m.method]];
-   uprSummary.innerHTML=summary.map(([a,b])=>`<div class="upr-summary-row"><span>${esc(a)}</span><strong>${esc(b)}</strong></div>`).join('');
-   uprSystem.innerHTML=systemRows().map(([a,b])=>`<div class="upr-summary-row"><span>${esc(a)}</span><strong>${esc(b)}</strong></div>`).join('');
-   const unique=[...new Map(m.d.rows.map(x=>getMat(x.n)).filter(x=>x.url).map(x=>[x.n,x])).values()];
-   uprSourcesSection.style.display=unique.length?'block':'none';
-   uprSources.innerHTML=unique.map(x=>`<div class="upr-source"><strong>${esc(x.n)}</strong><span>${esc(x.src||'Manufacturer product data')}</span><code>${esc(x.url)}</code></div>`).join('');
-   uprAssumptions.textContent=assumptions(m);
- }
- function openReportDocument(){
-   const reportWindow=window.open('','_blank');
-   build();
-
-   const reportMarkup=uPrintSheet.innerHTML;
-   const css=`
-*{box-sizing:border-box}
-html{background:#e9ecee}
-body{margin:0;padding:18px;background:#e9ecee;color:#1b2225;font-family:Arial,Helvetica,sans-serif}
-.report-toolbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;width:min(210mm,100%);margin:0 auto 14px;padding:10px 12px;border-radius:12px;background:#111719;color:#fff;box-shadow:0 8px 25px rgba(0,0,0,.16)}
-.report-toolbar strong{font-size:13px}.report-toolbar span{display:block;color:#a8b1b4;font-size:11px;margin-top:2px}
-.report-toolbar button{border:1px solid rgba(241,169,120,.55);background:#2a201b;color:#f1a978;border-radius:9px;padding:10px 13px;font:600 12px Arial,sans-serif;cursor:pointer}
-.u-print-sheet{display:block!important;width:210mm;min-height:297mm;margin:0 auto;padding:13mm 12mm 14mm;background:#fff;color:#1b2225;box-shadow:0 10px 35px rgba(0,0,0,.14)}
-.upr-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1.5pt solid #c77b49;padding:0 0 8mm;margin-bottom:7mm}
-.upr-brand{display:flex;align-items:center;gap:9px}.upr-mark{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#111719;color:#c77b49;font-size:25px;font-weight:700}
-.upr-brand strong{display:block;font-size:15pt;letter-spacing:-.2pt;color:#121719}.upr-brand small{display:block;margin-top:2px;color:#657176;font-size:7.5pt;letter-spacing:.08em;text-transform:uppercase}
-.upr-docmeta{text-align:right;color:#3d494d;font-size:8pt}.upr-docmeta small{display:block;margin-top:3px;color:#7a8589}
-.upr-titlebar{display:grid;grid-template-columns:1fr 64mm;gap:8mm;align-items:end;margin-bottom:7mm}
-.upr-titlebar>div:first-child>span{font-size:7pt;letter-spacing:.16em;color:#a45f35;font-weight:700}.upr-titlebar h1{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:25pt;line-height:1;margin:2mm 0 0;color:#172024}
-.upr-result{border-left:2pt solid #c77b49;padding:4mm 0 4mm 5mm;background:#f7f4f1}.upr-result small{display:block;font-size:6.8pt;letter-spacing:.12em;color:#6c777a}.upr-result strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:21pt;color:#a85f34;margin-top:1.5mm}.upr-result span{display:block;font-size:7.2pt;color:#536064;margin-top:1.5mm}
-.upr-project-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#d7dcde;border:1px solid #d7dcde;margin-bottom:7mm}.upr-project-item{background:#fff;padding:3mm}.upr-project-item small{display:block;font-size:6.5pt;text-transform:uppercase;letter-spacing:.08em;color:#7a8589;margin-bottom:1.2mm}.upr-project-item strong{display:block;font-size:8.5pt;font-weight:600;color:#20282b;word-break:break-word}
-.upr-section{break-inside:avoid;margin-bottom:6mm}.upr-section-head{display:flex;align-items:baseline;gap:2.5mm;border-bottom:1px solid #d9dddf;padding-bottom:2mm;margin-bottom:3mm}.upr-section-head>span{font-size:7pt;color:#a85f34;font-weight:700}.upr-section-head h2{font-size:11pt;margin:0;color:#20282b}.upr-section-head small{margin-left:auto;color:#7c868a;font-size:6.5pt}
-.upr-table{width:100%;border-collapse:collapse;font-size:7.5pt}.upr-table th{padding:2.4mm 2mm;text-align:left;background:#edf0f1;color:#49565a;font-size:6.5pt;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid #ccd2d4}.upr-table td{padding:2.4mm 2mm;border-bottom:1px solid #e1e5e6;vertical-align:top}.upr-table .num{text-align:right;font-variant-numeric:tabular-nums}.upr-table tfoot td{font-weight:600;background:#fafafa}.upr-source-line{display:block;font-size:6pt;color:#7a8589;margin-top:1mm}
-.upr-two-col{display:grid;grid-template-columns:1fr 1fr;gap:7mm;break-inside:avoid}.upr-summary-list{border:1px solid #dce1e2}.upr-summary-row{display:flex;justify-content:space-between;gap:4mm;padding:2.5mm 3mm;border-bottom:1px solid #e2e6e7;font-size:7.5pt}.upr-summary-row:last-child{border-bottom:0}.upr-summary-row span{color:#667276}.upr-summary-row strong{text-align:right;color:#20282b;font-weight:600}
-.upr-sources{display:grid;grid-template-columns:1fr 1fr;gap:2.5mm}.upr-source{padding:3mm;border:1px solid #dde2e3;break-inside:avoid}.upr-source strong{display:block;font-size:7.6pt}.upr-source span{display:block;color:#657176;font-size:6.4pt;line-height:1.4;margin-top:1mm}.upr-source code{display:block;color:#8a9396;font:5.6pt Arial,sans-serif;word-break:break-all;margin-top:1mm}
-.upr-assumptions{break-inside:avoid;margin-top:3mm;padding:4mm;border:1px solid #e1d6ce;background:#faf7f4}.upr-assumptions strong{display:block;color:#8f512f;font-size:8pt;margin-bottom:1.5mm}.upr-assumptions p{margin:0;color:#566267;font-size:6.7pt;line-height:1.5}
-.upr-footer{display:flex;justify-content:space-between;gap:5mm;margin-top:7mm;padding-top:3mm;border-top:1px solid #d7dcde;color:#778286;font-size:6pt}
-a{color:inherit;text-decoration:none}
-@page{size:A4 portrait;margin:0}
-@media print{
- html,body{background:#fff!important}
- body{padding:0!important}
- .report-toolbar{display:none!important}
- .u-print-sheet{width:210mm!important;min-height:297mm!important;margin:0!important;padding:13mm 12mm 14mm!important;box-shadow:none!important}
-}
-@media(max-width:760px){
- body{padding:8px}.report-toolbar{width:100%}
- .u-print-sheet{width:100%;min-height:0;padding:18px 14px}
- .upr-titlebar{grid-template-columns:1fr}.upr-result{margin-top:4px}
- .upr-project-grid{grid-template-columns:1fr 1fr}.upr-two-col{grid-template-columns:1fr}
- .upr-sources{grid-template-columns:1fr}
-}`;
-
-   if(!reportWindow){
-     uPrintSheet.setAttribute('aria-hidden','false');
-     uPrintSheet.style.display='block';
-     alert('Your browser blocked the report preview. Please allow pop-ups for Calculate This, then try Print / Save PDF again.');
-     return;
-   }
-
-   reportWindow.document.open();
-   reportWindow.document.write(`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>U-Value Calculation Report</title><style>${css}</style></head><body><div class="report-toolbar"><div><strong>U-Value Calculation Report</strong><span>Preview ready — print or save as PDF</span></div><button id="printReportNow" type="button">Print / Save PDF</button></div><section class="u-print-sheet">${reportMarkup}</section></body></html>`);
-   reportWindow.document.close();
-
-   const trigger=()=>{
-     try{
-       reportWindow.document.getElementById('printReportNow')?.addEventListener('click',()=>reportWindow.print());
-       reportWindow.focus();
-       setTimeout(()=>reportWindow.print(),350);
-     }catch(e){}
-   };
-   if(reportWindow.document.readyState==='complete')trigger();
-   else reportWindow.addEventListener('load',trigger,{once:true});
- }
-
- btn.addEventListener('click',()=>{
-   if(uValue.textContent==='—')return;
-   openReportDocument();
- });
-})();
+function saturationPressure(t){return 610.5*Math.exp((17.2694*t)/(237.29+t));}
+function calculateCondensation(){const ti=+document.getElementById("ti").value,te=+document.getElementById("te").value,rhi=+document.getElementById("rhi").value,rhe=+document.getElementById("rhe").value,status=document.getElementById("condStatus"),summary=document.getElementById("condSummary"),tbody=document.getElementById("condRows");const ls=[];document.querySelectorAll(".layer-row").forEach((row,i)=>{const t=+row.querySelector(".thickness").value,l=+row.querySelector(".lambda").value,sd=+row.querySelector(".sd").value,name=row.querySelector(".material").selectedOptions[0]?.textContent?.split(" — ")[0]||`Layer ${i+1}`;if(t>0&&l>0)ls.push({name,r:t/1000/l,sd});});if(!ls.length||ls.some(x=>x.sd<0)||![ti,te,rhi,rhe].every(Number.isFinite)||rhi<=0||rhi>100||rhe<=0||rhe>100){status.className="cond-status";status.textContent="Complete the climate and sᵈ inputs";tbody.innerHTML="";return;}const R=+rsi.value+ +rse.value+ls.reduce((a,x)=>a+x.r,0),SD=ls.reduce((a,x)=>a+x.sd,0);if(!(SD>0)){status.textContent="Add vapour resistance data";tbody.innerHTML="";return;}const pi=saturationPressure(ti)*rhi/100,pe=saturationPressure(te)*rhe/100;let cr=+rsi.value,cs=0,risks=[],rows=[];ls.forEach(x=>{cr+=x.r;cs+=x.sd;const T=ti-(ti-te)*cr/R,pv=pi-(pi-pe)*cs/SD,ps=saturationPressure(T),m=ps-pv,risk=m<=0;if(risk)risks.push(x.name);rows.push(`<tr><td>After ${x.name}</td><td>${T.toFixed(1)} °C</td><td>${Math.round(pv)} Pa</td><td>${Math.round(ps)} Pa</td><td class="${risk?'cond-risk':''}">${Math.round(m)} Pa</td><td class="${risk?'cond-risk':''}">${risk?'Potential condensation':'No condensation predicted'}</td></tr>`)});tbody.innerHTML=rows.join("");if(risks.length){status.className="cond-status risk";status.textContent="Potential interstitial condensation";summary.textContent=`The simplified profile reaches saturation at ${risks.join(", ")}. Review layer order, vapour control, insulation position and project-specific moisture conditions.`}else{status.className="cond-status ok";status.textContent="No interstitial condensation predicted";summary.textContent="Under the entered steady-state conditions, vapour pressure remains below saturation pressure at the modelled interfaces. This is not a guarantee of moisture-safe performance."}}
+["ti","te","rhi","rhe"].forEach(id=>document.getElementById(id).addEventListener("input",calculateCondensation));document.getElementById("soffitPreset").addEventListener("click",()=>{layersEl.innerHTML="";addLayer("",12.5,0.25,0.10);addLayer("",100,0.037,0.10);addLayer("",200,1.75,20);calculate()});
+document.getElementById("addLayer").addEventListener("click",()=>addLayer());
+document.getElementById("clearLayers").addEventListener("click",()=>{
+  layersEl.innerHTML="";
+  addLayer("",12.5,0.25,0.10);
+  addLayer("",100,0.037,0.10);
+  addLayer("",100,0.77,1.00);
+});
+rsi.addEventListener("change",calculate); rse.addEventListener("change",calculate);
+addLayer("",12.5,0.25,0.10);
+addLayer("",100,0.037,0.10);
+addLayer("",100,0.77,1.00);
 </script>
 </body>
 </html>
