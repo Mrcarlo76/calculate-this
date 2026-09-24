@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="en">
-<head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4E4XM1SNS"></script><script>gtag('js',new Date());gtag('config','G-Z4E4XM1SNS');</script><script defer src="js/consent.js?v=2.10.0"></script>
+<head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4E4XM1SNS"></script><script>gtag('js',new Date());gtag('config','G-Z4E4XM1SNS');</script><script defer src="js/consent.js?v=2.9.9"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>U-Value & Condensation Risk Calculator | Calculate This</title>
+<title>U-Value Calculator | Calculate This</title>
 <meta name="description" content="Calculate the U-value of a wall, roof or floor from material layers, thicknesses and thermal conductivity values.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=2.10.0">
+<link rel="stylesheet" href="css/style.css?v=2.10.1">
 <link rel="canonical" href="https://calculatethis.uk/u-value.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:site_name" content="Calculate This">
@@ -28,7 +28,7 @@
 .u-controls{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:22px}
 .u-field label{display:block;font-size:13px;color:#9ca8ad;margin-bottom:8px}
 .u-field select,.u-field input{width:100%;padding:14px 15px;border-radius:12px;border:1px solid #334044;background:#080d0f;color:white;font:inherit}
-.layers-head,.layer-row{display:grid;grid-template-columns:1.25fr .72fr .72fr .65fr .72fr auto;gap:10px;align-items:center}
+.layers-head,.layer-row{display:grid;grid-template-columns:1.25fr .8fr .8fr .7fr auto;gap:10px;align-items:center}
 .layers-head{font-size:12px;color:#8f9b9f;text-transform:uppercase;letter-spacing:.1em;padding:0 2px 9px}
 .layer-row{margin-bottom:10px}
 .layer-row select,.layer-row input{width:100%;padding:13px;border-radius:11px;border:1px solid #334044;background:#080d0f;color:white;font:inherit}
@@ -45,15 +45,15 @@
 .breakdown-row{display:flex;justify-content:space-between;gap:16px;padding:7px 0;color:rgba(255,255,255,.6);font-size:14px}
 .breakdown-row strong{color:rgba(255,255,255,.82)}
 .estimate-note{margin-top:18px;padding:14px 16px;border-radius:13px;border:1px solid rgba(241,169,120,.18);background:rgba(241,169,120,.04);color:rgba(255,255,255,.58);line-height:1.6;font-size:13px}
-.cond-panel{margin-top:26px;border:1px solid rgba(255,255,255,.12);border-radius:26px;background:linear-gradient(145deg,#10181b,#090e10);padding:clamp(22px,4vw,40px)}.cond-panel h2{font-family:"Playfair Display",serif;font-size:clamp(30px,4vw,44px);margin:0 0 8px}.cond-intro{color:#9ca8ad;line-height:1.65}.cond-controls{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}.cond-field label{display:block;font-size:12px;color:#9ca8ad;margin-bottom:7px}.cond-field input{width:100%;box-sizing:border-box;padding:13px;border-radius:11px;border:1px solid #334044;background:#080d0f;color:#fff;font:inherit}.cond-result{margin-top:20px;padding:20px;border-radius:16px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.035)}.cond-status{font-family:"Playfair Display",serif;font-size:30px;color:#f1a978;margin:4px 0 8px}.cond-status.ok{color:#83d4ae}.cond-status.risk{color:#ff8f82}.cond-summary{color:#b0b9bc;line-height:1.6}.cond-table-wrap{overflow-x:auto;margin-top:18px}.cond-table{width:100%;border-collapse:collapse;min-width:720px;font-size:13px}.cond-table th,.cond-table td{text-align:left;padding:10px 9px;border-bottom:1px solid rgba(255,255,255,.08)}.cond-table th{color:#8f9b9f}.cond-table td{color:#d7dddf}.cond-risk{color:#ff9b8e!important;font-weight:600}.cond-note{margin-top:16px;color:#8f9b9f;font-size:12px;line-height:1.6}.sd-input{width:90px!important}.preset-row{margin-top:14px}.preset-row button{border:1px solid rgba(241,169,120,.25);background:rgba(241,169,120,.04);color:#f1a978;border-radius:10px;padding:9px 12px;cursor:pointer}
 @media(max-width:760px){
- .cond-controls{grid-template-columns:1fr 1fr}
  .u-controls{grid-template-columns:1fr}
  .layers-head{display:none}
  .layer-row{grid-template-columns:1fr 1fr}
  .layer-row select{grid-column:1/-1}
  .layer-r{padding:0 3px}.remove-layer{justify-self:start}
 }
+
+.build-choice{margin:0 0 22px;padding:18px;border:1px solid rgba(255,255,255,.08);border-radius:15px;background:rgba(255,255,255,.025)}.build-choice label,.mf-extra label,.cond-grid label{display:block;font-size:13px;color:#aab4b8;margin-bottom:7px}.build-choice select,.mf-extra select,.mf-extra input,.cond-grid input{width:100%;box-sizing:border-box;background:#0b1114;border:1px solid #334044;border-radius:11px;color:#fff;padding:12px 13px;font:inherit}.mf-extra{display:none;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}.mf-extra.show{display:grid}.cond-toggle{margin-top:18px;border:1px solid rgba(244,177,131,.35);background:rgba(244,177,131,.08);color:#f4b183;border-radius:12px;padding:12px 16px;font-weight:600;cursor:pointer}.cond-panel{display:none;margin-top:16px;padding:20px;border:1px solid rgba(255,255,255,.09);border-radius:15px;background:rgba(255,255,255,.025)}.cond-panel.open{display:block}.cond-panel h3{font-family:"Playfair Display",serif;font-size:24px;margin:0 0 8px}.cond-panel>p{color:#9eaaae}.cond-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:16px 0}.cond-result{display:none;margin-top:16px;padding:17px;border-radius:13px;background:#091013;border:1px solid rgba(255,255,255,.08)}.cond-result.show{display:block}.cond-status{font-size:20px;font-weight:700}.cond-status.ok{color:#7ecf88}.cond-status.warn{color:#f4b183}.cond-table{overflow-x:auto;margin-top:14px}.cond-table table{width:100%;min-width:620px;border-collapse:collapse}.cond-table th,.cond-table td{padding:9px;border-bottom:1px solid rgba(255,255,255,.07);font-size:12px;text-align:left}.cond-note{font-size:12px;color:#8f9b9f;line-height:1.5;margin-top:13px}@media(max-width:760px){.mf-extra,.cond-grid{grid-template-columns:1fr}}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"></head>
 <body>
@@ -61,10 +61,11 @@
 <main class="u-shell">
 <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="construction.html">Construction</a><span class="sep">/</span><span aria-current="page">U-Value Calculator</span></nav>
 <p class="eyebrow">HOME · BUILDING PERFORMANCE</p>
-<h1>U-Value &amp; Condensation Risk Calculator</h1>
-<p class="u-lead">Build up a wall, roof, soffit or ceiling layer by layer. Estimate U-value, then optionally run a simplified vapour-diffusion condensation risk check through the same construction.</p>
+<h1>U-Value Calculator</h1>
+<p class="u-lead">Build up a simple wall, roof or floor layer by layer. Enter each material’s thickness and thermal conductivity (λ) to estimate total thermal resistance and U-value.</p>
 
 <section class="u-panel">
+<div class="build-choice"><label for="buildType">Build-up type</label><select id="buildType"><option value="custom">Custom layer build-up</option><option value="soffit">Concrete soffit + insulation</option><option value="mf">Concrete soffit + insulated MF ceiling</option></select><div class="mf-extra" id="mfExtra"><div><label for="voidDepth">MF ceiling void depth (mm)</label><input id="voidDepth" type="number" min="25" step="5" value="300"></div><div><label for="insPos">Insulation position</label><select id="insPos"><option value="soffit">Tight to soffit</option><option value="ceiling">At ceiling level</option><option value="fill">Fill void</option></select></div><div><label for="boardLayers">Plasterboard layers</label><select id="boardLayers"><option value="1">1 layer</option><option value="2">2 layers</option></select></div></div></div>
 <div class="u-controls">
   <div class="u-field">
     <label for="rsi">Internal surface resistance (m²K/W)</label>
@@ -85,7 +86,7 @@
 </div>
 
 <div class="layers-head">
-  <span>Material</span><span>Thickness (mm)</span><span>λ (W/mK)</span><span>R (m²K/W)</span><span>s<sub>d</sub> (m)</span><span></span>
+  <span>Material</span><span>Thickness (mm)</span><span>λ (W/mK)</span><span>R (m²K/W)</span><span></span>
 </div>
 <div id="layers"></div>
 
@@ -99,9 +100,12 @@
   <strong class="u-number" id="uValue">—</strong>
   <div class="u-working" id="working">Add one or more material layers to calculate.</div>
   <div class="breakdown" id="breakdown"></div>
-  <div class="estimate-note">Planning estimate only. Simple 1D layer calculations do not model repeating thermal bridges, fixings, non-uniform cavities or every requirement of a formal compliance calculation.</div>
+  <div class="estimate-note">Planning estimate only. Simple 1D layer calculations do not model repeating thermal bridges, fixings, non-uniform cavities or every requirement of a formal compliance calculation.</div><button type="button" class="cond-toggle" id="condToggle">+ Add condensation risk analysis</button><div class="cond-panel" id="condPanel"><h3>Optional condensation risk analysis</h3><p>The normal U-value calculator above is unchanged. Open this only when a moisture-risk screening check is required.</p><div class="cond-grid"><div><label>Internal temperature (°C)</label><input id="ti" type="number" value="20" step="0.5"></div><div><label>Internal RH (%)</label><input id="rhi" type="number" value="60" min="1" max="100"></div><div><label>External temperature (°C)</label><input id="te" type="number" value="5" step="0.5"></div><div><label>External RH (%)</label><input id="rhe" type="number" value="80" min="1" max="100"></div></div><button type="button" class="primary" id="runCond">Analyse condensation risk</button><div class="cond-result" id="condResult"><div class="cond-status" id="condStatus"></div><div id="condSummary"></div><div class="cond-table" id="condTable"></div><div class="cond-note">Simplified 1D vapour-diffusion screening only. It does not model air leakage, thermal bridges, capillary moisture, construction moisture or transient hygrothermal behaviour. Use a formal BS EN ISO 13788 / BS 5250 assessment where project-specific compliance or design verification is required.</div></div></div>
 </div>
-</section><section class="cond-panel" id="condensation"><h2>Condensation Risk Analysis</h2><p class="cond-intro">Optional simplified interstitial condensation check. Layer order is assumed to run <strong>inside → outside / soffit</strong>. Enter each layer’s equivalent air layer thickness (s<sub>d</sub>) or use the preset estimates.</p><div class="cond-controls"><div class="cond-field"><label>Internal temperature (°C)</label><input id="ti" type="number" value="20"></div><div class="cond-field"><label>Internal RH (%)</label><input id="rhi" type="number" value="60"></div><div class="cond-field"><label>External / soffit temperature (°C)</label><input id="te" type="number" value="5"></div><div class="cond-field"><label>External / soffit RH (%)</label><input id="rhe" type="number" value="80"></div></div><div class="preset-row"><button type="button" id="soffitPreset">Load MF ceiling + insulated concrete soffit example</button></div><div class="cond-result"><div class="label">Simplified assessment</div><div class="cond-status" id="condStatus">Add layers to analyse</div><div class="cond-summary" id="condSummary">Calculated vapour pressure is compared with saturation vapour pressure at each interface.</div><div class="cond-table-wrap"><table class="cond-table"><thead><tr><th>Interface</th><th>Temp.</th><th>Vapour pressure</th><th>Saturation</th><th>Margin</th><th>Assessment</th></tr></thead><tbody id="condRows"></tbody></table></div><div class="cond-note">Screening calculation only. It does not model air leakage, liquid/capillary moisture, hygroscopic storage, thermal bridges or transient drying. A professional BS 5250 moisture-risk assessment may require more detailed modelling.</div></div></section><section class="tool-content"><h2>How the U-value &amp; condensation calculation works</h2>
+</section>
+
+<section class="tool-content">
+<h2>How the U-value calculation works</h2>
 <div class="formula-grid">
   <article><h3>Layer resistance</h3><p>For each uniform layer, thermal resistance is R = thickness in metres ÷ thermal conductivity λ.</p></article>
   <article><h3>Total resistance</h3><p>Add the resistance of every layer, plus the selected internal and external surface resistances.</p></article>
@@ -125,7 +129,25 @@
 </main>
 
 <script>
-const presets=[["Custom material","",""],["Plasterboard",0.25,0.10],["Gypsum plaster",0.57,0.10],["Brickwork",0.77,1.00],["Dense concrete block",1.13,2.00],["Lightweight block",0.19,0.50],["Concrete",1.75,20.00],["Timber",0.13,2.50],["Plywood",0.13,5.00],["OSB",0.13,2.00],["Mineral wool insulation",0.037,0.10],["Glass wool insulation",0.040,0.10],["PIR insulation",0.022,5.00],["Phenolic insulation",0.020,3.00],["EPS insulation",0.036,3.00],["XPS insulation",0.033,10.00],["Aerated concrete",0.16,0.50]];
+const presets=[
+  ["Custom material",""],
+  ["Plasterboard",0.25],
+  ["Gypsum plaster",0.57],
+  ["Brickwork",0.77],
+  ["Dense concrete block",1.13],
+  ["Lightweight block",0.19],
+  ["Concrete",1.75],
+  ["Timber",0.13],
+  ["Plywood",0.13],
+  ["OSB",0.13],
+  ["Mineral wool insulation",0.037],
+  ["Glass wool insulation",0.040],
+  ["PIR insulation",0.022],
+  ["Phenolic insulation",0.020],
+  ["EPS insulation",0.036],
+  ["XPS insulation",0.033],
+  ["Aerated concrete",0.16]
+];
 
 const layersEl=document.getElementById("layers");
 const uValue=document.getElementById("uValue");
@@ -133,19 +155,18 @@ const working=document.getElementById("working");
 const breakdown=document.getElementById("breakdown");
 
 function materialOptions(selected=""){
-  return presets.map(([name,lambda,sd])=>`<option value="${lambda}" data-sd="${sd}" ${String(lambda)===String(selected)?"selected":""}>${name}${lambda!==""?` — λ ${lambda}`:""}</option>`).join("");
+  return presets.map(([name,lambda])=>`<option value="${lambda}" ${String(lambda)===String(selected)?"selected":""}>${name}${lambda!==""?` — λ ${lambda}`:""}</option>`).join("");
 }
-function addLayer(name="",thickness="",lambda="",sd=""){
+function addLayer(name="",thickness="",lambda=""){
   const row=document.createElement("div");
   row.className="layer-row";
   row.innerHTML=`<select class="material">${materialOptions(lambda)}</select>
   <input class="thickness" type="number" min="0" step="any" placeholder="100" value="${thickness}">
   <input class="lambda" type="number" min="0" step="any" placeholder="0.022" value="${lambda}">
   <span class="layer-r">—</span>
-  <input class="sd sd-input" type="number" min="0" step="any" placeholder="0.10" value="${sd}">
   <button class="remove-layer" type="button">Remove</button>`;
   const mat=row.querySelector(".material"), lam=row.querySelector(".lambda");
-  mat.addEventListener("change",()=>{if(mat.value!==""){lam.value=mat.value;const ps=mat.selectedOptions[0]?.dataset?.sd;if(ps!==undefined&&ps!=="")row.querySelector(".sd").value=ps;}calculate();});
+  mat.addEventListener("change",()=>{ if(mat.value!=="") lam.value=mat.value; calculate(); });
   row.querySelectorAll("input").forEach(x=>x.addEventListener("input",calculate));
   row.querySelector(".remove-layer").addEventListener("click",()=>{row.remove();calculate();});
   layersEl.appendChild(row);
@@ -162,7 +183,7 @@ function calculate(){
     const label=row.querySelector(".material").selectedOptions[0]?.textContent?.split(" — ")[0]||`Layer ${i+1}`;
     if(r>0) rows.push([label,r]);
   });
-  if(!valid||!(total>0)){uValue.textContent="—";working.textContent="Add one or more valid material layers.";breakdown.innerHTML="";calculateCondensation();return;}
+  if(!valid||!(total>0)){uValue.textContent="—";working.textContent="Add one or more valid material layers.";breakdown.innerHTML="";return;}
   const u=1/total;
   uValue.textContent=u.toFixed(3)+" W/m²K";
   working.textContent=`Total thermal resistance ${total.toFixed(3)} m²K/W across ${valid} layer${valid===1?"":"s"} plus selected surface resistances.`;
@@ -170,22 +191,20 @@ function calculate(){
     rows.map(([n,r])=>`<div class="breakdown-row"><span>${n}</span><strong>${r.toFixed(3)} m²K/W</strong></div>`).join("")+
     `<div class="breakdown-row"><span>Internal surface</span><strong>${Number(rsi.value).toFixed(3)} m²K/W</strong></div>
      <div class="breakdown-row"><span>External surface</span><strong>${Number(rse.value).toFixed(3)} m²K/W</strong></div>
-     <div class="breakdown-row"><span>Total R</span><strong>${total.toFixed(3)} m²K/W</strong></div>`;calculateCondensation();
+     <div class="breakdown-row"><span>Total R</span><strong>${total.toFixed(3)} m²K/W</strong></div>`;
 }
-function saturationPressure(t){return 610.5*Math.exp((17.2694*t)/(237.29+t));}
-function calculateCondensation(){const ti=+document.getElementById("ti").value,te=+document.getElementById("te").value,rhi=+document.getElementById("rhi").value,rhe=+document.getElementById("rhe").value,status=document.getElementById("condStatus"),summary=document.getElementById("condSummary"),tbody=document.getElementById("condRows");const ls=[];document.querySelectorAll(".layer-row").forEach((row,i)=>{const t=+row.querySelector(".thickness").value,l=+row.querySelector(".lambda").value,sd=+row.querySelector(".sd").value,name=row.querySelector(".material").selectedOptions[0]?.textContent?.split(" — ")[0]||`Layer ${i+1}`;if(t>0&&l>0)ls.push({name,r:t/1000/l,sd});});if(!ls.length||ls.some(x=>x.sd<0)||![ti,te,rhi,rhe].every(Number.isFinite)||rhi<=0||rhi>100||rhe<=0||rhe>100){status.className="cond-status";status.textContent="Complete the climate and sᵈ inputs";tbody.innerHTML="";return;}const R=+rsi.value+ +rse.value+ls.reduce((a,x)=>a+x.r,0),SD=ls.reduce((a,x)=>a+x.sd,0);if(!(SD>0)){status.textContent="Add vapour resistance data";tbody.innerHTML="";return;}const pi=saturationPressure(ti)*rhi/100,pe=saturationPressure(te)*rhe/100;let cr=+rsi.value,cs=0,risks=[],rows=[];ls.forEach(x=>{cr+=x.r;cs+=x.sd;const T=ti-(ti-te)*cr/R,pv=pi-(pi-pe)*cs/SD,ps=saturationPressure(T),m=ps-pv,risk=m<=0;if(risk)risks.push(x.name);rows.push(`<tr><td>After ${x.name}</td><td>${T.toFixed(1)} °C</td><td>${Math.round(pv)} Pa</td><td>${Math.round(ps)} Pa</td><td class="${risk?'cond-risk':''}">${Math.round(m)} Pa</td><td class="${risk?'cond-risk':''}">${risk?'Potential condensation':'No condensation predicted'}</td></tr>`)});tbody.innerHTML=rows.join("");if(risks.length){status.className="cond-status risk";status.textContent="Potential interstitial condensation";summary.textContent=`The simplified profile reaches saturation at ${risks.join(", ")}. Review layer order, vapour control, insulation position and project-specific moisture conditions.`}else{status.className="cond-status ok";status.textContent="No interstitial condensation predicted";summary.textContent="Under the entered steady-state conditions, vapour pressure remains below saturation pressure at the modelled interfaces. This is not a guarantee of moisture-safe performance."}}
-["ti","te","rhi","rhe"].forEach(id=>document.getElementById(id).addEventListener("input",calculateCondensation));document.getElementById("soffitPreset").addEventListener("click",()=>{layersEl.innerHTML="";addLayer("",12.5,0.25,0.10);addLayer("",100,0.037,0.10);addLayer("",200,1.75,20);calculate()});
 document.getElementById("addLayer").addEventListener("click",()=>addLayer());
 document.getElementById("clearLayers").addEventListener("click",()=>{
   layersEl.innerHTML="";
-  addLayer("",12.5,0.25,0.10);
-  addLayer("",100,0.037,0.10);
-  addLayer("",100,0.77,1.00);
+  addLayer("",12.5,0.25);
+  addLayer("",100,0.037);
+  addLayer("",100,0.77);
 });
 rsi.addEventListener("change",calculate); rse.addEventListener("change",calculate);
-addLayer("",12.5,0.25,0.10);
-addLayer("",100,0.037,0.10);
-addLayer("",100,0.77,1.00);
+addLayer("",12.5,0.25);
+addLayer("",100,0.037);
+addLayer("",100,0.77);
 </script>
+<script defer src="js/uvalue-optional-condensation.js?v=2.10.1"></script>
 </body>
 </html>
