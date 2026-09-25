@@ -247,6 +247,15 @@
     <div class="upr-section-head"><span>04</span><h2>Material sources</h2><small>Named products used in this calculation</small></div>
     <div class="upr-sources" id="uprSources"></div>
   </section>
+  <section class="upr-section upr-cond-section" id="uprCondSection" style="display:none">
+    <div class="upr-section-head"><span>05</span><h2>Condensation risk analysis</h2><small>Included when the optional moisture check is used</small></div>
+    <div class="upr-cond-status" id="uprCondStatus"></div>
+    <div class="upr-cond-grid" id="uprCondConditions"></div>
+    <div class="upr-cond-summary" id="uprCondSummary"></div>
+    <div class="upr-cond-table" id="uprCondTable"></div>
+    <div class="upr-cond-vapour" id="uprCondVapour"></div>
+    <p class="upr-cond-note" id="uprCondNote"></p>
+  </section>
   <section class="upr-assumptions">
     <strong>Calculation basis &amp; assumptions</strong>
     <p id="uprAssumptions"></p>
@@ -523,7 +532,33 @@ setTimeout(syncMFUI,0);
    const unique=[...new Map(m.d.rows.map(x=>getMat(x.n)).filter(x=>x.url).map(x=>[x.n,x])).values()];
    uprSourcesSection.style.display=unique.length?'block':'none';
    uprSources.innerHTML=unique.map(x=>`<div class="upr-source"><strong>${esc(x.n)}</strong><span>${esc(x.src||'Manufacturer product data')}</span><code>${esc(x.url)}</code></div>`).join('');
-   uprAssumptions.textContent=assumptions(m);
+
+   // If the optional condensation check has been used, include its current result in the professional report.
+   const condSection=document.getElementById('uprCondSection'),condResult=document.getElementById('condResult');
+   const includeCond=!!condResult?.classList.contains('show');
+   if(condSection){
+     condSection.style.display=includeCond?'block':'none';
+     if(includeCond){
+       const cStatus=document.getElementById('condStatus'),cSummary=document.getElementById('condSummary'),cTable=document.getElementById('condTableWrap');
+       const statusText=cStatus?.textContent?.trim()||'Condensation analysis result';
+       uprCondStatus.className='upr-cond-status'+(cStatus?.classList.contains('warn')?' warn':'');
+       uprCondStatus.textContent=statusText;
+       const orderEl=document.getElementById('condOrder'),vclChecked=!!document.getElementById('condVclOn')?.checked,vclValue=(+document.getElementById('condVclSd')?.value||0);
+       const condMeta=[
+         ['Internal conditions',`${document.getElementById('condTi')?.value||'—'} °C · ${document.getElementById('condRHi')?.value||'—'}% RH`],
+         ['External conditions',`${document.getElementById('condTe')?.value||'—'} °C · ${document.getElementById('condRHe')?.value||'—'}% RH`],
+         ['Layer order',selectedText(orderEl)||'—'],
+         ['Separate VCL',vclChecked?(vclValue>0?`Yes · Sd ${vclValue.toFixed(2)} m`:'Yes · Sd not entered'):'No']
+       ];
+       uprCondConditions.innerHTML=condMeta.map(([a,b])=>`<div class="upr-cond-item"><small>${esc(a)}</small><strong>${esc(b)}</strong></div>`).join('');
+       uprCondSummary.innerHTML=cSummary?.innerHTML||'';
+       uprCondTable.innerHTML=cTable?.innerHTML||'<p>No interface table was produced.</p>';
+       const muRows=[...document.querySelectorAll('#condMuRows .cond-mu-row')].map(r=>{const name=r.dataset.name||'',mu=r.querySelector('.cond-mu-input')?.value||'—',sd=r.querySelector('.cond-sd')?.value||'—';return `<tr><td>${esc(name)}</td><td>${esc(mu)}</td><td>${esc(sd)}</td></tr>`}).join('');
+       uprCondVapour.innerHTML=muRows?`<h3>Vapour resistance inputs used</h3><table><thead><tr><th>Layer</th><th>μ factor</th><th>Sd (m)</th></tr></thead><tbody>${muRows}</tbody></table>`:'';
+       uprCondNote.textContent='Simplified steady-state 1D screening only. It does not model air leakage, thermal bridges, capillary transport, construction moisture or transient hygrothermal behaviour. Use verified vapour-resistance data and an appropriate project-specific BS EN ISO 13788 / BS 5250 assessment where required.';
+     }
+   }
+   uprAssumptions.textContent=assumptions(m)+(includeCond?' The optional condensation-risk screening shown in this report is a separate simplified 1D moisture check and does not replace project-specific hygrothermal assessment.':'');
  }
  function openReportDocument(){
    const reportWindow=window.open('','_blank');
@@ -550,6 +585,7 @@ body{margin:0;padding:18px;background:#e9ecee;color:#1b2225;font-family:Arial,He
 .upr-table{width:100%;border-collapse:collapse;font-size:7.5pt}.upr-table th{padding:2.4mm 2mm;text-align:left;background:#edf0f1;color:#49565a;font-size:6.5pt;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid #ccd2d4}.upr-table td{padding:2.4mm 2mm;border-bottom:1px solid #e1e5e6;vertical-align:top}.upr-table .num{text-align:right;font-variant-numeric:tabular-nums}.upr-table tfoot td{font-weight:600;background:#fafafa}.upr-source-line{display:block;font-size:6pt;color:#7a8589;margin-top:1mm}
 .upr-two-col{display:grid;grid-template-columns:1fr 1fr;gap:7mm;break-inside:avoid}.upr-summary-list{border:1px solid #dce1e2}.upr-summary-row{display:flex;justify-content:space-between;gap:4mm;padding:2.5mm 3mm;border-bottom:1px solid #e2e6e7;font-size:7.5pt}.upr-summary-row:last-child{border-bottom:0}.upr-summary-row span{color:#667276}.upr-summary-row strong{text-align:right;color:#20282b;font-weight:600}
 .upr-sources{display:grid;grid-template-columns:1fr 1fr;gap:2.5mm}.upr-source{padding:3mm;border:1px solid #dde2e3;break-inside:avoid}.upr-source strong{display:block;font-size:7.6pt}.upr-source span{display:block;color:#657176;font-size:6.4pt;line-height:1.4;margin-top:1mm}.upr-source code{display:block;color:#8a9396;font:5.6pt Arial,sans-serif;word-break:break-all;margin-top:1mm}
+.upr-cond-section{break-inside:auto}.upr-cond-status{padding:3mm 3.5mm;border-left:2.5pt solid #758477;background:#f2f6f2;font-size:9pt;font-weight:700;color:#304437;margin-bottom:3mm}.upr-cond-status.warn{border-color:#b46b3d;background:#fbf3ed;color:#7d4528}.upr-cond-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#d7dcde;border:1px solid #d7dcde;margin-bottom:3mm}.upr-cond-item{background:#fff;padding:2.5mm}.upr-cond-item small{display:block;color:#7a8589;font-size:6pt;text-transform:uppercase;letter-spacing:.06em;margin-bottom:1mm}.upr-cond-item strong{display:block;color:#20282b;font-size:7.3pt}.upr-cond-summary{padding:2.8mm 3mm;background:#fafafa;border:1px solid #e0e4e5;font-size:7.2pt;line-height:1.45;color:#4d595d;margin-bottom:3mm}.upr-cond-table{margin-bottom:3mm;overflow:visible}.upr-cond-table table,.upr-cond-vapour table{width:100%;border-collapse:collapse;font-size:6.5pt}.upr-cond-table th,.upr-cond-vapour th{background:#edf0f1;color:#49565a;text-align:left;font-size:5.8pt;text-transform:uppercase;letter-spacing:.04em;padding:2mm 1.5mm;border-bottom:1px solid #ccd2d4}.upr-cond-table td,.upr-cond-vapour td{padding:2mm 1.5mm;border-bottom:1px solid #e1e5e6;vertical-align:top}.upr-cond-table th:not(:first-child),.upr-cond-table td:not(:first-child),.upr-cond-vapour th:not(:first-child),.upr-cond-vapour td:not(:first-child){text-align:right}.upr-cond-table .cond-risk{font-weight:700;color:#944d2d}.upr-cond-vapour{margin-top:3mm}.upr-cond-vapour h3{font-size:7.5pt;margin:0 0 1.5mm;color:#3f4b4f}.upr-cond-note{margin:3mm 0 0;padding:3mm;background:#faf7f4;border:1px solid #e1d6ce;color:#626d70;font-size:6.2pt;line-height:1.45}
 .upr-assumptions{break-inside:avoid;margin-top:3mm;padding:4mm;border:1px solid #e1d6ce;background:#faf7f4}.upr-assumptions strong{display:block;color:#8f512f;font-size:8pt;margin-bottom:1.5mm}.upr-assumptions p{margin:0;color:#566267;font-size:6.7pt;line-height:1.5}
 .upr-footer{display:flex;justify-content:space-between;gap:5mm;margin-top:7mm;padding-top:3mm;border-top:1px solid #d7dcde;color:#778286;font-size:6pt}
 a{color:inherit;text-decoration:none}
@@ -565,7 +601,7 @@ a{color:inherit;text-decoration:none}
  .u-print-sheet{width:100%;min-height:0;padding:18px 14px}
  .upr-titlebar{grid-template-columns:1fr}.upr-result{margin-top:4px}
  .upr-project-grid{grid-template-columns:1fr 1fr}.upr-two-col{grid-template-columns:1fr}
- .upr-sources{grid-template-columns:1fr}
+ .upr-sources{grid-template-columns:1fr}.upr-cond-grid{grid-template-columns:1fr 1fr}
 }`;
 
    if(!reportWindow){
@@ -592,11 +628,21 @@ a{color:inherit;text-decoration:none}
 
  btn.addEventListener('click',()=>{
    if(uValue.textContent==='—')return;
+   // Re-run the optional moisture check immediately before printing so the PDF reflects the current build-up and inputs.
+   const condPanel=document.getElementById('condPanel'),condResult=document.getElementById('condResult');
+   const condRequested=!!condPanel?.classList.contains('open')||!!condResult?.classList.contains('show');
+   if(condRequested){
+     const wasOpen=!!condPanel?.classList.contains('open');
+     // If the panel was hidden after an earlier analysis, briefly reopen it so μ/Sd rows are rebuilt from the current construction before recalculating.
+     if(!wasOpen)document.getElementById('condToggle')?.click();
+     document.getElementById('condRun')?.click();
+     if(!wasOpen)document.getElementById('condToggle')?.click();
+   }
    openReportDocument();
  });
 })();
 
-/* v3.6.20 — optional condensation analysis + verified vapour-control boards/VCL; core U-value calculation above is unchanged. */
+/* v3.6.22 — optional condensation analysis + verified vapour-control boards/VCL; condensation results are included in Print / Save PDF when used. */
 (function(){
  const toggle=document.getElementById('condToggle'),panel=document.getElementById('condPanel'),muBox=document.getElementById('condMuRows');
  const vclOn=document.getElementById('condVclOn'),vclFields=document.getElementById('condVclFields'),vclSd=document.getElementById('condVclSd'),vclDetected=document.getElementById('condVclDetected');

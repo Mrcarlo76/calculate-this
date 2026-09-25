@@ -1,4 +1,4 @@
-# Calculate This v3.6.21
+# Calculate This v3.6.22
 
 Upload the contents of this folder to the root of the GitHub Pages repository.
 
