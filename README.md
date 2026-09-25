@@ -1,5 +1,5 @@
-# Calculate This v1.1
+# Calculate This v3.6.21
 
-Upload the contents of this folder to the root of your GitHub Pages repository.
+Upload the contents of this folder to the root of the GitHub Pages repository.
 
-Includes a redesigned homepage, live search suggestions, and the first working Percentage Calculator.
+This release keeps the v3.6.x calculator functionality intact and adds a search-led SEO/technical cleanup, with the Concrete Calculator as the first focused landing-page upgrade.
